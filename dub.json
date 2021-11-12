@@ -1,0 +1,67 @@
+{
+	"name": "uim-entities",
+	"authors": [ "UI Manufaktur Team" ],
+	"copyright": "Copyright © 2017-2021, UI Manufaktur UG",
+	"description": "A D library",
+	"license": "MIT",
+	"targetType": "library",
+	"configurations": [
+		{
+			"name": "offline",
+			"dependencies": {
+				"vibe-d": "==0.9.4"
+			},
+			"importPaths": [
+				"../uim-core",
+				"../uim-oop",
+				"../uim-jsonbase",
+				"../uim-entitybase",
+				"./"
+			],
+			"sourcePaths": [
+				"../uim-core",
+				"../uim-oop",
+				"../uim-jsonbase",
+				"../uim-entitybase",
+				"./"
+			]		
+		},
+		{
+			"name": "uim_entities",
+			"versions": ["uim_entities"],
+			"dependencies": {
+				"silly": "~>1.1.1",
+				"vibe-d": "==0.9.4"
+			},
+			"importPaths": [
+				"../uim-core",
+				"../uim-oop",
+				"../uim-jsonbase",
+				"../uim-entitybase",
+				"./"
+			],
+			"sourcePaths": [
+				"../uim-core",
+				"../uim-oop",
+				"../uim-jsonbase",
+				"../uim-entitybase",
+				"./"
+			]		
+		},
+		{
+		"name": "online",
+			"dependencies": {
+				"silly": "~>1.1.1",
+				"vibe-d": "==0.9.4",
+				"uim-core": {
+					"repository":"git+https://github.com/UI-Manufaktur/uim-core.git",
+					"version":"9171179266f02bafce9b9d7cba01f97354d01a59"
+				},
+				"uim-oop": {
+						"repository": "git+https://github.com/UI-Manufaktur/uim-oop.git",
+						"version": "a6fb933896b9864243e4455e61c77bc07f2b96e4"
+				}	
+			}
+		}
+	]
+}
