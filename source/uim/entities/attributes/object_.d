@@ -3,23 +3,30 @@ module uim.entities.attributes.object_;
 @safe:
 import uim.entities;
 
-class DOOPAttributeObject : DOOPAttribute {
+/* class DOOPAttributeObject : DOOPAttribute {
   this() { super(); }
+  this(DOOPAttributeObject attribute) { 
+    super(attribute);
+    this.value(attribute.value); }
   this(Json json) { this(); this.fromJson(json); }
 
-  mixin(SProperty!("Json[string]", "value"));
-  
+  mixin(SProperty!("Json", "value"));
+  unittest {
+    version(uim_entities) {
+      // TODO Add tests
+      }}
+
   override Json toJson() {
-    return Json(value);    
+    return value; }
+  unittest {
+    version(uim_entities) {
+      // TODO Add tests
+      }}
   }
-  override void fromJson(Json newValue) {
-    _value = newValue.get!(Json[string]);    
-  }
-}
 auto OOPAttributeObject() { return new DOOPAttributeObject(); }
 auto OOPAttributeObject(Json json) { return new DOOPAttributeObject(json); }
 
 unittest {
   version(uim_entities) {
   }  
-}
+} */

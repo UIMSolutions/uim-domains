@@ -9,7 +9,7 @@ module uim.entities.entity;
 @safe:
 import uim.entities;
 
-class DOOPEntity {
+class DOOPEntity : IRegistrable {
   static namespace = moduleName!DOOPEntity;
 
 // Constructors
@@ -26,7 +26,9 @@ class DOOPEntity {
     .versionOn(this.createdOn)
     .versionNumber(1L)
     .versionBy(this.createdBy)
-    .config(Json.emptyObject); }
+    .config(Json.emptyObject)
+    .registerPath(entityPath); 
+    }
 
   this(DOOPModel myModel) { 
     this();
@@ -47,6 +49,10 @@ class DOOPEntity {
   this(Json aJson) { 
     this();    
     if (aJson != Json(null)) this.fromJson(aJson); }
+
+  protected string _registerPath;
+  void registerPath(string path) { _registerPath = path; }
+  string registerPath() { return _registerPath; }
 
   string entityClass() { return "entity"; }
   string entityClasses() { return "entities"; }
@@ -332,36 +338,17 @@ class DOOPEntity {
     return results;
   }
 
-  // Read entity from HttpRequest
-  DOOPEntity fromRequest(STRINGAA reqParameters) {
-    if ("entity_id" in reqParameters) this.id(UUID(reqParameters["entity_id"]));
-    if ("entity_etag" in reqParameters) this.etag(reqParameters["entity_etag"]);
-    if ("entity_name" in reqParameters) this.name(reqParameters["entity_name"]);
-    if ("entity_display" in reqParameters) this.display(reqParameters["entity_display"]);
-    if ("entity_versionNumber" in reqParameters) this.versionNumber(reqParameters["entity_versionNumber"]);
-    if ("entity_createdOn" in reqParameters) this.createdOn(reqParameters["entity_createdOn"]);
-    if ("entity_createdBy" in reqParameters) this.createdBy(reqParameters["entity_createdBy"]);
-    if ("entity_modifiedOn" in reqParameters) this.modifiedOn(reqParameters["entity_modifiedOn"]);
-    if ("entity_modifiedBy" in reqParameters) this.modifiedBy(reqParameters["entity_modifiedBy"]);
-    if ("entity_lastAccessedOn" in reqParameters) this.lastAccessedOn(reqParameters["entity_lastAccessedOn"]);
-    if ("entity_lastAccessBy" in reqParameters) this.lastAccessBy(reqParameters["entity_lastAccessBy"]);
-    if ("entity_isLocked" in reqParameters) this.isLocked(reqParameters["entity_isLocked"]);
-    if ("entity_lockedOn" in reqParameters) this.lockedOn(reqParameters["entity_lockedOn"]);
-    if ("entity_lockedBy" in reqParameters) this.lockedBy(reqParameters["entity_lockedBy"]);
-    if ("entity_isDeleted" in reqParameters) this.isDeleted(reqParameters["entity_isDeleted"]);
-    if ("entity_deletedOn" in reqParameters) this.deletedOn(reqParameters["entity_deletedOn"]);
-    if ("entity_deletedBy" in reqParameters) this.deletedBy(reqParameters["entity_deletedBy"]);
-    if ("entity_description" in reqParameters) this.description(reqParameters["entity_description"]);
-    if ("entity_versionNumber" in reqParameters) this.versionNumber(reqParameters["entity_versionNumber"]);
-    if ("entity_versionDisplay" in reqParameters) this.versionDisplay(reqParameters["entity_versionDisplay"]);
-    if ("entity_versionMode" in reqParameters) this.versionMode(reqParameters["entity_versionMode"]);
-    if ("entity_versionOn" in reqParameters) this.versionOn(reqParameters["entity_versionOn"]);
-    if ("entity_versionBy" in reqParameters) this.versionBy(reqParameters["entity_versionBy"]);
-    if ("entity_versionDescription" in reqParameters) this.versionDescription(reqParameters["entity_versionDescription"]);
-    foreach (name, attribute; _attributes) {
-      if ("entity_"~name in reqParameters) attribute.fromString(reqParameters["entity_"~name]);    
-    }
+  // Read entity from STRINGAA
+  DOOPEntity fromStringAA(STRINGAA reqParameters) {
+    foreach(k, v; reqParameters) this[k] = v; 
+    return this;
+  }
 
+  DOOPEntity fromRequest(STRINGAA reqParameters) {
+    foreach(k, v; reqParameters) {
+      if (k.indexOf("entity_") >= 0) {
+        auto key = k.replace("entity_", "");
+        this[key] = v; }}
     return this;
   }
 
@@ -461,7 +448,7 @@ class DOOPEntity {
       case "versionOn": this.versionOn(value); break;
       default:
         if (key in attributes) {
-          if (auto att = cast(DOOPAttributeLong)attributes[key]) att.value(value); 
+          if (auto att = cast(DOOPAttributeInteger)attributes[key]) att.value(value); 
         } 
         break;
     }      
@@ -479,6 +466,29 @@ class DOOPEntity {
         break;
     }      
   }
+
+  void opIndexAssign(DOOPEntity value, string key) {
+    switch(key) {
+      default:
+        if (key in attributes) {
+          if (auto att = cast(DOOPAttributeEntity)attributes[key]) att.value(value); 
+        } 
+        break;
+    }      
+  }
+
+  /*
+  override DOOPEntity copy() { return new T(toJson); } 
+  override DOOPEntity copy(Json data) { 
+    return data == Json(null) ? new T : new T(data); } */
+
+  DOOPEntity newEntity() { return new DOOPEntity; }  
+  DOOPEntity clone() { return newEntity.fromJson(this.toJson); }
+
+  DOOPEntity copy() { return newEntity.fromJson(toJson(null, [
+    "id", "name", "createdOn", "createdBy", "modifiedOn", "modifiedBy", 
+    "versionNumber", "versionOn", "versionBy"])); }
+  DOOPEntity copy(Json data) { return copy.fromJson(data); }
 
   Bson toBson() { return Bson(toJson); }
 

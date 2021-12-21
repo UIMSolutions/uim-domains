@@ -1,40 +1,48 @@
-module uim.entities.attributes.string_;
+module uim.entities.attributes.strings.string_;
 
 @safe:
 import uim.entities;
 
 class DOOPAttributeString : DOOPAttribute {
   this() { super(); }
-  this(Json aValue) { this(); this.fromJson(aValue); }
-  this(string aValue) { this(); this.fromString(aValue); }
+  this(DOOPAttributeString attribute) { 
+    super(attribute); this.value(attribute.value); }
+  this(Json aValue) { this(); this.value(aValue); }
+  this(string aValue) { this(); this.value(aValue); }
 
-  mixin(SProperty!("string", "value"));
-  
+  protected string _value;
+  string value() { return _value; }
+
+  override void value(Json newValue) {
+    this.value(newValue.get!string); } 
+
+  override void value(string newValue) {
+    _value = newValue; } 
+  unittest {
+    version(uim_entities) {
+      auto attribute = OOPAttributeUrl;
+      attribute.fromJson(Json("Hello"));
+      assert(attribute.value == "Hello");
+      attribute.fromJson(Json("Goodbye"));
+      assert(attribute.value == "Goodbye");
+      // Init value
+      attribute = OOPAttributeUrl("Hi");
+      assert(attribute.value == "Hi");
+      attribute.fromJson(Json("Hello"));
+      assert(attribute.value == "Hello");
+      attribute.fromJson(Json("Goodbye"));
+      assert(attribute.value == "Goodbye");
+      }}
+
   override Json toJson() {
-    return Json(value); }
+    return Json(this.value); }
   unittest {
     version(uim_entities) {
       assert(OOPAttributeString("Hello").toJson == Json("Hello"));
-      assert(OOPAttributeString.value("Hello").toJson == Json("Hello"));
+//      assert(OOPAttributeString.value("Hello").toJson == Json("Hello"));
       }}
 
-  override void fromJson(Json newValue) {
-    _value = newValue.get!string; }
-  unittest {
-    version(uim_entities) {
-      auto attribute = OOPAttributeString;
-      attribute.fromJson(Json("Hello"));
-      assert(attribute.value == "Hello");
-      assert(attribute.value("Goodbye").value == "Goodbye");
-      }}
-
-  override string toString() { return value; }
-  unittest {
-    version(uim_entities) {
-      // TODO Add tests
-      }}
-
-  override void fromString(string newValue) { _value = newValue; }
+  override string toString() { return this.value; }
   unittest {
     version(uim_entities) {
       // TODO Add tests

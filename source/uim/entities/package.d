@@ -3,6 +3,7 @@ module uim.entities;
 @safe:
 // Phobos
 public import std.algorithm; 
+public import std.conv; 
 public import std.range; 
 public import std.range.primitives; 
 public import std.range.interfaces; 
@@ -40,6 +41,7 @@ public import std.random; // Pseudo-random number generators.
 // String manipulation
 public import std.string; // Algorithms that work specifically with strings.
 public import std.array; // Manipulate builtin arrays.
+public import std.datetime; // Manipulate builtin arrays.
 public import std.algorithm; // Generic algorithms for processing sequences.
 public import std.uni; // Fundamental Unicode algorithms and data structures.
 public import std.utf; // Encode and decode UTF-8, UTF-16 and UTF-32 strings.
@@ -57,7 +59,6 @@ public import vibe.d;
 // UIM
 public import uim.core;
 public import uim.oop;
-public import uim.entities;
 public import uim.jsonbase;
 public import uim.entitybase;
 // public import uim.javascript;
@@ -67,12 +68,12 @@ public import uim.entities.entity;
 public import uim.entities.entity_lang;
 public import uim.entities.attributes;
 public import uim.entities.attclasses;
+public import uim.entities.objclasses;
+public import uim.entities.registries;
 
 // local packages
 public import uim.entities.helpers;
 public import uim.entities.models;
-public import uim.entities.projects;
-public import uim.entities.uim;
 
 /* template GetEntity(string name, string nameId, string className) {
     const char[] GetEntity = `
@@ -109,3 +110,38 @@ Json toJson(DOOPEntity[] entities) {
 
 DOOPAttclass[string] attclassRegistry;
 DOOPObjclass[string] objclassRegistry;
+
+
+
+static this() {
+  uimRegistryObjclasses = new DOOPRegistryObjclasses;
+  uimRegistryAttclasses = new DOOPRegistryAttclasses;
+  uimRegistryAttributes = new DOOPRegistryAttributes;  
+  uimRegistryEntities   = new DOOPRegistryEntities;  
+}
+
+static this() { // register attributes
+  uimRegistryAttributes
+    .register("uim/boolean", OOPAttributeBoolean)
+    .register("uim/currency", OOPAttributeCurrency);  
+}
+
+unittest {
+  version(uim_entities) {
+    auto attribute = uimRegistryAttributes["uim/boolean"].copy;
+    assert(uimRegistryAttributes["uim/boolean"].copy);
+//    assert(cast(DOOPAttributeBoolean)attribute);
+    writeln(attribute.toString);
+    attribute = uimRegistryAttributes["uim/boolean"];
+    writeln(attribute.toString);
+    //assert(attribute.toString == "false");
+//    assert(attribute.fromString("true").toString == "true"); 
+  }
+}
+
+unittest {
+  version(uim_entities) {
+    DOOPAttribute attribute = OOPAttributeBoolean;
+    writeln(attribute);
+    writeln(OOPAttributeBoolean);
+  }}

@@ -5,52 +5,36 @@ import uim.entities;
 
 class DOOPAttributeTags : DOOPAttributeStringArray {
   this() { super(); }
-  this(Json newValues) { this(); this.values(newValues); }
-  this(string newValues) { this(); this.values(newValues); }
-  this(string[] newValues) { this(); this.values(newValues); }
+  this(Json newValue) { this(); this.value(newValue); }
+  this(string newValue) { this(); this.value(newValue); }
+  this(string[] newValue) { this(); this.value(newValue); }
 
-  alias values = DOOPAttributeStringArray.values;
-  O values(this O)(string newValues) {
-    this.values(newValues
-      .split("#").map!(a => a.strip).filter!(a => a.length > 0).join(",") // Split # tags
-      .split(",").map!(a => a.strip).filter!(a => a.length > 0).array); // split , tags
-    return cast(O)this; }
-
-  O values(this O)(Json newValues) {
-      debug writeln("keywords -> ", newValues);
-      this.values(newValues.get!string[]); 
-    return cast(O)this; }
- 
-  override Json toJson() {
-    auto result = Json.emptyArray;
-    foreach(v; _values) result ~= v;
-    return result; }
+  alias value = DOOPAttributeStringArray.value;
   unittest {
     version(uim_entities) {
-      // TOD tests
-    }}
-
-  override void fromJson(Json newValues) {
-    _values = [];
-    foreach(v; newValues.get!(Json[])) 
-      _values ~= v.get!string; }
+      // TODO
+      }}
+  override void value(string[] newValue) {
+    string[] results;
+    foreach(ref v; newValue) v = v.replace("#", ",");
+    foreach(v; newValue) results ~= v.split(","); 
+    super.value(results); }
   unittest {
     version(uim_entities) {
-      // TOD tests
-    }}
+      // TODO
+      }}
 
   override string toString() {
-    return _values.join(","); }
+    if (_value.length > 0) return "#"~this.value.join(" #");
+    return null; }
   unittest {
     version(uim_entities) {
-      // TODO tests
-    }}
-
-  override void fromString(string newValue) { 
-    this.values(newValue); }
-  unittest {
-    version(uim_entities) {
-      // TODO tests
+      writeln(OOPAttributeTags(["a,b,c"]).value);
+      writeln(OOPAttributeTags(["a,b,c"]).toString);
+      assert(OOPAttributeTags(["a,b,c"]).toString == "#a #b #c");
+      assert(OOPAttributeTags(["a,b, c"]).toString == "#a #b #c");
+      assert(OOPAttributeTags(["a", "b", "c"]).toString == "#a #b #c");
+      assert(OOPAttributeTags(["a", " b", "c"]).toString == "#a #b #c");
     }}
 }
 auto OOPAttributeTags() { return new DOOPAttributeTags; }

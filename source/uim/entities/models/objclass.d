@@ -26,7 +26,8 @@ class DOOPObjclass : DOOPEntity {
     return cast(O)this; }
 
   unittest {
-    version(uim_entities) {    /// TODO
+    version(uim_entities) {    
+      /// TODO
     }
   }
 
@@ -51,7 +52,8 @@ class DOOPObjclass : DOOPEntity {
      }*/
     return result; }
   unittest {
-    version(uim_entities) {    // assert(OOPObjclass.createObj("test"));
+    version(uim_entities) {    
+      // assert(OOPObjclass.createObj("test"));
     }
   }
 
