@@ -63,9 +63,9 @@ class DOOPRepository {
 
     size_t count(string dbName, string pool, STRINGAA select) { return count(dbName~"."~pool, select); }
     size_t count(string collectionName, STRINGAA select) {
-      debug writeln("Searching ", select, " in ", collectionName);
+      // debug writeln("Searching ", select, " in ", collectionName);
       auto col = _client.getCollection(collectionName);
-      debug writeln("Looking in collection ", col.name);
+      // debug writeln("Looking in collection ", col.name);
       return col.count(select);
     }
 
@@ -192,11 +192,11 @@ class DOOPRepository {
 
     Json[] find(string dbName, string pool, STRINGAA select) { return find(dbName~"."~pool, select); }
     Json[] find(string collectionName, STRINGAA select) {
-      debug writeln("Json[] find(string pool, STRINGAA select) -> ", collectionName, "/", select);  
+      // debug writeln("Json[] find(string pool, STRINGAA select) -> ", collectionName, "/", select);  
       Json[] results;
       auto col = _client.getCollection(collectionName);
-      debug writeln("Searching ", select, " in ", collectionName);
-      debug writeln("Looking in collection ", col.name);
+      // debug writeln("Searching ", select, " in ", collectionName);
+      // debug writeln("Looking in collection ", col.name);
       foreach(bson; col.find(select)) { 
         auto json = bson.toJson; 
         json["pool"] = collectionName;
@@ -243,13 +243,13 @@ class DOOPRepository {
 
     Json findOne(string dbName, string colName, STRINGAA select) { return findOne(dbName~"."~colName, select); }
     Json findOne(string collectionName, STRINGAA select) {
-      debug writeln("Json findOne(string collectionName, STRINGAA select) -> ", collectionName, " - ", select);
+      // debug writeln("Json findOne(string collectionName, STRINGAA select) -> ", collectionName, " - ", select);
       return _client.getCollection(collectionName).findOne(select).toJson;
     }
     
     Json findOne(string dbName, string colName, Json select) { return findOne(dbName~"."~colName, select); }
     Json findOne(string collectionName, Json select) {
-      debug writeln("Json findOne(string collectionName, Json select) -> ", collectionName, " - ", select);
+      // debug writeln("Json findOne(string collectionName, Json select) -> ", collectionName, " - ", select);
       return _client.getCollection(collectionName).findOne(select).toJson;
     }
 
@@ -328,14 +328,14 @@ class DOOPRepository {
 
     O update(this O)(string dbName, string aPool, STRINGAA aSelector, Json updateData) { return cast(O)this.update(dbName~"."~aPool, aSelector, updateData); }
     O update(this O)(string collectionName, STRINGAA aSelector, Json updateData) {
-      debug writeln("O update(this O)(string collectionName, Json aSelector, Json updateData)  -> ", collectionName, " - ", aSelector, "/", updateData);
+      // debug writeln("O update(this O)(string collectionName, Json aSelector, Json updateData)  -> ", collectionName, " - ", aSelector, "/", updateData);
       this.update(collectionName, aSelector.serializeToJson, updateData);
       return cast(O)this;
     }
 
     O update(this O)(string dbName, string aPool, Json aSelector, Json updateData) { return cast(O)this.update(dbName~"."~aPool, aSelector, updateData); }
     O update(this O)(string collectionName, Json aSelector, Json updateData) {
-      debug writeln("O update(this O)(string collectionName, Json aSelector, Json updateData)  -> ", collectionName, " - ", aSelector, "/", updateData);
+      // debug writeln("O update(this O)(string collectionName, Json aSelector, Json updateData)  -> ", collectionName, " - ", aSelector, "/", updateData);
       updateData.remove("_id");
       _client.getCollection(collectionName).update(aSelector, updateData);
       return cast(O)this;
@@ -352,14 +352,14 @@ class DOOPRepository {
 
     O remove(this O)(string dbName, string aPool, STRINGAA aSelector) { return cast(O)this.remove(dbName~"."~aPool, aSelector); }
     O remove(this O)(string collectionName, STRINGAA selector) {
-      debug writeln("remove(this O)(string collectionName, STRINGAA selector) -> ", collectionName, " - ", selector);
+      // debug writeln("remove(this O)(string collectionName, STRINGAA selector) -> ", collectionName, " - ", selector);
       _client.getCollection(collectionName).remove(selector);
       return cast(O)this;
     }
 
     O remove(this O)(string dbName, string aPool, Json aSelector) { return cast(O)this.remove(dbName~"."~aPool, aSelector); }
     O remove(this O)(string collectionName, Json selector) {
-      debug writeln("remove(this O)(string collectionName, Json selector) -> ", collectionName, " - ", selector);
+      // debug writeln("remove(this O)(string collectionName, Json selector) -> ", collectionName, " - ", selector);
       _client.getCollection(collectionName).remove(selector);
       return cast(O)this;
     }

@@ -1,5 +1,5 @@
 /***********************************************************************************************
-*	Copyright: © 2017-2020 UI Manufaktur UG
+*	Copyright: © 2017-2022, UI Manufaktur UG
 *	License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
 *	Authors: UI Manufaktur Team
 *	Documentation [DE]: https://ui-manufaktur.com/docu/uim-oop/models/entities/entity_lang
@@ -12,23 +12,8 @@ import uim.entities;
 class DOOPEntity : IRegistrable {
   static namespace = moduleName!DOOPEntity;
 
-// Constructors
-  this() {
-    this
-    .id(randomUUID)
-    .etag(toTimestamp(now))
-    .name(this.id.toString) 
-    .createdOn(now)
-    .modifiedOn(createdOn)
-    .lastAccessedOn(createdOn)
-    .hasVersions(false)
-    .hasLanguages(false)
-    .versionOn(this.createdOn)
-    .versionNumber(1L)
-    .versionBy(this.createdBy)
-    .config(Json.emptyObject)
-    .registerPath(entityPath); 
-    }
+  // Constructors
+  this() { initialize; }
 
   this(DOOPModel myModel) { 
     this();
@@ -49,6 +34,23 @@ class DOOPEntity : IRegistrable {
   this(Json aJson) { 
     this();    
     if (aJson != Json(null)) this.fromJson(aJson); }
+
+  void initialize() {
+    this
+    .id(randomUUID)
+    .etag(toTimestamp(now))
+    .name(this.id.toString) 
+    .createdOn(now)
+    .modifiedOn(createdOn)
+    .lastAccessedOn(createdOn)
+    .hasVersions(false)
+    .hasLanguages(false)
+    .versionOn(this.createdOn)
+    .versionNumber(1L)
+    .versionBy(this.createdBy)
+    .config(Json.emptyObject)
+    .registerPath(entityPath);
+  }
 
   protected string _registerPath;
   void registerPath(string path) { _registerPath = path; }
@@ -477,17 +479,8 @@ class DOOPEntity : IRegistrable {
     }      
   }
 
-  /*
-  override DOOPEntity copy() { return new T(toJson); } 
-  override DOOPEntity copy(Json data) { 
-    return data == Json(null) ? new T : new T(data); } */
-
-  DOOPEntity newEntity() { return new DOOPEntity; }  
-  DOOPEntity clone() { return newEntity.fromJson(this.toJson); }
-
-  DOOPEntity copy() { return newEntity.fromJson(toJson(null, [
-    "id", "name", "createdOn", "createdBy", "modifiedOn", "modifiedBy", 
-    "versionNumber", "versionOn", "versionBy"])); }
+  DOOPEntity clone() { return new DOOPEntity; }
+  DOOPEntity copy() { return clone.fromJson(this.toJson); }
   DOOPEntity copy(Json data) { return copy.fromJson(data); }
 
   Bson toBson() { return Bson(toJson); }
@@ -538,7 +531,7 @@ class DOOPEntity : IRegistrable {
         case "versionDescription": this.versionDescription(v.get!string); break;
         default: 
           if (k in _attributes) {
-            debug writeln("Found ", k);
+            // debug writeln("Found ", k);
             _attributes[k].fromJson(v); 
           }
           break;
@@ -656,10 +649,15 @@ class DOOPEntity : IRegistrable {
       // TODO: Add Test
     }
   }
-  void save() {
+
+  DOOPEntity save() {
     if (collection) {
       if (collection.findOne(this.id)) collection.updateOne(this); 
-      else collection.insertOne(this); }}
+      else collection.insertOne(this); 
+    }
+    
+    return this;
+  }
   unittest {
     version(uim_entities) {
       // TODO: Add Test

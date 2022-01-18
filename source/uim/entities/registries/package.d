@@ -14,8 +14,7 @@ DOOPRegistryAttclasses uimRegistryAttclasses;
 class DOOPRegistryAttributes : DOOPRegistry!DOOPAttribute {}
 DOOPRegistryAttributes uimRegistryAttributes;
 
-class DOOPRegistryEntities : DOOPRegistry!DOOPEntity {
-}
+class DOOPRegistryEntities : DOOPRegistry!DOOPEntity {}
 DOOPRegistryEntities uimRegistryEntities;
 
 interface IRegistrable {

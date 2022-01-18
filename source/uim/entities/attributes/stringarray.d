@@ -14,12 +14,12 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
   string[] value() { return _value; }
 
   override void value(Json newValue) {
-    debug writeln("keywords -> ", newValue);
+    // // debug writeln("keywords -> ", newValue);
      if (newValue.type == Json.Type.string) {
-      debug writeln("Json.Type == string");
+      // debug writeln("Json.Type == string");
       this.value(newValue.get!string);  }
     else {
-      debug writeln("Json.Type == string[]");
+      // debug writeln("Json.Type == string[]");
       this.value(newValue.get!(Json[]).map!(a => a.get!string).array); }}
 
   unittest {
