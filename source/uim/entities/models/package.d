@@ -95,7 +95,7 @@ template EProperty(string className, string entityName) {
   }
 
   @property void fromString(string data) {
-    auto items = aJson["attclass"].get!string.split("/");
+    auto items = aJson["attributeClass"].get!string.split("/");
     if (items.length == 0) return;
 
     major = 0;

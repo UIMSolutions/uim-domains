@@ -9,7 +9,7 @@ class DOOPAttribute : IRegistrable {
     initialize;
     this
     .config(attribute.config)
-    .attclass(attribute.attclass)
+    .attributeClass(attribute.attributeClass)
     .descriptions(attribute.descriptions)
     .ownerId(attribute.ownerId)
     .isNullable(attribute.isNullable)
@@ -35,7 +35,7 @@ class DOOPAttribute : IRegistrable {
   mixin(SProperty!("Json", "config"));
   /// Attclass from which it inherits
 
-  mixin(SProperty!("DOOPAttclass", "attclass"));
+  mixin(SProperty!("DOOPAttributeClass", "attributeClass"));
   unittest {
     version(test_uim_entities) {
       // TODO Add tests

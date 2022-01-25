@@ -1,9 +1,9 @@
-module uim.entities.attclasses.attclass;
+module uim.entities.attributeClasses.attributeClass;
 
 @safe :
 import uim.entities;
 
-class DOOPAttclass : DOOPEntity {
+class DOOPAttributeClass : DOOPEntity {
   this() { super(); }
   this(Json newData) { this(); this.fromJson(newData); }
   this(UUID myId) { this(); this.id(myId); }
@@ -41,18 +41,18 @@ class DOOPAttclass : DOOPEntity {
   mixin(SProperty!("uint", "maxLengthString")); // Shows the maximum allowed length of the property for a string data type.")); // 
   mixin(SProperty!("string", "defaultValueOptionSet")); // Shows the default value of the property.
 
-  mixin(SProperty!("UUID", "attclass")); // Super attclass.
+  mixin(SProperty!("UUID", "attributeClass")); // Super attributeClass.
 
- /*  O attclass(this O)(UUID myId, size_t myMajor = 0, size_t myMinor = 0) { 
-    _attclass = OOPAttclass.id(myId).versionMajor(myMajor).versionMinor(myMinor);
+ /*  O attributeClass(this O)(UUID myId, size_t myMajor = 0, size_t myMinor = 0) { 
+    _attributeClass = OOPAttributeClass.id(myId).versionMajor(myMajor).versionMinor(myMinor);
     return cast(O)this; }
 
-  O attclass(this O)(string myName, size_t myMajor = 0, size_t myMinor = 0) { 
-    _attclass = OOPAttclass.name(myName).versionMajor(myMajor).versionMinor(myMinor);
+  O attributeClass(this O)(string myName, size_t myMajor = 0, size_t myMinor = 0) { 
+    _attributeClass = OOPAttributeClass.name(myName).versionMajor(myMajor).versionMinor(myMinor);
     return cast(O)this; }
 
-  O attclass(this O)(DOOPAttclass myAttclass) { 
-    _attclass = myAttclass;     
+  O attributeClass(this O)(DOOPAttributeClass myAttclass) { 
+    _attributeClass = myAttclass;     
     return cast(O)this; } */
 
   unittest {
@@ -60,11 +60,11 @@ class DOOPAttclass : DOOPEntity {
     }
   }
 
-  // Create a new attribute based on this attclass - using attclass name 
+  // Create a new attribute based on this attributeClass - using attributeClass name 
   auto createAttribute() {
     return createAttribute(_name); }
 
-  // Create a new attribute based on this attclass an a giving name 
+  // Create a new attribute based on this attributeClass an a giving name 
   auto createAttribute(string aName) {
     DOOPAttribute result;
     switch(this.valueType) {
@@ -95,7 +95,7 @@ class DOOPAttclass : DOOPEntity {
       default: break;
     }
     // result = new DOOPAttribute(aName);
-/*     result.attclass(this);
+/*     result.attributeClass(this);
     result.name(aName); */
     return result;
   }
@@ -112,7 +112,7 @@ class DOOPAttclass : DOOPEntity {
       auto k = keyvalue.key;
       auto v = keyvalue.value;
       switch(k) {
-        case "attclass": this.attclass(UUID(v.get!string)); break;
+        case "attributeClass": this.attributeClass(UUID(v.get!string)); break;
         case "isNullable": this.isNullable(v.get!bool); break;
         case "valueType": this.valueType(v.get!string); break;
         case "keyType": this.keyType(v.get!string); break;
@@ -181,7 +181,7 @@ class DOOPAttclass : DOOPEntity {
     result["maxLengthString"] = this.maxLengthString;
     result["defaultValueOptionSet"] = this.defaultValueOptionSet;
 
-    result["attclass"] = this.attclass.toString;
+    result["attributeClass"] = this.attributeClass.toString;
 
     return result;
   }
@@ -190,9 +190,9 @@ class DOOPAttclass : DOOPEntity {
     }
   }
 }
-@safe auto OOPAttclass() { return new DOOPAttclass; }
-@safe auto OOPAttclass(UUID id) { return new DOOPAttclass(id); }
-@safe auto OOPAttclass(string name) { return new DOOPAttclass(name); }
-@safe auto OOPAttclass(UUID id, string name) { return new DOOPAttclass(id, name); }
-@safe auto OOPAttclass(Json json) { return new DOOPAttclass(json); }
-@safe auto OOPAttclass(DETBCollection aCollection, Json json) { return (new DOOPAttclass(json)).collection(aCollection); }
+@safe auto OOPAttributeClass() { return new DOOPAttributeClass; }
+@safe auto OOPAttributeClass(UUID id) { return new DOOPAttributeClass(id); }
+@safe auto OOPAttributeClass(string name) { return new DOOPAttributeClass(name); }
+@safe auto OOPAttributeClass(UUID id, string name) { return new DOOPAttributeClass(id, name); }
+@safe auto OOPAttributeClass(Json json) { return new DOOPAttributeClass(json); }
+@safe auto OOPAttributeClass(DETBCollection aCollection, Json json) { return (new DOOPAttributeClass(json)).collection(aCollection); }

@@ -10,7 +10,8 @@ module uim.entities.attributes.bools.boolean;
 import uim.entities;
 
 class DOOPAttributeBoolean : DOOPAttribute {
-  this() { super(); }
+  mixin(OOPAttributeThis!("OOPAttributeBoolean"));
+
   this(DOOPAttributeBoolean attribute) { 
     super(attribute);
     this.value(attribute.value); }
@@ -58,7 +59,8 @@ class DOOPAttributeBoolean : DOOPAttribute {
       }}
   // #endregion convert 
 }
-auto OOPAttributeBoolean() { return new DOOPAttributeBoolean(); }
+mixin(OOPAttributeCalls!("OOPAttributeBoolean"));
+
 auto OOPAttributeBoolean(Json newValue) { return new DOOPAttributeBoolean(newValue); }
 auto OOPAttributeBoolean(string newValue) { return new DOOPAttributeBoolean(newValue); }
 auto OOPAttributeBoolean(bool newValue) { return new DOOPAttributeBoolean(newValue); }

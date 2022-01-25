@@ -1,7 +1,7 @@
-module uim.entities.models.stores.attclasses;
+module uim.entities.models.stores.attributeClasses;
 
 @safe
 import uim.entities;
 
-class DOOPAttclasses : DOOPEntity {
+class DOOPAttributeClasses : DOOPEntity {
 }

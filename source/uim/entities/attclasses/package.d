@@ -1,6 +1,6 @@
-module uim.entities.attclasses;
+module uim.entities.attributeClasses;
 
 @safe:
 import uim.entities;
 
-public import uim.entities.attclasses.attclass;
+public import uim.entities.attributeClasses.attributeClass;

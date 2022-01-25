@@ -32,19 +32,19 @@ class DOOPObjclass : DOOPEntity {
   }
 
   ///
-  mixin(SProperty!("UUID[string]", "attclasses"));
+  mixin(SProperty!("UUID[string]", "attributeClasses"));
 
   auto createObject(string aName) {
     auto result = OOPObj;
     result.model(this.model);
     // result.objclass(this);
     result.name(aName);
-    // result.attclasses(this.attclasses);
+    // result.attributeClasses(this.attributeClasses);
     
-/*     foreach(name, attclass; attclasses ) {
-      if (attclass) {
+/*     foreach(name, attributeClass; attributeClasses ) {
+      if (attributeClass) {
         if (auto model = this.model) {
-          if (auto ac = model.attclasses.entity(name)) {
+          if (auto ac = model.attributeClasses.entity(name)) {
             result.attributes[name] = ac.createAttribute(name);    
           }
         } 
@@ -67,8 +67,8 @@ class DOOPObjclass : DOOPEntity {
       auto v = keyvalue.value;
 
       switch(k) {
-        case "attclasses":
-          foreach(name, id; v.get!(Json[string])) _attclasses["name"] = UUID(id.get!string);
+        case "attributeClasses":
+          foreach(name, id; v.get!(Json[string])) _attributeClasses["name"] = UUID(id.get!string);
           break;
         default: break;
       }       
@@ -83,8 +83,8 @@ class DOOPObjclass : DOOPEntity {
     auto result = super.toJson(showFields, hideFields);
 
     auto acs = Json.emptyObject;
-    foreach(k, v; this.attclasses) acs[k] = v.toString;
-    result["attclasses"] = acs;
+    foreach(k, v; this.attributeClasses) acs[k] = v.toString;
+    result["attributeClasses"] = acs;
     
     return result;
   }
