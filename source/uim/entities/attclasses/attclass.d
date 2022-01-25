@@ -56,7 +56,7 @@ class DOOPAttclass : DOOPEntity {
     return cast(O)this; } */
 
   unittest {
-    version(uim_entities) {    /// TODO
+    version(test_uim_entities) {    /// TODO
     }
   }
 
@@ -100,7 +100,7 @@ class DOOPAttclass : DOOPEntity {
     return result;
   }
   unittest {
-    version(uim_entities) {    /// TODO
+    version(test_uim_entities) {    /// TODO
     }
   }
 
@@ -186,7 +186,7 @@ class DOOPAttclass : DOOPEntity {
     return result;
   }
   unittest {
-    version(uim_entities) {    /// TODO
+    version(test_uim_entities) {    /// TODO
     }
   }
 }

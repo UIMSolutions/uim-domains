@@ -16,35 +16,35 @@ class DOOPAttributeDouble : DOOPAttribute {
   override void value(Json newValue) {
     this.value(newValue.get!double); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   override void value(string newValue) {
     this.value(to!double(newValue)); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   void value(double newValue) {
     _value = newValue; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   override Json toJson() {
     return Json(value); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   override string toString() {
     return to!string(value); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -52,6 +52,6 @@ auto OOPAttributeDouble() { return new DOOPAttributeDouble(); }
 auto OOPAttributeDouble(Json json) { return new DOOPAttributeDouble(json); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
   }  
 }

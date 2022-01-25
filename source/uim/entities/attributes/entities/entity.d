@@ -22,26 +22,26 @@ class DOOPAttributeEntity : DOOPAttribute {
     // TODO _value = newValue; 
     } 
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests      
       }}
 
   void value(DOOPEntity newValue) {
     _value = newValue; } 
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   override bool isEntity() { return true; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
       
   override bool isNull() { return (_value is null); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
@@ -49,7 +49,7 @@ class DOOPAttributeEntity : DOOPAttribute {
     if (_value) return _value.toJson;
     return Json(null); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO assert(OOPAttributeEntity("Hello").toJson == Json("Hello"));
 //      assert(OOPAttributeEntity.value("Hello").toJson == Json("Hello"));
       }}
@@ -58,7 +58,7 @@ class DOOPAttributeEntity : DOOPAttribute {
     if (_value) return ""; // TODO
     return null; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -68,6 +68,6 @@ auto OOPAttributeEntity(string aValue) { return new DOOPAttributeEntity(aValue);
 auto OOPAttributeEntity(DOOPEntity aValue) { return new DOOPAttributeEntity(aValue); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
     // TODO
     }}

@@ -16,7 +16,7 @@ auto OOPAttributeDecimal(string newValue) { return new DOOPAttributeDecimal(newV
 auto OOPAttributeDecimal(double newValue) { return new DOOPAttributeDecimal(newValue); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
   }
 }

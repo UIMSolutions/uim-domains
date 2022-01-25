@@ -30,7 +30,7 @@ class DOOPAttributeBoolean : DOOPAttribute {
     override void value(Json newValue) {
       this.value(newValue.get!bool); }
     unittest {
-      version(uim_entities) {
+      version(test_uim_entities) {
         // TODO Add Tests
       }}
 
@@ -43,7 +43,7 @@ class DOOPAttributeBoolean : DOOPAttribute {
     // #region to json 
       override Json toJson() { return Json(value); }   
       unittest {
-        version(uim_entities) {
+        version(test_uim_entities) {
           // TODO Add Tests
         }}
     // #endregion to json 
@@ -53,7 +53,7 @@ class DOOPAttributeBoolean : DOOPAttribute {
       debug writeln(moduleName!DOOPAttributeBoolean~":DOOPAttributeBoolean::toString");
       return value ? "true" : "false"; }
     unittest {
-      version(uim_entities) {
+      version(test_uim_entities) {
         // TODO Add Tests
       }}
   // #endregion convert 
@@ -64,6 +64,6 @@ auto OOPAttributeBoolean(string newValue) { return new DOOPAttributeBoolean(newV
 auto OOPAttributeBoolean(bool newValue) { return new DOOPAttributeBoolean(newValue); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
   }
 }

@@ -177,7 +177,7 @@ class DOOPEntity : IRegistrable {
   mixin(SProperty!("UUID", "id"));
   O id(this O)(string anUuid) { this.id(UUID(anUuid)); return cast(O)this; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto id1 = randomUUID;
       assert(OOPEntity.id(id1).id == id1);
       auto id2 = randomUUID;
@@ -190,7 +190,7 @@ class DOOPEntity : IRegistrable {
   O name(this O)(string  newName) { _name = newName.strip.toLower.replace(" ", "_"); return cast(O)this; }
   string name() { return _name; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       assert(OOPEntity.name("name1").name == "name1");
       assert(OOPEntity.name("name1").name("name2").name == "name2");
       assert(OOPEntity.name("name name").name == "name_name");
@@ -211,7 +211,7 @@ class DOOPEntity : IRegistrable {
     return cast(O)this;
   }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
 /*     auto now1 = now; auto now2 = now;
     assert(OOPEntity.createdOn(now1).createdOn == now1);
     assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
@@ -254,7 +254,7 @@ class DOOPEntity : IRegistrable {
     return cast(O)this;
   }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
 /*     auto now1 = now; auto now2 = now;
     assert(OOPEntity.createdOn(now1).createdOn == now1);
     assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
@@ -645,7 +645,7 @@ class DOOPEntity : IRegistrable {
   void load() {
     if (collection) fromJson(collection.findOne(id).toJson); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO: Add Test
     }
   }
@@ -659,7 +659,7 @@ class DOOPEntity : IRegistrable {
     return this;
   }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO: Add Test
     }
   }
@@ -673,7 +673,7 @@ auto OOPEntity() { return new DOOPEntity; }
 auto OOPEntity(Json json) { return new DOOPEntity(json); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
   }  
   writeln("Entity Namespace = ", DOOPEntity.namespace);
 }

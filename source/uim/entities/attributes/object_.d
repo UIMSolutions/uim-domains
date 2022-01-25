@@ -12,14 +12,14 @@ import uim.entities;
 
   mixin(SProperty!("Json", "value"));
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   override Json toJson() {
     return value; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
   }
@@ -27,6 +27,6 @@ auto OOPAttributeObject() { return new DOOPAttributeObject(); }
 auto OOPAttributeObject(Json json) { return new DOOPAttributeObject(json); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
   }  
 } */

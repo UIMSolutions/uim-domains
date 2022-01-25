@@ -19,7 +19,7 @@ class DOOPAttributeString : DOOPAttribute {
   override void value(string newValue) {
     _value = newValue; } 
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto attribute = OOPAttributeUrl;
       attribute.fromJson(Json("Hello"));
       assert(attribute.value == "Hello");
@@ -37,14 +37,14 @@ class DOOPAttributeString : DOOPAttribute {
   override Json toJson() {
     return Json(this.value); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       assert(OOPAttributeString("Hello").toJson == Json("Hello"));
 //      assert(OOPAttributeString.value("Hello").toJson == Json("Hello"));
       }}
 
   override string toString() { return this.value; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -53,6 +53,6 @@ auto OOPAttributeString(Json aValue) { return new DOOPAttributeString(aValue); }
 auto OOPAttributeString(string aValue) { return new DOOPAttributeString(aValue); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
   }  
 }

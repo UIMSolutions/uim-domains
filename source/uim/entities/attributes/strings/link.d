@@ -14,7 +14,7 @@ class DOOPAttributeLink : DOOPAttributeString {
 
   mixin(OProperty!("string", "collectionName"));
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       assert(OOPAttributeLink.collectionName("tests").collectionName == "tests");
       assert(OOPAttributeLink.collectionName("tests").collectionName("testsA").collectionName == "testsA");
       }}
@@ -24,7 +24,7 @@ class DOOPAttributeLink : DOOPAttributeString {
     if (id.isUUID) this.id(UUID(id));
     return cast(O)this; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto id = randomUUID;
       assert(OOPAttributeLink.id(id).id == id);
       assert(OOPAttributeLink.id(id.toString).id == id);
@@ -40,7 +40,7 @@ class DOOPAttributeLink : DOOPAttributeString {
 
   mixin(OProperty!("size_t", "versionNumber"));
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       assert(OOPAttributeLink.versionNumber(1).versionNumber == 1);
       assert(OOPAttributeLink.versionNumber("1").versionNumber == 1);
       }}
@@ -66,7 +66,7 @@ class DOOPAttributeLink : DOOPAttributeString {
         break;
       default: break; }}
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto colName = "tests";
       auto id = randomUUID;
       auto vNumber = 1;
@@ -79,7 +79,7 @@ class DOOPAttributeLink : DOOPAttributeString {
   void value(string aColName, UUID anId, size_t versionNumber = 0) { 
     this.collectionName(aColName).id(anId).versionNumber(versionNumber); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto colName = "tests";
       auto id = randomUUID;
       auto vNumber = 1;
@@ -96,13 +96,13 @@ class DOOPAttributeLink : DOOPAttributeString {
     if (this.versionNumber > 0) result["versionNumber"] = this.versionNumber;
     return result; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO tests
       }}
 
   override string toString() { return value; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -112,6 +112,6 @@ auto OOPAttributeLink(string aValue) { return new DOOPAttributeLink(aValue); }
 auto OOPAttributeLink(string colName, UUID id, size_t versionNumber = 0) { return new DOOPAttributeLink(colName, id, versionNumber); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
   }  
 }

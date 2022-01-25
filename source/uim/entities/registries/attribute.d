@@ -10,14 +10,14 @@ class DOOPAttributeRegistry {
   DOOPAttribute entry(string path) {
     return _attributes.get(path, null); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO 
       }}
 
   DOOPAttribute opIndex(string path) {
     return _attributes.get(path, null); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO 
       }}
   
@@ -39,7 +39,7 @@ class DOOPAttributeRegistry {
     return selectedEntry; 
   }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO 
       }}
 }

@@ -16,7 +16,7 @@ auto OOPAttributeCurrency(string newValue) { return new DOOPAttributeCurrency(ne
 auto OOPAttributeCurrency(double newValue) { return new DOOPAttributeCurrency(newValue); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
   }
 }

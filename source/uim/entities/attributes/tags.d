@@ -11,7 +11,7 @@ class DOOPAttributeTags : DOOPAttributeStringArray {
 
   alias value = DOOPAttributeStringArray.value;
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO
       }}
   override void value(string[] newValue) {
@@ -20,7 +20,7 @@ class DOOPAttributeTags : DOOPAttributeStringArray {
     foreach(v; newValue) results ~= v.split(","); 
     super.value(results); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO
       }}
 
@@ -28,7 +28,7 @@ class DOOPAttributeTags : DOOPAttributeStringArray {
     if (_value.length > 0) return "#"~this.value.join(" #");
     return null; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       writeln(OOPAttributeTags(["a,b,c"]).value);
       writeln(OOPAttributeTags(["a,b,c"]).toString);
       assert(OOPAttributeTags(["a,b,c"]).toString == "#a #b #c");
@@ -43,6 +43,6 @@ auto OOPAttributeTags(string aValue) { return new DOOPAttributeTags(aValue); }
 auto OOPAttributeTags(string[] aValue) { return new DOOPAttributeTags(aValue); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
     // TODO tests
   }}

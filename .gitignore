@@ -13,3 +13,7 @@ uim-entities-test-*
 *.o
 *.obj
 *.lst
+libuim-entities.a
+dub.selections.json
+libuim-entities.a
+dub.selections.json

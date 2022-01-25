@@ -11,7 +11,7 @@ auto OOPAttributePercentage() { return new DOOPAttributePercentage(); }
 auto OOPAttributePercentage(Json json) { return new DOOPAttributePercentage(json); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
   }
 }

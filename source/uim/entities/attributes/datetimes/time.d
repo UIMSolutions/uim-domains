@@ -11,7 +11,7 @@ auto OOPAttributeTime() { return new DOOPAttributeTime(); }
 auto OOPAttributeTime(Json json) { return new DOOPAttributeTime(json); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
   }
 }

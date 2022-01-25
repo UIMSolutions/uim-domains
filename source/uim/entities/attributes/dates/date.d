@@ -24,21 +24,21 @@ class DOOPAttributeDate : DOOPAttribute {
     override void value(Json newValue) { 
       this.value(newValue.get!string); }
     unittest {
-      version(uim_entities) {
+      version(test_uim_entities) {
         // TODO Add tests
         }}
         
     override void value(string newValue) { 
       this.value(Date.fromISOExtString(newValue)); }
     unittest {
-      version(uim_entities) {
+      version(test_uim_entities) {
         // TODO Add tests
         }}
 
     void value(Date newValue) { 
       _value = newValue; }
     unittest {
-      version(uim_entities) {
+      version(test_uim_entities) {
         // TODO Add tests
         }}
 
@@ -46,7 +46,7 @@ class DOOPAttributeDate : DOOPAttribute {
       return Json(value.toISOExtString);    
     }
     unittest {
-      version(uim_entities) {
+      version(test_uim_entities) {
         // TODO Add tests
         }}
   // #endregion value
@@ -54,7 +54,7 @@ class DOOPAttributeDate : DOOPAttribute {
   override string toString() { 
     return value.toISOExtString; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -62,7 +62,7 @@ auto OOPAttributeDate() { return new DOOPAttributeDate(); }
 auto OOPAttributeDate(Json json) { return new DOOPAttributeDate(json); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
   }
 }

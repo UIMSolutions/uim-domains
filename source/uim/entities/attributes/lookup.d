@@ -24,7 +24,7 @@ class DOOPAttributeLookup : DOOPAttributeInteger {
       bool hasCode(long code) {
         return code in _lookupValues ? true : false; }
       unittest {
-        version(uim_entities) {
+        version(test_uim_entities) {
           // TODO
           }}
 
@@ -32,7 +32,7 @@ class DOOPAttributeLookup : DOOPAttributeInteger {
         if (value in _lookupValues) return _lookupValues[value]; 
         return null; }
       unittest {
-        version(uim_entities) {
+        version(test_uim_entities) {
           // TODO
           }}
   // #endregion lookupValues
@@ -41,7 +41,7 @@ class DOOPAttributeLookup : DOOPAttributeInteger {
   override Json toJson() {
     return Json(value); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -50,6 +50,6 @@ auto OOPAttributeLookup(Json aValue) { return new DOOPAttributeLookup(aValue); }
 auto OOPAttributeLookup(string aValue) { return new DOOPAttributeLookup(aValue); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
     // TODO
     }}

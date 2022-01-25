@@ -127,7 +127,7 @@ static this() { // register attributes
 }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
     auto attribute = uimRegistryAttributes["uim/boolean"].copy;
     assert(uimRegistryAttributes["uim/boolean"].copy);
 //    assert(cast(DOOPAttributeBoolean)attribute);
@@ -140,7 +140,7 @@ unittest {
 }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
     DOOPAttribute attribute = OOPAttributeBoolean;
     writeln(attribute);
     writeln(OOPAttributeBoolean);

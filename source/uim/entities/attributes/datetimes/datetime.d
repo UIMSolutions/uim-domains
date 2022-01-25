@@ -22,7 +22,7 @@ class DOOPAttributeDatetime : DOOPAttribute {
   void value(DateTime newValue) { 
     _value = newValue; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
   
@@ -30,14 +30,14 @@ class DOOPAttributeDatetime : DOOPAttribute {
     return Json(value.toISOExtString);    
   }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   override string toString() { 
     return value.toISOExtString; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -45,7 +45,7 @@ auto OOPAttributeDatetime() { return new DOOPAttributeDatetime(); }
 auto OOPAttributeDatetime(Json json) { return new DOOPAttributeDatetime(json); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
   }
 }

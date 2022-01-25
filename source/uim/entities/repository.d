@@ -13,7 +13,7 @@ class DOOPRepository {
 
   mixin(OProperty!("string", "url"));
   unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     /// TODO  
   }
 }

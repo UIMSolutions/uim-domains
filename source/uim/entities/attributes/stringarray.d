@@ -23,7 +23,7 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
       this.value(newValue.get!(Json[]).map!(a => a.get!string).array); }}
 
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto attribute = OOPAttributeStringArray;
       attribute.value(Json("a,b,c"));
       assert(attribute.value.length == 3);
@@ -38,7 +38,7 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
     this.value(newValue.split(",").map!(a => a.strip).array); }
 
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto attribute = OOPAttributeStringArray;
       attribute.value("a,b,c");
       assert(attribute.value.length == 3);
@@ -54,7 +54,7 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
     foreach(v; newValue) results ~= v.split(","); 
     _value = results.map!(a => a.strip).filter!(a => a.length > 0).array; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       auto attribute = OOPAttributeStringArray; 
       attribute.value(["a", "b", "c"]);
       assert(attribute.value.length == 3);
@@ -74,14 +74,14 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
     foreach(v; _value) result ~= v;
     return result; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add Tests
       }}
 
   override string toString() {
     return _value.join(","); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add Tests
       }}
 }
@@ -91,7 +91,7 @@ auto OOPAttributeStringArray(string aValue) { return new DOOPAttributeStringArra
 auto OOPAttributeStringArray(string[] aValue) { return new DOOPAttributeStringArray(aValue); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
     assert(OOPAttributeStringArray.value == null);
     assert(OOPAttributeStringArray(Json("a, b, c")).value.length == 3);
     writeln(OOPAttributeStringArray(["a", "b", "c"].toJson).value);

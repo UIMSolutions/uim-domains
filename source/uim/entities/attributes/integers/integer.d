@@ -26,7 +26,7 @@ class DOOPAttributeInteger : DOOPAttribute {
     _value = newValue; }
 
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
   
@@ -34,13 +34,13 @@ class DOOPAttributeInteger : DOOPAttribute {
     return Json(value);    
   }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   override string toString() { return to!string(value); }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 }
@@ -50,6 +50,6 @@ auto OOPAttributeInteger(string newValue) { return new DOOPAttributeInteger(newV
 auto OOPAttributeInteger(long newValue) { return new DOOPAttributeInteger(newValue); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
       }}

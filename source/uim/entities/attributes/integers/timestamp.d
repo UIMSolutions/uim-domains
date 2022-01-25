@@ -15,7 +15,7 @@ auto OOPAttributeTimestamp(string newValue) { return new DOOPAttributeTimestamp(
 auto OOPAttributeTimestamp(long newValue) { return new DOOPAttributeTimestamp(newValue); }
 
 unittest {
-  version(uim_entities) {  
+  version(test_uim_entities) {  
     // TODO tests
   }
 }

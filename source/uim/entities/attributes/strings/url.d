@@ -16,6 +16,6 @@ auto OOPAttributeUrl(Json aValue) { return new DOOPAttributeUrl(aValue); }
 auto OOPAttributeUrl(string aValue) { return new DOOPAttributeUrl(aValue); }
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
   }  
 }

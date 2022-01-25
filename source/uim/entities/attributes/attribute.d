@@ -37,25 +37,25 @@ class DOOPAttribute : IRegistrable {
 
   mixin(SProperty!("DOOPAttclass", "attclass"));
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   mixin(SProperty!("STRINGAA", "descriptions"));
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   mixin(SProperty!("UUID", "ownerId"));
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // TODO Add tests
       }}
 
   mixin(SProperty!("bool", "isNullable"));
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       /* assert(!OOPAttribute.isNullable); 
       assert(OOPAttribute.isNullable(true).isNull(true).isNull); 
       assert(!OOPAttribute.isNullable(false).isNull(true).isNull); 
@@ -86,7 +86,7 @@ class DOOPAttribute : IRegistrable {
     if (isNullable) _isNull = aValue;
     return cast(O)this; }
   unittest {
-    version(uim_entities) {
+    version(test_uim_entities) {
       // assert(!OOPAttribute.isNull); 
       // isNullable = false
 /*       assert(!OOPAttribute.isNull(true).isNull); 

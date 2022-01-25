@@ -26,7 +26,19 @@ public import uim.entities.attributes.stringarray;
 public import uim.entities.attributes.tags;
 
 unittest {
-  version(uim_entities) {
+  version(test_uim_entities) {
     debug writeln(uimRegistryAttributes.paths);
   }
+}
+
+template OOPAttributeThis(string className) {
+  const char[] OOPAttributeThis = `
+this() { super(); this.name = "`~className~`"; }
+this(DOOPAttributeClass myAttributeClass) { this().attributeClass(myAttributeClass); }`;
+}
+
+template OOPAttributeCalls(string className) {
+  const char[] OOPAttributeCalls = `
+auto `~className~`() { return new D`~className~`(); }
+auto `~className~`(DOOPAttributeClass myAttributeClass) { return new D`~className~`(myAttributeClass); }`;
 }
