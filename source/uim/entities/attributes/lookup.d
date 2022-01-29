@@ -4,11 +4,9 @@ module uim.entities.attributes.lookup;
 import uim.entities;
 
 class DOOPAttributeLookup : DOOPAttributeInteger {
-  this() { super(); }
+  mixin(OOPAttributeThis!("OOPAttributeLookup"));
+
   this(DOOPAttributeLookup attribute) { super(attribute); }
-  this(Json newValue) { this(); this.value(newValue); }
-  this(string newValue) { this(); this.value(newValue); }
-  this(long newValue) { this(); this.value(newValue); }
 
   // #region lookupValues
       protected string[long] _lookupValues;
@@ -40,14 +38,12 @@ class DOOPAttributeLookup : DOOPAttributeInteger {
 
   override Json toJson() {
     return Json(value); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 }
-auto OOPAttributeLookup() { return new DOOPAttributeLookup(); }
-auto OOPAttributeLookup(Json aValue) { return new DOOPAttributeLookup(aValue); }
-auto OOPAttributeLookup(string aValue) { return new DOOPAttributeLookup(aValue); }
+mixin(OOPAttributeCalls!("OOPAttributeLookup"));
 
 unittest {
   version(test_uim_entities) {

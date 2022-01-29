@@ -114,23 +114,23 @@ DOOPObjclass[string] objclassRegistry;
 
 
 static this() {
-  uimRegistryObjclasses = new DOOPRegistryObjclasses;
-  uimRegistryAttclasses = new DOOPRegistryAttclasses;
-  uimRegistryAttributes = new DOOPRegistryAttributes;  
-  uimRegistryEntities   = new DOOPRegistryEntities;  
+  uimObjclassRegistry = new DOOPObjclassRegistry;
+  uimAttclassRegistry = new DOOPAttclassRegistry;
+  uimAttributeRegistry = new DOOPAttributeRegistry;  
+  uimEntityRegistry   = new DOOPEntityRegistry;  
 }
 
 static this() { // register attributes
-  uimRegistryAttributes
-    .register("uim/boolean", OOPAttributeBoolean)
-    .register("uim/currency", OOPAttributeCurrency);  
+  uimAttributeRegistry
+    .register(OOPBooleanAttribute)
+    .register(OOPCurrencyAttribute);  
 }
 
 unittest {
   version(test_uim_entities) {
     auto attribute = uimRegistryAttributes["uim/boolean"].copy;
     assert(uimRegistryAttributes["uim/boolean"].copy);
-//    assert(cast(DOOPAttributeBoolean)attribute);
+//    assert(cast(DOOPBooleanAttribute)attribute);
     writeln(attribute.toString);
     attribute = uimRegistryAttributes["uim/boolean"];
     writeln(attribute.toString);
@@ -141,13 +141,13 @@ unittest {
 
 unittest {
   version(test_uim_entities) {
-    DOOPAttribute attribute = OOPAttributeBoolean;
+    DOOPAttribute attribute = OOPBooleanAttribute;
     writeln(attribute);
-    writeln(OOPAttributeBoolean);
+    writeln(OOPBooleanAttribute);
   }}
 
-template EntityThis(string name) {
-  const char[] EntityThis = `
+template OOPEntityThis(string name) {
+  const char[] OOPEntityThis = `
   this() { super(); }
   this(UUID myId) { this().id(myId).name("`~name~`-"~this.id.toString); }
   this(string myName) { this().name(myName); }
@@ -156,8 +156,8 @@ template EntityThis(string name) {
   `;
 }
 
-template EntityCalls(string name) {
-  const char[] EntityCalls = `
+template OOPEntityCalls(string name) {
+  const char[] OOPEntityCalls = `
 auto `~name~`() { return new D`~name~`; } 
 auto `~name~`(UUID myId) { return new D`~name~`(myId); } 
 auto `~name~`(string myName) { return new D`~name~`(myName); } 

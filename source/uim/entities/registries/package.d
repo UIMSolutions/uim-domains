@@ -5,22 +5,23 @@ import uim.entities;
 
 public import uim.entities.registries.attribute;
 
-class DOOPRegistryObjclasses : DOOPRegistry!DOOPObjclass {}
-DOOPRegistryObjclasses uimRegistryObjclasses;
+class DOOPObjclassRegistry : DOOPRegistry!DOOPObjclass {}
+DOOPObjclassRegistry uimObjclassRegistry;
 
-class DOOPRegistryAttclasses : DOOPRegistry!DOOPAttributeClass {}
-DOOPRegistryAttclasses uimRegistryAttclasses;
+class DOOPAttclassRegistry : DOOPRegistry!DOOPAttributeClass {}
+DOOPAttclassRegistry uimAttclassRegistry;
 
-class DOOPRegistryAttributes : DOOPRegistry!DOOPAttribute {}
-DOOPRegistryAttributes uimRegistryAttributes;
+class DOOPAttributeRegistry : DOOPRegistry!DOOPAttribute {}
+DOOPAttributeRegistry uimAttributeRegistry;
 
-class DOOPRegistryEntities : DOOPRegistry!DOOPEntity {}
-DOOPRegistryEntities uimRegistryEntities;
+class DOOPEntityRegistry : DOOPRegistry!DOOPEntity {}
+DOOPEntityRegistry uimEntityRegistry;
 
 interface IRegistrable {
-
-  // Setter registerPath
-  void registerPath(string path);
-  // Getter registerPath
-  string registerPath();
+  // #region registerPath
+    // Setter registerPath
+    O registerPath(this O)(string path);
+    // Getter registerPath
+    string registerPath();
+  // #endregion registerPath
 }

@@ -9,15 +9,15 @@ class DOOPAttributeRegistry {
   protected DOOPAttribute[string] _attributes;
   DOOPAttribute entry(string path) {
     return _attributes.get(path, null); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO 
       }}
 
   DOOPAttribute opIndex(string path) {
     return _attributes.get(path, null); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO 
       }}
   
@@ -38,8 +38,8 @@ class DOOPAttributeRegistry {
     if (selectedEntry) _attributes.remove(path);
     return selectedEntry; 
   }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO 
       }}
 }

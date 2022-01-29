@@ -4,7 +4,7 @@ module uim.entities.attributes.stringarray;
 import uim.entities;
 import uim.core.datatypes.json;
 
-class DOOPAttributeStringArray : DOOPAttributeArray {
+class DOOPStringAttributeArray : DOOPAttributeArray {
   this() { super(); }
   this(Json newValue) { this(); this.value(newValue); }
   this(string newValue) { this(); this.value(newValue); }
@@ -22,9 +22,9 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
       // debug writeln("Json.Type == string[]");
       this.value(newValue.get!(Json[]).map!(a => a.get!string).array); }}
 
-  unittest {
-    version(test_uim_entities) {
-      auto attribute = OOPAttributeStringArray;
+  version(test_uim_entities) {
+    unittest {
+      auto attribute = OOPStringAttributeArray;
       attribute.value(Json("a,b,c"));
       assert(attribute.value.length == 3);
       assert(attribute.value[0] == "a");
@@ -37,9 +37,9 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
   override void value(string newValue) {
     this.value(newValue.split(",").map!(a => a.strip).array); }
 
-  unittest {
-    version(test_uim_entities) {
-      auto attribute = OOPAttributeStringArray;
+  version(test_uim_entities) {
+    unittest {
+      auto attribute = OOPStringAttributeArray;
       attribute.value("a,b,c");
       assert(attribute.value.length == 3);
       assert(attribute.value[0] == "a");
@@ -53,9 +53,9 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
     string[] results;
     foreach(v; newValue) results ~= v.split(","); 
     _value = results.map!(a => a.strip).filter!(a => a.length > 0).array; }
-  unittest {
-    version(test_uim_entities) {
-      auto attribute = OOPAttributeStringArray; 
+  version(test_uim_entities) {
+    unittest {
+      auto attribute = OOPStringAttributeArray; 
       attribute.value(["a", "b", "c"]);
       assert(attribute.value.length == 3);
       assert(attribute.value[0] == "a");
@@ -73,29 +73,29 @@ class DOOPAttributeStringArray : DOOPAttributeArray {
     auto result = Json.emptyArray;
     foreach(v; _value) result ~= v;
     return result; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add Tests
       }}
 
   override string toString() {
     return _value.join(","); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add Tests
       }}
 }
-auto OOPAttributeStringArray() { return new DOOPAttributeStringArray; }
-auto OOPAttributeStringArray(Json json) { return new DOOPAttributeStringArray(json); }
-auto OOPAttributeStringArray(string aValue) { return new DOOPAttributeStringArray(aValue); }
-auto OOPAttributeStringArray(string[] aValue) { return new DOOPAttributeStringArray(aValue); }
+auto OOPStringAttributeArray() { return new DOOPStringAttributeArray; }
+auto OOPStringAttributeArray(Json json) { return new DOOPStringAttributeArray(json); }
+auto OOPStringAttributeArray(string aValue) { return new DOOPStringAttributeArray(aValue); }
+auto OOPStringAttributeArray(string[] aValue) { return new DOOPStringAttributeArray(aValue); }
 
 unittest {
   version(test_uim_entities) {
-    assert(OOPAttributeStringArray.value == null);
-    assert(OOPAttributeStringArray(Json("a, b, c")).value.length == 3);
-    writeln(OOPAttributeStringArray(["a", "b", "c"].toJson).value);
-    assert(OOPAttributeStringArray(["a", "b", "c"].toJson).value.length == 3);
-    assert(OOPAttributeStringArray("a,b, c").value.length == 3);
-    assert(OOPAttributeStringArray(["a", "b", "c"]).value.length == 3);
+    assert(OOPStringAttributeArray.value == null);
+    assert(OOPStringAttributeArray(Json("a, b, c")).value.length == 3);
+    writeln(OOPStringAttributeArray(["a", "b", "c"].toJson).value);
+    assert(OOPStringAttributeArray(["a", "b", "c"].toJson).value.length == 3);
+    assert(OOPStringAttributeArray("a,b, c").value.length == 3);
+    assert(OOPStringAttributeArray(["a", "b", "c"]).value.length == 3);
     }}

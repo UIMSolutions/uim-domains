@@ -3,17 +3,27 @@ module uim.entities.attributes.doubles.decimals.currencies.currency;
 @safe:
 import uim.entities;
 
-class DOOPAttributeCurrency : DOOPAttributeDecimal {
-  this() { super(); }
-  this(DOOPAttributeCurrency attribute) { super(attribute); }
-  this(Json newValue) { this(); this.value(newValue); }
-  this(string newValue) { this(); this.value(newValue); }
+class DOOPCurrencyAttribute : DOOPAttributeDecimal {
+  mixin(OOPAttributeThis!("OOPCurrencyAttribute"));
+
+  this(DOOPCurrencyAttribute attribute) { super(attribute); }
   this(double newValue) { this(); this.value(newValue); }
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .isArray(true)
+      .isBig(true)
+      .isCharacter(true);
+/* 
+means.attributeName
+ */    
+  }
 }
-auto OOPAttributeCurrency() { return new DOOPAttributeCurrency(); }
-auto OOPAttributeCurrency(Json newValue) { return new DOOPAttributeCurrency(newValue); }
-auto OOPAttributeCurrency(string newValue) { return new DOOPAttributeCurrency(newValue); }
-auto OOPAttributeCurrency(double newValue) { return new DOOPAttributeCurrency(newValue); }
+mixin(OOPAttributeCalls!("OOPCurrencyAttribute"));
+
+auto OOPCurrencyAttribute(double newValue) { return new DOOPCurrencyAttribute(newValue); }
 
 unittest {
   version(test_uim_entities) {  

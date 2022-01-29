@@ -4,15 +4,11 @@ module uim.entities.attributes.doubles.decimals.decimal;
 import uim.entities;
 
 class DOOPAttributeDecimal : DOOPAttributeDouble {
-  this() { super(); }
-  this(DOOPAttributeDecimal attribute) { super(attribute); }
-  this(Json newValue) { this(); this.value(newValue); }
-  this(string newValue) { this(); this.value(newValue); }
+  mixin(OOPAttributeThis!("OOPAttributeDecimal"));
+
   this(double newValue) { this(); this.value(newValue); }
 }
-auto OOPAttributeDecimal() { return new DOOPAttributeDecimal(); }
-auto OOPAttributeDecimal(Json newValue) { return new DOOPAttributeDecimal(newValue); }
-auto OOPAttributeDecimal(string newValue) { return new DOOPAttributeDecimal(newValue); }
+mixin(OOPAttributeCalls!("OOPAttributeDecimal"));
 auto OOPAttributeDecimal(double newValue) { return new DOOPAttributeDecimal(newValue); }
 
 unittest {

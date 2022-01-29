@@ -16,20 +16,16 @@ class DOOPEntity : IRegistrable {
   this() { initialize; }
 
   this(DOOPModel myModel) { 
-    this();
-    this.model(myModel); }
+    this().model(myModel); }
 
   this(UUID myId) { 
-    this();     
-    this.id(myId).name(this.id.toString); }
+    this().id(myId).name(this.id.toString); }
 
   this(string myName) { 
-    this();     
-    this.name(myName); }
+    this().name(myName); }
 
   this(UUID myId, string myName) { 
-    this();
-    this.id(myId).name(myName); }
+    this().id(myId).name(myName); }
 
   this(Json aJson) { 
     this();    
@@ -49,16 +45,12 @@ class DOOPEntity : IRegistrable {
     .versionNumber(1L)
     .versionBy(this.createdBy)
     .config(Json.emptyObject)
-    .registerPath(entityPath);
+    .registerPath("entity");
   }
 
   protected string _registerPath;
   void registerPath(string path) { _registerPath = path; }
   string registerPath() { return _registerPath; }
-
-  string entityClass() { return "entity"; }
-  string entityClasses() { return "entities"; }
-  string entityPath() { return "entities"; }
 
   mixin(SProperty!("string", "pool"));
   mixin(SProperty!("long", "etag"));
@@ -122,8 +114,8 @@ class DOOPEntity : IRegistrable {
 
   private DOOPAttribute[string] _attributes;  
   auto attributes() { return _attributes; }
-  O attributes(this O, T)(T[string] addAttributes) {
-    foreach(kv; addAttributes.byKeyValue) this.attribute(kv.key, cast(DOOPAttribute)kv.value);
+  O attributes(this O, T)(T[string] newAttributes) {
+    foreach(kv; newAttributes.byKeyValue) this.attribute(kv.key, cast(DOOPAttribute)kv.value);
     return cast(O)this;
   }
   O attributes(this O)(STRINGAA values) {
@@ -132,6 +124,11 @@ class DOOPEntity : IRegistrable {
   }
   O attributes(this O)(Json[string] values) {
     foreach(kv; values.byKeyValue) this.attribute(k, v);
+    return cast(O)this;
+  }
+
+  O addAttributes(this O)(DOOPAttribute[string] addAtts) {
+    addAtts.byKeyValue.each!(kv => this.attribute(kv.key, kv.value));
     return cast(O)this;
   }
 
@@ -145,13 +142,13 @@ class DOOPEntity : IRegistrable {
         case "bool": _attributes[name] = OOPAttributeBool; break;
         case "long": _attributes[name] = OOPAttributeLong; break;
         case "double": _attributes[name] = OOPAttributeDouble; break;
-        case "string": _attributes[name] = OOPAttributeString; break;
+        case "string": _attributes[name] = OOPStringAttribute; break;
         case "userid": _attributes[name] = OOPAttributeUserId; break;
         case "uuid": _attributes[name] = OOPAttributeUUID; break;
         case "array": _attributes[name] = OOPAttributeArray; break;
         case "object": _attributes[name] = OOPAttributeObject; break;
         default:
-          _attributes[name] = OOPAttributeString; break;  
+          _attributes[name] = OOPStringAttribute; break;  
       }}
     return cast(O)this;
   }
@@ -160,13 +157,13 @@ class DOOPEntity : IRegistrable {
         case "bool": _attributes[name] = OOPAttributeBool.config(json); break;
         case "long": _attributes[name] = OOPAttributeLong.config(json); break;
         case "double": _attributes[name] = OOPAttributeDouble.config(json); break;
-        case "string": _attributes[name] = OOPAttributeString.config(json); break;
+        case "string": _attributes[name] = OOPStringAttribute.config(json); break;
         case "userid": _attributes[name] = OOPAttributeUserId.config(json); break;
         case "uuid": _attributes[name] = OOPAttributeUUID.config(json); break;
         case "array": _attributes[name] = OOPAttributeArray.config(json); break;
         case "object": _attributes[name] = OOPAttributeObject.config(json); break;
       default:
-        _attributes[name] = OOPAttributeString.config(json); break;  
+        _attributes[name] = OOPStringAttribute.config(json); break;  
     }
     return cast(O)this;
   }
@@ -176,8 +173,8 @@ class DOOPEntity : IRegistrable {
   // Every entity has a unique id as a primary key
   mixin(SProperty!("UUID", "id"));
   O id(this O)(string anUuid) { this.id(UUID(anUuid)); return cast(O)this; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       auto id1 = randomUUID;
       assert(OOPEntity.id(id1).id == id1);
       auto id2 = randomUUID;
@@ -189,8 +186,8 @@ class DOOPEntity : IRegistrable {
   string _name;
   O name(this O)(string  newName) { _name = newName.strip.toLower.replace(" ", "_"); return cast(O)this; }
   string name() { return _name; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       assert(OOPEntity.name("name1").name == "name1");
       assert(OOPEntity.name("name1").name("name2").name == "name2");
       assert(OOPEntity.name("name name").name == "name_name");
@@ -210,8 +207,8 @@ class DOOPEntity : IRegistrable {
     this.createdOn(to!long(aTime));
     return cast(O)this;
   }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
 /*     auto now1 = now; auto now2 = now;
     assert(OOPEntity.createdOn(now1).createdOn == now1);
     assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
@@ -253,8 +250,8 @@ class DOOPEntity : IRegistrable {
     this.lastAccessedOn(to!long(aTime));
     return cast(O)this;
   }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
 /*     auto now1 = now; auto now2 = now;
     assert(OOPEntity.createdOn(now1).createdOn == now1);
     assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
@@ -347,8 +344,10 @@ class DOOPEntity : IRegistrable {
   }
 
   DOOPEntity fromRequest(STRINGAA reqParameters) {
+    debug writeln("fromRequest...");
+    debug writeln(reqParameters);
     foreach(k, v; reqParameters) {
-      if (k.indexOf("entity_") >= 0) {
+      if (k.strip.indexOf("entity_") == 0) {
         auto key = k.replace("entity_", "");
         this[key] = v; }}
     return this;
@@ -357,7 +356,7 @@ class DOOPEntity : IRegistrable {
   // Converts entity property to string, which is HTML compatible
   string opIndex(string key) {
     switch(key) {
-      case "entityPath": return this.entityPath;
+      case "registerPath": return this.registerPath;
       case "id": return this.id.toString;
       case "etag": return to!string(this.etag);
       case "name": return this.name;
@@ -382,7 +381,7 @@ class DOOPEntity : IRegistrable {
       case "versionBy": return to!string(this.versionBy);
       case "versionDescription": return this.versionDescription;
       default:
-        if (key in attributes) return attributes[key].toString; 
+        if (key in attributes) return attributes[key].stringValue; 
         return null;
     }      
   }
@@ -415,7 +414,7 @@ class DOOPEntity : IRegistrable {
       case "versionBy": this.versionBy(value); break;
       case "versionDescription": this.versionDescription(value); break;
       default:
-        if (key in attributes) attributes[key].fromString(value); 
+        if (key in attributes) attributes[key].value(value); 
         break;
     }      
     return this;
@@ -440,7 +439,7 @@ class DOOPEntity : IRegistrable {
     return this;
   }
 
-  void opIndexAssign(long value, string key) {
+/*   void opIndexAssign(long value, string key) {
     switch(key) {
       case "createdOn": this.createdOn(value); break;
       case "modifiedOn": this.modifiedOn(value); break; 
@@ -454,7 +453,7 @@ class DOOPEntity : IRegistrable {
         } 
         break;
     }      
-  }
+  } */
 
   void opIndexAssign(bool value, string key) {
     switch(key) {
@@ -463,7 +462,7 @@ class DOOPEntity : IRegistrable {
       case "hasVersions": this.hasVersions(value); break;      
       default:
         if (key in attributes) {
-          if (auto att = cast(DOOPAttributeBoolean)attributes[key]) att.value(value); 
+          if (auto att = cast(DOOPBooleanAttribute)attributes[key]) att.value(value); 
         } 
         break;
     }      
@@ -473,15 +472,20 @@ class DOOPEntity : IRegistrable {
     switch(key) {
       default:
         if (key in attributes) {
-          if (auto att = cast(DOOPAttributeEntity)attributes[key]) att.value(value); 
+          if (auto att = cast(DOOPEntityAttribute)attributes[key]) att.value(value); 
         } 
         break;
     }      
   }
 
   DOOPEntity clone() { return new DOOPEntity; }
-  DOOPEntity copy() { return clone.fromJson(this.toJson); }
-  DOOPEntity copy(Json data) { return copy.fromJson(data); }
+  DOOPEntity copy() { return copy(clone); }
+  DOOPEntity copy(DOOPEntity targetOfCopy) {
+    if (targetOfCopy) {
+      targetOfCopy.fromJson(this.toJson);
+    }
+    return targetOfCopy;
+  }
 
   Bson toBson() { return Bson(toJson); }
 
@@ -532,7 +536,7 @@ class DOOPEntity : IRegistrable {
         default: 
           if (k in _attributes) {
             // debug writeln("Found ", k);
-            _attributes[k].fromJson(v); 
+            _attributes[k].value(v); 
           }
           break;
       }            
@@ -544,7 +548,7 @@ class DOOPEntity : IRegistrable {
     auto result = Json.emptyObject;
     
     if (showFields.length == 0) {
-      if (!hideFields.exist("entityPath")) result["entityPath"] = this.entityPath;
+      if (!hideFields.exist("registerPath")) result["registerPath"] = this.registerPath;
       if (!hideFields.exist("id")) result["id"] = this.id.toString;
       if (!hideFields.exist("name")) result["name"] = this.name;
       if (!hideFields.exist("display")) result["display"] = this.display;
@@ -586,7 +590,7 @@ class DOOPEntity : IRegistrable {
       if (!hideFields.exist("versionDescription")) result["versionDescription"] = this.versionDescription;
     }
     else {
-      if ((showFields.exist("entityPath")) && (!hideFields.exist("entityPath"))) result["entityPath"] = this.entityPath;
+      if ((showFields.exist("registerPath")) && (!hideFields.exist("registerPath"))) result["registerPath"] = this.registerPath;
       if ((showFields.exist("id")) && (!hideFields.exist("id"))) result["id"] = this.id.toString;
       if ((showFields.exist("name")) && (!hideFields.exist("name"))) result["name"] = this.name;
       if ((showFields.exist("display")) && (!hideFields.exist("display"))) result["display"] = this.display;
@@ -629,13 +633,14 @@ class DOOPEntity : IRegistrable {
     }
 
     if (showFields.length == 0) {
-      foreach(k; _attributes.byKey()) {
-        if (!hideFields.exist(k)) result[k] = _attributes[k].toJson;
+      foreach(k; _attributes.byKey) {
+        debug writeln("Key - ", k, "/", _attributes[k].jsonValue);
+        if (!hideFields.exist(k)) result[k] = _attributes[k].jsonValue;
       }
     }
     else {
-      foreach(k; _attributes.byKey()) {
-        if ((showFields.exist(k)) && (!hideFields.exist(k))) result[k] = _attributes[k].toJson;
+      foreach(k; _attributes.byKey) {
+        if ((showFields.exist(k)) && (!hideFields.exist(k))) result[k] = _attributes[k].jsonValue;
       }
     }
     
@@ -644,8 +649,8 @@ class DOOPEntity : IRegistrable {
 
   void load() {
     if (collection) fromJson(collection.findOne(id).toJson); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO: Add Test
     }
   }
@@ -658,8 +663,8 @@ class DOOPEntity : IRegistrable {
     
     return this;
   }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO: Add Test
     }
   }

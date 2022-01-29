@@ -4,11 +4,9 @@ module uim.entities.attributes.percentage;
 import uim.entities;
 
 class DOOPAttributePercentage : DOOPAttributeDouble {
-  this() { super(); }
-  this(Json json) { this(); this.fromJson(json); }
+  mixin(OOPAttributeThis!("OOPAttributePercentage"));
 }
-auto OOPAttributePercentage() { return new DOOPAttributePercentage(); }
-auto OOPAttributePercentage(Json json) { return new DOOPAttributePercentage(json); }
+mixin(OOPAttributeCalls!("OOPAttributePercentage"));
 
 unittest {
   version(test_uim_entities) {  

@@ -14,15 +14,15 @@ class DOOPAttributeUUID : DOOPAttribute {
 
   override void value(Json newValue) { 
     this.value(newValue.get!string); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 
   override void value(string newValue) { 
     if (newValue.isUUID) this.value(UUID(newValue)); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       auto id = randomUUID;
       assert(OOPAttributeUUID(id).value == id);
       assert(OOPAttributeUUID(id.toString).value == id);
@@ -31,15 +31,15 @@ class DOOPAttributeUUID : DOOPAttribute {
 
   void value(UUID newValue) { 
     _value = newValue; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 
   override Json toJson() {
     return Json(value.toString); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       auto id = randomUUID;
 /*       assert(OOPAttributeUUID(id).toJson == Json(id.toString));
       assert(OOPAttributeUUID.value(id) == Json(id.toString));
@@ -47,8 +47,8 @@ class DOOPAttributeUUID : DOOPAttribute {
 
   override string toString() { 
     return value.toString; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 }

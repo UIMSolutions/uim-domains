@@ -4,11 +4,11 @@ module uim.entities.attributes.datetimes.datetime;
 import uim.entities;
 
 class DOOPAttributeDatetime : DOOPAttribute {
-  this() { super(); }
-  this(DOOPAttributeDatetime attribute) { 
+  mixin(OOPAttributeThis!("OOPAttributeDatetime"));
+
+/*   this(DOOPAttributeDatetime attribute) { 
     super(attribute);
-    this.value(attribute.value); }
-  this(Json json) { this(); this.fromJson(json); }
+    this.value(attribute.value); } */
 
   DateTime _value;
   DateTime value() { return _value; }
@@ -21,28 +21,27 @@ class DOOPAttributeDatetime : DOOPAttribute {
   
   void value(DateTime newValue) { 
     _value = newValue; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
   
   override Json toJson() {
     return Json(value.toISOExtString);    
   }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 
   override string toString() { 
     return value.toISOExtString; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 }
-auto OOPAttributeDatetime() { return new DOOPAttributeDatetime(); }
-auto OOPAttributeDatetime(Json json) { return new DOOPAttributeDatetime(json); }
+mixin(OOPAttributeCalls!("OOPAttributeDatetime"));
 
 unittest {
   version(test_uim_entities) {  

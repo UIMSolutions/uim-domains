@@ -9,61 +9,38 @@ module uim.entities.attributes.bools.boolean;
 @safe:
 import uim.entities;
 
-class DOOPAttributeBoolean : DOOPAttribute {
-  mixin(OOPAttributeThis!("OOPAttributeBoolean"));
-
-  this(DOOPAttributeBoolean attribute) { 
-    super(attribute);
-    this.value(attribute.value); }
-  this(Json newValue) { this().value(newValue); }
-  this(string newValue) { this().value(newValue); }
+class DOOPBooleanAttribute : DOOPAttribute {
+  mixin(OOPAttributeThis!("OOPBooleanAttribute"));
   this(bool newValue) { this().value(newValue); }
 
-  override void initialize() {}
+  protected bool _value;
+  void value(bool newValue) {
+    _value = newValue;
+  }
+  override void value(Json newValue) {
+    if (newValue == Json(null)) return;
+    this.value(newValue.get!bool); 
+  }
+  override void value(string newValue) { 
+    debug writeln("In DOOPBooleanAttribute newValue = ", newValue);
+    _value = (newValue.toLower == "true") || (newValue.toLower == "on"); 
+    debug writeln("result ", _value);
+  }
 
-  // #region value
-    protected bool _value;
-    bool value() { return _value; }
+  bool value() {
+    return _value;
+  }
+  override string stringValue() {
+    return _value ? "true" : "false";
+  }
+  override Json jsonValue() {
+    return Json(_value);
+  }
 
-    override void value(string newValue) {
-      value(newValue == "true"); }
-    
-    override void value(Json newValue) {
-      this.value(newValue.get!bool); }
-    unittest {
-      version(test_uim_entities) {
-        // TODO Add Tests
-      }}
-
-    void value(bool newValue) { _value = newValue; }
-  // #endregion value
-
-  override DOOPAttribute copy() { return new DOOPAttributeBoolean(this.value); }
-
-  // #region convert 
-    // #region to json 
-      override Json toJson() { return Json(value); }   
-      unittest {
-        version(test_uim_entities) {
-          // TODO Add Tests
-        }}
-    // #endregion to json 
-
-
-    override string toString() { 
-      debug writeln(moduleName!DOOPAttributeBoolean~":DOOPAttributeBoolean::toString");
-      return value ? "true" : "false"; }
-    unittest {
-      version(test_uim_entities) {
-        // TODO Add Tests
-      }}
-  // #endregion convert 
+  override DOOPAttribute clone() { return OOPBooleanAttribute; }
 }
-mixin(OOPAttributeCalls!("OOPAttributeBoolean"));
-
-auto OOPAttributeBoolean(Json newValue) { return new DOOPAttributeBoolean(newValue); }
-auto OOPAttributeBoolean(string newValue) { return new DOOPAttributeBoolean(newValue); }
-auto OOPAttributeBoolean(bool newValue) { return new DOOPAttributeBoolean(newValue); }
+mixin(OOPAttributeCalls!("OOPBooleanAttribute"));
+auto OOPBooleanAttribute(bool newValue) { return new DOOPBooleanAttribute(newValue); }
 
 unittest {
   version(test_uim_entities) {

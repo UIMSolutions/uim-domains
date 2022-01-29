@@ -11,15 +11,15 @@ import uim.entities;
   this(Json json) { this(); this.fromJson(json); }
 
   mixin(SProperty!("Json", "value"));
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 
   override Json toJson() {
     return value; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
   }

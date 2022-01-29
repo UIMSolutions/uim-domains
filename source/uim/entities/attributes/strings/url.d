@@ -3,17 +3,14 @@ module uim.entities.attributes.strings.url;
 @safe:
 import uim.entities;
 
-class DOOPAttributeUrl : DOOPAttributeString {
-  this() { super(); }
-  this(DOOPAttributeUrl attribute) { 
+class DOOPUrlAttribute : DOOPStringAttribute {
+  mixin(OOPAttributeThis!("OOPUrlAttribute", "url"));
+/* 
+  this(DOOPUrlAttribute attribute) { 
     super(attribute);
-    this.value(attribute.value); }
-  this(Json aValue) { this(); this.fromJson(aValue); }
-  this(string aValue) { this(); this.fromString(aValue); }
+    this.value(attribute.value); } */
 }
-auto OOPAttributeUrl() { return new DOOPAttributeUrl(); }
-auto OOPAttributeUrl(Json aValue) { return new DOOPAttributeUrl(aValue); }
-auto OOPAttributeUrl(string aValue) { return new DOOPAttributeUrl(aValue); }
+mixin(OOPAttributeCalls!("OOPUrlAttribute"));
 
 unittest {
   version(test_uim_entities) {

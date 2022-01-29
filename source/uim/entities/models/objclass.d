@@ -25,8 +25,8 @@ class DOOPObjclass : DOOPEntity {
     _objclass = myObjclass;     
     return cast(O)this; }
 
-  unittest {
-    version(test_uim_entities) {    
+  version(test_uim_entities) {
+    unittest {    
       /// TODO
     }
   }
@@ -51,8 +51,8 @@ class DOOPObjclass : DOOPEntity {
       }
      }*/
     return result; }
-  unittest {
-    version(test_uim_entities) {    
+  version(test_uim_entities) {
+    unittest {    
       // assert(OOPObjclass.createObj("test"));
     }
   }

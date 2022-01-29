@@ -3,23 +3,17 @@ module uim.entities.attributes.strings.string_;
 @safe:
 import uim.entities;
 
-class DOOPAttributeString : DOOPAttribute {
-  this() { super(); }
-  this(DOOPAttributeString attribute) { 
-    super(attribute); this.value(attribute.value); }
-  this(Json aValue) { this(); this.value(aValue); }
-  this(string aValue) { this(); this.value(aValue); }
+class DOOPStringAttribute : DOOPAttribute {
+  mixin(OOPAttributeThis!("OOPStringAttribute", "string"));
 
   protected string _value;
-  string value() { return _value; }
-
   override void value(Json newValue) {
+    if (newValue == Json(null)) this.value(null);    
     this.value(newValue.get!string); } 
-
   override void value(string newValue) {
     _value = newValue; } 
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       auto attribute = OOPAttributeUrl;
       attribute.fromJson(Json("Hello"));
       assert(attribute.value == "Hello");
@@ -32,25 +26,35 @@ class DOOPAttributeString : DOOPAttribute {
       assert(attribute.value == "Hello");
       attribute.fromJson(Json("Goodbye"));
       assert(attribute.value == "Goodbye");
+  }}
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .isCharacter(true)
+      .isBig(true)
+      .isArray(true);
+  }
+
+  override Json jsonValue() {
+    return Json(_value); }
+  override string stringValue() {  
+    return _value; }
+
+  version(test_uim_entities) {
+    unittest {
+      assert(OOPStringAttribute("Hello").jsonValue == Json("Hello"));
+//      assert(OOPStringAttribute.value("Hello").toJson == Json("Hello"));
       }}
 
-  override Json toJson() {
-    return Json(this.value); }
-  unittest {
-    version(test_uim_entities) {
-      assert(OOPAttributeString("Hello").toJson == Json("Hello"));
-//      assert(OOPAttributeString.value("Hello").toJson == Json("Hello"));
-      }}
-
-  override string toString() { return this.value; }
-  unittest {
-    version(test_uim_entities) {
+  override string toString() { return stringValue; }
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 }
-auto OOPAttributeString() { return new DOOPAttributeString(); }
-auto OOPAttributeString(Json aValue) { return new DOOPAttributeString(aValue); }
-auto OOPAttributeString(string aValue) { return new DOOPAttributeString(aValue); }
+mixin(OOPAttributeCalls!("OOPStringAttribute"));
 
 unittest {
   version(test_uim_entities) {

@@ -11,10 +11,9 @@ import uim.entities;
 
 // Attribute class for managing Date values
 class DOOPAttributeDate : DOOPAttribute {
-  this() { super(); }
-  this(DOOPAttributeDate attribute) { super(attribute); this.value(attribute.value); }
-  this(Json newValue) { this(); this.value(newValue); }
-  this(string newValue) { this(); this.value(newValue); }
+  mixin(OOPAttributeThis!("OOPAttributeDate"));
+
+/*   this(DOOPAttributeDate attribute) { super(attribute); this.value(attribute.value); } */
   this(Date newValue) { this(); this.value(newValue); }
 
   // #region value
@@ -53,13 +52,13 @@ class DOOPAttributeDate : DOOPAttribute {
 
   override string toString() { 
     return value.toISOExtString; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 }
-auto OOPAttributeDate() { return new DOOPAttributeDate(); }
-auto OOPAttributeDate(Json json) { return new DOOPAttributeDate(json); }
+mixin(OOPAttributeCalls!("OOPAttributeDate"));
+
 
 unittest {
   version(test_uim_entities) {  

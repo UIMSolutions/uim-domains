@@ -4,52 +4,59 @@ module uim.entities.attributes.doubles.double_;
 import uim.entities;
 
 class DOOPAttributeDouble : DOOPAttribute {
-  this() { super(); }
-  this(DOOPAttributeDouble attribute) { 
+  mixin(OOPAttributeThis!("OOPAttributeDouble"));
+
+/*   this(DOOPAttributeDouble attribute) { 
     super(attribute);
-    this.value(attribute.value); }
-  this(Json json) { this(); this.fromJson(json); }
+    this.value(attribute.value); } */
 
   protected double _value;
   double value() { return _value; }
 
   override void value(Json newValue) {
     this.value(newValue.get!double); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 
   override void value(string newValue) {
     this.value(to!double(newValue)); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 
   void value(double newValue) {
     _value = newValue; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 
-  override Json toJson() {
+  override void initialize() {
+    super.initialize;
+
+    this
+      .isFloatingPoint(true)
+      .isBig(true);
+  }
+
+  override Json jsonValue() {
     return Json(value); }
-  unittest {
-    version(test_uim_entities) {
-      // TODO Add tests
-      }}
+  version(test_uim_entities) {
+    unittest {
+      assert(OOPAttributeDouble.value(1.1).jsonValue.get!double == 1.1);
+  }}
 
-  override string toString() {
+  override string stringValue() {
     return to!string(value); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 }
-auto OOPAttributeDouble() { return new DOOPAttributeDouble(); }
-auto OOPAttributeDouble(Json json) { return new DOOPAttributeDouble(json); }
+mixin(OOPAttributeCalls!("OOPAttributeDouble"));
 
 unittest {
   version(test_uim_entities) {

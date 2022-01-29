@@ -55,8 +55,8 @@ class DOOPAttributeClass : DOOPEntity {
     _attributeClass = myAttclass;     
     return cast(O)this; } */
 
-  unittest {
-    version(test_uim_entities) {    /// TODO
+  version(test_uim_entities) {
+    unittest {    /// TODO
     }
   }
 
@@ -99,8 +99,8 @@ class DOOPAttributeClass : DOOPEntity {
     result.name(aName); */
     return result;
   }
-  unittest {
-    version(test_uim_entities) {    /// TODO
+  version(test_uim_entities) {
+    unittest {    /// TODO
     }
   }
 
@@ -185,8 +185,8 @@ class DOOPAttributeClass : DOOPEntity {
 
     return result;
   }
-  unittest {
-    version(test_uim_entities) {    /// TODO
+  version(test_uim_entities) {
+    unittest {    /// TODO
     }
   }
 }

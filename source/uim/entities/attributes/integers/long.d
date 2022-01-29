@@ -1,23 +1,24 @@
-module uim.entities.attributes.integers.integer;
+module uim.entities.attributes.integers.long_;
 
 @safe:
 import uim.entities;
 
-class DOOPAttributeInteger : DOOPAttribute {
-  mixin(OOPAttributeThis!("OOPAttributeInteger"));
+class DOOPAttributeLong : DOOPAttribute {
+  mixin(OOPAttributeThis!("OOPAttributeLong"));
 
-  this(int aValue) { this(); this.value(aValue); }
+  this(long aValue) { this(); this.value(aValue); }
 
-  protected int _value;
-  int value() { return _value; }
+  protected long _value;
+
+  long value() { return _value; }
   
   override void value(Json newValue) {
-    this.value(newValue.get!int); }
+    this.value(newValue.get!long); }
 
   override void value(string newValue) {
-    this.value(to!int(newValue)); }
+    this.value(to!long(newValue)); }
 
-  void value(int newValue) {
+  void value(long newValue) {
     _value = newValue; }
 
   version(test_uim_entities) {
@@ -39,9 +40,9 @@ class DOOPAttributeInteger : DOOPAttribute {
       // TODO Add tests
       }}
 }
-mixin(OOPAttributeCalls!("OOPAttributeInteger"));
+mixin(OOPAttributeCalls!("OOPAttributeLong"));
 
-auto OOPAttributeInteger(int newValue) { return new DOOPAttributeInteger(newValue); }
+auto OOPAttributeLong(long newValue) { return new DOOPAttributeLong(newValue); }
 
 unittest {
   version(test_uim_entities) {  

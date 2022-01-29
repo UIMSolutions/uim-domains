@@ -3,31 +3,30 @@ module uim.entities.attributes.strings.link;
 @safe:
 import uim.entities;
 
-class DOOPAttributeLink : DOOPAttributeString {
-  this() { super(); }
-  this(DOOPAttributeLink attribute) { 
+class DOOPLinkAttribute : DOOPStringAttribute {
+  mixin(OOPAttributeThis!("OOPLinkAttribute", "link"));
+
+/*   this(DOOPLinkAttribute attribute) { 
     super(attribute);
-    this.value(attribute.value); }
-  this(Json aValue) { this(); super.value(aValue); }
-  this(string aValue) { this(); this.value(aValue); }
+    this.value(attribute.value); } */
   this(string colName, UUID id, size_t versionNumber = 0) { this(); this.value(colName, id, versionNumber); }
 
   mixin(OProperty!("string", "collectionName"));
-  unittest {
-    version(test_uim_entities) {
-      assert(OOPAttributeLink.collectionName("tests").collectionName == "tests");
-      assert(OOPAttributeLink.collectionName("tests").collectionName("testsA").collectionName == "testsA");
+  version(test_uim_entities) {
+    unittest {
+      assert(OOPLinkAttribute.collectionName("tests").collectionName == "tests");
+      assert(OOPLinkAttribute.collectionName("tests").collectionName("testsA").collectionName == "testsA");
       }}
 
   mixin(OProperty!("UUID", "id"));
   O id(this O)(string id) {
     if (id.isUUID) this.id(UUID(id));
     return cast(O)this; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       auto id = randomUUID;
-      assert(OOPAttributeLink.id(id).id == id);
-      assert(OOPAttributeLink.id(id.toString).id == id);
+      assert(OOPLinkAttribute.id(id).id == id);
+      assert(OOPLinkAttribute.id(id.toString).id == id);
       }}
 
   O versionNumber(this O)(Json newNumber) {
@@ -39,13 +38,16 @@ class DOOPAttributeLink : DOOPAttributeString {
     return cast(O)this; }
 
   mixin(OProperty!("size_t", "versionNumber"));
-  unittest {
-    version(test_uim_entities) {
-      assert(OOPAttributeLink.versionNumber(1).versionNumber == 1);
-      assert(OOPAttributeLink.versionNumber("1").versionNumber == 1);
+  version(test_uim_entities) {
+    unittest {
+      assert(OOPLinkAttribute.versionNumber(1).versionNumber == 1);
+      assert(OOPLinkAttribute.versionNumber("1").versionNumber == 1);
       }}
 
-  override string value() {  return collectionName ~":"~id.toString; }
+  override string stringValue() {  return collectionName ~":"~id.toString; }
+
+  override void value(Json newValue) {
+    this.value(newValue.get!string); } 
   override void value(string value) {
     _id = UUID(); // Null id
     _collectionName = "";
@@ -65,12 +67,12 @@ class DOOPAttributeLink : DOOPAttributeString {
         if (to!size_t(items[2]) > 0) this.versionNumber(items[2]); 
         break;
       default: break; }}
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       auto colName = "tests";
       auto id = randomUUID;
       auto vNumber = 1;
-      auto link = OOPAttributeLink(colName~":"~id.toString~":"~to!string(vNumber));
+      auto link = OOPLinkAttribute(colName~":"~id.toString~":"~to!string(vNumber));
       assert(link.collectionName == colName);
       assert(link.id == id);
       assert(link.versionNumber == vNumber);
@@ -78,12 +80,12 @@ class DOOPAttributeLink : DOOPAttributeString {
 
   void value(string aColName, UUID anId, size_t versionNumber = 0) { 
     this.collectionName(aColName).id(anId).versionNumber(versionNumber); }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       auto colName = "tests";
       auto id = randomUUID;
       auto vNumber = 1;
-      auto link = OOPAttributeLink(colName, id, vNumber);
+      auto link = OOPLinkAttribute(colName, id, vNumber);
       assert(link.collectionName == colName);
       assert(link.id == id);
       assert(link.versionNumber == vNumber);
@@ -95,21 +97,20 @@ class DOOPAttributeLink : DOOPAttributeString {
     result["id"] = this.id.toString;
     if (this.versionNumber > 0) result["versionNumber"] = this.versionNumber;
     return result; }
-  unittest {
-    version(test_uim_entities) {
+  version(test_uim_entities) {
+    unittest {
       // TODO tests
       }}
 
-  override string toString() { return value; }
-  unittest {
-    version(test_uim_entities) {
+  override string toString() { return stringValue; }
+  version(test_uim_entities) {
+    unittest {
       // TODO Add tests
       }}
 }
-auto OOPAttributeLink() { return new DOOPAttributeLink(); }
-auto OOPAttributeLink(Json aValue) { return new DOOPAttributeLink(aValue); }
-auto OOPAttributeLink(string aValue) { return new DOOPAttributeLink(aValue); }
-auto OOPAttributeLink(string colName, UUID id, size_t versionNumber = 0) { return new DOOPAttributeLink(colName, id, versionNumber); }
+mixin(OOPAttributeCalls!("OOPLinkAttribute"));
+
+auto OOPLinkAttribute(string colName, UUID id, size_t versionNumber = 0) { return new DOOPLinkAttribute(colName, id, versionNumber); }
 
 unittest {
   version(test_uim_entities) {

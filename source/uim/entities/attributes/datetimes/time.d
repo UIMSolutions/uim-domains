@@ -4,11 +4,9 @@ module uim.entities.attributes.datetimes.time;
 import uim.entities;
 
 class DOOPAttributeTime : DOOPAttributeDatetime {
-  this() { super(); }
-  this(Json json) { this(); this.value(json); }
+  mixin(OOPAttributeThis!("OOPAttributeTime"));
 }
-auto OOPAttributeTime() { return new DOOPAttributeTime(); }
-auto OOPAttributeTime(Json json) { return new DOOPAttributeTime(json); }
+mixin(OOPAttributeCalls!("OOPAttributeTime"));
 
 unittest {
   version(test_uim_entities) {  
