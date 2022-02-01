@@ -3,8 +3,8 @@ module uim.entities.attributes.integers.integer;
 @safe:
 import uim.entities;
 
-class DOOPAttributeInteger : DOOPAttribute {
-  mixin(OOPAttributeThis!("OOPAttributeInteger"));
+class DOOPIntegerAttribute : DOOPAttribute {
+  mixin(OOPAttributeThis!("OOPIntegerAttribute"));
 
   this(int aValue) { this(); this.value(aValue); }
 
@@ -12,8 +12,14 @@ class DOOPAttributeInteger : DOOPAttribute {
   int value() { return _value; }
   
   override void value(Json newValue) {
-    this.value(newValue.get!int); }
-
+    if (newValue == Json(null)) this.value(0);
+    switch(newValue.type) {
+      case Json.Type.int_: 
+        this.value(newValue.get!int);
+        break;
+      default: break;
+    }
+  }
   override void value(string newValue) {
     this.value(to!int(newValue)); }
 
@@ -39,9 +45,9 @@ class DOOPAttributeInteger : DOOPAttribute {
       // TODO Add tests
       }}
 }
-mixin(OOPAttributeCalls!("OOPAttributeInteger"));
+mixin(OOPAttributeCalls!("OOPIntegerAttribute"));
 
-auto OOPAttributeInteger(int newValue) { return new DOOPAttributeInteger(newValue); }
+auto OOPIntegerAttribute(int newValue) { return new DOOPIntegerAttribute(newValue); }
 
 unittest {
   version(test_uim_entities) {  

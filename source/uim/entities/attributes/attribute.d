@@ -188,4 +188,5 @@ class DOOPAttribute : IRegistrable {
     this.value(newValue);
     return cast(O)this; }
 }
+auto OOPAttribute() { return new DOOPAttribute; }
 

@@ -14,14 +14,17 @@ class DOOPStringAttributeArray : DOOPAttributeArray {
   string[] value() { return _value; }
 
   override void value(Json newValue) {
-    // // debug writeln("keywords -> ", newValue);
-     if (newValue.type == Json.Type.string) {
-      // debug writeln("Json.Type == string");
-      this.value(newValue.get!string);  }
-    else {
-      // debug writeln("Json.Type == string[]");
-      this.value(newValue.get!(Json[]).map!(a => a.get!string).array); }}
-
+    if (newValue == Json(null)) this.value(cast(string[])null);
+    switch(newValue.type) {
+      case Json.Type.string: 
+        this.value([newValue.get!string]);
+        break;
+      case Json.Type.array: 
+        this.value(newValue.get!(Json[]).map!(a => a.get!string).array); 
+        break;
+      default: break;
+    }
+  }
   version(test_uim_entities) {
     unittest {
       auto attribute = OOPStringAttributeArray;

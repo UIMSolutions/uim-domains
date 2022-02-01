@@ -128,8 +128,8 @@ static this() { // register attributes
 
 unittest {
   version(test_uim_entities) {
-    auto attribute = uimRegistryAttributes["uim/boolean"].copy;
-    assert(uimRegistryAttributes["uim/boolean"].copy);
+    auto attribute = uimAttributeRegistry["uim/boolean"].copy;
+    assert(uimAttributeRegistry["uim/boolean"].copy);
 //    assert(cast(DOOPBooleanAttribute)attribute);
     writeln(attribute.toString);
     attribute = uimRegistryAttributes["uim/boolean"];
@@ -153,6 +153,8 @@ template OOPEntityThis(string name) {
   this(string myName) { this().name(myName); }
   this(UUID myId, string myName) { this(myId).name(myName); }
   this(Json aJson) { this().fromJson(aJson); }
+
+  override DOOPEntity create() { return `~name~`; }
   `;
 }
 

@@ -8,19 +8,23 @@ class DOOPStringAttribute : DOOPAttribute {
 
   protected string _value;
   override void value(Json newValue) {
-    if (newValue == Json(null)) this.value(null);    
-    this.value(newValue.get!string); } 
+    if (newValue == Json(null)) this.value(null);
+    switch(newValue.type) {
+      case Json.Type.string: this.value(newValue.get!string); break;
+      default: break;
+    }
+  } 
   override void value(string newValue) {
     _value = newValue; } 
   version(test_uim_entities) {
     unittest {
-      auto attribute = OOPAttributeUrl;
+      auto attribute = OOPStringAttribute;
       attribute.fromJson(Json("Hello"));
       assert(attribute.value == "Hello");
       attribute.fromJson(Json("Goodbye"));
       assert(attribute.value == "Goodbye");
       // Init value
-      attribute = OOPAttributeUrl("Hi");
+      attribute = OOPStringAttribute("Hi");
       assert(attribute.value == "Hi");
       attribute.fromJson(Json("Hello"));
       assert(attribute.value == "Hello");

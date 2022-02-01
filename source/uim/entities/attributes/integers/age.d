@@ -3,8 +3,8 @@ module uim.entities.attributes.integers.age;
 @safe:
 import uim.entities;
 
-class DOOPAttributeAge : DOOPAttributeInteger {
-  mixin(OOPAttributeThis!("OOPAttributeAge"));
+class DOOPAgeAttribute : DOOPAttributeInteger {
+  mixin(OOPAttributeThis!("OOPAgeAttribute"));
 
   /*
 
@@ -14,7 +14,7 @@ means.measurement.age
 
   */
 }
-mixin(OOPAttributeCalls!("OOPAttributeAge"));
+mixin(OOPAttributeCalls!("OOPAgeAttribute"));
 
 version(test_uim_entities) {
   unittest {

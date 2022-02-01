@@ -11,12 +11,27 @@ class DOOPAttributeUUID : DOOPAttribute {
 
   protected UUID _value;
   UUID value() { return _value; }
-
-  override void value(Json newValue) { 
-    this.value(newValue.get!string); }
   version(test_uim_entities) {
     unittest {
-      // TODO Add tests
+      auto id = randomUUID;
+      assert(OOPAttributeUUID.value(id).value == id);
+      assert(OOPAttributeUUID.value(id.toString).value == id);
+      assert(OOPAttributeUUID.value(id.toString).stringValue == id.toString);
+      }}
+
+  override void value(Json newValue) { 
+    if (newValue == Json(null)) this.value(null);
+    switch(newValue.type) {
+      case Json.Type.string: 
+        auto str = newValue.get!string;
+        if (str.isUUID) this.value(UUID(str)); 
+        break;
+      default: break;
+    }
+  }
+  version(test_uim_entities) {
+    unittest {
+      auto id = randomUUID;
       }}
 
   override void value(string newValue) { 

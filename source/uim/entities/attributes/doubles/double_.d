@@ -13,8 +13,16 @@ class DOOPAttributeDouble : DOOPAttribute {
   protected double _value;
   double value() { return _value; }
 
-  override void value(Json newValue) {
-    this.value(newValue.get!double); }
+  override DOOPAttributeDouble value(Json newValue) {
+    if (newValue == Json(null)) this.value(0.0);
+    switch(newValue.type) {
+      case Json.Type.float_: 
+        this.value(newValue.get!double);
+        break;
+      default: break;
+    }
+    return this;
+  }  
   version(test_uim_entities) {
     unittest {
       // TODO Add tests

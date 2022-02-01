@@ -18,9 +18,15 @@ class DOOPBooleanAttribute : DOOPAttribute {
     _value = newValue;
   }
   override void value(Json newValue) {
-    if (newValue == Json(null)) return;
-    this.value(newValue.get!bool); 
+    if (newValue == Json(null)) this.value(false);
+    switch(newValue.type) {
+      case Json.Type.bool_: 
+        this.value(newValue.get!bool);
+        break;
+      default: break;
+    }
   }
+
   override void value(string newValue) { 
     debug writeln("In DOOPBooleanAttribute newValue = ", newValue);
     _value = (newValue.toLower == "true") || (newValue.toLower == "on"); 

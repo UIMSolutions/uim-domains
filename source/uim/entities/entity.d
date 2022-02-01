@@ -472,19 +472,23 @@ class DOOPEntity : IRegistrable {
     switch(key) {
       default:
         if (key in attributes) {
+          debug writeln("key %s in attributes %s".format(key, attributes[key].stringValue));
           if (auto att = cast(DOOPEntityAttribute)attributes[key]) att.value(value); 
         } 
         break;
     }      
   }
 
-  DOOPEntity clone() { return new DOOPEntity; }
-  DOOPEntity copy() { return copy(clone); }
-  DOOPEntity copy(DOOPEntity targetOfCopy) {
-    if (targetOfCopy) {
-      targetOfCopy.fromJson(this.toJson);
-    }
-    return targetOfCopy;
+  DOOPEntity create() { return new DOOPEntity; }
+  DOOPEntity create(Json data) { return create.fromJson(data); }
+
+  DOOPEntity clone() { return create.fromJson(toJson); }
+  DOOPEntity clone(Json data) { return create.fromJson(toJson).fromJson(data); }
+  
+  DOOPEntity copyTo(DOOPEntity targetOfCopy) {
+    return targetOfCopy ? targetOfCopy.fromJson(this.toJson) : targetOfCopy; }
+  DOOPEntity copyFrom(DOOPEntity targetOfCopy) {
+    return targetOfCopy ? fromJson(targetOfCopy.toJson) : this;
   }
 
   Bson toBson() { return Bson(toJson); }
