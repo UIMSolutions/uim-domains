@@ -3,7 +3,7 @@ module uim.entities.attributes.integers.timestamp;
 @safe:
 import uim.entities;
 
-class DOOPTimestampAttribute : DOOPAttributeLong {
+class DOOPTimestampAttribute : DOOPLongAttribute {
   mixin(OOPAttributeThis!("OOPTimestampAttribute", "timestamp"));
 
   this(long newValue) { this(); this.value(newValue); }

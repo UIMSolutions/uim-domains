@@ -46,9 +46,11 @@ class DOOPLinkAttribute : DOOPStringAttribute {
 
   override string stringValue() {  return collectionName ~":"~id.toString; }
 
-  override void value(Json newValue) {
-    this.value(newValue.get!string); } 
-  override void value(string value) {
+  override DOOPAttribute value(Json newValue) {
+    this.value(newValue.get!string); 
+    return this; } 
+
+  override DOOPAttribute value(string value) {
     _id = UUID(); // Null id
     _collectionName = "";
 
@@ -66,7 +68,9 @@ class DOOPLinkAttribute : DOOPStringAttribute {
         if (items[1].isUUID) this.id(items[1]); 
         if (to!size_t(items[2]) > 0) this.versionNumber(items[2]); 
         break;
-      default: break; }}
+      default: break; }
+    return this;    
+  }
   version(test_uim_entities) {
     unittest {
       auto colName = "tests";
@@ -78,8 +82,10 @@ class DOOPLinkAttribute : DOOPStringAttribute {
       assert(link.versionNumber == vNumber);
       }}
 
-  void value(string aColName, UUID anId, size_t versionNumber = 0) { 
-    this.collectionName(aColName).id(anId).versionNumber(versionNumber); }
+  DOOPAttribute value(string aColName, UUID anId, size_t versionNumber = 0) { 
+    this.collectionName(aColName).id(anId).versionNumber(versionNumber); 
+    return this;
+  }
   version(test_uim_entities) {
     unittest {
       auto colName = "tests";
@@ -89,7 +95,7 @@ class DOOPLinkAttribute : DOOPStringAttribute {
       assert(link.collectionName == colName);
       assert(link.id == id);
       assert(link.versionNumber == vNumber);
-      }}
+  }}
   
   override Json toJson() {
     auto result = Json.emptyObject;

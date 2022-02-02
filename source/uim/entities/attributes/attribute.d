@@ -12,14 +12,17 @@ class DOOPAttribute : IRegistrable {
     this().value(myValue);
   }
 
-  void initialize() {}
+  void initialize() {
+    this
+      .name = "OOPAttribute";
+  }
 
   protected string _registerPath;
-  void registerPath(string path) { _registerPath = path; }
+  DOOPAttribute registerPath(string path) { _registerPath = path; return this; }
   string registerPath() { return _registerPath; }
 
-  void value(Json newValue) {} // Interface for data
-  void value(string newValue) {} // Interface for data 
+  DOOPAttribute value(Json newValue) { return this; } // Interface for data
+  DOOPAttribute value(string newValue) { return this; } // Interface for data 
 
   mixin(OProperty!("Json", "config"));
   /// Attclass from which it inherits
@@ -41,7 +44,6 @@ class DOOPAttribute : IRegistrable {
     unittest {
       // TODO Add tests
       }}
-
 
   mixin(OProperty!("string", "name"));
   version(test_uim_entities) {
@@ -112,21 +114,21 @@ class DOOPAttribute : IRegistrable {
       assert(!OOPAttribute.isNullable(true).isNull(true).isNull(false).isNull);  */
       }}
 
-  O set(this O)(Json aValue) {
-    fromJson(aValue);
+/*   O set(this O)(Json aValue) {
+    value(aValue);
     return cast(O)this;
   }
   O set(this O)(string aValue) {
-    fromString(aValue);
+    value(aValue);
     return cast(O)this;
   }
 
   T get(T:Json)() {
-    return toJson(aValue);
+    return jsonValue(aValue);
   }
   T get(T:string)() {
     return toString(aValue);
-  }
+  } */
 
   // Write attribute to Json
   Json toJson() {
@@ -150,38 +152,51 @@ class DOOPAttribute : IRegistrable {
   
   // Read attribute from Json
   DOOPAttribute fromJson(Json newJson) {
-    if (newJson == Json(null)) return this;
-    
-    foreach (keyvalue; newJson.byKeyValue) {
-      auto k = keyvalue.key;
-      auto v = keyvalue.value;
-      switch(k) {
-        case "isArray": this.isArray(v.get!bool); break;
-        case "isBig": this.isBig(v.get!bool); break;
-        case "isByte": this.isByte(v.get!bool); break;
-        case "isBoolean": this.isBoolean(v.get!bool); break;
-        case "isCharacter": this.isCharacter(v.get!bool); break;
-        case "isEntity": this.isEntity(v.get!bool); break;
-        case "isFloatingPoint": this.isFloatingPoint(v.get!bool); break;
-        case "isInteger": this.isInteger(v.get!bool); break;
-        case "isString": this.isString(v.get!bool); break;
-        case "name": this.name(v.get!string); break;
-        case "path": this.path(v.get!string); break;
-        default: break;
-      }
+    final switch (newJson.type) {
+			case Json.Type.undefined:
+			case Json.Type.null_: 
+			case Json.Type.bool_:
+			case Json.Type.int_:
+			case Json.Type.bigInt:
+			case Json.Type.float_:
+			case Json.Type.string:
+			case Json.Type.array: return this.value(newJson);
+      
+			case Json.Type.object:
+        foreach (keyvalue; newJson.byKeyValue) {
+          auto k = keyvalue.key;
+          auto v = keyvalue.value;
+          switch(k) {
+            case "isArray": this.isArray(v.get!bool); break;
+            case "isBig": this.isBig(v.get!bool); break;
+            case "isByte": this.isByte(v.get!bool); break;
+            case "isBoolean": this.isBoolean(v.get!bool); break;
+            case "isCharacter": this.isCharacter(v.get!bool); break;
+            case "isEntity": this.isEntity(v.get!bool); break;
+            case "isFloatingPoint": this.isFloatingPoint(v.get!bool); break;
+            case "isInteger": this.isInteger(v.get!bool); break;
+            case "isString": this.isString(v.get!bool); break;
+            case "name": this.name(v.get!string); break;
+            case "path": this.path(v.get!string); break;
+            default: break;
+          }
+        }
+        return this; 
     }
-
-    return this; 
   }
 
-  DOOPAttribute clone() { return new DOOPAttribute; }
-  DOOPAttribute copy() { return copy(clone); }
-  DOOPAttribute copy(DOOPAttribute targetOfCopy) {
-    if (targetOfCopy) {
-      targetOfCopy.fromJson(this.toJson);
-    }
-    return targetOfCopy;
+  DOOPAttribute create() { return new DOOPAttribute; }
+  DOOPAttribute create(Json data) { return create.fromJson(data); }
+
+  DOOPAttribute clone() { return create.fromJson(toJson); }
+  DOOPAttribute clone(Json data) { return create.fromJson(toJson).fromJson(data); }
+  
+  DOOPAttribute copyTo(DOOPAttribute targetOfCopy) {
+    return targetOfCopy ? targetOfCopy.fromJson(this.toJson) : targetOfCopy; }
+  DOOPAttribute copyFrom(DOOPAttribute targetOfCopy) {
+    return targetOfCopy ? fromJson(targetOfCopy.toJson) : this;
   }
+
   override string toString() { return "DOOPAttribute"; }
 
   O fromString(this O)(string newValue) {

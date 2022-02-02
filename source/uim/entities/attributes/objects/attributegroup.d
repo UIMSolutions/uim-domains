@@ -6,7 +6,7 @@ module uim.entities.attributes.objects.attributegroup;
 import uim.entities;
 // Types for trait parameters that take objects as values
 
-class DOOPAttributeObjectGroup : DOOPAttributeInteger {
+class DOOPAttributeObjectGroup : DOOPIntegerAttribute {
   mixin(OOPAttributeThis!("OOPAttributeObjectGroup"));
 
   /*

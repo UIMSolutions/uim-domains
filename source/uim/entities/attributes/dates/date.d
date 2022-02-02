@@ -20,22 +20,27 @@ class DOOPAttributeDate : DOOPAttribute {
     Date _value;
     Date value() { return _value; }
 
-    override void value(Json newValue) { 
-      this.value(newValue.get!string); }
+    override DOOPAttribute value(Json newValue) { 
+      this.value(newValue.get!string); 
+      return this;
+    }
     unittest {
       version(test_uim_entities) {
         // TODO Add tests
         }}
         
-    override void value(string newValue) { 
-      this.value(Date.fromISOExtString(newValue)); }
+    override DOOPAttribute value(string newValue) { 
+      this.value(Date.fromISOExtString(newValue)); 
+      return this;
+    }
     unittest {
       version(test_uim_entities) {
         // TODO Add tests
         }}
 
-    void value(Date newValue) { 
-      _value = newValue; }
+    DOOPAttribute value(Date newValue) { 
+      _value = newValue; 
+      return this; }
     unittest {
       version(test_uim_entities) {
         // TODO Add tests

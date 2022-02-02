@@ -52,21 +52,21 @@ class DOOPEntity : IRegistrable {
   void registerPath(string path) { _registerPath = path; }
   string registerPath() { return _registerPath; }
 
-  mixin(SProperty!("string", "pool"));
-  mixin(SProperty!("long", "etag"));
+  mixin(OProperty!("string", "pool"));
+  mixin(OProperty!("long", "etag"));
   O etag(this O)(string newValue) { 
     this.etag(to!long(newValue)); 
     return cast(O)this; }
 
-  mixin(SProperty!("DETBCollection", "collection"));
-  mixin(SProperty!("string", "siteName"));
-  mixin(SProperty!("DOOPModel", "model"));
-  mixin(SProperty!("string[string]", "parameters"));
-  mixin(SProperty!("Json", "config"));
+  mixin(OProperty!("DETBCollection", "collection"));
+  mixin(OProperty!("string", "siteName"));
+  mixin(OProperty!("DOOPModel", "model"));
+  mixin(OProperty!("string[string]", "parameters"));
+  mixin(OProperty!("Json", "config"));
 
 /// Versioning
   ///	Date and time when the entity was versioned.	
-  mixin(SProperty!("long", "versionOn"));
+  mixin(OProperty!("long", "versionOn"));
   O versionOn(this O)(SysTime aTime) {
     this.versionOn(toTimeStamp(aTime));
     return cast(O)this;
@@ -77,15 +77,15 @@ class DOOPEntity : IRegistrable {
   }
   
   ///	Unique identifier of the user who versioned the entity.
-  mixin(SProperty!("UUID", "versionBy"));
+  mixin(OProperty!("UUID", "versionBy"));
   O versionBy(this O)(string anUuid) { 
     this.versionBy(UUID(anUuid)); 
     return cast(O)this;
   }
 
-  mixin(SProperty!("string", "versionDescription"));
-  mixin(SProperty!("string", "versionDisplay"));
-  mixin(SProperty!("string", "versionMode"));
+  mixin(OProperty!("string", "versionDescription"));
+  mixin(OProperty!("string", "versionDisplay"));
+  mixin(OProperty!("string", "versionMode"));
 
   O createVersion(this O)(string display = "", string description = "") {
     this.hasVersions = true;
@@ -140,12 +140,12 @@ class DOOPEntity : IRegistrable {
     else {
       switch(type.toLower) {
         case "bool": _attributes[name] = OOPAttributeBool; break;
-        case "long": _attributes[name] = OOPAttributeLong; break;
+        case "long": _attributes[name] = OOPLongAttribute; break;
         case "double": _attributes[name] = OOPAttributeDouble; break;
         case "string": _attributes[name] = OOPStringAttribute; break;
         case "userid": _attributes[name] = OOPAttributeUserId; break;
-        case "uuid": _attributes[name] = OOPAttributeUUID; break;
-        case "array": _attributes[name] = OOPAttributeArray; break;
+        case "uuid": _attributes[name] = OOPUUIDAttribute; break;
+        case "array": _attributes[name] = OOPArrayAttribute; break;
         case "object": _attributes[name] = OOPAttributeObject; break;
         default:
           _attributes[name] = OOPStringAttribute; break;  
@@ -155,12 +155,12 @@ class DOOPEntity : IRegistrable {
   O attribute(this O)(string name, Json json) {
     switch(json["datatype"].get!string.toLower) {
         case "bool": _attributes[name] = OOPAttributeBool.config(json); break;
-        case "long": _attributes[name] = OOPAttributeLong.config(json); break;
+        case "long": _attributes[name] = OOPLongAttribute.config(json); break;
         case "double": _attributes[name] = OOPAttributeDouble.config(json); break;
         case "string": _attributes[name] = OOPStringAttribute.config(json); break;
         case "userid": _attributes[name] = OOPAttributeUserId.config(json); break;
-        case "uuid": _attributes[name] = OOPAttributeUUID.config(json); break;
-        case "array": _attributes[name] = OOPAttributeArray.config(json); break;
+        case "uuid": _attributes[name] = OOPUUIDAttribute.config(json); break;
+        case "array": _attributes[name] = OOPArrayAttribute.config(json); break;
         case "object": _attributes[name] = OOPAttributeObject.config(json); break;
       default:
         _attributes[name] = OOPStringAttribute.config(json); break;  
@@ -171,7 +171,7 @@ class DOOPEntity : IRegistrable {
     _attributes[name] = newAttribute;  
     return cast(O)this; }
   // Every entity has a unique id as a primary key
-  mixin(SProperty!("UUID", "id"));
+  mixin(OProperty!("UUID", "id"));
   O id(this O)(string anUuid) { this.id(UUID(anUuid)); return cast(O)this; }
   version(test_uim_entities) {
     unittest {
@@ -195,10 +195,10 @@ class DOOPEntity : IRegistrable {
   }
 
   // Display of entity 
-  mixin(SProperty!("string", "display"));
+  mixin(OProperty!("string", "display"));
 
   /// Date and time when the entity was created.
-  mixin(SProperty!("long", "createdOn"));
+  mixin(OProperty!("long", "createdOn"));
   O createdOn(this O)(SysTime aTime) {
     this.createdOn(toTimestamp(aTime));
     return cast(O)this;
@@ -216,14 +216,14 @@ class DOOPEntity : IRegistrable {
   }
 
   ///   createdBy	Unique identifier of the user who created the entity.	
-  mixin(SProperty!("UUID", "createdBy"));
+  mixin(OProperty!("UUID", "createdBy"));
   O createdBy(this O)(string anUuid) { 
     if (anUuid.isUUID) this.createdBy(UUID(anUuid)); 
     else _createdBy = NULLUUID;
     return cast(O)this; }
 
   ///	Date and time when the entity was modified.	
-  mixin(SProperty!("long", "modifiedOn"));
+  mixin(OProperty!("long", "modifiedOn"));
   O modifiedOn(this O)(SysTime aTime) {
     this.modifiedOn(toTimestamp(aTime));
     return cast(O)this;
@@ -234,14 +234,14 @@ class DOOPEntity : IRegistrable {
   }
 
   ///	Unique identifier of the user who modified the entity.
-  mixin(SProperty!("UUID", "modifiedBy"));
+  mixin(OProperty!("UUID", "modifiedBy"));
   O modifiedBy(this O)(string anUuid) { 
     if (anUuid.isUUID) this.modifiedBy(UUID(anUuid)); 
     else _modifiedBy = NULLUUID;
     return cast(O)this; }
 
   /// Date and time when the entity was created.
-  mixin(SProperty!("long", "lastAccessedOn"));
+  mixin(OProperty!("long", "lastAccessedOn"));
   O lastAccessedOn(this O)(SysTime aTime) {
     this.lastAccessedOn(toTimestamp(aTime));
     return cast(O)this;
@@ -259,34 +259,34 @@ class DOOPEntity : IRegistrable {
   }
 
   ///   lastAccessBy	Unique identifier of the user who accessed the entity.	
-  mixin(SProperty!("UUID", "lastAccessBy"));
+  mixin(OProperty!("UUID", "lastAccessBy"));
   O lastAccessBy(this O)(string anUuid) { 
     if (anUuid.isUUID) this.lastAccessBy(UUID(anUuid)); 
     else _lastAccessBy = NULLUUID;
     return cast(O)this; }
 
   ///	Description about the entity and more
-  mixin(SProperty!("string", "description"));
+  mixin(OProperty!("string", "description"));
 
   ///	Entity has only one version. Version handling starts with EntityVersion	
-  mixin(SProperty!("bool", "hasVersions"));
+  mixin(OProperty!("bool", "hasVersions"));
   O hasVersions(this O)(string newValue) {
     this.hasVersions(newValue == "true");
     return cast(O)this;
   }
   ///	entity has only one language. Language handling starts with EntityLanguage	
-  mixin(SProperty!("bool", "hasLanguages"));
+  mixin(OProperty!("bool", "hasLanguages"));
   O hasLanguages(this O)(string newValue) {
     this.hasLanguages(newValue == "true");
     return cast(O)this; }
 
   ///	Date and time when the entity is locked.	
-  mixin(SProperty!("bool", "isLocked"));
+  mixin(OProperty!("bool", "isLocked"));
   O isLocked(this O)(string newValue) {
     this.isLocked(newValue == "true");
     return cast(O)this; }
   ///	Date and time when the entity was locked.	
-  mixin(SProperty!("long", "lockedOn"));
+  mixin(OProperty!("long", "lockedOn"));
   O lockedOn(this O)(SysTime aTime) {
     this.lockedOn(toTimestamp(aTime));
     return cast(O)this; }
@@ -295,19 +295,19 @@ class DOOPEntity : IRegistrable {
     return cast(O)this; }
 
   ///	Unique identifier of the user who modified the entity.
-  mixin(SProperty!("UUID", "lockedBy"));
+  mixin(OProperty!("UUID", "lockedBy"));
   O lockedBy(this O)(string anUuid) { 
     this.lockedBy(UUID(anUuid)); 
     return cast(O)this; }
 
   ///	Date and time when the entity is deleted.	
-  mixin(SProperty!("bool", "isDeleted"));
+  mixin(OProperty!("bool", "isDeleted"));
   O isDeleted(this O)(string newValue) {
     this.isDeleted(newValue == "true");
     return cast(O)this; }
   
   ///	Date and time when the entity was locked.	
-  mixin(SProperty!("long", "deletedOn"));
+  mixin(OProperty!("long", "deletedOn"));
   O deletedOn(this O)(SysTime aTime) {
     this.deletedOn(toTimestamp(aTime));
     return cast(O)this; }
@@ -316,12 +316,12 @@ class DOOPEntity : IRegistrable {
     return cast(O)this; }
 
   ///	Unique identifier of the user who deleted the entity.
-  mixin(SProperty!("UUID", "deletedBy"));
+  mixin(OProperty!("UUID", "deletedBy"));
   O deletedBy(this O)(string anUuid) { 
     this.deletedBy(UUID(anUuid)); 
     return cast(O)this; }
 
-  mixin(SProperty!("long", "versionNumber"));
+  mixin(OProperty!("long", "versionNumber"));
   O versionNumber(this O)(string newValue) {
     this.versionNumber(to!long(newValue));
     return cast(O)this; }
@@ -432,7 +432,7 @@ class DOOPEntity : IRegistrable {
       case "versionBy": this.versionBy(value); break;
       default:
         if (key in attributes) {
-          if (auto att = cast(DOOPAttributeUUID)attributes[key]) att.value(value); 
+          if (auto att = cast(DOOPUUIDAttribute)attributes[key]) att.value(value); 
         } 
         break;
     }      
@@ -449,7 +449,7 @@ class DOOPEntity : IRegistrable {
       case "versionOn": this.versionOn(value); break;
       default:
         if (key in attributes) {
-          if (auto att = cast(DOOPAttributeInteger)attributes[key]) att.value(value); 
+          if (auto att = cast(DOOPIntegerAttribute)attributes[key]) att.value(value); 
         } 
         break;
     }      

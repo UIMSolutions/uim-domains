@@ -3,7 +3,7 @@ module uim.entities.attributes.integers.age;
 @safe:
 import uim.entities;
 
-class DOOPAgeAttribute : DOOPAttributeInteger {
+class DOOPAgeAttribute : DOOPIntegerAttribute {
   mixin(OOPAttributeThis!("OOPAgeAttribute"));
 
   /*

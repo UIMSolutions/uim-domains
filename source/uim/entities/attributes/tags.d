@@ -3,22 +3,23 @@ module uim.entities.attributes.tags;
 @safe:
 import uim.entities;
 
-class DOOPAttributeTags : DOOPStringAttributeArray {
-  this() { super(); }
-  this(Json newValue) { this(); this.value(newValue); }
-  this(string newValue) { this(); this.value(newValue); }
-  this(string[] newValue) { this(); this.value(newValue); }
+class DOOPTagsAttribute : DOOPStringAttributeArray {
+  mixin(OOPAttributeThis!("OOPTagsAttribute"));
+  this(string[] myValues) { this().value(myValues); }
 
   alias value = DOOPStringAttributeArray.value;
   version(test_uim_entities) {
     unittest {
       // TODO
       }}
-  override void value(string[] newValue) {
+  override DOOPAttribute value(string[] newValue) {
     string[] results;
     foreach(ref v; newValue) v = v.replace("#", ",");
     foreach(v; newValue) results ~= v.split(","); 
-    super.value(results); }
+    super.value(results); 
+
+    return this;
+    }
   version(test_uim_entities) {
     unittest {
       // TODO
@@ -29,18 +30,16 @@ class DOOPAttributeTags : DOOPStringAttributeArray {
     return null; }
   version(test_uim_entities) {
     unittest {
-      writeln(OOPAttributeTags(["a,b,c"]).value);
-      writeln(OOPAttributeTags(["a,b,c"]).toString);
-      assert(OOPAttributeTags(["a,b,c"]).toString == "#a #b #c");
-      assert(OOPAttributeTags(["a,b, c"]).toString == "#a #b #c");
-      assert(OOPAttributeTags(["a", "b", "c"]).toString == "#a #b #c");
-      assert(OOPAttributeTags(["a", " b", "c"]).toString == "#a #b #c");
+
+      assert(OOPTagsAttribute(["a,b,c"]).toString == "#a #b #c");
+      assert(OOPTagsAttribute(["a,b, c"]).toString == "#a #b #c");
+      assert(OOPTagsAttribute(["a", "b", "c"]).toString == "#a #b #c");
+      assert(OOPTagsAttribute(["a", " b", "c"]).toString == "#a #b #c");
     }}
 }
-auto OOPAttributeTags() { return new DOOPAttributeTags; }
-auto OOPAttributeTags(Json json) { return new DOOPAttributeTags(json); }
-auto OOPAttributeTags(string aValue) { return new DOOPAttributeTags(aValue); }
-auto OOPAttributeTags(string[] aValue) { return new DOOPAttributeTags(aValue); }
+mixin(OOPAttributeCalls!("OOPTagsAttribute"));
+auto OOPTagsAttribute(string[] myValues) { return new DOOPTagsAttribute(myValues); }
+
 
 unittest {
   version(test_uim_entities) {

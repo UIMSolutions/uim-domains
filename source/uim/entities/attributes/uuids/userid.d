@@ -3,7 +3,7 @@ module uim.entities.attributes.uuids.userid;
 @safe:
 import uim.entities;
 
-class DOOPAttributeUserId : DOOPAttributeUUID {
+class DOOPAttributeUserId : DOOPUUIDAttribute {
   mixin(OOPAttributeThis!("OOPAttributeUserId"));
 
   this(UUID newValue) { this(); this.value(newValue); }

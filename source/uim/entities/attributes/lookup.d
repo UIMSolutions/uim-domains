@@ -3,10 +3,10 @@ module uim.entities.attributes.lookup;
 @safe:
 import uim.entities;
 
-class DOOPAttributeLookup : DOOPAttributeInteger {
-  mixin(OOPAttributeThis!("OOPAttributeLookup"));
+class DOOPLookupAttribute : DOOPIntegerAttribute {
+  mixin(OOPAttributeThis!("OOPLookupAttribute"));
 
-  this(DOOPAttributeLookup attribute) { super(attribute); }
+  this(DOOPLookupAttribute attribute) { super(attribute); }
 
   // #region lookupValues
       protected string[long] _lookupValues;
@@ -43,7 +43,7 @@ class DOOPAttributeLookup : DOOPAttributeInteger {
       // TODO Add tests
       }}
 }
-mixin(OOPAttributeCalls!("OOPAttributeLookup"));
+mixin(OOPAttributeCalls!("OOPLookupAttribute"));
 
 unittest {
   version(test_uim_entities) {

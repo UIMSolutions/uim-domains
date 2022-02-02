@@ -8,7 +8,6 @@ import uim.entities;
 
 class DOOPBaseCurrencyAttribute : DOOPAttributeDecimal {
   mixin(OOPAttributeThis!("OOPBaseCurrencyAttribute"));
-
   this(double newValue) { this(); this.value(newValue); }
 
   override void initialize() {
@@ -20,7 +19,6 @@ means.measurement.currency
   }
 }
 mixin(OOPAttributeCalls!("OOPBaseCurrencyAttribute"));
-
 auto OOPBaseCurrencyAttribute(double newValue) { return new DOOPBaseCurrencyAttribute(newValue); }
 
 unittest {

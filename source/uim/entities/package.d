@@ -111,8 +111,6 @@ Json toJson(DOOPEntity[] entities) {
 DOOPAttributeClass[string] attributeClassRegistry;
 DOOPObjclass[string] objclassRegistry;
 
-
-
 static this() {
   uimObjclassRegistry = new DOOPObjclassRegistry;
   uimAttclassRegistry = new DOOPAttclassRegistry;
@@ -128,12 +126,12 @@ static this() { // register attributes
 
 unittest {
   version(test_uim_entities) {
-    auto attribute = uimAttributeRegistry["uim/boolean"].copy;
-    assert(uimAttributeRegistry["uim/boolean"].copy);
+    /* auto attribute = uimAttributeRegistry["uim/boolean"].create;
+    assert(uimAttributeRegistry["uim/boolean"].create); */
 //    assert(cast(DOOPBooleanAttribute)attribute);
-    writeln(attribute.toString);
-    attribute = uimRegistryAttributes["uim/boolean"];
-    writeln(attribute.toString);
+/*     writeln(attribute.toString);
+    attribute = uimAttributeRegistry["uim/boolean"];
+    writeln(attribute.toString); */
     //assert(attribute.toString == "false");
 //    assert(attribute.fromString("true").toString == "true"); 
   }
@@ -141,9 +139,9 @@ unittest {
 
 unittest {
   version(test_uim_entities) {
-    DOOPAttribute attribute = OOPBooleanAttribute;
+/*     DOOPAttribute attribute = OOPBooleanAttribute;
     writeln(attribute);
-    writeln(OOPBooleanAttribute);
+    writeln(OOPBooleanAttribute); */
   }}
 
 template OOPEntityThis(string name) {

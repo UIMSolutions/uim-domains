@@ -13,14 +13,20 @@ class DOOPAttributeDatetime : DOOPAttribute {
   DateTime _value;
   DateTime value() { return _value; }
    
-  override void value(Json newValue) { 
-    this.value(newValue.get!string); }
+  override DOOPAttribute value(Json newValue) { 
+    this.value(newValue.get!string); 
+    return this;
+  }
 
-  override void value(string newValue) { 
-    this.value(DateTime.fromISOExtString(newValue)); }
+  override DOOPAttribute value(string newValue) { 
+    this.value(DateTime.fromISOExtString(newValue)); 
+    return this;
+  }
   
-  void value(DateTime newValue) { 
-    _value = newValue; }
+  DOOPAttribute value(DateTime newValue) { 
+    _value = newValue; 
+    return this;
+  }
   version(test_uim_entities) {
     unittest {
       // TODO Add tests

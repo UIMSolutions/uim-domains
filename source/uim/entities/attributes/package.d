@@ -27,24 +27,28 @@ public import uim.entities.attributes.tags;
 
 unittest {
   version(test_uim_entities) {
-    debug writeln(uimRegistryAttributes.paths);
+    debug writeln(uimAttributeRegistry.paths);
   }
 }
 
 template OOPAttributeThis(string className, string path = null) {
   const char[] OOPAttributeThis = `
-this() { super(); this.name("`~className~`").path("`~path~`"); }
-this(DOOPAttributeClass myAttributeClass) { this().attributeClass(myAttributeClass); };
-this(Json myValue) { this().value(myValue); }
-this(string myValue) { this().value(myValue); };
-this(DOOPAttribute myValue) { this().fromJson(myValue ? myValue.toJson : Json(null)); }`;
+    this() { super(); this.name("`~className~`").path("`~path~`"); }
+    this(DOOPAttributeClass myAttributeClass) { this().attributeClass(myAttributeClass); };
+    this(Json myValue) { this().value(myValue); }
+    this(string myValue) { this().value(myValue); };
+    this(DOOPAttribute myValue) { this().value(myValue ? myValue.jsonValue : Json(null)); }
+
+    override DOOPAttribute create() { return `~className~`; }
+`;
+
 }
 
 template OOPAttributeCalls(string className) {
   const char[] OOPAttributeCalls = `
-auto `~className~`() { return new D`~className~`(); }
-auto `~className~`(DOOPAttributeClass myAttributeClass) { return new D`~className~`(myAttributeClass); };
-auto `~className~`(Json myValue) { return new D`~className~`(myValue); }
-auto `~className~`(string myValue) { return new D`~className~`(myValue); }
-auto `~className~`(DOOPAttribute myValue) { return new D`~className~`(myValue); }`;
+    auto `~className~`() { return new D`~className~`(); }
+    auto `~className~`(DOOPAttributeClass myAttributeClass) { return new D`~className~`(myAttributeClass); };
+    auto `~className~`(Json myValue) { return new D`~className~`(myValue); }
+    auto `~className~`(string myValue) { return new D`~className~`(myValue); }
+    auto `~className~`(DOOPAttribute myValue) { return new D`~className~`(myValue); }`;
 }

@@ -4,7 +4,7 @@ module uim.entities.attributes.stringarray;
 import uim.entities;
 import uim.core.datatypes.json;
 
-class DOOPStringAttributeArray : DOOPAttributeArray {
+class DOOPStringAttributeArray : DOOPArrayAttribute {
   this() { super(); }
   this(Json newValue) { this(); this.value(newValue); }
   this(string newValue) { this(); this.value(newValue); }
@@ -13,7 +13,7 @@ class DOOPStringAttributeArray : DOOPAttributeArray {
   protected string[] _value;
   string[] value() { return _value; }
 
-  override void value(Json newValue) {
+  override DOOPAttribute value(Json newValue) {
     if (newValue == Json(null)) this.value(cast(string[])null);
     switch(newValue.type) {
       case Json.Type.string: 
@@ -24,6 +24,7 @@ class DOOPStringAttributeArray : DOOPAttributeArray {
         break;
       default: break;
     }
+    return this;
   }
   version(test_uim_entities) {
     unittest {
@@ -37,8 +38,10 @@ class DOOPStringAttributeArray : DOOPAttributeArray {
       assert(attribute.value[1] == "b");
       }}
 
-  override void value(string newValue) {
-    this.value(newValue.split(",").map!(a => a.strip).array); }
+  override DOOPAttribute value(string newValue) {
+    this.value(newValue.split(",").map!(a => a.strip).array);
+    return this; 
+  }
 
   version(test_uim_entities) {
     unittest {
@@ -52,10 +55,12 @@ class DOOPStringAttributeArray : DOOPAttributeArray {
       assert(attribute.value[2] == "c");
       }}
 
-  void value(string[] newValue) { // no whitespace before and after, remove empty itemsresults
+  DOOPAttribute value(string[] newValue) { // no whitespace before and after, remove empty itemsresults
     string[] results;
     foreach(v; newValue) results ~= v.split(","); 
-    _value = results.map!(a => a.strip).filter!(a => a.length > 0).array; }
+    _value = results.map!(a => a.strip).filter!(a => a.length > 0).array;
+    return this; 
+    }
   version(test_uim_entities) {
     unittest {
       auto attribute = OOPStringAttributeArray; 

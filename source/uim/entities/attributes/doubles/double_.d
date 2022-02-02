@@ -6,14 +6,10 @@ import uim.entities;
 class DOOPAttributeDouble : DOOPAttribute {
   mixin(OOPAttributeThis!("OOPAttributeDouble"));
 
-/*   this(DOOPAttributeDouble attribute) { 
-    super(attribute);
-    this.value(attribute.value); } */
-
   protected double _value;
   double value() { return _value; }
 
-  override DOOPAttributeDouble value(Json newValue) {
+  override DOOPAttribute value(Json newValue) {
     if (newValue == Json(null)) this.value(0.0);
     switch(newValue.type) {
       case Json.Type.float_: 
@@ -25,21 +21,31 @@ class DOOPAttributeDouble : DOOPAttribute {
   }  
   version(test_uim_entities) {
     unittest {
-      // TODO Add tests
-      }}
+      auto doubleAttribute = OOPAttributeDouble;
+      doubleAttribute.value(Json(1.0));
+      assert(doubleAttribute.value == 1.0);
+  }}
 
-  override void value(string newValue) {
-    this.value(to!double(newValue)); }
+  override DOOPAttribute value(string newValue) {
+    this.value(to!double(newValue)); 
+    return this;
+  }
   version(test_uim_entities) {
     unittest {
-      // TODO Add tests
-      }}
+      auto doubleAttribute = OOPAttributeDouble;
+      doubleAttribute.value("1.0");
+      assert(doubleAttribute.value == 1.0);
+  }}
 
-  void value(double newValue) {
-    _value = newValue; }
+  DOOPAttribute value(double newValue) {
+    _value = newValue; 
+    return this;
+  }
   version(test_uim_entities) {
     unittest {
-      // TODO Add tests
+      auto doubleAttribute = OOPAttributeDouble;
+      doubleAttribute.value(1.0);
+      assert(doubleAttribute.value == 1.0);
       }}
 
   override void initialize() {

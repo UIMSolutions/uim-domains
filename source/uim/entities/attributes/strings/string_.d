@@ -7,28 +7,38 @@ class DOOPStringAttribute : DOOPAttribute {
   mixin(OOPAttributeThis!("OOPStringAttribute", "string"));
 
   protected string _value;
-  override void value(Json newValue) {
+  string value() { return _value; } 
+
+  override DOOPAttribute value(Json newValue) {
     if (newValue == Json(null)) this.value(null);
     switch(newValue.type) {
       case Json.Type.string: this.value(newValue.get!string); break;
       default: break;
     }
+    return this;
   } 
-  override void value(string newValue) {
-    _value = newValue; } 
+  override DOOPAttribute value(string newValue) {
+    _value = newValue;
+    return this; 
+    } 
   version(test_uim_entities) {
     unittest {
       auto attribute = OOPStringAttribute;
-      attribute.fromJson(Json("Hello"));
+      
+      attribute.value(Json("Hello"));
       assert(attribute.value == "Hello");
-      attribute.fromJson(Json("Goodbye"));
+
+      attribute.value(Json("Goodbye"));
       assert(attribute.value == "Goodbye");
+      
       // Init value
       attribute = OOPStringAttribute("Hi");
       assert(attribute.value == "Hi");
-      attribute.fromJson(Json("Hello"));
+
+      attribute.value(Json("Hello"));
       assert(attribute.value == "Hello");
-      attribute.fromJson(Json("Goodbye"));
+      
+      attribute.value(Json("Goodbye"));
       assert(attribute.value == "Goodbye");
   }}
 

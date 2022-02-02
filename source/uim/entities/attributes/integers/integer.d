@@ -11,7 +11,7 @@ class DOOPIntegerAttribute : DOOPAttribute {
   protected int _value;
   int value() { return _value; }
   
-  override void value(Json newValue) {
+  override DOOPAttribute value(Json newValue) {
     if (newValue == Json(null)) this.value(0);
     switch(newValue.type) {
       case Json.Type.int_: 
@@ -19,12 +19,17 @@ class DOOPIntegerAttribute : DOOPAttribute {
         break;
       default: break;
     }
+    return this;
   }
-  override void value(string newValue) {
-    this.value(to!int(newValue)); }
+  override DOOPAttribute value(string newValue) {
+    this.value(to!int(newValue)); 
+    return this;
+  }
 
-  void value(int newValue) {
-    _value = newValue; }
+  DOOPAttribute value(int newValue) {
+    _value = newValue; 
+    return this;
+  }
 
   version(test_uim_entities) {
     unittest {

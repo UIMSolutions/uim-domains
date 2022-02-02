@@ -17,7 +17,7 @@ class DOOPBooleanAttribute : DOOPAttribute {
   void value(bool newValue) {
     _value = newValue;
   }
-  override void value(Json newValue) {
+  override DOOPAttribute value(Json newValue) {
     if (newValue == Json(null)) this.value(false);
     switch(newValue.type) {
       case Json.Type.bool_: 
@@ -25,13 +25,38 @@ class DOOPBooleanAttribute : DOOPAttribute {
         break;
       default: break;
     }
+    return this;
   }
 
-  override void value(string newValue) { 
+  override DOOPAttribute value(string newValue) { 
     debug writeln("In DOOPBooleanAttribute newValue = ", newValue);
-    _value = (newValue.toLower == "true") || (newValue.toLower == "on"); 
+    _value = (newValue.toLower == "true") || (newValue.toLower == "on") || (newValue.toLower == "1"); 
     debug writeln("result ", _value);
+
+    return this;
   }
+  version(test_uim_entities) {
+    unittest {
+      auto booleanAttribute = OOPBooleanAttribute;
+
+      booleanAttribute.value("true");
+      assert(booleanAttribute.value);
+
+      booleanAttribute.value("false");
+      assert(!booleanAttribute.value);
+
+      booleanAttribute.value("on");
+      assert(booleanAttribute.value);
+
+      booleanAttribute.value("off");
+      assert(!booleanAttribute.value);
+
+      booleanAttribute.value("1");
+      assert(booleanAttribute.value);
+
+      booleanAttribute.value("0");
+      assert(!booleanAttribute.value);
+  }}
 
   bool value() {
     return _value;

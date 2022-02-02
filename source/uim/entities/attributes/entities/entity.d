@@ -10,20 +10,24 @@ class DOOPEntityAttribute : DOOPAttribute {
   protected DOOPEntity _value;
   DOOPEntity value() { return _value; }
 
-  override void value(Json newValue) {
+  override DOOPAttribute value(Json newValue) {
     // TODO this.value(newValue.get!string); 
+    return this;
     } 
 
-  override void value(string newValue) {
+  override DOOPAttribute value(string newValue) {
     // TODO _value = newValue; 
+    return this;
     } 
   version(test_uim_entities) {
     unittest {
       // TODO Add tests      
       }}
 
-  void value(DOOPEntity newValue) {
-    _value = newValue; } 
+  DOOPAttribute value(DOOPEntity newValue) {
+    _value = newValue; 
+    return this;
+  } 
   version(test_uim_entities) {
     unittest {
       // TODO Add tests

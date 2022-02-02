@@ -5,7 +5,6 @@ import uim.entities;
 
 class DOOPAttributeDecimal : DOOPAttributeDouble {
   mixin(OOPAttributeThis!("OOPAttributeDecimal"));
-
   this(double newValue) { this(); this.value(newValue); }
 }
 mixin(OOPAttributeCalls!("OOPAttributeDecimal"));
