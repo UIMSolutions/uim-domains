@@ -3,11 +3,11 @@ module uim.entities.attributes.tags;
 @safe:
 import uim.entities;
 
-class DOOPTagsAttribute : DOOPStringAttributeArray {
+class DOOPTagsAttribute : DOOPStringArrayAttribute {
   mixin(OOPAttributeThis!("OOPTagsAttribute"));
   this(string[] myValues) { this().value(myValues); }
 
-  alias value = DOOPStringAttributeArray.value;
+  alias value = DOOPStringArrayAttribute.value;
   version(test_uim_entities) {
     unittest {
       // TODO
