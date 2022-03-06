@@ -1,14 +1,22 @@
-module uim.entities.attributeClasses.attributeClass;
+module uim.entities.attributeclasses.attributeclass;
 
 @safe :
 import uim.entities;
 
 class DOOPAttributeClass : DOOPEntity {
-  this() { super(); }
-  this(Json newData) { this(); this.fromJson(newData); }
-  this(UUID myId) { this(); this.id(myId); }
-  this(string myName) { this(); this.name(myName); }
-  this(UUID myId, string myName) { this(); this.id(myId).name(myName); }
+  mixin(AttributeClassThis!("OOPAttributeClass"));
+
+  mixin(OProperty!("string[]", "dataFormats")); // Select the data type of the property.")); // 
+  bool isDataFormat(string dataFormatName) {
+    foreach(df; dataFormats) if (df == dataFormatName) return true;
+    return false;
+  }
+  O addDataFormats(this O)(string[] newDataFormats) {
+    foreach(df; newDataFormats) {
+      if (!isDataFormat(df)) _dataFormats ~= df;
+    }
+    return cast(O)this;
+  }
 
   mixin(SProperty!("bool", "isNullable"));
   mixin(SProperty!("string", "valueType")); // Select the data type of the property.")); // 

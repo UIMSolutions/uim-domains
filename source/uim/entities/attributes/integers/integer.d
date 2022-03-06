@@ -6,6 +6,14 @@ import uim.entities;
 class DOOPIntegerAttribute : DOOPAttribute {
   mixin(OOPAttributeThis!("OOPIntegerAttribute"));
 
+  override void initialize() {
+    super.initialize;
+
+    this
+      .attributeClass(OOPIntegerAttributeClass)
+      .isInteger(true);
+  }
+
   this(int aValue) { this(); this.value(aValue); }
 
   protected int _value;

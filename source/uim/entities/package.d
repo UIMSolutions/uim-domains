@@ -67,7 +67,7 @@ public import uim.entitybase;
 public import uim.entities.entity;
 public import uim.entities.entity_lang;
 public import uim.entities.attributes;
-public import uim.entities.attributeClasses;
+public import uim.entities.attributeclasses;
 public import uim.entities.objclasses;
 public import uim.entities.registries;
 
