@@ -638,7 +638,6 @@ class DOOPEntity : IRegistrable {
 
     if (showFields.length == 0) {
       foreach(k; _attributes.byKey) {
-        debug writeln("Key - ", k, "/", _attributes[k].jsonValue);
         if (!hideFields.exist(k)) result[k] = _attributes[k].jsonValue;
       }
     }
