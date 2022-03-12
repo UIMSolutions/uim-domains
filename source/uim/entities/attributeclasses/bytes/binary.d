@@ -1,20 +1,19 @@
-module uim.entities.attributes.bytes.binary;
+module uim.entities.attributeclasses.bytes.binary;
 
 @safe:
 import uim.entities;
 
-class DOOPByteAttribute : DOOPAttribute {
-  mixin(OOPAttributeThis!("OOPByteAttribute"));
+class DOOPByteAttributeClass : DOOPAttributeClass {
+  mixin(AttributeClassThis!("OOPByteAttributeClass"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .isArray(true)
-      .isByte(true);
+      .addDataFormats(["array"]);
   }
 }
-mixin(OOPAttributeCalls!("OOPByteAttribute"));
+mixin(AttributeClassCalls!("OOPByteAttributeClass"));
 
 unittest {
   version(test_uim_entities) {  

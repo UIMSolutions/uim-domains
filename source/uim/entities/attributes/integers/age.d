@@ -6,6 +6,12 @@ import uim.entities;
 class DOOPAgeAttribute : DOOPIntegerAttribute {
   mixin(OOPAttributeThis!("OOPAgeAttribute"));
 
+  override void initialize() {
+    super.initialize;
+
+    this
+      .attributeClass(OOPAgeAttributeClass);
+  }
   /*
 
 is.dataFormat.integer

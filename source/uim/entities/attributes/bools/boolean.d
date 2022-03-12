@@ -13,6 +13,13 @@ class DOOPBooleanAttribute : DOOPAttribute {
   mixin(OOPAttributeThis!("OOPBooleanAttribute"));
   this(bool newValue) { this().value(newValue); }
 
+  override void initialize() {
+    super.initialize;
+
+    this
+      .attributeClass(OOPBooleanAttributeClass);
+  }
+
   protected bool _value;
   void value(bool newValue) {
     _value = newValue;

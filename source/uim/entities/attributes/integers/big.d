@@ -10,8 +10,7 @@ class DOOPBigIntegerAttribute : DOOPIntegerAttribute {
     super.initialize;
 
     this
-      .isBig(true)
-      .isInteger(true);
+      .attributeClass(OOPBigIntegerAttributeClass);
   }
 }
 mixin(OOPAttributeCalls!("OOPBigIntegerAttribute"));

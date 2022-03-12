@@ -9,9 +9,8 @@ class DOOPBigIntegerAttributeClass : DOOPIntegerAttributeClass {
   override void initialize() {
     super.initialize;
 
-/*     this
-      .isBig(true)
-      .isInteger(true); */
+    this
+      .addDataFormats(["big"]);
   }
 }
 mixin(AttributeClassCalls!("OOPBigIntegerAttributeClass"));

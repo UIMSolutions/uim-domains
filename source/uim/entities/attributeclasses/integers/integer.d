@@ -10,7 +10,7 @@ class DOOPIntegerAttributeClass : DOOPAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["integer"]);
+      .addDataFormats(["integer"]);
   }
 }
 mixin(AttributeClassCalls!"OOPIntegerAttributeClass");

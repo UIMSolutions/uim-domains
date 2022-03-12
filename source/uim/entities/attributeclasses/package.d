@@ -4,6 +4,10 @@ module uim.entities.attributeclasses;
 import uim.entities;
 
 public import uim.entities.attributeclasses.attributeclass;
+
+public import uim.entities.attributeclasses.arrays;
+public import uim.entities.attributeclasses.bools;
+public import uim.entities.attributeclasses.bytes;
 public import uim.entities.attributeclasses.chars;
 public import uim.entities.attributeclasses.integers;
 public import uim.entities.attributeclasses.floats;

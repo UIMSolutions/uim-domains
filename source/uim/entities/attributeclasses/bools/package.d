@@ -1,7 +1,7 @@
-module uim.entities.attributes.bools;
+module uim.entities.attributeclasses.bools;
 
 @safe:
 import uim.entities;
 
 // main
-public import uim.entities.attributes.bools.boolean;
+public import uim.entities.attributeclasses.bools.boolean;

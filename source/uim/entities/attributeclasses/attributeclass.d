@@ -7,13 +7,13 @@ class DOOPAttributeClass : DOOPEntity {
   mixin(AttributeClassThis!("OOPAttributeClass"));
 
   mixin(OProperty!("string[]", "dataFormats")); // Select the data type of the property.")); // 
-  bool isDataFormat(string dataFormatName) {
+  bool hasDataFormat(string dataFormatName) {
     foreach(df; dataFormats) if (df == dataFormatName) return true;
     return false;
   }
   O addDataFormats(this O)(string[] newDataFormats) {
     foreach(df; newDataFormats) {
-      if (!isDataFormat(df)) _dataFormats ~= df;
+      if (!hasDataFormat(df)) _dataFormats ~= df;
     }
     return cast(O)this;
   }
