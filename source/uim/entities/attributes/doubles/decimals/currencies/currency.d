@@ -4,7 +4,7 @@ module uim.entities.attributes.doubles.decimals.currencies.currency;
 import uim.entities;
 
 /* means.attributeName */  
-class DOOPCurrencyAttribute : DOOPAttributeDecimal {
+class DOOPCurrencyAttribute : DOOPDecimalAttribute {
   mixin(OOPAttributeThis!("OOPCurrencyAttribute"));
 
   this(DOOPCurrencyAttribute attribute) { super(attribute); }

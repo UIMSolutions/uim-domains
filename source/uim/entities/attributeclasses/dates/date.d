@@ -10,63 +10,22 @@ module uim.entities.attributeclasses.dates.date;
 import uim.entities;
 
 // Attribute class for managing Date values
-class DOOPAttributeDate : DOOPAttribute {
-  mixin(OOPAttributeThis!("OOPAttributeDate"));
+class DOOPDateAttributeClass : DOOPAttributeClass {
+  mixin(AttributeClassThis!("OOPDateAttributeClass"));
 
-/*   this(DOOPAttributeDate attribute) { super(attribute); this.value(attribute.value); } */
-  this(Date newValue) { this(); this.value(newValue); }
+  override void initialize() {
+    super.initialize;
 
-  // #region value
-    Date _value;
-    Date value() { return _value; }
-
-    override DOOPAttribute value(Json newValue) { 
-      this.value(newValue.get!string); 
-      return this;
-    }
-    unittest {
-      version(test_uim_entities) {
-        // TODO Add tests
-        }}
-        
-    override DOOPAttribute value(string newValue) { 
-      this.value(Date.fromISOExtString(newValue)); 
-      return this;
-    }
-    unittest {
-      version(test_uim_entities) {
-        // TODO Add tests
-        }}
-
-    DOOPAttribute value(Date newValue) { 
-      _value = newValue; 
-      return this; }
-    unittest {
-      version(test_uim_entities) {
-        // TODO Add tests
-        }}
-
-      override Json toJson() {
-      return Json(value.toISOExtString);    
-    }
-    unittest {
-      version(test_uim_entities) {
-        // TODO Add tests
-        }}
-  // #endregion value
-
-  override string toString() { 
-    return value.toISOExtString; }
-  version(test_uim_entities) {
-    unittest {
-      // TODO Add tests
-      }}
+    this
+      .dataFormats(["date"]);
+    // means.measurement.date
+  }
 }
-mixin(OOPAttributeCalls!("OOPAttributeDate"));
+mixin(AttributeClassCalls!"OOPDateAttributeClass");
 
-
-unittest {
-  version(test_uim_entities) {  
-    // TODO tests
+version(test_uim_entities) {
+  unittest {
+    testAttributeClass(new OOPDateAttributeClass);
+    testAttributeClass(OOPDateAttributeClass);
   }
 }

@@ -3,12 +3,12 @@ module uim.entities.attributes.doubles.decimals.decimal;
 @safe:
 import uim.entities;
 
-class DOOPAttributeDecimal : DOOPAttributeDouble {
-  mixin(OOPAttributeThis!("OOPAttributeDecimal"));
+class DOOPDecimalAttribute : DOOPAttributeDouble {
+  mixin(OOPAttributeThis!("OOPDecimalAttribute"));
   this(double newValue) { this(); this.value(newValue); }
 }
-mixin(OOPAttributeCalls!("OOPAttributeDecimal"));
-auto OOPAttributeDecimal(double newValue) { return new DOOPAttributeDecimal(newValue); }
+mixin(OOPAttributeCalls!("OOPDecimalAttribute"));
+auto OOPDecimalAttribute(double newValue) { return new DOOPDecimalAttribute(newValue); }
 
 unittest {
   version(test_uim_entities) {  

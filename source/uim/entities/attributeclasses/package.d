@@ -9,8 +9,13 @@ public import uim.entities.attributeclasses.arrays;
 public import uim.entities.attributeclasses.bools;
 public import uim.entities.attributeclasses.bytes;
 public import uim.entities.attributeclasses.chars;
-public import uim.entities.attributeclasses.integers;
+public import uim.entities.attributeclasses.dates;
+public import uim.entities.attributeclasses.datetimes;
+public import uim.entities.attributeclasses.decimals;
+public import uim.entities.attributeclasses.doubles;
+public import uim.entities.attributeclasses.entities;
 public import uim.entities.attributeclasses.floats;
+public import uim.entities.attributeclasses.integers;
 
 template AttributeClassThis(string name) {
   const char[] AttributeClassThis = `

@@ -6,7 +6,7 @@ module uim.entities.attributes.doubles.decimals.currencies.base;
 @safe:
 import uim.entities;
 
-class DOOPBaseCurrencyAttribute : DOOPAttributeDecimal {
+class DOOPBaseCurrencyAttribute : DOOPDecimalAttribute {
   mixin(OOPAttributeThis!("OOPBaseCurrencyAttribute"));
   this(double newValue) { this(); this.value(newValue); }
 
