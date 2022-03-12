@@ -7,7 +7,7 @@ import uim.entities;
 // means.measurement.dimension.electricCurrent
 // means.measurement.units.si.ampere
 // has.measurement.fundamentalComponent.ampere
-class DOOPAmpereAttribute : DOOPAttributeDouble {
+class DOOPAmpereAttribute : DOOPDoubleAttribute {
   mixin(OOPAttributeThis!("OOPAmpereAttribute", "ampere"));
 }
 mixin(OOPAttributeCalls!("OOPAmpereAttribute"));

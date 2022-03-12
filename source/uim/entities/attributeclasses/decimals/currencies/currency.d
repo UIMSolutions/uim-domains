@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.decimals.currencies.currency;
 import uim.entities;
 
 class DOOPCurrencyAttributeClass : DOOPDecimalAttributeClass {
-  mixin(OOPAttribAttributeClassThisuteThis!("OOPCurrencyAttributeClass"));
+  mixin(AttributeClassThis!("OOPCurrencyAttributeClass"));
 
   override void initialize() {
     super.initialize;

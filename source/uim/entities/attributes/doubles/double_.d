@@ -3,8 +3,8 @@ module uim.entities.attributes.doubles.double_;
 @safe:
 import uim.entities;
 
-class DOOPAttributeDouble : DOOPAttribute {
-  mixin(OOPAttributeThis!("OOPAttributeDouble"));
+class DOOPDoubleAttribute : DOOPAttribute {
+  mixin(OOPAttributeThis!("OOPDoubleAttribute"));
 
   protected double _value;
   double value() { return _value; }
@@ -21,7 +21,7 @@ class DOOPAttributeDouble : DOOPAttribute {
   }  
   version(test_uim_entities) {
     unittest {
-      auto doubleAttribute = OOPAttributeDouble;
+      auto doubleAttribute = OOPDoubleAttribute;
       doubleAttribute.value(Json(1.0));
       assert(doubleAttribute.value == 1.0);
   }}
@@ -32,7 +32,7 @@ class DOOPAttributeDouble : DOOPAttribute {
   }
   version(test_uim_entities) {
     unittest {
-      auto doubleAttribute = OOPAttributeDouble;
+      auto doubleAttribute = OOPDoubleAttribute;
       doubleAttribute.value("1.0");
       assert(doubleAttribute.value == 1.0);
   }}
@@ -43,7 +43,7 @@ class DOOPAttributeDouble : DOOPAttribute {
   }
   version(test_uim_entities) {
     unittest {
-      auto doubleAttribute = OOPAttributeDouble;
+      auto doubleAttribute = OOPDoubleAttribute;
       doubleAttribute.value(1.0);
       assert(doubleAttribute.value == 1.0);
       }}
@@ -60,7 +60,7 @@ class DOOPAttributeDouble : DOOPAttribute {
     return Json(value); }
   version(test_uim_entities) {
     unittest {
-      assert(OOPAttributeDouble.value(1.1).jsonValue.get!double == 1.1);
+      assert(OOPDoubleAttribute.value(1.1).jsonValue.get!double == 1.1);
   }}
 
   override string stringValue() {
@@ -70,7 +70,7 @@ class DOOPAttributeDouble : DOOPAttribute {
       // TODO Add tests
       }}
 }
-mixin(OOPAttributeCalls!("OOPAttributeDouble"));
+mixin(OOPAttributeCalls!("OOPDoubleAttribute"));
 
 unittest {
   version(test_uim_entities) {

@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.datetimes.time;
 import uim.entities;
 
 class DOOPTimeAttributeClass : DOOPDateAttributeClass {
-  mixin(OOPAttribAttributeClassThisuteThis!("OOPTimeAttributeClass"));
+  mixin(AttributeClassThis!("OOPTimeAttributeClass"));
 
   override void initialize() {
     super.initialize;

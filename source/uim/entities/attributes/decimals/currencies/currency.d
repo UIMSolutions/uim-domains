@@ -1,4 +1,4 @@
-module uim.entities.attributes.doubles.decimals.currencies.currency;
+module uim.entities.attributes.decimals.currencies.currency;
 
 @safe:
 import uim.entities;

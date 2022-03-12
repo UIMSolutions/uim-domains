@@ -1,9 +1,9 @@
-module uim.entities.attributes.doubles.decimals.decimal;
+module uim.entities.attributes.decimals.decimal;
 
 @safe:
 import uim.entities;
 
-class DOOPDecimalAttribute : DOOPAttributeDouble {
+class DOOPDecimalAttribute : DOOPDoubleAttribute {
   mixin(OOPAttributeThis!("OOPDecimalAttribute"));
   this(double newValue) { this(); this.value(newValue); }
 }

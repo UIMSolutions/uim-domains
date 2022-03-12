@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.decimals.decimal;
 import uim.entities;
 
 class DOOPDecimalAttributeClass : DOOPAttributeClass {
-  mixin(OOPAttribAttributeClassThisuteThis!("OOPDecimalAttributeClass"));
+  mixin(AttributeClassThis!("OOPDecimalAttributeClass"));
 
   override void initialize() {
     super.initialize;

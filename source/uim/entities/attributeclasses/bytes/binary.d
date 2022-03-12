@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.bytes.binary;
 @safe:
 import uim.entities;
 
-class DOOPByteAttributeClass : DOOPAttributeClass {
-  mixin(AttributeClassThis!("OOPByteAttributeClass"));
+class DOOPBinaryAttributeClass : DOOPAttributeClass {
+  mixin(AttributeClassThis!("OOPBinaryAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -13,10 +13,11 @@ class DOOPByteAttributeClass : DOOPAttributeClass {
       .addDataFormats(["array"]);
   }
 }
-mixin(AttributeClassCalls!("OOPByteAttributeClass"));
+mixin(AttributeClassCalls!("OOPBinaryAttributeClass"));
 
-unittest {
-  version(test_uim_entities) {  
-    // TODO tests
+version(test_uim_entities) {
+  unittest {
+    testAttributeClass(new DOOPBinaryAttributeClass);
+    testAttributeClass(OOPBinaryAttributeClass);
   }
 }

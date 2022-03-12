@@ -4,7 +4,6 @@ module uim.entities.attributes.doubles;
 public import uim.entities.attributes.doubles.double_;
 
 // packages
-public import uim.entities.attributes.doubles.decimals;
 public import uim.entities.attributes.doubles.meters;
 
 // subs

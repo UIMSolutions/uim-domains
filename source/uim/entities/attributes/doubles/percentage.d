@@ -3,7 +3,7 @@ module uim.entities.attributes.percentage;
 @safe:
 import uim.entities;
 
-class DOOPAttributePercentage : DOOPAttributeDouble {
+class DOOPAttributePercentage : DOOPDoubleAttribute {
   mixin(OOPAttributeThis!("OOPAttributePercentage"));
 }
 mixin(OOPAttributeCalls!("OOPAttributePercentage"));

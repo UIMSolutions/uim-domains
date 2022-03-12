@@ -9,7 +9,8 @@ class DOOPAttributeByte : DOOPAttribute {
   override void initialize() {
     super.initialize;
 
-/* is.dataFormat.byte */
+    this
+      .attributeClass(OOPByteAttributeClass);
   }
 }
 mixin(OOPAttributeCalls!("OOPAttributeByte"));

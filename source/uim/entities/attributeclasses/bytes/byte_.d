@@ -15,8 +15,9 @@ class DOOPByteAttributeClass : DOOPAttributeClass {
 }
 mixin(AttributeClassCalls!("OOPByteAttributeClass"));
 
-unittest {
-  version(test_uim_entities) {  
-    // TODO tests
+version(test_uim_entities) {
+  unittest {
+    testAttributeClass(new DOOPByteAttributeClass);
+    testAttributeClass(OOPByteAttributeClass);
   }
 }

@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.datetimes.datetime;
 import uim.entities;
 
 class DOOPDatetimeAttributeClass : DOOPDateAttributeClass {
-  mixin(OOPAttribAttributeClassThisuteThis!("OOPDatetimeAttributeClass"));
+  mixin(AttributeClassThis!("OOPDatetimeAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -19,7 +19,7 @@ mixin(AttributeClassCalls!"OOPDatetimeAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new OOPDatetimeAttributeClass);
+    testAttributeClass(new DOOPDatetimeAttributeClass);
     testAttributeClass(OOPDatetimeAttributeClass);
   }
 }
