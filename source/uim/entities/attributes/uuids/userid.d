@@ -12,8 +12,8 @@ mixin(OOPAttributeCalls!("OOPAttributeUserId"));
 
 auto OOPAttributeUserId(UUID aValue) { return new DOOPAttributeUserId(aValue); }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
     // TODO 
   }  
 }

@@ -26,7 +26,7 @@ class DOOPModel : DOOPEntity {
   @property auto objects() { return _storeObjects; }
  */
 /*   DOOPAttribute[][UUID] _attributes; 
-  DOOPAttributeClass[][UUID] _attributeClasses; 
+  DAttributeClass[][UUID] _attributeClasses; 
   DOOPObjclass[][UUID] _objclasses; 
   DOOPObj[][UUID] _objs; 
  */
@@ -125,15 +125,15 @@ class DOOPModel : DOOPEntity {
   auto attributeClasses() {
     return _attributeClasses; }
 
-  O attributeClasses(this O)(string name, DOOPAttributeClass addAttclass) {
+  O attributeClasses(this O)(string name, DAttributeClass addAttclass) {
     this.attributeClasses(addAttclass.name(name));
     return cast(O)this; }
 
-  O attributeClasses(this O)(DOOPAttributeClass[] newAttclasses...) {
+  O attributeClasses(this O)(DAttributeClass[] newAttclasses...) {
     this.attributeClasses(newAttclasses);
     return cast(O)this; }
   
-  O attributeClasses(this O)(DOOPAttributeClass[] newAttclasses) {
+  O attributeClasses(this O)(DAttributeClass[] newAttclasses) {
     foreach (item; newAttclasses) {
       if (item.id in _attributeClasses) _attributeClasses[item.id] ~= item.model(this);
       else _attributeClasses[item.id] = [item.model(this)]; }
@@ -143,7 +143,7 @@ class DOOPModel : DOOPEntity {
     return attributeClass(UUID(), aName, aMajor, aMinor);
   }
   auto attributeClass(UUID anId, string aName = null, long aMajor = 0, long aMinor = 0) {
-    DOOPAttributeClass[] entityVersions; 
+    DAttributeClass[] entityVersions; 
     if (anId in _attributeClasses) {
       entityVersions = _attributeClasses[anId];
     }

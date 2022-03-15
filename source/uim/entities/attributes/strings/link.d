@@ -118,7 +118,7 @@ mixin(OOPAttributeCalls!("OOPLinkAttribute"));
 
 auto OOPLinkAttribute(string colName, UUID id, size_t versionNumber = 0) { return new DOOPLinkAttribute(colName, id, versionNumber); }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
   }  
 }

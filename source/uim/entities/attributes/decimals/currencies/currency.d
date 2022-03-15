@@ -22,8 +22,8 @@ class DOOPCurrencyAttribute : DOOPDecimalAttribute {
 mixin(OOPAttributeCalls!("OOPCurrencyAttribute"));
 auto OOPCurrencyAttribute(double newValue) { return new DOOPCurrencyAttribute(newValue); }
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
 /*     assert(OOPCurrencyAttribute.isArray);
     assert(OOPCurrencyAttribute.isBig);
     assert(OOPCurrencyAttribute.isCharacter);

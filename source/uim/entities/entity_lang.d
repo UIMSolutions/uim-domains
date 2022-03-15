@@ -27,7 +27,7 @@ class DOOPEntityLang : DOOPEntity {
 }
 auto OOPEntityLang() { return new DOOPEntityLang; }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
   }
 }

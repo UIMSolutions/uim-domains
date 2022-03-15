@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.integers.integer;
 @safe:
 import uim.entities;
 
-class DOOPIntegerAttributeClass : DOOPAttributeClass {
+class DOOPIntegerAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!"OOPIntegerAttributeClass");
 
   override void initialize() {

@@ -16,8 +16,8 @@ class DOOPCharacterAttribute : DOOPAttribute {
 }
 mixin(OOPAttributeCalls!("OOPCharacterAttribute"));
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }

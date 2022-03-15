@@ -3,13 +3,13 @@ module uim.entities.attributeclasses.percentage;
 @safe:
 import uim.entities;
 
-class DOOPAttributePercentage : DOOPAttributeDouble {
-  mixin(OOPAttributeThis!("OOPAttributePercentage"));
+class DOOPAttributePercentage : DOOPDoubleAttributeClass {
+  mixin(AttributeClassThis!("OOPAttributePercentage"));
 }
-mixin(OOPAttributeCalls!("OOPAttributePercentage"));
+mixin(AttributeClassCalls!("OOPAttributePercentage"));
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }

@@ -49,8 +49,8 @@ class DOOPAttributeDatetime : DOOPAttribute {
 }
 mixin(OOPAttributeCalls!("OOPAttributeDatetime"));
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }

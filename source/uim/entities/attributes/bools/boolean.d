@@ -80,7 +80,7 @@ class DOOPBooleanAttribute : DOOPAttribute {
 mixin(OOPAttributeCalls!("OOPBooleanAttribute"));
 auto OOPBooleanAttribute(bool newValue) { return new DOOPBooleanAttribute(newValue); }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
   }
 }

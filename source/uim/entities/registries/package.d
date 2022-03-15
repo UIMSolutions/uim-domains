@@ -8,7 +8,7 @@ public import uim.entities.registries.attribute;
 class DOOPObjclassRegistry : DOOPRegistry!DOOPObjclass {}
 DOOPObjclassRegistry uimObjclassRegistry;
 
-class DOOPAttclassRegistry : DOOPRegistry!DOOPAttributeClass {}
+class DOOPAttclassRegistry : DOOPRegistry!DAttributeClass {}
 DOOPAttclassRegistry uimAttclassRegistry;
 
 class DOOPAttributeRegistry : DOOPRegistry!DOOPAttribute {}

@@ -4,10 +4,10 @@ module uim.entities.attributeclasses.doubles.latitude;
 import uim.entities;
 
 // means.location.latitude
-class DOOPLatitudeAttribute : DOOPAttributeDouble {
-  mixin(OOPAttributeThis!("OOPLatitudeAttribute", "latitude"));
+class DOOPLatitudeAttributeClass : DOOPDoubleAttributeClass {
+  mixin(AttributeClassThis!("OOPLatitudeAttributeClass"));
 }
-mixin(OOPAttributeCalls!("OOPLatitudeAttribute"));
+mixin(AttributeClassCalls!("OOPLatitudeAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

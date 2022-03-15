@@ -1,12 +1,12 @@
-module uim.entities.attributes.strings.attributename;
+module uim.entities.attributeclasses.chars.strings.attributename;
 
 // Type for trait parameters that take attribute names as values
 
 @safe:
 import uim.entities;
 
-class DOOPAttributeNameAttribute : DOOPStringAttribute {
-  mixin(OOPAttributeThis!("OOPAttributeNameAttribute"));
+class DOOPAttributeAttributeName : DOOPStringAttributeClass {
+  mixin(AttributeClassThis!("OOPAttributeAttributeName"));
 
   /*
 
@@ -17,7 +17,7 @@ means.attributeName
 
   */
 }
-mixin(OOPAttributeCalls!("OOPAttributeNameAttribute"));
+mixin(AttributeClassCalls!("OOPAttributeAttributeName"));
 
 version(test_uim_entities) {
   unittest {

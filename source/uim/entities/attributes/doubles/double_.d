@@ -72,7 +72,7 @@ class DOOPDoubleAttribute : DOOPAttribute {
 }
 mixin(OOPAttributeCalls!("OOPDoubleAttribute"));
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
   }  
 }

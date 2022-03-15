@@ -4,8 +4,8 @@ module uim.entities.attributes.strings.addressline;
 import uim.entities;
 
 // means.location.address
-class DOOPAttributeAddressline : DOOPStringAttribute {
-  mixin(OOPAttributeThis!("OOPAttributeAddressline", "addressline"));
+class DOOPAddresslineAttribute : DOOPStringAttribute {
+  mixin(OOPAttributeThis!("OOPAddresslineAttribute", "addressline"));
 
   override void initialize() {
     super.initialize;
@@ -16,7 +16,7 @@ class DOOPAttributeAddressline : DOOPStringAttribute {
       .isArray(true);
   }
 }
-mixin(OOPAttributeCalls!("OOPAttributeAddressline"));
+mixin(OOPAttributeCalls!("OOPAddresslineAttribute"));
 
 version(test_uim_entities) {
   unittest {

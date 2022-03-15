@@ -15,8 +15,8 @@ class DOOPBigIntegerAttribute : DOOPIntegerAttribute {
 }
 mixin(OOPAttributeCalls!("OOPBigIntegerAttribute"));
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }

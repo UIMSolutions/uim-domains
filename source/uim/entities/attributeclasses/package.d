@@ -16,6 +16,8 @@ public import uim.entities.attributeclasses.doubles;
 public import uim.entities.attributeclasses.entities;
 public import uim.entities.attributeclasses.floats;
 public import uim.entities.attributeclasses.integers;
+public import uim.entities.attributeclasses.ulongs;
+public import uim.entities.attributeclasses.uuids;
 
 template AttributeClassThis(string name) {
   const char[] AttributeClassThis = `
@@ -37,6 +39,6 @@ auto `~name~`(UUID myId, string myName) { return new D`~name~`(myId, myName); }
 `;
 }
 
-void testAttributeClass(DOOPAttributeClass attributeClass) {
+void testAttributeClass(DAttributeClass attributeClass) {
   assert(attributeClass);
 }

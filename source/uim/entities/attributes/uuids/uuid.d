@@ -85,7 +85,7 @@ auto OOPUUIDAttribute(Json json) { return new DOOPUUIDAttribute(json); }
 auto OOPUUIDAttribute(UUID id) { return new DOOPUUIDAttribute(id); }
 auto OOPUUIDAttribute(string aValue) { return new DOOPUUIDAttribute(aValue); }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
     // TODO Add tests
     }}

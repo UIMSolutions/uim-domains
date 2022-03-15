@@ -12,7 +12,7 @@ class DOOPUrlAttribute : DOOPStringAttribute {
 }
 mixin(OOPAttributeCalls!("OOPUrlAttribute"));
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
   }  
 }

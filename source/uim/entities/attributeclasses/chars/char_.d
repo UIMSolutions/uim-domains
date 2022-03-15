@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.chars.char_;
 @safe:
 import uim.entities;
 
-class DOOPCharAttributeClass : DOOPAttributeClass {
+class DOOPCharAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!"OOPCharAttributeClass");
 
   override void initialize() {

@@ -87,8 +87,8 @@ class DOOPStringArrayAttribute : DOOPArrayAttribute {
 mixin(OOPAttributeCalls!("OOPStringArrayAttribute"));
 auto OOPStringArrayAttribute(string[] aValue) { return new DOOPStringArrayAttribute(aValue); }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
     assert(OOPStringArrayAttribute.value == null);
     assert(OOPStringArrayAttribute(Json("a, b, c")).value.length == 3);
     writeln(OOPStringArrayAttribute(["a", "b", "c"].toJson).value);

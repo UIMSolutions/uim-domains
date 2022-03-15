@@ -10,7 +10,7 @@ module uim.entities.attributeclasses.dates.date;
 import uim.entities;
 
 // Attribute class for managing Date values
-class DOOPDateAttributeClass : DOOPAttributeClass {
+class DOOPDateAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!("OOPDateAttributeClass"));
 
   override void initialize() {

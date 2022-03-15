@@ -41,7 +41,7 @@ mixin(OOPAttributeCalls!("OOPTagsAttribute"));
 auto OOPTagsAttribute(string[] myValues) { return new DOOPTagsAttribute(myValues); }
 
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
     // TODO tests
   }}

@@ -12,8 +12,8 @@ class DOOPRepository {
   }
 
   mixin(OProperty!("string", "url"));
-  unittest {
-  version(test_uim_entities) {  
+  version(test_uim_entities) {
+  unittest {  
     /// TODO  
   }
 }
@@ -272,7 +272,7 @@ class DOOPRepository {
           insert("objclasses", objclass.toJson); }
       return cast(O)this;
     }
-    O insert(this O)(DOOPAttributeClass[] newAttclasses...) {
+    O insert(this O)(DAttributeClass[] newAttclasses...) {
       foreach (attributeClass; newAttclasses) {
           insert("attributeClasses", attributeClass.toJson); }
       return cast(O)this;

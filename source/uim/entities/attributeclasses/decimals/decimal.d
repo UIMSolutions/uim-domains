@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.decimals.decimal;
 @safe:
 import uim.entities;
 
-class DOOPDecimalAttributeClass : DOOPAttributeClass {
+class DOOPDecimalAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!("OOPDecimalAttributeClass"));
 
   override void initialize() {

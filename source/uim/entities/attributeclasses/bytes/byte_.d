@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.bytes.byte_;
 @safe:
 import uim.entities;
 
-class DOOPByteAttributeClass : DOOPAttributeClass {
+class DOOPByteAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!("OOPByteAttributeClass"));
 
   override void initialize() {

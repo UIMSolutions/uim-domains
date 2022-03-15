@@ -108,7 +108,7 @@ Json toJson(DOOPEntity[] entities) {
   return result;
 } 
 
-DOOPAttributeClass[string] attributeClassRegistry;
+DAttributeClass[string] attributeClassRegistry;
 DOOPObjclass[string] objclassRegistry;
 
 static this() {
@@ -124,8 +124,8 @@ static this() { // register attributes
     .register(OOPCurrencyAttribute);  
 }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
     /* auto attribute = uimAttributeRegistry["uim/boolean"].create;
     assert(uimAttributeRegistry["uim/boolean"].create); */
 //    assert(cast(DOOPBooleanAttribute)attribute);
@@ -137,8 +137,8 @@ unittest {
   }
 }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
 /*     DOOPAttribute attribute = OOPBooleanAttribute;
     writeln(attribute);
     writeln(OOPBooleanAttribute); */

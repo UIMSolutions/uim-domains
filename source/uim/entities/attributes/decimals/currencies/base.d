@@ -21,8 +21,8 @@ means.measurement.currency
 mixin(OOPAttributeCalls!("OOPBaseCurrencyAttribute"));
 auto OOPBaseCurrencyAttribute(double newValue) { return new DOOPBaseCurrencyAttribute(newValue); }
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }

@@ -65,7 +65,7 @@ class DOOPEntityAttribute : DOOPAttribute {
 mixin(OOPAttributeCalls!("OOPEntityAttribute"));
 auto OOPEntityAttribute(DOOPEntity aValue) { return new DOOPEntityAttribute(aValue); }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
     // TODO
     }}

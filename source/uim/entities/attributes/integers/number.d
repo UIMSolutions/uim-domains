@@ -10,7 +10,7 @@ class DOOPNumberAttribute : DOOPIntegerAttribute {
 mixin(OOPAttributeCalls!("OOPNumberAttribute"));
 auto OOPNumberAttribute(int newValue) { return new DOOPNumberAttribute(newValue); }
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
       }}

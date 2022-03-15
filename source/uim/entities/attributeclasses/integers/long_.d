@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.integers.long_;
 @safe:
 import uim.entities;
 
-class DOOPLongAttributeClass : DOOPAttributeClass {
+class DOOPLongAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!("OOPLongAttributeClass"));
 }
 mixin(AttributeClassCalls!("OOPLongAttributeClass"));

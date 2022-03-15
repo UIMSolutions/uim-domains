@@ -64,7 +64,7 @@ mixin(OOPAttributeCalls!("OOPLongAttribute"));
 
 auto OOPLongAttribute(long newValue) { return new DOOPLongAttribute(newValue); }
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
       }}

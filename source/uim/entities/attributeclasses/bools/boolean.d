@@ -8,7 +8,7 @@ module uim.entities.attributeclasses.bools.boolean;
 @safe:
 import uim.entities;
 
-class DOOPBooleanAttributeClass : DOOPAttributeClass {
+class DOOPBooleanAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!("OOPBooleanAttributeClass"));
 
   override void initialize() {

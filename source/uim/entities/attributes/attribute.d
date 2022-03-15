@@ -27,7 +27,7 @@ class DOOPAttribute : IRegistrable {
   mixin(OProperty!("Json", "config"));
   /// Attclass from which it inherits
 
-  mixin(OProperty!("DOOPAttributeClass", "attributeClass"));
+  mixin(OProperty!("DAttributeClass", "attributeClass"));
   version(test_uim_entities) {
     unittest {
       // TODO Add tests

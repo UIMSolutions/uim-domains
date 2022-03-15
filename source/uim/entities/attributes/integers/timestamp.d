@@ -12,8 +12,8 @@ mixin(OOPAttributeCalls!("OOPTimestampAttribute"));
 
 auto OOPTimestampAttribute(long newValue) { return new DOOPTimestampAttribute(newValue); }
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }

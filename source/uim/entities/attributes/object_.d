@@ -26,7 +26,7 @@ import uim.entities;
 auto OOPAttributeObject() { return new DOOPAttributeObject(); }
 auto OOPAttributeObject(Json json) { return new DOOPAttributeObject(json); }
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
   }  
 } */

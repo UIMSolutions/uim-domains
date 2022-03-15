@@ -15,8 +15,8 @@ class DOOPAttributeByte : DOOPAttribute {
 }
 mixin(OOPAttributeCalls!("OOPAttributeByte"));
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }

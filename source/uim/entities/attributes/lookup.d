@@ -45,7 +45,7 @@ class DOOPLookupAttribute : DOOPIntegerAttribute {
 }
 mixin(OOPAttributeCalls!("OOPLookupAttribute"));
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
     // TODO
     }}

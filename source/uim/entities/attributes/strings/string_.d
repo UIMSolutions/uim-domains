@@ -71,7 +71,7 @@ class DOOPStringAttribute : DOOPAttribute {
 }
 mixin(OOPAttributeCalls!("OOPStringAttribute"));
 
-unittest {
-  version(test_uim_entities) {
+version(test_uim_entities) {
+  unittest {
   }  
 }

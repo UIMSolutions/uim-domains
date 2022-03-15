@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.attributeclass;
 @safe :
 import uim.entities;
 
-class DOOPAttributeClass : DOOPEntity {
+class DAttributeClass : DOOPEntity {
   mixin(AttributeClassThis!("OOPAttributeClass"));
 
   mixin(OProperty!("string[]", "dataFormats")); // Select the data type of the property.")); // 
@@ -18,38 +18,38 @@ class DOOPAttributeClass : DOOPEntity {
     return cast(O)this;
   }
 
-  mixin(SProperty!("bool", "isNullable"));
-  mixin(SProperty!("string", "valueType")); // Select the data type of the property.")); // 
-  mixin(SProperty!("string", "keyType")); // Select the data type of the property.")); // 
-  mixin(SProperty!("string", "dataType_display")); // ")); // 
-  mixin(SProperty!("long", "defaultValueLong")); // Shows the default value of the property for a whole number data type.")); // 
-  mixin(SProperty!("string", "defaultValueString")); // Shows the default value of the property for a string data type.")); // 
-  //mixin(SProperty!("string", "defaultValueDecimal")); // Shows the default value of the property for a decimal data type.")); // 
-  mixin(SProperty!("string", "baseDynamicPropertyId")); // Shows the property in the product family that this property is being inherited from.")); // 
-  mixin(SProperty!("string", "overwrittenDynamicPropertyId")); // Shows the related overwritten property.")); // 
-  mixin(SProperty!("string", "rootDynamicPropertyId")); // Shows the root property that this property is derived from.")); // 
-  /* mixin(SProperty!("string", "minValueDecimal")); // Shows the minimum allowed value of the property for a decimal data type.")); // 
-  mixin(SProperty!("string", "maxValueDecimal")); // Shows the maximum allowed value of the property for a decimal data type.")); //  */
-  mixin(SProperty!("uint", "precision")); // Shows the allowed precision of the property for a whole number data type.")); // 
-  mixin(SProperty!("string", "stateCode")); // Shows the state of the property.")); // 
-  mixin(SProperty!("string", "stateCode_display")); // ")); // 
-  mixin(SProperty!("string", "statusCode")); // Shows whether the property is active or inactive.")); // 
-  mixin(SProperty!("string", "statusCode_display")); // ")); // 
-  mixin(SProperty!("string", "regardingObjectId")); // Choose the product that the property is associated with.")); // 
-  mixin(SProperty!("double", "defaultValueDouble")); // Shows the default value of the property for a double data type.")); // 
-  mixin(SProperty!("double", "minValueDouble")); // Shows the minimum allowed value of the property for a double data type.")); // 
-  mixin(SProperty!("double", "maxValueDouble")); // Shows the maximum allowed value of the property for a double data type.")); // 
-  mixin(SProperty!("long", "minValueLong")); // Shows the minimum allowed value of the property for a whole number data type.")); // 
-  mixin(SProperty!("long", "maxValueLong")); // Shows the maximum allowed value of the property for a whole number data type.")); // 
-  mixin(SProperty!("bool", "isArray")); 
-  mixin(SProperty!("bool", "isAssociativeArray")); 
-  mixin(SProperty!("bool", "isReadOnly")); // Defines whether the attribute is read-only or if it can be edited.")); // 
-  mixin(SProperty!("bool", "isHidden")); // Defines whether the attribute is hidden or shown.")); // 
-  mixin(SProperty!("bool", "isRequired")); // Defines whether the attribute is mandatory.")); // 
-  mixin(SProperty!("uint", "maxLengthString")); // Shows the maximum allowed length of the property for a string data type.")); // 
-  mixin(SProperty!("string", "defaultValueOptionSet")); // Shows the default value of the property.
+  mixin(OProperty!("bool", "isNullable"));
+  mixin(OProperty!("string", "valueType")); // Select the data type of the property.")); // 
+  mixin(OProperty!("string", "keyType")); // Select the data type of the property.")); // 
+  mixin(OProperty!("string", "dataType_display")); // ")); // 
+  mixin(OProperty!("long", "defaultValueLong")); // Shows the default value of the property for a whole number data type.")); // 
+  mixin(OProperty!("string", "defaultValueString")); // Shows the default value of the property for a string data type.")); // 
+  //mixin(OProperty!("string", "defaultValueDecimal")); // Shows the default value of the property for a decimal data type.")); // 
+  mixin(OProperty!("string", "baseDynamicPropertyId")); // Shows the property in the product family that this property is being inherited from.")); // 
+  mixin(OProperty!("string", "overwrittenDynamicPropertyId")); // Shows the related overwritten property.")); // 
+  mixin(OProperty!("string", "rootDynamicPropertyId")); // Shows the root property that this property is derived from.")); // 
+  /* mixin(OProperty!("string", "minValueDecimal")); // Shows the minimum allowed value of the property for a decimal data type.")); // 
+  mixin(OProperty!("string", "maxValueDecimal")); // Shows the maximum allowed value of the property for a decimal data type.")); //  */
+  mixin(OProperty!("uint", "precision")); // Shows the allowed precision of the property for a whole number data type.")); // 
+  mixin(OProperty!("string", "stateCode")); // Shows the state of the property.")); // 
+  mixin(OProperty!("string", "stateCode_display")); // ")); // 
+  mixin(OProperty!("string", "statusCode")); // Shows whether the property is active or inactive.")); // 
+  mixin(OProperty!("string", "statusCode_display")); // ")); // 
+  mixin(OProperty!("string", "regardingObjectId")); // Choose the product that the property is associated with.")); // 
+  mixin(OProperty!("double", "defaultValueDouble")); // Shows the default value of the property for a double data type.")); // 
+  mixin(OProperty!("double", "minValueDouble")); // Shows the minimum allowed value of the property for a double data type.")); // 
+  mixin(OProperty!("double", "maxValueDouble")); // Shows the maximum allowed value of the property for a double data type.")); // 
+  mixin(OProperty!("long", "minValueLong")); // Shows the minimum allowed value of the property for a whole number data type.")); // 
+  mixin(OProperty!("long", "maxValueLong")); // Shows the maximum allowed value of the property for a whole number data type.")); // 
+  mixin(OProperty!("bool", "isArray")); 
+  mixin(OProperty!("bool", "isAssociativeArray")); 
+  mixin(OProperty!("bool", "isReadOnly")); // Defines whether the attribute is read-only or if it can be edited.")); // 
+  mixin(OProperty!("bool", "isHidden")); // Defines whether the attribute is hidden or shown.")); // 
+  mixin(OProperty!("bool", "isRequired")); // Defines whether the attribute is mandatory.")); // 
+  mixin(OProperty!("uint", "maxLengthString")); // Shows the maximum allowed length of the property for a string data type.")); // 
+  mixin(OProperty!("string", "defaultValueOptionSet")); // Shows the default value of the property.
 
-  mixin(SProperty!("UUID", "attributeClass")); // Super attributeClass.
+  mixin(OProperty!("UUID", "attributeClass")); // Super attributeClass.
 
  /*  O attributeClass(this O)(UUID myId, size_t myMajor = 0, size_t myMinor = 0) { 
     _attributeClass = OOPAttributeClass.id(myId).versionMajor(myMajor).versionMinor(myMinor);
@@ -59,7 +59,7 @@ class DOOPAttributeClass : DOOPEntity {
     _attributeClass = OOPAttributeClass.name(myName).versionMajor(myMajor).versionMinor(myMinor);
     return cast(O)this; }
 
-  O attributeClass(this O)(DOOPAttributeClass myAttclass) { 
+  O attributeClass(this O)(DAttributeClass myAttclass) { 
     _attributeClass = myAttclass;     
     return cast(O)this; } */
 
@@ -198,9 +198,9 @@ class DOOPAttributeClass : DOOPEntity {
     }
   }
 }
-@safe auto OOPAttributeClass() { return new DOOPAttributeClass; }
-@safe auto OOPAttributeClass(UUID id) { return new DOOPAttributeClass(id); }
-@safe auto OOPAttributeClass(string name) { return new DOOPAttributeClass(name); }
-@safe auto OOPAttributeClass(UUID id, string name) { return new DOOPAttributeClass(id, name); }
-@safe auto OOPAttributeClass(Json json) { return new DOOPAttributeClass(json); }
-@safe auto OOPAttributeClass(DETBCollection aCollection, Json json) { return (new DOOPAttributeClass(json)).collection(aCollection); }
+@safe auto OOPAttributeClass() { return new DAttributeClass; }
+@safe auto OOPAttributeClass(UUID id) { return new DAttributeClass(id); }
+@safe auto OOPAttributeClass(string name) { return new DAttributeClass(name); }
+@safe auto OOPAttributeClass(UUID id, string name) { return new DAttributeClass(id, name); }
+@safe auto OOPAttributeClass(Json json) { return new DAttributeClass(json); }
+@safe auto OOPAttributeClass(DETBCollection aCollection, Json json) { return (new DAttributeClass(json)).collection(aCollection); }

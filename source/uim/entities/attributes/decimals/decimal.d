@@ -10,8 +10,8 @@ class DOOPDecimalAttribute : DOOPDoubleAttribute {
 mixin(OOPAttributeCalls!("OOPDecimalAttribute"));
 auto OOPDecimalAttribute(double newValue) { return new DOOPDecimalAttribute(newValue); }
 
-unittest {
-  version(test_uim_entities) {  
+version(test_uim_entities) {
+  unittest {  
     // TODO tests
   }
 }
