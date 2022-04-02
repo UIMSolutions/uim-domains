@@ -65,6 +65,7 @@ public import uim.entitybase;
 
 // local modules
 public import uim.entities.entity;
+public import uim.entities.entities;
 public import uim.entities.entity_lang;
 public import uim.entities.attributes;
 public import uim.entities.attributeclasses;
