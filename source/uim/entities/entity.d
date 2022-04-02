@@ -680,7 +680,4 @@ class DOOPEntity : IRegistrable {
 auto OOPEntity() { return new DOOPEntity; }
 auto OOPEntity(Json json) { return new DOOPEntity(json); }
 
-version(test_uim_entities) {
-  unittest {
-    writeln("Entity Namespace = ", DOOPEntity.namespace);
-}}
+

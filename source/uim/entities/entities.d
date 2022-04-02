@@ -22,6 +22,9 @@ class DOOPEntities {
     return cast(O)this;
   }
 
+  bool notEmpty() {
+    return (_items.length > 0);
+  }
 
   O sort(this O)(string sortBy, string sortDir = "") {
     if (this.sortBy) {
@@ -49,7 +52,9 @@ class DOOPEntities {
     this.set(newEntities);
     return cast(O)this;
   }
-
 }
 
-
+version(test_uim_entities) {
+  unittest {
+    auto entities = new DOOPEntities;
+}}
