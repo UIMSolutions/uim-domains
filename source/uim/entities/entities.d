@@ -28,7 +28,7 @@ class DOOPEntities {
       if (this.sortDir.toLower == "up") {
         _items = _items
           .sort!((a, b) => a[sortBy]< b[sortBy]).array;
-     }
+      }
       else {
         _items = _items
           .sort!((a, b) => a[sortBy] > b[sortBy]).array;
@@ -39,11 +39,17 @@ class DOOPEntities {
 
   O filter(this O)(string filterBy, string filterValue) {
     if (this.filterBy && this.filterValue) {
-      _entities = _entities
+      _items = _items
         .filter!(entity => entity[filterBy].indexOf(this.filterValue) == 0).array;
     }
     return cast(O)this;
   }
+
+  O opCall(this O)(DOOPEntity[] newEntities) {
+    this.set(newEntities);
+    return cast(O)this;
+  }
+
 }
 
 
