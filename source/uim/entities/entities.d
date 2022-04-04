@@ -9,16 +9,16 @@ class DOOPEntities {
   private DOOPEntity[] _items;
 
   DOOPEntity[] all() {
-    return _items;
+    return _items.dup;
   }
 
   O add(this O)(DOOPEntity[] newEntities) {
-    _items ~= newEntities;
+    _items ~= newEntities.dup;
     return cast(O)this;
   }
 
   O set(this O)(DOOPEntity[] newEntities) {
-    _items = newEntities;
+    _items = newEntities.dup;
     return cast(O)this;
   }
 
