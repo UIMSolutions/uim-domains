@@ -17,7 +17,9 @@ class DOOPDateAttributeClass : DAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["date"]);
+      .dataFormats(["date"])
+      .name("date")
+      .registerPath("date");
     // means.measurement.date
   }
 }
@@ -25,7 +27,7 @@ mixin(AttributeClassCalls!"OOPDateAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new OOPDateAttributeClass);
+    testAttributeClass(new DOOPDateAttributeClass);
     testAttributeClass(OOPDateAttributeClass);
   }
 }

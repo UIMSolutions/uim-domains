@@ -10,8 +10,10 @@ class DOOPDatetimeAttributeClass : DOOPDateAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["time"]);
-    // means.measurement.date
+      .dataFormats(["time"])
+      .name("datetime")
+      .registerPath("datetime");
+          // means.measurement.date
     // means.measurement.time
   }
 }

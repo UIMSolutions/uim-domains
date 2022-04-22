@@ -7,6 +7,14 @@ import uim.entities;
 // means.content.text.CSV
 class DOOPListAttributeClass : DOOPStringAttributeClass {
   mixin(AttributeClassThis!("OOPListAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("list")
+      .registerPath("list");
+  }
 }
 mixin(AttributeClassCalls!("OOPListAttributeClass"));
 

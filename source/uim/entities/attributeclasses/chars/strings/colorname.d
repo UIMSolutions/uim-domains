@@ -6,6 +6,14 @@ import uim.entities;
 // means.measurement.color
 class DOOPColorNameAttributeClass : DOOPStringAttributeClass {
   mixin(AttributeClassThis!("OOPColorNameAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("colorname")
+      .registerPath("colorname");
+  }
 }
 mixin(AttributeClassCalls!("OOPColorNameAttributeClass"));
 

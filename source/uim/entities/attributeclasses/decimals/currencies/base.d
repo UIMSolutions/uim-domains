@@ -17,7 +17,7 @@ mixin(AttributeClassCalls!"OOPBaseCurrencyAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new OOPBaseCurrencyAttributeClass);
+    testAttributeClass(new DOOPBaseCurrencyAttributeClass);
     testAttributeClass(OOPBaseCurrencyAttributeClass);
   }
 }

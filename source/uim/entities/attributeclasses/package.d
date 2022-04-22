@@ -6,7 +6,7 @@ import uim.entities;
 public import uim.entities.attributeclasses.attributeclass;
 
 public import uim.entities.attributeclasses.arrays;
-public import uim.entities.attributeclasses.bools;
+public import uim.entities.attributeclasses.booleans;
 public import uim.entities.attributeclasses.bytes;
 public import uim.entities.attributeclasses.chars;
 public import uim.entities.attributeclasses.dates;
@@ -41,4 +41,46 @@ auto `~name~`(UUID myId, string myName) { return new D`~name~`(myId, myName); }
 
 void testAttributeClass(DAttributeClass attributeClass) {
   assert(attributeClass);
+}
+
+static this() {
+  AttributeClassRegistry
+    // Booleans
+    .register(OOPBooleanAttributeClass)
+    // Bytes
+    .register(OOPBinaryAttributeClass)
+    .register(OOPByteAttributeClass)
+    // Chars
+    .register(OOPCharAttributeClass)
+    // Chars -> Strings
+    .register(OOPAddressLineAttributeClass)
+    .register(OOPAttributeNameAttributeClass)
+    .register(OOPCityAttributeClass)
+    .register(OOPColorNameAttributeClass)
+    .register(OOPCompanyNameAttributeClass)
+    .register(OOPCountryAttributeClass)
+    .register(OOPCountyAttributeClass)
+    .register(OOPLanguageTagAttributeClass)
+    .register(OOPLastNameAttributeClass)
+    .register(OOPLinkAttributeClass)
+    .register(OOPListAttributeClass)
+    .register(OOPStringAttributeClass)
+    .register(OOPUrlAttributeClass)
+    // Dates
+    .register(OOPDateAttributeClass)
+    // DateTimes
+    .register(OOPBirthDateAttributeClass)
+    .register(OOPDatetimeAttributeClass)
+    .register(OOPTimeAttributeClass);
+    // Decimals
+}
+
+version(test_uim_entities) {
+  unittest {
+    writeln(AttributeClassRegistry["boolean"].name);
+    writeln(AttributeClassRegistry["byte"].name);
+    writeln(AttributeClassRegistry["binary"].name);
+
+    writeln(AttributeClassRegistry.paths);
+  }
 }

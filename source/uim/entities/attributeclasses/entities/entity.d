@@ -19,7 +19,7 @@ mixin(AttributeClassCalls!"OOPEntityAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new OOPEntityAttributeClass);
+    testAttributeClass(new DOOPEntityAttributeClass);
     testAttributeClass(OOPEntityAttributeClass);
   }
 }

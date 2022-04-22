@@ -3,7 +3,7 @@
 *	License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
 *	Authors: UI Manufaktur Team
 ************************************************************************************************/
-module uim.entities.attributeclasses.bools.boolean;
+module uim.entities.attributeclasses.booleans.boolean;
 
 @safe:
 import uim.entities;
@@ -15,7 +15,9 @@ class DOOPBooleanAttributeClass : DAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["boolean"]);
+      .name("boolean")
+      .dataFormats(["boolean"])
+      .registerPath("boolean");
   }
 }
 mixin(AttributeClassCalls!"OOPBooleanAttributeClass");

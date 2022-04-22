@@ -113,19 +113,6 @@ Json toJson(DOOPEntity[] entities) {
 DAttributeClass[string] attributeClassRegistry;
 DOOPObjclass[string] objclassRegistry;
 
-static this() {
-  uimObjclassRegistry = new DOOPObjclassRegistry;
-  uimAttclassRegistry = new DOOPAttclassRegistry;
-  uimAttributeRegistry = new DOOPAttributeRegistry;  
-  uimEntityRegistry   = new DOOPEntityRegistry;  
-}
-
-static this() { // register attributes
-  uimAttributeRegistry
-    .register(OOPBooleanAttribute)
-    .register(OOPCurrencyAttribute);  
-}
-
 version(test_uim_entities) {
   unittest {
     /* auto attribute = uimAttributeRegistry["uim/boolean"].create;

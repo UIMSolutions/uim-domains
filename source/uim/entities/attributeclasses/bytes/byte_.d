@@ -10,7 +10,9 @@ class DOOPByteAttributeClass : DAttributeClass {
     super.initialize;
 
     this
-      .addDataFormats(["byte"]);
+      .addDataFormats(["byte"])
+      .name("byte")
+      .registerPath("byte");
   }
 }
 mixin(AttributeClassCalls!("OOPByteAttributeClass"));

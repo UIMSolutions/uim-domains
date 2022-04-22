@@ -10,7 +10,9 @@ class DOOPStringAttributeClass : DOOPCharAttributeClass {
     super.initialize;
 
     this
-      .addDataFormats(["array"]);
+      .addDataFormats(["array"])
+      .name("string")
+      .registerPath("string");
   }
 }
 mixin(AttributeClassCalls!"OOPStringAttributeClass");

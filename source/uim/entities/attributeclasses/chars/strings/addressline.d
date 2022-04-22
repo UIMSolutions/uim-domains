@@ -10,6 +10,9 @@ class DOOPAddressLineAttributeClass : DOOPStringAttributeClass {
     super.initialize;
 
     // means.location.address
+    this
+      .name("addressline")
+      .registerPath("addressline");
   }
 }
 mixin(AttributeClassCalls!"OOPAddressLineAttributeClass");

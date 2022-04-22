@@ -10,8 +10,10 @@ class DOOPTimeAttributeClass : DOOPDateAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["time"]);
-    // means.measurement.date
+      .dataFormats(["time"])
+      .name("time")
+      .registerPath("time");
+          // means.measurement.date
     // means.measurement.time
   }
 }
@@ -19,7 +21,7 @@ mixin(AttributeClassCalls!"OOPTimeAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new OOPTimeAttributeClass);
+    testAttributeClass(new DOOPTimeAttributeClass);
     testAttributeClass(OOPTimeAttributeClass);
   }
 }

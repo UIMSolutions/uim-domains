@@ -10,7 +10,9 @@ class DOOPCharAttributeClass : DAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["character", "big"]);
+      .dataFormats(["character", "big"])
+      .name("char")
+      .registerPath("char");
   }
 }
 mixin(AttributeClassCalls!"OOPCharAttributeClass");

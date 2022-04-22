@@ -10,14 +10,16 @@ class DOOPDecimalAttributeClass : DAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["numeric.shaped"]);
+      .dataFormats(["numeric.shaped"])
+      .name("decimal")
+      .registerPath("decimal");
   }
 }
 mixin(AttributeClassCalls!"OOPDecimalAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new OOPDecimalAttributeClass);
+    testAttributeClass(new DOOPDecimalAttributeClass);
     testAttributeClass(OOPDecimalAttributeClass);
   }
 }

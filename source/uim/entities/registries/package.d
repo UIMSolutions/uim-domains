@@ -5,17 +5,45 @@ import uim.entities;
 
 public import uim.entities.registries.attribute;
 
-class DOOPObjclassRegistry : DOOPRegistry!DOOPObjclass {}
-DOOPObjclassRegistry uimObjclassRegistry;
+class DOOPObjclassRegistry : DOOPRegistry!DOOPObjclass {
+  static DOOPObjclassRegistry registry;
+}
+auto ObjclassRegistry() {
+  if (DOOPObjclassRegistry.registry is null) {
+    DOOPObjclassRegistry.registry = new DOOPObjclassRegistry;
+  }
+  return DOOPObjclassRegistry.registry;
+}
 
-class DOOPAttclassRegistry : DOOPRegistry!DAttributeClass {}
-DOOPAttclassRegistry uimAttclassRegistry;
+class DOOPAttclassRegistry : DOOPRegistry!DAttributeClass {
+  static DOOPAttclassRegistry registry;
+}
+auto AttributeClassRegistry() {
+  if (DOOPAttclassRegistry.registry is null) {
+    DOOPAttclassRegistry.registry = new DOOPAttclassRegistry;
+  }
+  return DOOPAttclassRegistry.registry;
+}
 
-class DOOPAttributeRegistry : DOOPRegistry!DOOPAttribute {}
-DOOPAttributeRegistry uimAttributeRegistry;
+class DOOPAttributeRegistry : DOOPRegistry!DOOPAttribute {
+  static DOOPAttributeRegistry registry;
+}
+auto AttributeRegistry() {
+  if (DOOPAttributeRegistry.registry is null) {
+    DOOPAttributeRegistry.registry = new DOOPAttributeRegistry;
+  }
+  return DOOPAttributeRegistry.registry;
+}
 
-class DOOPEntityRegistry : DOOPRegistry!DOOPEntity {}
-DOOPEntityRegistry uimEntityRegistry;
+class DOOPEntityRegistry : DOOPRegistry!DOOPEntity {
+  static DOOPEntityRegistry registry;
+}
+auto EntityRegistry() {
+  if (DOOPEntityRegistry.registry is null) {
+    DOOPEntityRegistry.registry = new DOOPEntityRegistry;
+  }
+  return DOOPEntityRegistry.registry;
+}
 
 interface IRegistrable {
   // #region registerPath

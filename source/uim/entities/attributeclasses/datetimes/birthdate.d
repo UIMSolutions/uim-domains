@@ -10,8 +10,10 @@ class DOOPBirthDateAttributeClass : DOOPDatetimeAttributeClass {
     super.initialize;
 
     this
-      .dataFormats(["time"]);
-    // means.measurement.date
+      .dataFormats(["time"])
+      .name("birthdate")
+      .registerPath("birthdate");
+          // means.measurement.date
     // means.measurement.time
     // means.demographic.birthDate
   }
@@ -20,7 +22,7 @@ mixin(AttributeClassCalls!"OOPBirthDateAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new OOPBirthDateAttributeClass);
+    testAttributeClass(new DOOPBirthDateAttributeClass);
     testAttributeClass(OOPBirthDateAttributeClass);
   }
 }

@@ -6,6 +6,14 @@ import uim.entities;
 // means.identity.person.lastName
 class DOOPLastNameAttributeClass : DOOPStringAttributeClass {
   mixin(AttributeClassThis!("OOPLastNameAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("lastname")
+      .registerPath("lastname");
+  }
 }
 mixin(AttributeClassCalls!("OOPLastNameAttributeClass"));
 

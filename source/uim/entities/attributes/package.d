@@ -28,7 +28,7 @@ public import uim.entities.attributes.tags;
 
 version(test_uim_entities) {
   unittest {
-    debug writeln(uimAttributeRegistry.paths);
+    debug writeln(AttributeRegistry.paths);
   }
 }
 

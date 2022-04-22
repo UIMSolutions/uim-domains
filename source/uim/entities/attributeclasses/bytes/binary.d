@@ -10,7 +10,9 @@ class DOOPBinaryAttributeClass : DAttributeClass {
     super.initialize;
 
     this
-      .addDataFormats(["array"]);
+      .addDataFormats(["array"])
+      .name("binary")
+      .registerPath("binary");
   }
 }
 mixin(AttributeClassCalls!("OOPBinaryAttributeClass"));

@@ -5,6 +5,14 @@ import uim.entities;
 
 class DOOPLinkAttributeClass : DOOPStringAttributeClass {
   mixin(AttributeClassThis!("OOPLinkAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("link")
+      .registerPath("link");
+  }
 }
 mixin(AttributeClassCalls!("OOPLinkAttributeClass"));
 
