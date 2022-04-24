@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.ethnicity;
+module uim.entities.attributeclasses.strings.ethnicity;
 
 @safe:
 import uim.entities;

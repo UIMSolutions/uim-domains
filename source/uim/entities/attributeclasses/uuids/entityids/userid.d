@@ -11,3 +11,18 @@ is.dataFormat.array
 is.dataFormat.guid
 means.identity.entityId
 means.userId */
+
+@safe:
+import uim.entities;
+
+class DUserIdAttributeClass : DEntityIdAttributeClass {
+  mixin(AttributeClassThis!("UserIdAttributeClass"));
+}
+mixin(AttributeClassCalls!("UserIdAttributeClass"));
+
+version(test_uim_entities) {
+  unittest {
+  
+    // TODO 
+  }  
+}

@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.doubles.meters.meter;
+module uim.entities.attributeclasses.doubles.meters.milli;
 
 @safe:
 import uim.entities;

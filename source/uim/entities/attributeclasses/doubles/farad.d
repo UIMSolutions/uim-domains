@@ -11,7 +11,7 @@ has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
 has.measurement.fundamentalComponent.ampere */
-class DFaradAttributeClass : DOOPDoubleAttributeClass {
+class DFaradAttributeClass : DDoubleAttributeClass {
   mixin(AttributeClassThis!("FaradAttributeClass"));
 }
 mixin(AttributeClassCalls!("FaradAttributeClass"));

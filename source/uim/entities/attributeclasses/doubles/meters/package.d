@@ -4,4 +4,6 @@ module uim.entities.attributeclasses.doubles.meters;
 public import uim.entities.attributeclasses.doubles.meters.meter;
 
 // subs
-public import uim.entities.attributeclasses.doubles.meters.centimeter;
+public import uim.entities.attributeclasses.doubles.meters.centi;
+public import uim.entities.attributeclasses.doubles.meters.kilo;
+public import uim.entities.attributeclasses.doubles.meters.milli;

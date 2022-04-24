@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.doubles.meters.centimeter;
+module uim.entities.attributeclasses.doubles.meters.centi;
 
 @safe:
 import uim.entities;

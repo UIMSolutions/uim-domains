@@ -4,5 +4,4 @@ module uim.entities.attributeclasses.uuids;
 public import uim.entities.attributeclasses.uuids.uuid;
 
 // subs
-public import uim.entities.attributeclasses.uuids.entityid;
-public import uim.entities.attributeclasses.uuids.userid;
+public import uim.entities.attributeclasses.uuids.entityids;

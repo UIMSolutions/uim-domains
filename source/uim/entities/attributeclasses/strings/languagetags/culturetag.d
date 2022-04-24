@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.languagetags.culturetag;
+module uim.entities.attributeclasses.strings.languagetags.culturetag;
 
 @safe:
 import uim.entities;
@@ -15,7 +15,7 @@ class DCultureTagAttributeClass : DOOPStringAttributeClass {
       .registerPath("languagetag");
   }
 }
-mixin(AttributeClassCalls!("LanguageTagAttributeClass"));
+mixin(AttributeClassCalls!("CultureTagAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

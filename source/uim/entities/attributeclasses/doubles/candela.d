@@ -6,7 +6,7 @@ module uim.entities.attributeclasses.doubles.candela;
 @safe:
 import uim.entities;
 
-class DCandelaAttributeClass : DOOPDoubleAttributeClass {
+class DCandelaAttributeClass : DDoubleAttributeClass {
   mixin(AttributeClassThis!("CandelaAttributeClass"));
 
   override void initialize() {

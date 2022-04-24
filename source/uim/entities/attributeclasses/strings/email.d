@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.email;
+module uim.entities.attributeclasses.strings.email;
 
 @safe:
 import uim.entities;

@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.doubles.latitude;
 import uim.entities;
 
 // means.location.latitude
-class DOOPLatitudeAttributeClass : DOOPDoubleAttributeClass {
+class DOOPLatitudeAttributeClass : DDoubleAttributeClass {
   mixin(AttributeClassThis!("OOPLatitudeAttributeClass"));
 }
 mixin(AttributeClassCalls!("OOPLatitudeAttributeClass"));

@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.addressline;
+module uim.entities.attributeclasses.strings.addressline;
 
 @safe:
 import uim.entities;

@@ -1,7 +1,7 @@
-module uim.entities.attributeclasses.chars.strings.languagetags;
+module uim.entities.attributeclasses.strings.languagetags;
 
 @safe:
 import uim.entities;
 
-public import uim.entities.attributeclasses.chars.strings.languagetags.languagetag;
-public import uim.entities.attributeclasses.chars.strings.languagetags.culturetag;
+public import uim.entities.attributeclasses.strings.languagetags.languagetag;
+public import uim.entities.attributeclasses.strings.languagetags.culturetag;

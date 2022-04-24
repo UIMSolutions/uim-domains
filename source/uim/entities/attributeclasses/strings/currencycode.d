@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.currencycode;
+module uim.entities.attributeclasses.strings.currencycode;
 
 @safe:
 import uim.entities;

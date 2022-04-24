@@ -1,11 +1,11 @@
-module uim.entities.attributeclasses.chars.strings.languagetags.languagetag;
+module uim.entities.attributeclasses.strings.languagetags.languagetag;
 
 @safe:
 import uim.entities;
 
 // means.reference.language.tag
-class DOOPLanguageTagAttributeClass : DOOPStringAttributeClass {
-  mixin(AttributeClassThis!("OOPLanguageTagAttributeClass"));
+class DLanguageTagAttributeClass : DOOPStringAttributeClass {
+  mixin(AttributeClassThis!("LanguageTagAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,7 +15,7 @@ class DOOPLanguageTagAttributeClass : DOOPStringAttributeClass {
       .registerPath("languagetag");
   }
 }
-mixin(AttributeClassCalls!("OOPLanguageTagAttributeClass"));
+mixin(AttributeClassCalls!("LanguageTagAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

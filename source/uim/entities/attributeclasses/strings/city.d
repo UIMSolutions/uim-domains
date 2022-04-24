@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.city;
+module uim.entities.attributeclasses.strings.city;
 
 @safe:
 import uim.entities;

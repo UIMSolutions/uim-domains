@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.firstname;
+module uim.entities.attributeclasses.strings.firstname;
 
 @safe:
 import uim.entities;

@@ -1,18 +1,18 @@
 module uim.entities.attributeclasses.chars.strings;
 
 // main
-public import uim.entities.attributeclasses.chars.strings.string_;
+public import uim.entities.attributeclasses.strings.string_;
 
 // subs
-public import uim.entities.attributeclasses.chars.strings.addressline;
-public import uim.entities.attributeclasses.chars.strings.attributename;
-public import uim.entities.attributeclasses.chars.strings.city;
-public import uim.entities.attributeclasses.chars.strings.colorname;
-public import uim.entities.attributeclasses.chars.strings.companyname;
-public import uim.entities.attributeclasses.chars.strings.country;
-public import uim.entities.attributeclasses.chars.strings.county;
-public import uim.entities.attributeclasses.chars.strings.languagetag;
-public import uim.entities.attributeclasses.chars.strings.lastname;
-public import uim.entities.attributeclasses.chars.strings.link;
-public import uim.entities.attributeclasses.chars.strings.list;
-public import uim.entities.attributeclasses.chars.strings.url;
+public import uim.entities.attributeclasses.strings.addressline;
+public import uim.entities.attributeclasses.strings.attributename;
+public import uim.entities.attributeclasses.strings.city;
+public import uim.entities.attributeclasses.strings.colorname;
+public import uim.entities.attributeclasses.strings.companyname;
+public import uim.entities.attributeclasses.strings.country;
+public import uim.entities.attributeclasses.strings.county;
+public import uim.entities.attributeclasses.strings.languagetags;
+public import uim.entities.attributeclasses.strings.lastname;
+public import uim.entities.attributeclasses.strings.link;
+public import uim.entities.attributeclasses.strings.list;
+public import uim.entities.attributeclasses.strings.url;

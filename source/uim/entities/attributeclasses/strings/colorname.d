@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.colorname;
+module uim.entities.attributeclasses.strings.colorname;
 
 @safe:
 import uim.entities;

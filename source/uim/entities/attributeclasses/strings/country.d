@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.country;
+module uim.entities.attributeclasses.strings.country;
 
 @safe:
 import uim.entities;

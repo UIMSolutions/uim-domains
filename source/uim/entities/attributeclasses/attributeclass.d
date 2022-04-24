@@ -42,6 +42,10 @@ class DAttributeClass : DOOPEntity {
   mixin(OProperty!("long", "minValueLong")); // Shows the minimum allowed value of the property for a whole number data type.")); // 
   mixin(OProperty!("long", "maxValueLong")); // Shows the maximum allowed value of the property for a whole number data type.")); // 
   mixin(OProperty!("bool", "isArray")); 
+  mixin(OProperty!("bool", "isDouble")); 
+  mixin(OProperty!("bool", "isString")); 
+  mixin(OProperty!("bool", "isJson")); 
+  mixin(OProperty!("bool", "isXML")); 
   mixin(OProperty!("bool", "isAssociativeArray")); 
   mixin(OProperty!("bool", "isReadOnly")); // Defines whether the attribute is read-only or if it can be edited.")); // 
   mixin(OProperty!("bool", "isHidden")); // Defines whether the attribute is hidden or shown.")); // 

@@ -9,7 +9,7 @@ import uim.entities;
 // means.measurement.dimension.electricCurrent
 // means.measurement.units.si.coulomb
 // has.measurement.fundamentalComponent.coulomb
-class DOOPCoulombAttributeClass : DOOPDoubleAttributeClass {
+class DOOPCoulombAttributeClass : DDoubleAttributeClass {
   mixin(AttributeClassThis!("OOPCoulombAttributeClass"));
 }
 mixin(AttributeClassCalls!("OOPCoulombAttributeClass"));

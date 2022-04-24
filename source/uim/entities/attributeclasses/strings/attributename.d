@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.chars.strings.attributename;
+module uim.entities.attributeclasses.strings.attributename;
 
 // Type for trait parameters that take attribute names as values
 

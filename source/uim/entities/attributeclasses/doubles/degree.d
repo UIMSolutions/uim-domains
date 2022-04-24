@@ -8,7 +8,7 @@ is.dataFormat.big
 means.measurement.dimension.angle
 means.measurement.units.degree
 has.measurement.fundamentalComponent */
-class DDegreeAttributeClass : DOOPDoubleAttributeClass {
+class DDegreeAttributeClass : DDoubleAttributeClass {
   mixin(AttributeClassThis!("DegreeAttributeClass"));
 }
 mixin(AttributeClassCalls!("DegreeAttributeClass"));

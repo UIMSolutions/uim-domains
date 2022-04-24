@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.doubles.meters.kilometer;
+module uim.entities.attributeclasses.doubles.meters.kilo;
 
 @safe:
 import uim.entities;

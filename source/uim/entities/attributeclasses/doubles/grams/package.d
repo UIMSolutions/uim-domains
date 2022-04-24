@@ -1,7 +1,7 @@
 module uim.entities.attributeclasses.doubles.grams;
 
-Unit of measure for mass in milligrams
-/* 
+/* Unit of measure for mass in milligrams
+
 Inheritance
 any <- float <- double <- gram <- milligram
 Traits

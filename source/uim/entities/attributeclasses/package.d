@@ -14,7 +14,6 @@ public import uim.entities.attributeclasses.datetimes;
 public import uim.entities.attributeclasses.decimals;
 public import uim.entities.attributeclasses.doubles;
 public import uim.entities.attributeclasses.entities;
-public import uim.entities.attributeclasses.floats;
 public import uim.entities.attributeclasses.integers;
 public import uim.entities.attributeclasses.ulongs;
 public import uim.entities.attributeclasses.uuids;
@@ -60,7 +59,7 @@ static this() {
     .register(OOPCompanyNameAttributeClass)
     .register(OOPCountryAttributeClass)
     .register(OOPCountyAttributeClass)
-    .register(OOPLanguageTagAttributeClass)
+    .register(LanguageTagAttributeClass)
     .register(OOPLastNameAttributeClass)
     .register(OOPLinkAttributeClass)
     .register(OOPListAttributeClass)
