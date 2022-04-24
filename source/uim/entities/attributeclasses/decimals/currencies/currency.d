@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.decimals.currencies.currency;
 @safe:
 import uim.entities;
 
-class DOOPCurrencyAttributeClass : DOOPDecimalAttributeClass {
-  mixin(AttributeClassThis!("OOPCurrencyAttributeClass"));
+class DCurrencyAttributeClass : DOOPDecimalAttributeClass {
+  mixin(AttributeClassThis!("CurrencyAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -12,11 +12,11 @@ class DOOPCurrencyAttributeClass : DOOPDecimalAttributeClass {
     // means.measurement.currency
   }
 }
-mixin(AttributeClassCalls!"OOPCurrencyAttributeClass");
+mixin(AttributeClassCalls!"CurrencyAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPCurrencyAttributeClass);
-    testAttributeClass(OOPCurrencyAttributeClass);
+    testAttributeClass(new DCurrencyAttributeClass);
+    testAttributeClass(CurrencyAttributeClass);
   }
 }

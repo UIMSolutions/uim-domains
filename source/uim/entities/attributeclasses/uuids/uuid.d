@@ -3,10 +3,10 @@ module uim.entities.attributeclasses.uuids.uuid;
 @safe:
 import uim.entities;
 
-class DOOPUUIDAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPUUIDAttributeClass"));
+class DUUIDAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("UUIDAttributeClass"));
 }
-mixin(AttributeClassCalls!("OOPUUIDAttributeClass"));
+mixin(AttributeClassCalls!("UUIDAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

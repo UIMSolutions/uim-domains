@@ -9,6 +9,14 @@ import uim.entities;
 // has.measurement.fundamentalComponent.ampere
 class DOOPAmpereAttributeClass : DOOPDoubleAttributeClass {
   mixin(AttributeClassThis!("OOPAmpereAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("ampere")
+      .registerPath("ampere");
+  }
 }
 mixin(AttributeClassCalls!("OOPAmpereAttributeClass"));
 
