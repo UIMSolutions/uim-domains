@@ -183,6 +183,16 @@ class DOOPEntity : IRegistrable {
   }
 
   mixin(OProperty!("DValues", "values"));
+  O addValues(this O)(DOOPAttributeClass[string] classes) {
+    DValue[string] newValues;
+    classes.byKey.each!(key => newValues[key] = classes[key].value);
+    addValues(newValues);
+    return cast(O)this;
+  }
+  O addValues(this O)(DValue[string] newValues) {
+    this.values.add(newValues);
+    return cast(O)this;
+  }
 
   // Every entity has a unique name - not primarykey only for human search
   string _name;
