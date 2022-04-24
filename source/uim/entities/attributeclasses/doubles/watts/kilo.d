@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.doubles.watts.kilowatt;
+module uim.entities.attributeclasses.doubles.watts.kilo;
 
 /* Unit of power, equivalent to 10E3 watts
 
