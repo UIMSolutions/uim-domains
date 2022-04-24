@@ -281,10 +281,10 @@ class DOOPModel : DOOPEntity {
 
     return result; }
 }
-@safe auto OOPModel() { return new DOOPModel; }
-@safe auto OOPModel(UUID id) {  return new DOOPModel(id); }
-@safe auto OOPModel(string name) {  return new DOOPModel(name); }
-@safe auto OOPModel(DETBCollection aCollection) {  return OOPModel.collection(aCollection); }
-@safe auto OOPModel(DETBCollection aCollection, UUID newId) {  return OOPModel.collection(aCollection).id(newId); }
-@safe auto OOPModel(DETBCollection aCollection, Json json) { return (new DOOPModel(json)).collection(aCollection); }
-@safe auto OOPModel(Json json) { return new DOOPModel(json); }
+auto OOPModel() { return new DOOPModel; }
+auto OOPModel(UUID id) {  return new DOOPModel(id); }
+auto OOPModel(string name) {  return new DOOPModel(name); }
+auto OOPModel(DETBCollection aCollection) {  return OOPModel.collection(aCollection); }
+auto OOPModel(DETBCollection aCollection, UUID newId) {  return OOPModel.collection(aCollection).id(newId); }
+auto OOPModel(DETBCollection aCollection, Json json) { return (new DOOPModel(json)).collection(aCollection); }
+auto OOPModel(Json json) { return new DOOPModel(json); }

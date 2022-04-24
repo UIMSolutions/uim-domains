@@ -14,6 +14,8 @@ class DOOPStringAttributeClass : DOOPCharAttributeClass {
       .name("string")
       .registerPath("string");
   }
+  override DValue value() {
+    return StringValue(this); }
 }
 mixin(AttributeClassCalls!"OOPStringAttributeClass");
 

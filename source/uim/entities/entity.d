@@ -37,15 +37,15 @@ class DOOPEntity : IRegistrable {
     .etag(toTimestamp(now))
     .name(this.id.toString) 
     .createdOn(now)
-    .modifiedOn(createdOn)
     .lastAccessedOn(createdOn)
+    .modifiedOn(createdOn)
     .hasVersions(false)
     .hasLanguages(false)
+    .config(Json.emptyObject)
+    .values(Values)
     .versionOn(this.createdOn)
     .versionNumber(1L)
-    .versionBy(this.createdBy)
-    .config(Json.emptyObject)
-    .registerPath("entity");
+    .versionBy(this.createdBy);
   }
 
   protected string _registerPath;
@@ -181,6 +181,8 @@ class DOOPEntity : IRegistrable {
       assert(OOPEntity.id(id1).id(id2).id == id2);
     }
   }
+
+  mixin(OProperty!("DValues", "values"));
 
   // Every entity has a unique name - not primarykey only for human search
   string _name;

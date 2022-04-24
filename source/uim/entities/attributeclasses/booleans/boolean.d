@@ -19,6 +19,9 @@ class DOOPBooleanAttributeClass : DAttributeClass {
       .dataFormats(["boolean"])
       .registerPath("boolean");
   }
+
+  override DValue value() {
+    return BooleanValue(this); }
 }
 mixin(AttributeClassCalls!"OOPBooleanAttributeClass");
 

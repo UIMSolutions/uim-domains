@@ -73,9 +73,10 @@ public import uim.entities.attributeclasses;
 public import uim.entities.objclasses;
 public import uim.entities.registries;
 
-// local packages
+// Packages
 public import uim.entities.helpers;
 public import uim.entities.models;
+public import uim.entities.values;
 
 /* template GetEntity(string name, string nameId, string className) {
     const char[] GetEntity = `
