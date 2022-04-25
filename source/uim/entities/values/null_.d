@@ -14,6 +14,7 @@ class DNullValue : DValue {
   }
 
   override Json toJson() { return Json(null); }
+  override Json toJsonValue() { return Json(null); }
   override string toString() { return null; }
 }
 mixin(ValueCalls!("NullValue"));  

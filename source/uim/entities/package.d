@@ -134,8 +134,8 @@ version(test_uim_entities) {
     writeln(OOPBooleanAttribute); */
   }}
 
-template OOPEntityThis(string name) {
-  const char[] OOPEntityThis = `
+template EntityThis(string name) {
+  const char[] EntityThis = `
   this() { super(); }
   this(UUID myId) { this().id(myId).name("`~name~`-"~this.id.toString); }
   this(string myName) { this().name(myName); }
@@ -146,8 +146,8 @@ template OOPEntityThis(string name) {
   `;
 }
 
-template OOPEntityCalls(string name) {
-  const char[] OOPEntityCalls = `
+template EntityCalls(string name) {
+  const char[] EntityCalls = `
 auto `~name~`() { return new D`~name~`; } 
 auto `~name~`(UUID myId) { return new D`~name~`(myId); } 
 auto `~name~`(string myName) { return new D`~name~`(myName); } 

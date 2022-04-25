@@ -36,6 +36,7 @@ class DIntegerValue : DValue {
   override Json toJson() { 
     if (isNull) return Json(null); 
     return Json(_value); }
+  override Json toJsonValue() { return Json(this.value); }
 
   override string toString() { 
     if (isNull) return "0"; 
