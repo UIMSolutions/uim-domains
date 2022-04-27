@@ -14,6 +14,28 @@ class DBooleanValue : DValue {
   }
 
   mixin(OProperty!("bool", "value"));
+
+  O value(this O)(string newValue) {
+    this.value(newValue == "true");
+    return cast(O)this;
+  }
+
+  version(test_uim_entities) {
+    unittest {    
+      assert(BooleanValue.value("true").value);
+      assert(!BooleanValue.value("false").value);
+  }}
+
+  O value(this O)(long newValue) {
+    this.value(newValue > 0);
+    return cast(O)this;
+  }
+  version(test_uim_entities) {
+    unittest {    
+      assert(BooleanValue.value(1).value);
+      assert(!BooleanValue.value(0).value);
+  }}
+
   version(test_uim_entities) {
     unittest {    
       assert(BooleanValue(true).value);
@@ -54,6 +76,10 @@ class DBooleanValue : DValue {
   override string toString() { 
     if (isNull) return null; 
     return to!string(_value); }
+
+  override void fromString(string newValue) { 
+    this.value(newValue);
+  }
 }
 mixin(ValueCalls!("BooleanValue", "bool"));  
 

@@ -90,6 +90,10 @@ class DStringValue : DValue {
   override string toString() { 
     if (isNull) return null; 
     return _value; }
+
+  override void fromString(string newValue) { 
+    this.value(newValue);
+  }  
 }
 mixin(ValueCalls!("StringValue", "string"));  
 

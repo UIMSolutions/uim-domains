@@ -8,6 +8,11 @@ class DIntegerValue : DValue {
 
   mixin(OProperty!("long", "value"));
 
+  O value(this O)(string newValue) {
+    this.value(to!long(newValue));
+    return cast(O)this; 
+  }
+
   override void initialize() {
     super.initialize;
 
@@ -41,5 +46,9 @@ class DIntegerValue : DValue {
   override string toString() { 
     if (isNull) return "0"; 
     return to!string(_value); }
+
+  override void fromString(string newValue) { 
+    this.value(newValue);
+  }
 }
 mixin(ValueCalls!("IntegerValue", "long"));  

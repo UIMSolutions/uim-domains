@@ -10,7 +10,10 @@ class DValues {
 
   void initialize() {}
 
+  bool hasValue(string key) { return key in _values ? true : false; }
+
   DValue opIndex(string name) { return _values.get(name, NullValue); }
+
   void opIndexAssign(DValue newValue, string name) { 
     _values[name] = newValue; }
 

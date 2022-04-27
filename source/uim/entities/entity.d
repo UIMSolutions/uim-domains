@@ -393,7 +393,8 @@ class DOOPEntity : IRegistrable {
       case "versionBy": return to!string(this.versionBy);
       case "versionDescription": return this.versionDescription;
       default:
-        if (key in attributes) return attributes[key].stringValue; 
+        if (key in attributes) { return attributes[key].stringValue; }
+        if (values.hasValue(key)) { return values[key].toString; }
         return null;
     }      
   }
@@ -427,6 +428,7 @@ class DOOPEntity : IRegistrable {
       case "versionDescription": this.versionDescription(value); break;
       default:
         if (key in attributes) attributes[key].value(value); 
+        if (values.hasValue(key)) { this.values[key].fromString(value); }
         break;
     }      
     return this;
@@ -446,12 +448,17 @@ class DOOPEntity : IRegistrable {
         if (key in attributes) {
           if (auto att = cast(DOOPUUIDAttribute)attributes[key]) att.value(value); 
         } 
+        if (values.hasValue(key)) { 
+          if (auto v = cast(DUUIDValue)values[key]) {
+            v.value(value);
+          } 
+        }
         break;
     }      
     return this;
   }
 
-/*   void opIndexAssign(long value, string key) {
+  void opIndexAssign(long value, string key) {
     switch(key) {
       case "createdOn": this.createdOn(value); break;
       case "modifiedOn": this.modifiedOn(value); break; 
@@ -460,12 +467,14 @@ class DOOPEntity : IRegistrable {
       case "deletedOn": this.deletedOn(value); break;
       case "versionOn": this.versionOn(value); break;
       default:
-        if (key in attributes) {
-          if (auto att = cast(DOOPIntegerAttribute)attributes[key]) att.value(value); 
-        } 
+        if (values.hasValue(key)) { 
+          if (auto v = cast(DIntegerValue)values[key]) {
+            v.value(value);
+          } 
+        }
         break;
     }      
-  } */
+  } 
 
   void opIndexAssign(bool value, string key) {
     switch(key) {

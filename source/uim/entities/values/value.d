@@ -17,6 +17,7 @@ class DValue : IValue {
   mixin(OProperty!("bool", "isNullable"));
   mixin(OProperty!("bool", "isObject"));
   mixin(OProperty!("bool", "isArray"));
+  mixin(OProperty!("bool", "isUUID"));
   
   private bool _isNull;
   bool isNull() {
@@ -33,6 +34,7 @@ class DValue : IValue {
     
     return result; }
   override string toString() { return null; }
+  void fromString(string newValue) { }
 }
 
 version(test_uim_entities) {

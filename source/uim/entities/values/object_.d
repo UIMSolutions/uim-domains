@@ -8,6 +8,11 @@ class DObjectValue : DValue {
 
   mixin(OProperty!("Json", "value"));
 
+  O value(this O)(string newValue) {
+    this.value(parseJsonString(newValue));
+    return cast(O)this;
+  }
+
   override void initialize() {
     super.initialize;
 
@@ -24,6 +29,10 @@ class DObjectValue : DValue {
   override string toString() { 
     if (isNull) return null; 
     return _value.toString;
+  }
+
+  override void fromString(string newValue) { 
+    this.value(newValue);
   }
 }
 mixin(ValueCalls!("ObjectValue", "Json"));  

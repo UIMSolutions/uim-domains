@@ -13,6 +13,7 @@ public import uim.entities.values.int_;
 public import uim.entities.values.null_;
 public import uim.entities.values.object_;
 public import uim.entities.values.string_;
+public import uim.entities.values.uuid;
 
 template ValueThis(string name, string datatype = null) { // Name not required in this version
   const char[] ValueThis = `  
