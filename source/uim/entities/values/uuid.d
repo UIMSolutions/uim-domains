@@ -14,8 +14,20 @@ class DUUIDValue : DValue {
       .isUUID(true);
   }
 
-  mixin(OProperty!("UUID", "value"));
-  O value(this O)(string newValue) {
+  protected UUID _value;  
+  alias value = DValue.value;
+  UUID value() {
+    return _value; 
+  }
+  O value(this O)(UUID newValue) {
+    this.set(newValue);
+    return cast(O)this; 
+  }
+
+  void set(UUID newValue) {
+    _value = newValue;
+  }
+  override void set(string newValue) {
     if (newValue is null) {
       if (this.isNullable) {
         this
@@ -31,36 +43,25 @@ class DUUIDValue : DValue {
           .value(UUID(newValue));
       }
     }
-    return cast(O)this; 
-  }
-  version(test_uim_entities) {
-    unittest {    
-      auto uuid = randomUUID;
-      assert(UUIDValue(uuid).value == uuid);
-  }}
-
-  UUID opCall() { return _value; } 
-  O opCall(this O)(UUID newValue) { 
-    this.value(newValue);
-    return cast(O)this; }
-  O opCall(this O)(Json newValue) { 
-    if (newValue.type = Json.Type.string) _value = newValue.get!string;
-    return cast(O)this; }
-
-  bool opEquals(UUID otherValue) {
-    return (_value == otherValue);
   }
 
-  int opCmp(UUID otherValue) {
-    if (this.value < otherValue) return -1;
-    if (this.value == otherValue) return 0;
-    return 1;
+  override void set(Json newValue) {
+    if (newValue is Json(null)) {
+      if (this.isNullable) {
+        this
+          .isNull(true);
+      }
+      this
+        .value(UUID());
+    }
+    else {
+      if (newValue.get!string.isUUID) {
+        this
+          .isNull(false)
+          .value(UUID(newValue.get!string));
+      }
+    }
   }
-
-  version(test_uim_entities) {
-    unittest {    
-      assert(UUIDValue(true) == true);
-  }}
 
   override Json toJson() { 
     if (isNull) return Json(null); 
@@ -80,4 +81,22 @@ mixin(ValueCalls!("UUIDValue", "UUID"));
 
 version(test_uim_entities) {
   unittest {  
+    auto uuid = randomUUID;
+    assert(UUIDValue(uuid).value == uuid);
+    assert(UUIDValue(randomUUID).value != uuid);
+
+    assert(UUIDValue.value(uuid).value == uuid);
+    assert(UUIDValue.value(randomUUID).value != uuid);
+
+    assert(UUIDValue.value(uuid.toString).value == uuid);
+    assert(UUIDValue.value(randomUUID.toString).value != uuid);
+
+    assert(UUIDValue.value(Json(uuid.toString)).value == uuid);
+    assert(UUIDValue.value(Json(randomUUID.toString)).value != uuid);
+
+    assert(UUIDValue(uuid).toString == uuid.toString);
+    assert(UUIDValue(randomUUID).toString != uuid.toString);
+
+    assert(UUIDValue(uuid).toJson == Json(uuid.toString));
+    assert(UUIDValue(randomUUID).toJson != Json(uuid.toString));
 }}

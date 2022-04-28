@@ -13,45 +13,29 @@ class DBooleanValue : DValue {
       .isBoolean(true);
   }
 
-  mixin(OProperty!("bool", "value"));
-
-  O value(this O)(string newValue) {
-    this.value(newValue == "true");
-    return cast(O)this;
+  protected bool _value;
+  alias value = DValue.value;
+  O value(this O)(bool newValue) {
+    this.set(newValue);
+    return cast(O)this; 
   }
 
-  version(test_uim_entities) {
-    unittest {    
-      assert(BooleanValue.value("true").value);
-      assert(!BooleanValue.value("false").value);
-  }}
-
-  O value(this O)(long newValue) {
-    this.value(newValue > 0);
-    return cast(O)this;
-  }
-  version(test_uim_entities) {
-    unittest {    
-      assert(BooleanValue.value(1).value);
-      assert(!BooleanValue.value(0).value);
-  }}
-
-  version(test_uim_entities) {
-    unittest {    
-      assert(BooleanValue(true).value);
-      assert(!BooleanValue(false).value);
-
-      assert(BooleanValue.value(true).value);
-      assert(!BooleanValue.value(false).value);
-  }}
-
-  bool opCall() { return _value; } 
-  O opCall(this O)(bool newValue) { 
+  void set(bool newValue) {
     _value = newValue;
-    return cast(O)this; }
-  O opCall(this O)(Json newValue) { 
-    if (newValue.type = Json.Type.string) _value = newValue.get!string;
-    return cast(O)this; }
+  }
+  override void set(string newValue) {
+    _value = (newValue == "true" ? true : false);
+  }
+  override void set(Json newValue) {
+    if (newValue == Json(null)) { 
+      _value = false; 
+      this.isNull(isNullable ? true : false); }
+    else {
+      _value = newValue.get!bool;
+      this.isNull(false);
+    }
+  }
+
 
   bool opEquals(bool otherValue) {
     return (_value == otherValue);
@@ -63,26 +47,25 @@ class DBooleanValue : DValue {
     return 1;
   }
 
-  version(test_uim_entities) {
-    unittest {    
-      assert(BooleanValue(true) == true);
-  }}
+  bool toBool() { 
+    return _value; }
 
   override Json toJson() { 
     if (isNull) return Json(null); 
     return Json(_value); }
-  override Json toJsonValue() { return Json(this.value); }
 
   override string toString() { 
     if (isNull) return null; 
     return to!string(_value); }
-
-  override void fromString(string newValue) { 
-    this.value(newValue);
-  }
 }
 mixin(ValueCalls!("BooleanValue", "bool"));  
 
 version(test_uim_entities) {
-  unittest {  
+  unittest {    
+    assert(BooleanValue(true) == true);
+    assert(BooleanValue(false) != true);
+    assert(BooleanValue.value(true) == true);
+    assert(BooleanValue.value(Json(true)) == true);
+    assert(BooleanValue.value(false) != true);
+    assert(BooleanValue.value(Json(false)) != true);
 }}

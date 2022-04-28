@@ -7,7 +7,7 @@ import uim.entities;
 is.dataFormat.big
 is.dataFormat.array
 means.demographic.gender */
-class DGenderAttributeClass : DOOPStringAttributeClass {
+class DGenderAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("GenderAttributeClass"));
 
   override void initialize() {

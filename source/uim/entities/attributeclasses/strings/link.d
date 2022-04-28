@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.strings.link;
 @safe:
 import uim.entities;
 
-class DOOPLinkAttributeClass : DOOPStringAttributeClass {
+class DOOPLinkAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPLinkAttributeClass"));
 
   override void initialize() {

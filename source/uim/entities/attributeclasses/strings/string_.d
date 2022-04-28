@@ -3,8 +3,10 @@ module uim.entities.attributeclasses.strings.string_;
 @safe:
 import uim.entities;
 
-class DOOPStringAttributeClass : DOOPCharAttributeClass {
-  mixin(AttributeClassThis!"OOPStringAttributeClass");
+class DStringAttributeClass : DOOPCharAttributeClass {
+  mixin(AttributeClassThis!"StringAttributeClass");
+
+  mixin(OProperty!("size_t", "maxLength"));
 
   override void initialize() {
     super.initialize;
@@ -14,14 +16,15 @@ class DOOPStringAttributeClass : DOOPCharAttributeClass {
       .name("string")
       .registerPath("string");
   }
-  override DValue value() {
-    return StringValue(this); }
+  override DValue createValue() {
+    return StringValue(this)
+      .maxLength(this.maxLength); }
 }
-mixin(AttributeClassCalls!"OOPStringAttributeClass");
+mixin(AttributeClassCalls!"StringAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPStringAttributeClass);
-    testAttributeClass(OOPStringAttributeClass);
+    testAttributeClass(new DStringAttributeClass);
+    testAttributeClass(StringAttributeClass);
   }
 }

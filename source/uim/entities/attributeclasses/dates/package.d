@@ -1,5 +1,5 @@
 /***********************************************************************************************
-*	Copyright: © 2017-2021 UI Manufaktur UG
+*	Copyright: © 2017-2022 UI Manufaktur UG / 2022 Ozan Nuretin Süel (Sicherheitsschmiede)
 *	License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
 *	Authors: UI Manufaktur Team
 ************************************************************************************************/

@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.strings.colorname;
 import uim.entities;
 
 // means.measurement.color
-class DOOPColorNameAttributeClass : DOOPStringAttributeClass {
+class DOOPColorNameAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPColorNameAttributeClass"));
 
   override void initialize() {

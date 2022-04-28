@@ -46,7 +46,7 @@ class DOOPStringAttribute : DOOPAttribute {
     super.initialize;
 
     this
-      .attributeClass(OOPStringAttributeClass)
+      .attributeClass(StringAttributeClass)
       .isCharacter(true)
       .isBig(true)
       .isArray(true);

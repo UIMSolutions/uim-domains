@@ -7,7 +7,7 @@ import uim.entities;
 // is.dataFormat.big
 // is.dataFormat.array
 // means.measurement.currencyCode
-class DCurrencyCodeAttributeClass : DOOPStringAttributeClass {
+class DCurrencyCodeAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("CurrencyCodeAttributeClass"));
 
   override void initialize() {

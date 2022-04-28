@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.strings.filename;
 import uim.entities;
 
 // A string value representing the name of a file.
-class DFileNameAttributeClass : DOOPStringAttributeClass {
+class DFileNameAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("FileNameAttributeClass"));
 
   override void initialize() {

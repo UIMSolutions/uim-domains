@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.strings.city;
 import uim.entities;
 
 // means.location.city
-class DOOPCityAttributeClass : DOOPStringAttributeClass {
+class DOOPCityAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPCityAttributeClass"));
 
   override void initialize() {

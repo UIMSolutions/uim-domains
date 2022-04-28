@@ -4,7 +4,7 @@ module uim.entities.values.string_;
 import uim.entities;
 
 class DStringValue : DValue {
-  mixin(ValueThis!("StringValue", "string"));  
+  mixin(ValueThis!("StringValue"));  
   
   override void initialize() {
     super.initialize;
@@ -13,7 +13,53 @@ class DStringValue : DValue {
       .isString(true);
   }
 
-  mixin(OProperty!("string", "value"));
+  mixin(OProperty!("size_t", "maxLength"));
+
+  protected string _value;
+  @property string value(){
+    if (maxLength > 0 && _value.length > maxLength) {
+      return _value[0..maxLength]; }
+    else {
+      return _value;
+    }
+  }
+  // Set with string value
+  O value(this O)(string newValue) {
+    set(newValue);
+    return cast(O)this;
+  }
+  version(test_uim_entities) {
+    unittest {    
+      assert(StringValue.value("test").value == "test");
+      assert(StringValue.value("test").value("test2").value == "test2");
+  }}
+
+  // Set with Json value
+  O value(this O)(Json newValue) {
+    set(newValue);
+    return cast(O)this;
+  }
+
+  // Hooks for setting 
+  override protected void set(string newValue) {
+    if (newValue is null) { 
+      this.isNull(isNullable ? true : false); }
+    else {
+      this.isNull(false);
+    }
+    _value = newValue;
+  } 
+
+  override protected void set(Json newValue) {
+    if (newValue == Json(null)) { 
+      _value = null; 
+      this.isNull(isNullable ? true : false); }
+    else {
+      _value = newValue.get!string;
+      this.isNull(false);
+    }
+  }
+
   O value(this O)(DStringValue newValue) {
     if (newValue) {
       this
@@ -87,6 +133,7 @@ class DStringValue : DValue {
   override Json toJson() { 
     if (isNull) return Json(null); 
     return Json(_value); }
+  
   override string toString() { 
     if (isNull) return null; 
     return _value; }
@@ -95,11 +142,43 @@ class DStringValue : DValue {
     this.value(newValue);
   }  
 }
-mixin(ValueCalls!("StringValue", "string"));  
+mixin(ValueCalls!("StringValue"));  
 
 version(test_uim_entities) {
-  unittest {  
-    writeln("StringValue");
-    writeln("-> ", StringValue("test"));
-    writeln("-> ", StringValue("test").toJson);
-}}
+  unittest {    
+    assert(StringValue("test").value == "test");
+    assert(StringValue("test2").value != "test");
+
+    assert(StringValue(Json("test")).value == "test");
+    assert(StringValue(Json("test2")).value != "test");
+
+    assert(StringValue.value("test").value == "test");
+    assert(StringValue.value("test2").value != "test");
+
+    assert(StringValue.value(Json("test")).value == "test");
+    assert(StringValue.value(Json("test2")).value != "test");
+
+    assert(StringValue("test").toString == "test");
+    assert(StringValue("test2").toString != "test");
+
+    assert(StringValue(Json("test")).toString == "test");
+    assert(StringValue(Json("test2")).toString != "test");
+
+    assert(StringValue.value("test").toString == "test");
+    assert(StringValue.value("test2").toString != "test");
+
+    assert(StringValue.value(Json("test")).toString == "test");
+    assert(StringValue.value(Json("test2")).toString != "test");
+
+    assert(StringValue("test").toJson == Json("test"));
+    assert(StringValue("test2").toJson != Json("test"));
+
+    assert(StringValue(Json("test")).toJson == Json("test"));
+    assert(StringValue(Json("test2")).toJson != Json("test"));
+
+    assert(StringValue.value("test").toJson == Json("test"));
+    assert(StringValue.value("test2").toJson != Json("test"));
+
+    assert(StringValue.value(Json("test")).toJson == Json("test"));
+    assert(StringValue.value(Json("test2")).toJson != Json("test"));
+}} 

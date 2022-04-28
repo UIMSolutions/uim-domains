@@ -17,6 +17,7 @@ class DValue : IValue {
   mixin(OProperty!("bool", "isNullable"));
   mixin(OProperty!("bool", "isObject"));
   mixin(OProperty!("bool", "isArray"));
+  mixin(OProperty!("bool", "isEntity"));
   mixin(OProperty!("bool", "isUUID"));
   
   private bool _isNull;
@@ -26,7 +27,21 @@ class DValue : IValue {
   O isNull(this O)(bool newNull) {
     if (isNullable) _isNull = newNull; 
     return cast(O)this; }
-  
+
+  // Set with string value
+  protected void set(string newValue) {}
+  protected void set(Json newValue) {}
+
+  O value(this O)(string newValue) {
+    this.set(newValue);
+    return cast(O)this;
+  }
+
+  O value(this O)(Json newValue) {
+    this.set(newValue);
+    return cast(O)this;
+  }
+
   Json toJson() { return Json(null); }
   Json toJsonValue() { return Json(null); }
   Json toJsonObj() {

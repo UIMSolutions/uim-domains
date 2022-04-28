@@ -3,8 +3,8 @@ module uim.entities.values.object_;
 @safe:
 import uim.entities;
 
-class DObjectValue : DValue {
-  mixin(ValueThis!("ObjectValue", "Json"));  
+class DJsonObjectValue : DValue {
+  mixin(ValueThis!("JsonObjectValue"));  
 
   mixin(OProperty!("Json", "value"));
 
@@ -35,4 +35,4 @@ class DObjectValue : DValue {
     this.value(newValue);
   }
 }
-mixin(ValueCalls!("ObjectValue", "Json"));  
+mixin(ValueCalls!("JsonObjectValue"));  

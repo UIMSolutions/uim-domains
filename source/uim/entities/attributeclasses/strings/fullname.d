@@ -7,7 +7,7 @@ import uim.entities;
 is.dataFormat.big
 is.dataFormat.array
 means.identity.person.fullName */
-class DFullNameAttributeClass : DOOPStringAttributeClass {
+class DFullNameAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("FullNameAttributeClass"));
 
   override void initialize() {

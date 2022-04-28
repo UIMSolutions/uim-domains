@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.strings.addressline;
 @safe:
 import uim.entities;
 
-class DOOPAddressLineAttributeClass : DOOPStringAttributeClass {
+class DOOPAddressLineAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!"OOPAddressLineAttributeClass");
 
   override void initialize() {

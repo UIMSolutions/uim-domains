@@ -17,12 +17,19 @@ class DValues {
   void opIndexAssign(DValue newValue, string name) { 
     _values[name] = newValue; }
 
-  void addValues(DValue[string] newValues) {
+  O addValues(this O)(DValue[string] newValues) {
     newValues.byKey.each!(key => _values[key] = newValues[key]);
+    return cast(O)this;
   }
 
-  void addValues(DAttributeClass[string] newValues) {
-    newValues.byKey.each!(key => _values[key] = newValues[key].value);
+  O addValues(this O)(DAttributeClass[string] attributeClasses) {
+    attributeClasses.byKey.each!(key => _values[key] = attributeClasses[key].createValue);
+    return cast(O)this;
+  }
+
+  O addValue(this O)(string fieldName, DValue newValue) {
+    _values[fieldName] = newValue;
+    return cast(O)this;
   }
 
   Json toJson() {

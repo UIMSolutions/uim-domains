@@ -8,7 +8,7 @@ is.dataFormat.character
 is.dataFormat.big
 is.dataFormat.array
 means.demographic.ethnicity */
-class DEthnicityAttributeClass : DOOPStringAttributeClass {
+class DEthnicityAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("EthnicityAttributeClass"));
 
   override void initialize() {

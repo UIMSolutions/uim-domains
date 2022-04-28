@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.strings.companyname;
 import uim.entities;
 
 // means.identity.company.name
-class DOOPCompanyNameAttributeClass : DOOPStringAttributeClass {
+class DOOPCompanyNameAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPCompanyNameAttributeClass"));
 
   override void initialize() {

@@ -183,10 +183,11 @@ class DOOPEntity : IRegistrable {
   }
 
   mixin(OProperty!("DValues", "values"));
-  O addValues(this O)(DOOPAttributeClass[string] classes) {
+  O addValues(this O)(DAttributeClass[string] classes) {
     DValue[string] newValues;
-    classes.byKey.each!(key => newValues[key] = classes[key].value);
-    addValues(newValues);
+    foreach(key; classes.byKey) {
+      this.values.addValue(key, classes[key].createValue);
+    }
     return cast(O)this;
   }
   O addValues(this O)(DValue[string] newValues) {
@@ -489,6 +490,7 @@ class DOOPEntity : IRegistrable {
     }      
   }
 
+  // Set field(key) if type Entity
   void opIndexAssign(DOOPEntity value, string key) {
     switch(key) {
       default:
@@ -563,6 +565,7 @@ class DOOPEntity : IRegistrable {
             // debug writeln("Found ", k);
             _attributes[k].value(v); 
           }
+          this.values[k].value(v);
           break;
       }            
     }
@@ -661,11 +664,13 @@ class DOOPEntity : IRegistrable {
       foreach(k; _attributes.byKey) {
         if (!hideFields.exist(k)) result[k] = _attributes[k].jsonValue;
       }
+      this.values.toJson(result);
     }
     else {
       foreach(k; _attributes.byKey) {
         if ((showFields.exist(k)) && (!hideFields.exist(k))) result[k] = _attributes[k].jsonValue;
       }
+      this.values.toJson(result);
     }
     
     return result;

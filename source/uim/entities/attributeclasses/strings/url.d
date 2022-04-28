@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.strings.url;
 @safe:
 import uim.entities;
 
-class DOOPUrlAttributeClass : DOOPStringAttributeClass {
+class DOOPUrlAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPUrlAttributeClass"));
 
   override void initialize() {

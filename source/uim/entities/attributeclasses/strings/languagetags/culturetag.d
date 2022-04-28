@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.strings.languagetags.culturetag;
 import uim.entities;
 
 // means.reference.language.tag
-class DCultureTagAttributeClass : DOOPStringAttributeClass {
+class DCultureTagAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("CultureTagAttributeClass"));
 
   override void initialize() {

@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.strings.lastname;
 import uim.entities;
 
 // means.identity.person.lastName
-class DOOPLastNameAttributeClass : DOOPStringAttributeClass {
+class DOOPLastNameAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPLastNameAttributeClass"));
 
   override void initialize() {

@@ -7,7 +7,7 @@ import uim.entities;
 is.dataFormat.big
 is.dataFormat.array
 means.identity.governmentID */
-class DGovernmentIdAttributeClass : DOOPStringAttributeClass {
+class DGovernmentIdAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("GovernmentIdAttributeClass"));
 
   override void initialize() {

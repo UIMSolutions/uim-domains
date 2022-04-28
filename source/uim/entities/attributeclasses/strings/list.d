@@ -5,7 +5,7 @@ import uim.entities;
 
 // A CSV contained within one string value
 // means.content.text.CSV
-class DOOPListAttributeClass : DOOPStringAttributeClass {
+class DOOPListAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPListAttributeClass"));
 
   override void initialize() {

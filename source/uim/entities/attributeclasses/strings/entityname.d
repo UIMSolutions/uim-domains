@@ -8,7 +8,7 @@ is.dataFormat.big
 is.dataFormat.array
 means.entityName
 means.entityName */
-class DEntityNameAttributeClass : DOOPStringAttributeClass {
+class DEntityNameAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("EntityNameAttributeClass"));
 
   override void initialize() {

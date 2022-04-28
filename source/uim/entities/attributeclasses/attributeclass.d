@@ -76,7 +76,7 @@ class DAttributeClass : DOOPEntity {
   auto createAttribute() {
     return createAttribute(_name); }
 
-  DValue value() {
+  DValue createValue() {
     return NullValue; }
 
   // Create a new attribute based on this attributeClass an a giving name 

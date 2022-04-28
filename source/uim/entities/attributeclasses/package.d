@@ -63,7 +63,7 @@ static this() {
     .register(OOPLastNameAttributeClass)
     .register(OOPLinkAttributeClass)
     .register(OOPListAttributeClass)
-    .register(OOPStringAttributeClass)
+    .register(StringAttributeClass)
     .register(OOPUrlAttributeClass)
     // Dates
     .register(OOPDateAttributeClass)

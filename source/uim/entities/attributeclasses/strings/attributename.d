@@ -5,7 +5,7 @@ module uim.entities.attributeclasses.strings.attributename;
 @safe:
 import uim.entities;
 
-class DOOPAttributeNameAttributeClass : DOOPStringAttributeClass {
+class DOOPAttributeNameAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("OOPAttributeNameAttributeClass"));
 
   /*

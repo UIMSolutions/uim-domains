@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.strings.email;
 import uim.entities;
 
 // means.identity.person.email
-class DEmailAttributeClass : DOOPStringAttributeClass {
+class DEmailAttributeClass : DStringAttributeClass {
   mixin(AttributeClassThis!("EmailAttributeClass"));
 
   override void initialize() {
