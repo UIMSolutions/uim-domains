@@ -8,8 +8,8 @@ module uim.entities.attributeclasses.booleans.boolean;
 @safe:
 import uim.entities;
 
-class DOOPBooleanAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPBooleanAttributeClass"));
+class DBooleanAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("BooleanAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -23,11 +23,11 @@ class DOOPBooleanAttributeClass : DAttributeClass {
   override DValue createValue() {
     return BooleanValue(this); }
 }
-mixin(AttributeClassCalls!"OOPBooleanAttributeClass");
+mixin(AttributeClassCalls!"BooleanAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPBooleanAttributeClass);
-    testAttributeClass(OOPBooleanAttributeClass);
+    testAttributeClass(new DBooleanAttributeClass);
+    testAttributeClass(BooleanAttributeClass);
   }
 }

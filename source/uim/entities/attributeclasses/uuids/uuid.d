@@ -22,5 +22,6 @@ mixin(AttributeClassCalls!("UUIDAttributeClass"));
 
 version(test_uim_entities) {
   unittest {
-    // TODO Add tests
-    }}
+    testAttributeClass(new DUUIDAttributeClass);
+    testAttributeClass(UUIDAttributeClass);
+}}
