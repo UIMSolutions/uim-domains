@@ -19,6 +19,9 @@ class DBooleanValue : DValue {
     this.set(newValue);
     return cast(O)this; 
   }
+  bool value() {
+    return _value; 
+  }
 
   void set(bool newValue) {
     _value = newValue;
@@ -28,11 +31,13 @@ class DBooleanValue : DValue {
   }
   override void set(Json newValue) {
     if (newValue == Json(null)) { 
-      _value = false; 
-      this.isNull(isNullable ? true : false); }
+      this
+        .value(false) 
+        .isNull(isNullable ? true : false); }
     else {
-      _value = newValue.get!bool;
-      this.isNull(false);
+      this
+        .value(newValue.get!bool)
+        .isNull(false);
     }
   }
 
@@ -51,12 +56,13 @@ class DBooleanValue : DValue {
     return _value; }
 
   override Json toJson() { 
-    if (isNull) return Json(null); 
-    return Json(_value); }
+    debug writeln("In DBooleanValue:toJson"); 
+    if (this.isNull) return Json(null); 
+    return Json(this.value); }
 
   override string toString() { 
     if (isNull) return null; 
-    return to!string(_value); }
+    return to!string(this.value); }
 }
 mixin(ValueCalls!("BooleanValue", "bool"));  
 

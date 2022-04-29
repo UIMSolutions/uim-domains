@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.datetimes.birthdate;
 @safe:
 import uim.entities;
 
-class DOOPBirthDateAttributeClass : DOOPDatetimeAttributeClass {
+class DOOPBirthDateAttributeClass : DDatetimeAttributeClass {
   mixin(AttributeClassThis!("OOPBirthDateAttributeClass"));
 
   override void initialize() {
@@ -13,10 +13,10 @@ class DOOPBirthDateAttributeClass : DOOPDatetimeAttributeClass {
       .dataFormats(["time"])
       .name("birthdate")
       .registerPath("birthdate");
-          // means.measurement.date
-    // means.measurement.time
-    // means.demographic.birthDate
+
   }
+  override DValue createValue() {
+    return DatetimeValue(this); }
 }
 mixin(AttributeClassCalls!"OOPBirthDateAttributeClass");
 

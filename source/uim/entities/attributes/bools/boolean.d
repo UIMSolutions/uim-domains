@@ -17,7 +17,7 @@ class DOOPBooleanAttribute : DOOPAttribute {
     super.initialize;
 
     this
-      .attributeClass(OOPBooleanAttributeClass);
+      .attributeClass(BooleanAttributeClass);
   }
 
   protected bool _value;

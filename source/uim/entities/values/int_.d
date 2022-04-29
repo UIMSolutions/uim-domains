@@ -1,18 +1,18 @@
-module uim.entities.values.int_;
+module uim.entities.values.integer;
 
 @safe:
 import uim.entities;
 
 class DIntegerValue : DValue {
-  mixin(ValueThis!("IntegerValue", "long"));  
+  mixin(ValueThis!("IntegerValue", "int"));  
 
-  protected long _value;  
+  protected int _value;  
   alias value = DValue.value;
-  O value(this O)(long newValue) {
+  O value(this O)(int newValue) {
     this.set(newValue);
     return cast(O)this; 
   }
-  long value() {
+  int value() {
     return _value; 
   }
   override void initialize() {
@@ -23,7 +23,7 @@ class DIntegerValue : DValue {
   }
 
   // Hooks for setting 
-  protected void set(long newValue) {
+  protected void set(int newValue) {
     _value = newValue; 
   }  
 
@@ -33,7 +33,7 @@ class DIntegerValue : DValue {
       _value = 0; }
     else {
       this.isNull(false);
-      _value = to!long(newValue); 
+      _value = to!int(newValue); 
     }
   }  
 
@@ -42,20 +42,20 @@ class DIntegerValue : DValue {
       _value = 0; 
       this.isNull(isNullable ? true : false); }
     else {
-      _value = newValue.get!long;
+      _value = newValue.get!int;
       this.isNull(false);
     }
   }
 
-  bool opEquals(long aValue) {
+  bool opEquals(int aValue) {
     return (_value == aValue);
   }
 
-  long opCall() {
+  int opCall() {
     return _value; 
   }
 
-  O opCall(this O)(long newValue) { 
+  O opCall(this O)(int newValue) { 
     _value = newValue;
     return cast(O)this; }
   version(test_uim_entities) {
@@ -65,7 +65,7 @@ class DIntegerValue : DValue {
     }
   }  
 
-  long toLong() { 
+  int toLong() { 
     if (isNull) return 0; 
     return _value; }
 
@@ -77,7 +77,7 @@ class DIntegerValue : DValue {
     if (isNull) return "0"; 
     return to!string(_value); }
 }
-mixin(ValueCalls!("IntegerValue", "long"));  
+mixin(ValueCalls!("IntegerValue", "int"));  
 
 version(test_uim_entities) {
   unittest {    

@@ -5,6 +5,9 @@ import uim.entities;
 
 public import uim.entities.attributeclasses.attributeclass;
 
+public import uim.entities.attributeclasses.lookups;
+public import uim.entities.attributeclasses.codes;
+
 public import uim.entities.attributeclasses.arrays;
 public import uim.entities.attributeclasses.booleans;
 public import uim.entities.attributeclasses.bytes;
@@ -45,7 +48,7 @@ void testAttributeClass(DAttributeClass attributeClass) {
 static this() {
   AttributeClassRegistry
     // Booleans
-    .register(OOPBooleanAttributeClass)
+    .register(BooleanAttributeClass)
     // Bytes
     .register(OOPBinaryAttributeClass)
     .register(OOPByteAttributeClass)
@@ -66,11 +69,11 @@ static this() {
     .register(StringAttributeClass)
     .register(OOPUrlAttributeClass)
     // Dates
-    .register(OOPDateAttributeClass)
+    .register(DateAttributeClass)
     // DateTimes
     .register(OOPBirthDateAttributeClass)
-    .register(OOPDatetimeAttributeClass)
-    .register(OOPTimeAttributeClass);
+    .register(DatetimeAttributeClass)
+    .register(TimeAttributeClass);
     // Decimals
 }
 

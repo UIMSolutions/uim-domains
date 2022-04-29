@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.dates.datetimes.datetimeoffset;
 @safe:
 import uim.entities;
 
-class DDatetimeOffsetAttributeClass : DOOPDatetimeAttributeClass {
+class DDatetimeOffsetAttributeClass : DDatetimeAttributeClass {
   mixin(AttributeClassThis!("DatetimeOffsetAttributeClass"));
 
   override void initialize() {
@@ -13,11 +13,11 @@ class DDatetimeOffsetAttributeClass : DOOPDatetimeAttributeClass {
       .dataFormats(["time"])
       .name("datetimeOffset")
       .registerPath("datetimeoffset");
-          // is.dataFormat.date
-/* means.measurement.date
-is.dataFormat.time
-means.measurement.time
-is.dataFormat.timeOffset */
+                // is.dataFormat.date
+        /* means.measurement.date
+        is.dataFormat.time
+        means.measurement.time
+        is.dataFormat.timeOffset */
   }
 }
 mixin(AttributeClassCalls!"DatetimeOffsetAttributeClass");

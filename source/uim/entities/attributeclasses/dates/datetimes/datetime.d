@@ -3,25 +3,27 @@ module uim.entities.attributeclasses.datetimes.datetime;
 @safe:
 import uim.entities;
 
-class DOOPDatetimeAttributeClass : DOOPDateAttributeClass {
-  mixin(AttributeClassThis!("OOPDatetimeAttributeClass"));
+class DDatetimeAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("DatetimeAttributeClass"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .dataFormats(["time"])
+      .dataFormats(["datetime"])
       .name("datetime")
       .registerPath("datetime");
-          // means.measurement.date
-    // means.measurement.time
+      // means.measurement.date
+      // means.measurement.time
   }
+  override DValue createValue() {
+    return DatetimeValue(this); }
 }
-mixin(AttributeClassCalls!"OOPDatetimeAttributeClass");
+mixin(AttributeClassCalls!"DatetimeAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPDatetimeAttributeClass);
-    testAttributeClass(OOPDatetimeAttributeClass);
+    testAttributeClass(new DDatetimeAttributeClass);
+    testAttributeClass(DatetimeAttributeClass);
   }
 }

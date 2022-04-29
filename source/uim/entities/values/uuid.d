@@ -10,7 +10,6 @@ class DUUIDValue : DValue {
     super.initialize;
 
     this
-      .isNull(false)
       .isUUID(true);
   }
 
@@ -29,11 +28,8 @@ class DUUIDValue : DValue {
   }
   override void set(string newValue) {
     if (newValue is null) {
-      if (this.isNullable) {
-        this
-          .isNull(true);
-      }
       this
+        .isNull(this.isNullable)
         .value(UUID());
     }
     else {

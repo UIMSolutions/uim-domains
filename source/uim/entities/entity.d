@@ -52,6 +52,14 @@ class DOOPEntity : IRegistrable {
   void registerPath(string path) { _registerPath = path; }
   string registerPath() { return _registerPath; }
 
+  string[] fieldNames() {
+    return [      
+      "registerPath", "id", "etag", "name", "display", "createdOn", "createdBy", "modifiedOn", "modifiedBy", "lastAccessedOn", 
+      "lastAccessBy", "description", "isLocked", "lockedOn", "lockedBy", "isDeleted", "deletedOn", "deletedBy", "versionNumber", 
+      "versionDisplay", "versionMode", "versionOn", "versionBy", "versionDescription"]~
+      attributes.keys~values.keys;
+  }
+
   mixin(OProperty!("string", "pool"));
   mixin(OProperty!("long", "etag"));
   O etag(this O)(string newValue) { 
@@ -356,13 +364,20 @@ class DOOPEntity : IRegistrable {
     return this;
   }
 
-  DOOPEntity fromRequest(STRINGAA reqParameters) {
-    debug writeln("fromRequest...");
-    debug writeln(reqParameters);
-    foreach(k, v; reqParameters) {
-      if (k.strip.indexOf("entity_") == 0) {
-        auto key = k.replace("entity_", "");
-        this[key] = v; }}
+  DOOPEntity fromRequest(STRINGAA requestValues) {
+    debug writeln("fromRequest...", requestValues);
+    debug writeln("fieldNames...", fieldNames);
+    foreach(fName; fieldNames) {
+      auto requestKey = "entity_"~fName;
+      if (auto boolValue = cast(DBooleanValue)values[fName]) {
+        boolValue.value(requestKey in requestValues ? true : false);
+      }
+      else {
+        if (requestKey in requestValues) {
+          this[fName] = requestValues[requestKey];
+        }
+      }
+    }
     return this;
   }
 
@@ -429,7 +444,7 @@ class DOOPEntity : IRegistrable {
       case "versionDescription": this.versionDescription(value); break;
       default:
         if (key in attributes) attributes[key].value(value); 
-        if (values.hasValue(key)) { this.values[key].fromString(value); }
+        values[key] = value;
         break;
     }      
     return this;
@@ -449,11 +464,7 @@ class DOOPEntity : IRegistrable {
         if (key in attributes) {
           if (auto att = cast(DOOPUUIDAttribute)attributes[key]) att.value(value); 
         } 
-        if (values.hasValue(key)) { 
-          if (auto v = cast(DUUIDValue)values[key]) {
-            v.value(value);
-          } 
-        }
+        values[key] = value;
         break;
     }      
     return this;
@@ -468,11 +479,7 @@ class DOOPEntity : IRegistrable {
       case "deletedOn": this.deletedOn(value); break;
       case "versionOn": this.versionOn(value); break;
       default:
-        if (values.hasValue(key)) { 
-          if (auto v = cast(DIntegerValue)values[key]) {
-            v.value(value);
-          } 
-        }
+        values[key] = value;
         break;
     }      
   } 
@@ -486,6 +493,7 @@ class DOOPEntity : IRegistrable {
         if (key in attributes) {
           if (auto att = cast(DOOPBooleanAttribute)attributes[key]) att.value(value); 
         } 
+        values[key] = value;
         break;
     }      
   }
@@ -575,7 +583,55 @@ class DOOPEntity : IRegistrable {
   Json toJson(string[] showFields = null, string[] hideFields = null) {
     auto result = Json.emptyObject;
     
-    if (showFields.length == 0) {
+    if (showFields.length == 0 && hideFields.length == 0) {
+      result["registerPath"] = this.registerPath;
+      result["id"] = this.id.toString;
+      result["name"] = this.name;
+      result["display"] = this.display;
+      result["versionNumber"] = this.versionNumber;
+      result["createdOn"] = this.createdOn;
+      result["createdBy"] = this.createdBy.toString;
+      result["modifiedOn"] = this.modifiedOn;
+      result["modifiedBy"] = this.modifiedBy.toString;
+      result["lastAccessedOn"] = this.lastAccessedOn;
+      result["lastAccessBy"] = this.lastAccessBy.toString;
+      result["description"] = this.description;
+      result["isLocked"] = this.isLocked;
+      result["lockedOn"] = this.lockedOn;
+      result["lockedBy"] = this.lockedBy.toString;
+      result["isDeleted"] = this.isDeleted;
+      result["deletedOn"] = this.deletedOn;
+      result["deletedBy"] = this.deletedBy.toString;
+      if (this.model) {
+        if (this.model.id.isNull) result["model"] = this.model.name;
+        else result["model"] = this.model.id.toString;
+      }
+      result["hasVersions"] = this.hasVersions;
+      result["hasLanguages"] = this.hasLanguages;
+
+      auto parameterValues = Json.emptyObject;
+      foreach (kv; this.parameters.byKeyValue) {
+        parameterValues[kv.key] = this.parameters[kv.value];                
+      } 
+      result["parameters"] = parameterValues;
+
+      result["config"] = this.config;     
+      result["versionNumber"] = this.versionNumber;
+      result["versionDisplay"] = this.versionDisplay;
+      result["versionMode"] = this.versionMode;
+      result["versionOn"] = this.versionOn;
+      result["versionBy"] = this.versionBy.toString;
+      result["versionDescription"] = this.versionDescription;
+
+      foreach(k; _attributes.byKey) {
+        if (!hideFields.exist(k)) result[k] = _attributes[k].jsonValue;
+      }
+      foreach(k; values.keys) {
+        debug writeln("Value ", k, " = ",  this.values[k].toJson);
+        result[k] = this.values[k].toJson;
+      }
+    }
+    else if (showFields.length == 0 && hideFields.length > 0) {
       if (!hideFields.exist("registerPath")) result["registerPath"] = this.registerPath;
       if (!hideFields.exist("id")) result["id"] = this.id.toString;
       if (!hideFields.exist("name")) result["name"] = this.name;
@@ -603,11 +659,11 @@ class DOOPEntity : IRegistrable {
       if (!hideFields.exist("hasVersions")) result["hasVersions"] = this.hasVersions;
       if (!hideFields.exist("hasLanguages")) result["hasLanguages"] = this.hasLanguages;
       if (!hideFields.exist("parameters")) {       
-        auto values = Json.emptyObject;
+        auto parameterValues = Json.emptyObject;
         foreach (kv; this.parameters.byKeyValue) {
-          values[kv.key] = this.parameters[kv.value];                
+          parameterValues[kv.key] = this.parameters[kv.value];                
         } 
-        result["parameters"] = values;
+        result["parameters"] = parameterValues;
       }
       if (!hideFields.exist("config")) result["config"] = this.config;     
       if (!hideFields.exist("versionNumber")) result["versionNumber"] = this.versionNumber;

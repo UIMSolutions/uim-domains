@@ -25,7 +25,6 @@ class DJsonObjectValue : DValue {
     if (isNull) return Json(null);
     return _value; }
 
-  override Json toJsonValue() { return this.value; }
   override string toString() { 
     if (isNull) return null; 
     return _value.toString;

@@ -129,7 +129,6 @@ class DStringValue : DValue {
       assert(StringValue()("test") >= "test");    
   }}
 
-  override Json toJsonValue() { return Json(this.value); }
   override Json toJson() { 
     if (isNull) return Json(null); 
     return Json(_value); }

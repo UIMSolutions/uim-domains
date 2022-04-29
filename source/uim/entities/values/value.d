@@ -14,6 +14,10 @@ class DValue : IValue {
   mixin(OProperty!("bool", "isInteger"));
   mixin(OProperty!("bool", "isBoolean"));
   mixin(OProperty!("bool", "isDouble"));
+  mixin(OProperty!("bool", "isLong"));
+  mixin(OProperty!("bool", "isDate"));
+  mixin(OProperty!("bool", "isTime"));
+  mixin(OProperty!("bool", "isDatetime"));
   mixin(OProperty!("bool", "isNullable"));
   mixin(OProperty!("bool", "isObject"));
   mixin(OProperty!("bool", "isArray"));
@@ -42,12 +46,9 @@ class DValue : IValue {
     return cast(O)this;
   }
 
-  Json toJson() { return Json(null); }
-  Json toJsonValue() { return Json(null); }
-  Json toJsonObj() {
-    auto result = Json.emptyObject;
-    
-    return result; }
+  Json toJson() {
+    debug writeln("In DValue:toJson"); 
+    return Json(null); }
   override string toString() { return null; }
   void fromString(string newValue) { }
 }

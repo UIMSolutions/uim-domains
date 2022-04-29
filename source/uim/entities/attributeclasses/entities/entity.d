@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.entities.entity;
 @safe:
 import uim.entities;
 
-class DOOPEntityAttributeClass : DOOPDateAttributeClass {
+class DOOPEntityAttributeClass : DAttributeClass {
   mixin(AttributeClassThis!("OOPEntityAttributeClass"));
 
   override void initialize() {

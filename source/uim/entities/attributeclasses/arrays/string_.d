@@ -2,32 +2,32 @@
 *	Copyright: © 2017-2022 UI Manufaktur UG / 2022 Ozan Nuretin Süel (Sicherheitsschmiede)
 *	License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
 *	Authors: UI Manufaktur Team
-*	Documentation [DE]: https://ui-manufaktur.com/docu/uim-core/overview
 ************************************************************************************************/
-module uim.entities.attributeclasses.dates.date;
+module uim.entities.attributeclasses.arrays.string_;
 
 @safe:
 import uim.entities;
 
-// Attribute class for managing Date values
-class DOOPDateAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPDateAttributeClass"));
+class DStringArrayAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("StringArrayAttributeClass"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .dataFormats(["date"])
-      .name("date")
-      .registerPath("date");
-    // means.measurement.date
+      .name("boolean")
+      .dataFormats(["boolean"])
+      .registerPath("boolean");
   }
+
+  override DValue createValue() {
+    return BooleanValue(this); }
 }
-mixin(AttributeClassCalls!"OOPDateAttributeClass");
+mixin(AttributeClassCalls!"StringArrayAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPDateAttributeClass);
-    testAttributeClass(OOPDateAttributeClass);
+    testAttributeClass(new DStringArrayAttributeClass);
+    testAttributeClass(StringArrayAttributeClass);
   }
 }

@@ -6,4 +6,4 @@
 module uim.entities.attributeclasses.dates;
 
 // main
-public import uim.entities.attributeclasses.dates.date;
+public import uim.entities.attributeclasses.dates.date_;
