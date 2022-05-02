@@ -191,8 +191,13 @@ class DOOPEntity : IRegistrable {
   }
 
   mixin(OProperty!("DValues", "values"));
+  O addValues(this O)(DAttributeClass[] classes) {
+    foreach(aClass; classes) {
+      this.values.addValue(aClass.name, aClass.createValue);
+    }
+    return cast(O)this;
+  }
   O addValues(this O)(DAttributeClass[string] classes) {
-    DValue[string] newValues;
     foreach(key; classes.byKey) {
       this.values.addValue(key, classes[key].createValue);
     }

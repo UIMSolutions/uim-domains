@@ -4,9 +4,9 @@ module uim.entities.values.lookups.strings.string_;
 import uim.entities;
 
 class DStringStringValue : DStringValue {
-  mixin(ValueThis!("StringStringValue", "string"));
+  mixin(ValueThis!("StringStringValue"));
 }
-mixin(ValueCalls!("StringStringValue", "string"));
+mixin(ValueCalls!("StringStringValue"));
 
 version(test_uim_entities) {
   unittest {  

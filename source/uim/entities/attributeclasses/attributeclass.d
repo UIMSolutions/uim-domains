@@ -19,6 +19,7 @@ class DAttributeClass : DOOPEntity {
   }
 
   mixin(OProperty!("bool", "isNullable"));
+  mixin(OProperty!("string[string]", "descriptions"));
   mixin(OProperty!("string", "valueType")); // Select the data type of the property.")); // 
   mixin(OProperty!("string", "keyType")); // Select the data type of the property.")); // 
   mixin(OProperty!("string", "dataType_display")); // ")); // 

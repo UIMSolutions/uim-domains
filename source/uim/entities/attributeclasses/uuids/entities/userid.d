@@ -17,6 +17,14 @@ import uim.entities;
 
 class DUserIdAttributeClass : DEntityIdAttributeClass {
   mixin(AttributeClassThis!("UserIdAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("userId")
+      .registerPath("userid");
+  }  
 }
 mixin(AttributeClassCalls!("UserIdAttributeClass"));
 

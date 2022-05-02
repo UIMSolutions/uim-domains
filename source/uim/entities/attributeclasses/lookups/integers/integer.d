@@ -25,7 +25,7 @@ class DIntegerIntegerAttributeClass : DLookupAttributeClass {
   bool hasLookupKey(int key) {
     return (key in _lookups ? true : false); 
   }
-  bool hasLookupValue(string lookupValue) {
+  bool hasLookupValue(int lookupValue) {
     foreach(k, v; _lookups) { if (v == lookupValue) return true; }
     return false; 
   }  

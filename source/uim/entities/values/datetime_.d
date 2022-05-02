@@ -33,7 +33,7 @@ class DDatetimeValue : DValue {
       this.value(DateTime()); }
     else {
       this.isNull(false);
-      // this.value(newValue.fromISOExtString); 
+      this.value(DateTime.fromISOExtString(newValue)); 
     }
   }  
 
@@ -43,7 +43,7 @@ class DDatetimeValue : DValue {
       this.isNull(isNullable ? true : false); }
     else {
       this
-        //.value(newValue.get!string.fromISOExtString)
+        .value(newValue.get!string)
         .isNull(false);
     }
   }

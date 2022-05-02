@@ -10,9 +10,12 @@ class DStatusCodeAttributeClass : DIntegerStringAttributeClass {
     super.initialize;
 
     this
-      .name("statuscode")
-      .lookups(
-        [false : "Inactive", true: "Active"])
+      .name("statusCode")
+      .display("Status Reason")
+      .lookups([
+        0: "Active",  
+        1: "Inactive"
+      ])
       .isNullable(true)
       .registerPath("statuscode");
   }

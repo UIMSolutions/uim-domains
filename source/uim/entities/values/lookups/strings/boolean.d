@@ -4,9 +4,9 @@ module uim.entities.values.lookups.strings.boolean;
 import uim.entities;
 
 class DStringBooleanValue : DStringValue {
-  mixin(ValueThis!("StringBooleanValue", "string"));
+  mixin(ValueThis!("StringBooleanValue"));
 }
-mixin(ValueCalls!("StringBooleanValue", "string"));
+mixin(ValueCalls!("StringBooleanValue"));
 
 version(test_uim_entities) {
   unittest {  

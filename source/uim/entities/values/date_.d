@@ -27,12 +27,12 @@ class DDateValue : DValue {
     _value = newValue;
   }
   override void set(string newValue) {
-    _value = Date(string);
+    _value = Date.fromISOExtString(newValue);
   }
   override void set(Json newValue) {
     if (newValue == Json(null)) { 
       this
-        .value(false) 
+        .value(Date()) 
         .isNull(isNullable ? true : false); }
     else {
       this
