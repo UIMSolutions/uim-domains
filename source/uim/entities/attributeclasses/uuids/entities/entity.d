@@ -1,4 +1,4 @@
-module uim.entities.attributeclasses.uuids.entityids.entityid;
+module uim.entities.attributeclasses.uuids.entities.entity;
 
 @safe:
 import uim.entities;

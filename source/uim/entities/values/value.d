@@ -23,6 +23,7 @@ class DValue : IValue {
   mixin(OProperty!("bool", "isArray"));
   mixin(OProperty!("bool", "isEntity"));
   mixin(OProperty!("bool", "isUUID"));
+  mixin(OProperty!("bool", "isTimestamp"));
   
   private bool _isNull;
   bool isNull() {

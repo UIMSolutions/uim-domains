@@ -1,4 +1,4 @@
-module uim.entities.values.datetime_;
+module uim.entities.values.datetimes.datetime_;
 
 @safe:
 import uim.entities;

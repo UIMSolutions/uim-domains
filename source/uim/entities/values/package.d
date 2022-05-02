@@ -8,11 +8,10 @@ public import uim.entities.values.value;
 public import uim.entities.values.values;
 
 public import uim.entities.values.lookups;
+public import uim.entities.values.datetimes;
 
 public import uim.entities.values.array_;
 public import uim.entities.values.bool_;
-public import uim.entities.values.date_;
-public import uim.entities.values.datetime_;
 public import uim.entities.values.double_;
 public import uim.entities.values.entity;
 public import uim.entities.values.integer;
@@ -20,7 +19,6 @@ public import uim.entities.values.long_;
 public import uim.entities.values.null_;
 public import uim.entities.values.object_;
 public import uim.entities.values.string_;
-public import uim.entities.values.time_;
 public import uim.entities.values.uuid;
 
 template ValueThis(string name, string datatype = null) { // Name not required in this version

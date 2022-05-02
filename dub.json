@@ -4,74 +4,36 @@
 	],
 	"configurations": [
 		{
-			"dependencies": {
-				"colored": "0.0.23",
-				"vibe-d": "0.9.4"
-			},
-			"importPaths": [
-				"../uim-core",
-				"../uim-oop",
-				"../uim-jsonbase",
-				"../uim-entitybase",
-				"./"
-			],
-			"name": "offline",
-			"sourcePaths": [
-				"../uim-core",
-				"../uim-oop",
-				"../uim-jsonbase",
-				"../uim-entitybase",
-				"./"
-			],
-			"targetType": "library"
+			"name": "offline"
 		},
 		{
-			"dependencies": {
-				"vibe-d": "0.9.4"
-			},
-			"importPaths": [
-				"../uim-core",
-				"../uim-oop",
-				"../uim-jsonbase",
-				"../uim-entitybase",
-				"./"
-			],
 			"name": "test",
-			"sourcePaths": [
-				"../uim-core",
-				"../uim-oop",
-				"../uim-jsonbase",
-				"../uim-entitybase",
-				"./"
-			],
-			"targetType": "library",
 			"versions": [
 				"test_uim_entities"
 			]
-		},
-		{
-			"dependencies": {
-				"silly": "~>1.1.1",
-				"uim-core": {
-					"repository": "git+https://github.com/UI-Manufaktur/uim-core.git",
-					"version": "9171179266f02bafce9b9d7cba01f97354d01a59"
-				},
-				"uim-oop": {
-					"repository": "git+https://github.com/UI-Manufaktur/uim-oop.git",
-					"version": "a6fb933896b9864243e4455e61c77bc07f2b96e4"
-				},
-				"vibe-d": "0.9.4"
-			},
-			"name": "online",
-			"targetType": "library"
 		}
 	],
 	"copyright": "Copyright © 2017-2021, UI Manufaktur UG",
 	"dependencies": {
-		"colored": "~>0.0.23"
+		"colored": "0.0.23",
+		"vibe-d": "0.9.4"	
 	},
+	"importPaths": [
+		"../uim-core",
+		"../uim-oop",
+		"../uim-jsonbase",
+		"../uim-entitybase",
+		"./"
+	],
+	"sourcePaths": [
+		"../uim-core",
+		"../uim-oop",
+		"../uim-jsonbase",
+		"../uim-entitybase",
+		"./"
+	],
 	"description": "A D library",
-	"license": "MIT",
+	"license": "Apache-2.0",
 	"name": "uim-entities",
 	"targetType": "library"
 }

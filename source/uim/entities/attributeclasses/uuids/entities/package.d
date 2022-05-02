@@ -1,5 +1,6 @@
 module uim.entities.attributeclasses.uuids.entityids;
 
-public import uim.entities.attributeclasses.uuids.entityids.entityid;
-public import uim.entities.attributeclasses.uuids.entityids.fileid;
-public import uim.entities.attributeclasses.uuids.entityids.userid;
+public import uim.entities.attributeclasses.uuids.entities.entity;
+public import uim.entities.attributeclasses.uuids.entities.file;
+
+public import uim.entities.attributeclasses.uuids.entities.users;

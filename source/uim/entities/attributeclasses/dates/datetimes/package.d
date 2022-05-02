@@ -7,4 +7,5 @@ public import uim.entities.attributeclasses.datetimes.datetime;
 public import uim.entities.attributeclasses.datetimes.birthdate;
 public import uim.entities.attributeclasses.datetimes.datetime;
 public import uim.entities.attributeclasses.datetimes.time;
+public import uim.entities.attributeclasses.datetimes.timestamp;
 

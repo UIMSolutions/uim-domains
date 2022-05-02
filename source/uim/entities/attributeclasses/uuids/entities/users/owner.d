@@ -1,4 +1,4 @@
-module source.uim.entities.attributeclasses.uuids.entityids.owner;
+module uim.entities.attributeclasses.uuids.entities.users.owner;
 
 @safe:
 import uim.entities;
