@@ -5,8 +5,8 @@ module uim.entities.attributeclasses.strings.attributename;
 @safe:
 import uim.entities;
 
-class DOOPAttributeNameAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!("OOPAttributeNameAttributeClass"));
+class DAttributeNameAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!("AttributeNameAttributeClass"));
 
   /*
 is.dataFormat.character
@@ -19,11 +19,11 @@ means.attributeName
     super.initialize;
 
     this
-      .name("attributename")
+      .name("attributeName")
       .registerPath("attributename");
   }
 }
-mixin(AttributeClassCalls!("OOPAttributeNameAttributeClass"));
+mixin(AttributeClassCalls!("AttributeNameAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

@@ -4,8 +4,8 @@ module uim.entities.attributeclasses.strings.country;
 import uim.entities;
 
 // means.location.country
-class DOOPCountryAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!("OOPCountryAttributeClass"));
+class DCountryAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!("CountryAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,7 +15,7 @@ class DOOPCountryAttributeClass : DStringAttributeClass {
       .registerPath("country");
   }
 }
-mixin(AttributeClassCalls!("OOPCountryAttributeClass"));
+mixin(AttributeClassCalls!("CountryAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

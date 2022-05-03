@@ -9,10 +9,18 @@ import uim.entities;
 // means.measurement.dimension.electricCurrent
 // means.measurement.units.si.coulomb
 // has.measurement.fundamentalComponent.coulomb
-class DOOPCoulombAttributeClass : DDoubleAttributeClass {
-  mixin(AttributeClassThis!("OOPCoulombAttributeClass"));
+class DCoulombAttributeClass : DDoubleAttributeClass {
+  mixin(AttributeClassThis!("CoulombAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("coulomb")
+      .registerPath("coulomb");
+  }
 }
-mixin(AttributeClassCalls!("OOPCoulombAttributeClass"));
+mixin(AttributeClassCalls!("CoulombAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

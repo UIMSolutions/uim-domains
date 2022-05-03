@@ -10,7 +10,7 @@ class DOOPAttributeByte : DOOPAttribute {
     super.initialize;
 
     this
-      .attributeClass(OOPByteAttributeClass);
+      .attributeClass(ByteAttributeClass);
   }
 }
 mixin(OOPAttributeCalls!("OOPAttributeByte"));

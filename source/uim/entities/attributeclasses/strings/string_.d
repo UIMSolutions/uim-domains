@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.strings.string_;
 @safe:
 import uim.entities;
 
-class DStringAttributeClass : DOOPCharAttributeClass {
+class DStringAttributeClass : DCharAttributeClass {
   mixin(AttributeClassThis!"StringAttributeClass");
 
   mixin(OProperty!("size_t", "maxLength"));

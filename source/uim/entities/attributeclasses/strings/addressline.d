@@ -3,23 +3,23 @@ module uim.entities.attributeclasses.strings.addressline;
 @safe:
 import uim.entities;
 
-class DOOPAddressLineAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!"OOPAddressLineAttributeClass");
+class DAddressLineAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!"AddressLineAttributeClass");
 
   override void initialize() {
     super.initialize;
 
     // means.location.address
     this
-      .name("addressline")
+      .name("addressLine")
       .registerPath("addressline");
   }
 }
-mixin(AttributeClassCalls!"OOPAddressLineAttributeClass");
+mixin(AttributeClassCalls!"AddressLineAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPAddressLineAttributeClass);
-    testAttributeClass(OOPAddressLineAttributeClass);
+    testAttributeClass(new DAddressLineAttributeClass);
+    testAttributeClass(AddressLineAttributeClass);
   }
 }

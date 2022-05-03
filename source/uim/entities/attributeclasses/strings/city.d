@@ -4,8 +4,8 @@ module uim.entities.attributeclasses.strings.city;
 import uim.entities;
 
 // means.location.city
-class DOOPCityAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!("OOPCityAttributeClass"));
+class DCityAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!("CityAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,7 +15,7 @@ class DOOPCityAttributeClass : DStringAttributeClass {
       .registerPath("city");
   }
 }
-mixin(AttributeClassCalls!("OOPCityAttributeClass"));
+mixin(AttributeClassCalls!("CityAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

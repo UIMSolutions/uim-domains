@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.bytes.byte_;
 @safe:
 import uim.entities;
 
-class DOOPByteAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPByteAttributeClass"));
+class DByteAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("ByteAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,11 +15,11 @@ class DOOPByteAttributeClass : DAttributeClass {
       .registerPath("byte");
   }
 }
-mixin(AttributeClassCalls!("OOPByteAttributeClass"));
+mixin(AttributeClassCalls!("ByteAttributeClass"));
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPByteAttributeClass);
-    testAttributeClass(OOPByteAttributeClass);
+    testAttributeClass(new DByteAttributeClass);
+    testAttributeClass(ByteAttributeClass);
   }
 }

@@ -5,7 +5,7 @@ import uim.entities;
 
 // means.identity.company.name
 class DOOPCompanyNameAttribute : DOOPStringAttribute {
-  mixin(OOPAttributeThis!("OOPCompanyNameAttribute", "companyname"));
+  mixin(OOPAttributeThis!("OOPCompanyNameAttribute", "string"));
 }
 mixin(OOPAttributeCalls!("OOPCompanyNameAttribute"));
 

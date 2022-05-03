@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.datetimes.birthdate;
 @safe:
 import uim.entities;
 
-class DOOPBirthDateAttributeClass : DDatetimeAttributeClass {
-  mixin(AttributeClassThis!("OOPBirthDateAttributeClass"));
+class DBirthDateAttributeClass : DDatetimeAttributeClass {
+  mixin(AttributeClassThis!("BirthDateAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -18,11 +18,11 @@ class DOOPBirthDateAttributeClass : DDatetimeAttributeClass {
   override DValue createValue() {
     return DatetimeValue(this); }
 }
-mixin(AttributeClassCalls!"OOPBirthDateAttributeClass");
+mixin(AttributeClassCalls!"BirthDateAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPBirthDateAttributeClass);
-    testAttributeClass(OOPBirthDateAttributeClass);
+    testAttributeClass(new DBirthDateAttributeClass);
+    testAttributeClass(BirthDateAttributeClass);
   }
 }

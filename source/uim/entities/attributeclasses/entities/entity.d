@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.entities.entity;
 @safe:
 import uim.entities;
 
-class DOOPEntityAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPEntityAttributeClass"));
+class DEntityAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("EntityAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,11 +15,11 @@ class DOOPEntityAttributeClass : DAttributeClass {
     // means.measurement.time
   }
 }
-mixin(AttributeClassCalls!"OOPEntityAttributeClass");
+mixin(AttributeClassCalls!"EntityAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPEntityAttributeClass);
-    testAttributeClass(OOPEntityAttributeClass);
+    testAttributeClass(new DEntityAttributeClass);
+    testAttributeClass(EntityAttributeClass);
   }
 }

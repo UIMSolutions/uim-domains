@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.bytes.binary;
 @safe:
 import uim.entities;
 
-class DOOPBinaryAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPBinaryAttributeClass"));
+class DBinaryAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("BinaryAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,11 +15,11 @@ class DOOPBinaryAttributeClass : DAttributeClass {
       .registerPath("binary");
   }
 }
-mixin(AttributeClassCalls!("OOPBinaryAttributeClass"));
+mixin(AttributeClassCalls!("BinaryAttributeClass"));
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPBinaryAttributeClass);
-    testAttributeClass(OOPBinaryAttributeClass);
+    testAttributeClass(new DBinaryAttributeClass);
+    testAttributeClass(BinaryAttributeClass);
   }
 }

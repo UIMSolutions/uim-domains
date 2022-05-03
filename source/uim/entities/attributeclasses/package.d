@@ -50,28 +50,28 @@ static this() {
     // Booleans
     .register(BooleanAttributeClass)
     // Bytes
-    .register(OOPBinaryAttributeClass)
-    .register(OOPByteAttributeClass)
+    .register(BinaryAttributeClass)
+    .register(ByteAttributeClass)
     // Chars
-    .register(OOPCharAttributeClass)
+    .register(CharAttributeClass)
     // Chars -> Strings
-    .register(OOPAddressLineAttributeClass)
-    .register(OOPAttributeNameAttributeClass)
-    .register(OOPCityAttributeClass)
-    .register(OOPColorNameAttributeClass)
-    .register(OOPCompanyNameAttributeClass)
-    .register(OOPCountryAttributeClass)
-    .register(OOPCountyAttributeClass)
+    .register(AddressLineAttributeClass)
+    .register(AttributeNameAttributeClass)
+    .register(CityAttributeClass)
+    .register(ColorNameAttributeClass)
+    .register(CompanyNameAttributeClass)
+    .register(CountryAttributeClass)
+    .register(CountyAttributeClass)
     .register(LanguageTagAttributeClass)
-    .register(OOPLastNameAttributeClass)
-    .register(OOPLinkAttributeClass)
-    .register(OOPListAttributeClass)
+    .register(LastNameAttributeClass)
+    .register(LinkAttributeClass)
+    .register(ListAttributeClass)
     .register(StringAttributeClass)
-    .register(OOPUrlAttributeClass)
+    .register(UrlAttributeClass)
     // Dates
     .register(DateAttributeClass)
     // DateTimes
-    .register(OOPBirthDateAttributeClass)
+    .register(BirthDateAttributeClass)
     .register(DatetimeAttributeClass)
     .register(TimeAttributeClass);
     // Decimals

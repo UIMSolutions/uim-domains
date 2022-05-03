@@ -4,8 +4,8 @@ module uim.entities.attributeclasses.strings.county;
 import uim.entities;
 
 // means.location.county
-class DOOPCountyAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!("OOPCountyAttributeClass"));
+class DCountyAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!("CountyAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,7 +15,7 @@ class DOOPCountyAttributeClass : DStringAttributeClass {
       .registerPath("county");
   }
 }
-mixin(AttributeClassCalls!("OOPCountyAttributeClass"));
+mixin(AttributeClassCalls!("CountyAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

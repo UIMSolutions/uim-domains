@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.decimals.currencies.currency;
 @safe:
 import uim.entities;
 
-class DCurrencyAttributeClass : DOOPDecimalAttributeClass {
+class DCurrencyAttributeClass : DDecimalAttributeClass {
   mixin(AttributeClassThis!("CurrencyAttributeClass"));
 
   override void initialize() {

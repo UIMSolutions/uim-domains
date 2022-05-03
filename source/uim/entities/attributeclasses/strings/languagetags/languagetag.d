@@ -11,7 +11,7 @@ class DLanguageTagAttributeClass : DStringAttributeClass {
     super.initialize;
 
     this
-      .name("languagetag")
+      .name("languageTag")
       .registerPath("languagetag");
   }
 }

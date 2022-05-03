@@ -7,8 +7,8 @@ import uim.entities;
 // means.measurement.dimension.electricCurrent
 // means.measurement.units.si.ampere
 // has.measurement.fundamentalComponent.ampere
-class DOOPAmpereAttributeClass : DDoubleAttributeClass {
-  mixin(AttributeClassThis!("OOPAmpereAttributeClass"));
+class DAmpereAttributeClass : DDoubleAttributeClass {
+  mixin(AttributeClassThis!("AmpereAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -18,7 +18,7 @@ class DOOPAmpereAttributeClass : DDoubleAttributeClass {
       .registerPath("ampere");
   }
 }
-mixin(AttributeClassCalls!("OOPAmpereAttributeClass"));
+mixin(AttributeClassCalls!("AmpereAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

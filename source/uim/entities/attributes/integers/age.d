@@ -10,7 +10,7 @@ class DOOPAgeAttribute : DOOPIntegerAttribute {
     super.initialize;
 
     this
-      .attributeClass(OOPAgeAttributeClass);
+      .attributeClass(AgeAttributeClass);
   }
   /*
 

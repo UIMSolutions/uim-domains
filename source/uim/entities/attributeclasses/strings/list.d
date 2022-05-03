@@ -5,8 +5,8 @@ import uim.entities;
 
 // A CSV contained within one string value
 // means.content.text.CSV
-class DOOPListAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!("OOPListAttributeClass"));
+class DListAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!("ListAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -16,7 +16,7 @@ class DOOPListAttributeClass : DStringAttributeClass {
       .registerPath("list");
   }
 }
-mixin(AttributeClassCalls!("OOPListAttributeClass"));
+mixin(AttributeClassCalls!("ListAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

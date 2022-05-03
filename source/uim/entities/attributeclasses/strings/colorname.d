@@ -4,18 +4,18 @@ module uim.entities.attributeclasses.strings.colorname;
 import uim.entities;
 
 // means.measurement.color
-class DOOPColorNameAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!("OOPColorNameAttributeClass"));
+class DColorNameAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!("ColorNameAttributeClass"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("colorname")
+      .name("colorName")
       .registerPath("colorname");
   }
 }
-mixin(AttributeClassCalls!("OOPColorNameAttributeClass"));
+mixin(AttributeClassCalls!("ColorNameAttributeClass"));
 
 version(test_uim_entities) {
   unittest {

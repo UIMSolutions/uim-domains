@@ -10,7 +10,7 @@ class DOOPBinaryAttribute : DOOPAttribute {
     super.initialize;
 
     this
-      .attributeClass(OOPBinaryAttributeClass);
+      .attributeClass(BinaryAttributeClass);
   }
 }
 mixin(OOPAttributeCalls!("OOPBinaryAttribute"));

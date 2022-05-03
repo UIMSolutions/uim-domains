@@ -4,7 +4,7 @@ module uim.entities.attributeclasses.decimals.fixed;
 import uim.entities;
 
 // The 64 bit fixed (4) scale numbers used by PBI
-class DFixedDecimalAttributeClass : DOOPDecimalAttributeClass {
+class DFixedDecimalAttributeClass : DDecimalAttributeClass {
   mixin(AttributeClassThis!("FixedDecimalAttributeClass"));
 
   override void initialize() {

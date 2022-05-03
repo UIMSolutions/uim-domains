@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.decimals.decimal;
 @safe:
 import uim.entities;
 
-class DOOPDecimalAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPDecimalAttributeClass"));
+class DDecimalAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("DecimalAttributeClass"));
 
   override void initialize() {
     super.initialize;
@@ -15,11 +15,11 @@ class DOOPDecimalAttributeClass : DAttributeClass {
       .registerPath("decimal");
   }
 }
-mixin(AttributeClassCalls!"OOPDecimalAttributeClass");
+mixin(AttributeClassCalls!"DecimalAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPDecimalAttributeClass);
-    testAttributeClass(OOPDecimalAttributeClass);
+    testAttributeClass(new DDecimalAttributeClass);
+    testAttributeClass(DecimalAttributeClass);
   }
 }

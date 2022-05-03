@@ -3,8 +3,8 @@ module uim.entities.attributeclasses.chars.char_;
 @safe:
 import uim.entities;
 
-class DOOPCharAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!"OOPCharAttributeClass");
+class DCharAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!"CharAttributeClass");
 
   override void initialize() {
     super.initialize;
@@ -15,11 +15,11 @@ class DOOPCharAttributeClass : DAttributeClass {
       .registerPath("char");
   }
 }
-mixin(AttributeClassCalls!"OOPCharAttributeClass");
+mixin(AttributeClassCalls!"CharAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPCharAttributeClass);
-    testAttributeClass(OOPCharAttributeClass);
+    testAttributeClass(new DCharAttributeClass);
+    testAttributeClass(CharAttributeClass);
   }
 }

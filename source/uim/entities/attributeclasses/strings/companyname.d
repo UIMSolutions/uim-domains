@@ -4,18 +4,18 @@ module uim.entities.attributeclasses.strings.companyname;
 import uim.entities;
 
 // means.identity.company.name
-class DOOPCompanyNameAttributeClass : DStringAttributeClass {
-  mixin(AttributeClassThis!("OOPCompanyNameAttributeClass"));
+class DCompanyNameAttributeClass : DStringAttributeClass {
+  mixin(AttributeClassThis!("CompanyNameAttributeClass"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("companyname")
+      .name("companyName")
       .registerPath("companyname");
   }
 }
-mixin(AttributeClassCalls!("OOPCompanyNameAttributeClass"));
+mixin(AttributeClassCalls!("CompanyNameAttributeClass"));
 
 version(test_uim_entities) {
   unittest {
