@@ -10,7 +10,7 @@ class DOOPIntegerAttribute : DOOPAttribute {
     super.initialize;
 
     this
-      .attributeClass(OOPIntegerAttributeClass)
+      .attributeClass(IntegerAttributeClass)
       .isInteger(true);
   }
 

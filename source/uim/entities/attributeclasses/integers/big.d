@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.integers.big;
 @safe:
 import uim.entities;
 
-class DOOPBigAttributeClass : DOOPIntegerAttributeClass {
+class DOOPBigAttributeClass : DIntegerAttributeClass {
   mixin(AttributeClassThis!("OOPBigAttributeClass"));
 
   override void initialize() {

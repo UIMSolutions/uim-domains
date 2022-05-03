@@ -6,7 +6,7 @@ import uim.entities;
 /* is.dataFormat.integer
 means.calendar
 means.calendar.day */
-class DDayAttributeClass : DOOPIntegerAttributeClass {
+class DDayAttributeClass : DIntegerAttributeClass {
   mixin(AttributeClassThis!("DayAttributeClass"));
 
   override void initialize() {

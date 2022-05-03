@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.integers.displayorder;
 @safe:
 import uim.entities;
 
-class DDisplayOrderAttributeClass : DOOPLongAttributeClass {
+class DDisplayOrderAttributeClass : DIntegerAttributeClass {
   mixin(AttributeClassThis!("DisplayOrderAttributeClass"));
 }
 mixin(AttributeClassCalls!("DisplayOrderAttributeClass"));

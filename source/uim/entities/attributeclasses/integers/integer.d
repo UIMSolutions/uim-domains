@@ -3,21 +3,23 @@ module uim.entities.attributeclasses.integers.integer;
 @safe:
 import uim.entities;
 
-class DOOPIntegerAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!"OOPIntegerAttributeClass");
+class DIntegerAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!"IntegerAttributeClass");
 
   override void initialize() {
     super.initialize;
 
     this
-      .addDataFormats(["integer"]);
-  }
+      .addDataFormats(["integer"])
+      .name("integer")
+      .registerPath("integer");
+  }    
 }
-mixin(AttributeClassCalls!"OOPIntegerAttributeClass");
+mixin(AttributeClassCalls!"IntegerAttributeClass");
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPIntegerAttributeClass);
-    testAttributeClass(OOPIntegerAttributeClass);
+    testAttributeClass(new DIntegerAttributeClass);
+    testAttributeClass(IntegerAttributeClass);
   }
 }

@@ -3,14 +3,23 @@ module uim.entities.attributeclasses.integers.long_;
 @safe:
 import uim.entities;
 
-class DOOPLongAttributeClass : DAttributeClass {
-  mixin(AttributeClassThis!("OOPLongAttributeClass"));
+class DLongAttributeClass : DAttributeClass {
+  mixin(AttributeClassThis!("LongAttributeClass"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .addDataFormats(["long"])
+      .name("long")
+      .registerPath("long");
+  }    
 }
-mixin(AttributeClassCalls!("OOPLongAttributeClass"));
+mixin(AttributeClassCalls!("LongAttributeClass"));
 
 version(test_uim_entities) {
   unittest {
-    testAttributeClass(new DOOPLongAttributeClass);
-    testAttributeClass(OOPLongAttributeClass);
+    testAttributeClass(new DLongAttributeClass);
+    testAttributeClass(LongAttributeClass);
   }
 }

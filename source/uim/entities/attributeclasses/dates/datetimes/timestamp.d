@@ -3,7 +3,7 @@ module uim.entities.attributeclasses.datetimes.timestamp;
 @safe:
 import uim.entities;
 
-class DTimestampAttributeClass : DAttributeClass {
+class DTimestampAttributeClass : DLongAttributeClass {
   mixin(AttributeClassThis!("TimestampAttributeClass"));
 
   override void initialize() {
