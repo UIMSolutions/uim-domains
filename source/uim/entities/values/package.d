@@ -7,10 +7,12 @@ public import uim.entities.values.interface_;
 public import uim.entities.values.value;
 public import uim.entities.values.values;
 
+// Packages
+public import uim.entities.values.arrays;
 public import uim.entities.values.lookups;
 public import uim.entities.values.datetimes;
 
-public import uim.entities.values.array_;
+// Modules
 public import uim.entities.values.bool_;
 public import uim.entities.values.double_;
 public import uim.entities.values.entity;
@@ -21,7 +23,7 @@ public import uim.entities.values.object_;
 public import uim.entities.values.string_;
 public import uim.entities.values.uuid;
 
-template ValueThis(string name, string datatype = null) { // Name not required in this version
+template ValueThis(string name, string datatype = null) { // Name for future releases
   const char[] ValueThis = `  
   this() { super(); }
   this(DAttributeClass theAttributeClass) { this().attributeClass(theAttributeClass); }

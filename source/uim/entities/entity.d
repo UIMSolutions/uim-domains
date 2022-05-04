@@ -1,9 +1,8 @@
-/***********************************************************************************************
-*	Copyright: © 2017-2022, UI Manufaktur UG
-*	License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
-*	Authors: UI Manufaktur Team
-*	Documentation [DE]: https://ui-manufaktur.com/docu/uim-oop/models/entities/entity_lang
-************************************************************************************************/
+/*********************************************************************************************************
+*	Copyright: © 2017-2022, UI Manufaktur UG, Since 2022 Ozan Nurettin Süel (Sicherheitsschmiede)          *
+*	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  *
+*	Authors: UI Manufaktur Team, Ozan Nurettin Süel (Sicherheitsschmiede)                                  *
+**********************************************************************************************************/
 module uim.entities.entity;
 
 @safe:
@@ -120,7 +119,7 @@ class DOOPEntity : IRegistrable {
     return result;
   }
 
-  private DOOPAttribute[string] _attributes;  
+  /* private DOOPAttribute[string] _attributes;  
   auto attributes() { return _attributes; }
   O attributes(this O, T)(T[string] newAttributes) {
     foreach(kv; newAttributes.byKeyValue) this.attribute(kv.key, cast(DOOPAttribute)kv.value);
@@ -188,7 +187,7 @@ class DOOPEntity : IRegistrable {
       auto id2 = randomUUID;
       assert(OOPEntity.id(id1).id(id2).id == id2);
     }
-  }
+  } */
 
   mixin(OProperty!("DValues", "values"));
   O addValues(this O)(DAttributeClass[] classes) {

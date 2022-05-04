@@ -3,7 +3,8 @@ module uim.entities.attributes.attribute;
 @safe:
 import uim.entities;
 
-class DOOPAttribute : IRegistrable {
+// deprecated
+class DXAttribute : IRegistrable {
   this() { initialize; }
   this(Json myValue) { 
     this().value(myValue); 
@@ -14,15 +15,15 @@ class DOOPAttribute : IRegistrable {
 
   void initialize() {
     this
-      .name = "OOPAttribute";
+      .name = "XAttribute";
   }
 
   protected string _registerPath;
-  DOOPAttribute registerPath(string path) { _registerPath = path; return this; }
+  DXAttribute registerPath(string path) { _registerPath = path; return this; }
   string registerPath() { return _registerPath; }
 
-  DOOPAttribute value(Json newValue) { return this; } // Interface for data
-  DOOPAttribute value(string newValue) { return this; } // Interface for data 
+  DXAttribute value(Json newValue) { return this; } // Interface for data
+  DXAttribute value(string newValue) { return this; } // Interface for data 
 
   mixin(OProperty!("Json", "config"));
   /// Attclass from which it inherits
@@ -48,7 +49,7 @@ class DOOPAttribute : IRegistrable {
   mixin(OProperty!("string", "name"));
   version(test_uim_entities) {
     unittest {
-      assert(OOPAttribute.name == "OOPAttribute");
+      assert(XAttribute.name == "XAttribute");
   }}
 
   mixin(OProperty!("string", "path"));
@@ -66,11 +67,11 @@ class DOOPAttribute : IRegistrable {
   mixin(OProperty!("bool", "isNullable"));
   version(test_uim_entities) {
     unittest {
-      /* assert(!OOPAttribute.isNullable); 
-      assert(OOPAttribute.isNullable(true).isNull(true).isNull); 
-      assert(!OOPAttribute.isNullable(false).isNull(true).isNull); 
-      assert(!OOPAttribute.isNullable(true).isNull(false).isNull); 
-      assert(!OOPAttribute.isNullable(false).isNull(false).isNull);  */
+      /* assert(!XAttribute.isNullable); 
+      assert(XAttribute.isNullable(true).isNull(true).isNull); 
+      assert(!XAttribute.isNullable(false).isNull(true).isNull); 
+      assert(!XAttribute.isNullable(true).isNull(false).isNull); 
+      assert(!XAttribute.isNullable(false).isNull(false).isNull);  */
       }}
 
   string type() { return ""; }
@@ -103,15 +104,15 @@ class DOOPAttribute : IRegistrable {
     return cast(O)this; }
   version(test_uim_entities) {
     unittest {
-      // assert(!OOPAttribute.isNull); 
+      // assert(!XAttribute.isNull); 
       // isNullable = false
-/*       assert(!OOPAttribute.isNull(true).isNull); 
-      assert(!OOPAttribute.isNull(false).isNull); 
-      assert(!OOPAttribute.isNull(true).isNull(false).isNull); 
+/*       assert(!XAttribute.isNull(true).isNull); 
+      assert(!XAttribute.isNull(false).isNull); 
+      assert(!XAttribute.isNull(true).isNull(false).isNull); 
       // isNullable = true
-      assert(OOPAttribute.isNullable(true).isNull(true).isNull); 
-      assert(!OOPAttribute.isNullable(true).isNull(false).isNull); 
-      assert(!OOPAttribute.isNullable(true).isNull(true).isNull(false).isNull);  */
+      assert(XAttribute.isNullable(true).isNull(true).isNull); 
+      assert(!XAttribute.isNullable(true).isNull(false).isNull); 
+      assert(!XAttribute.isNullable(true).isNull(true).isNull(false).isNull);  */
       }}
 
 /*   O set(this O)(Json aValue) {
@@ -151,7 +152,7 @@ class DOOPAttribute : IRegistrable {
   }
   
   // Read attribute from Json
-  DOOPAttribute fromJson(Json newJson) {
+  DXAttribute fromJson(Json newJson) {
     final switch (newJson.type) {
 			case Json.Type.undefined:
 			case Json.Type.null_: 
@@ -185,23 +186,23 @@ class DOOPAttribute : IRegistrable {
     }
   }
 
-  DOOPAttribute create() { return new DOOPAttribute; }
-  DOOPAttribute create(Json data) { return create.fromJson(data); }
+  DXAttribute create() { return new DXAttribute; }
+  DXAttribute create(Json data) { return create.fromJson(data); }
 
-  DOOPAttribute clone() { return create.fromJson(toJson); }
-  DOOPAttribute clone(Json data) { return create.fromJson(toJson).fromJson(data); }
+  DXAttribute clone() { return create.fromJson(toJson); }
+  DXAttribute clone(Json data) { return create.fromJson(toJson).fromJson(data); }
   
-  DOOPAttribute copyTo(DOOPAttribute targetOfCopy) {
+  DXAttribute copyTo(DXAttribute targetOfCopy) {
     return targetOfCopy ? targetOfCopy.fromJson(this.toJson) : targetOfCopy; }
-  DOOPAttribute copyFrom(DOOPAttribute targetOfCopy) {
+  DXAttribute copyFrom(DXAttribute targetOfCopy) {
     return targetOfCopy ? fromJson(targetOfCopy.toJson) : this;
   }
 
-  override string toString() { return "DOOPAttribute"; }
+  override string toString() { return "DXAttribute"; }
 
   O fromString(this O)(string newValue) {
     this.value(newValue);
     return cast(O)this; }
 }
-auto OOPAttribute() { return new DOOPAttribute; }
+auto XAttribute() { return new DXAttribute; }
 

@@ -27,7 +27,7 @@ class DBooleanValue : DValue {
     _value = newValue;
   }
   override void set(string newValue) {
-    _value = (newValue == "true" ? true : false);
+    _value = (newValue.toLower == "true") || (newValue.toLower == "on") || (newValue.toLower == "1"); 
   }
   override void set(Json newValue) {
     if (newValue == Json(null)) { 
@@ -40,7 +40,6 @@ class DBooleanValue : DValue {
         .isNull(false);
     }
   }
-
 
   bool opEquals(bool otherValue) {
     return (_value == otherValue);
@@ -56,7 +55,6 @@ class DBooleanValue : DValue {
     return _value; }
 
   override Json toJson() { 
-    debug writeln("In DBooleanValue:toJson"); 
     if (this.isNull) return Json(null); 
     return Json(this.value); }
 
@@ -74,4 +72,32 @@ version(test_uim_entities) {
     assert(BooleanValue.value(Json(true)) == true);
     assert(BooleanValue.value(false) != true);
     assert(BooleanValue.value(Json(false)) != true);
+
+    auto booleanValue = BooleanValue;
+
+    booleanValue.value("true");
+    assert(booleanValue.value);
+
+    booleanValue.value("false");
+    assert(!booleanValue.value);
+
+    booleanValue.value("on");
+    assert(booleanValue.value);
+
+    booleanValue.value("off");
+    assert(!booleanValue.value);
+
+    booleanValue.value("1");
+    assert(booleanValue.value);
+
+    booleanValue.value("0");
+    assert(!booleanValue.value);
+
+    booleanValue.value(true);
+    assert(booleanValue.fromString(booleanValue.toString).value);
+    assert(booleanValue.fromJson(booleanValue.toJson).value);
+
+    booleanValue.value(false);
+    assert(!booleanValue.fromString(booleanValue.toString).value);
+    assert(!booleanValue.fromJson(booleanValue.toJson).value);
 }}
