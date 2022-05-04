@@ -47,8 +47,8 @@ class DValues {
     return cast(O)this;
   }
 
-  O addValues(this O)(DAttributeClass[string] attributeClasses) {
-    attributeClasses.byKey.each!(key => addValue(key, attributeClasses[key].createValue));
+  O addValues(this O)(DAttribute[string] attributes) {
+    attributes.byKey.each!(key => addValue(key, attributes[key].createValue));
     return cast(O)this;
   }
 

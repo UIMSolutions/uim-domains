@@ -3,7 +3,7 @@ module uim.entities.registries.attribute;
 @safe:
 import uim.entities;
 
-class DOOPAttributeRegistry {
+/* class DOOPAttributeRegistry {
   this() {}
 
   protected DOOPAttribute[string] _attributes;
@@ -42,5 +42,5 @@ class DOOPAttributeRegistry {
     unittest {
       // TODO 
       }}
-}
+} */
 // auto OOPRegistry() { return new DOOPRegistry; }

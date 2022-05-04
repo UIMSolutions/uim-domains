@@ -1,0 +1,18 @@
+module uim.entities.attributes.uuids.entities.entity;
+
+@safe:
+import uim.entities;
+
+// A unique identifier for entity instances
+
+class DEntityIdAttribute : DUUIDAttribute {
+  mixin(AttributeThis!("EntityIdAttribute"));
+}
+mixin(AttributeCalls!("EntityIdAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    testAttribute(new DEntityIdAttribute);
+    testAttribute(EntityIdAttribute);
+  }
+}

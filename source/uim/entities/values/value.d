@@ -5,11 +5,11 @@ import uim.entities;
 
 class DValue : IValue {
   this() { initialize; }
-  this(DAttributeClass theAttributeClass) { this().attributeClass(theAttributeClass); }
+  this(DAttribute theAttribute) { this().attribute(theAttribute); }
 
   void initialize() {}
 
-  mixin(OProperty!("DAttributeClass", "attributeClass"));
+  mixin(OProperty!("DAttribute", "attribute"));
   mixin(OProperty!("bool", "isString"));
   mixin(OProperty!("bool", "isInteger"));
   mixin(OProperty!("bool", "isBoolean"));

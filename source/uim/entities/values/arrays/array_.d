@@ -1,10 +1,10 @@
-module source.uim.entities.values.arrays.array_;
+module uim.entities.values.arrays.array_;
 
 @safe:
 import uim.entities;
 
 class DArrayValue : DValue {
-  this() {super(); }  
+  this() { super(); }  
 
   override void initialize() {
     super.initialize;

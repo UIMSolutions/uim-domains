@@ -4,7 +4,7 @@ module uim.entities.values.arrays.value;
 import uim.entities;
 
 class DValueArrayValue : DArrayValue {
-  mixin(ValueThis!("ValueArrayValue", "string[]"));  
+  mixin(ValueThis!("ValueArrayValue", "DValue[]"));  
 
   override void initialize() {
     super.initialize;
@@ -12,5 +12,18 @@ class DValueArrayValue : DArrayValue {
     this
       .isString(true);
   }
+
+  protected DValue[] _value;
+  alias value = DValue.value;
+  void set(DValue[] newValue) {
+    _value = newValue;
+  }
+  O value(this O)(DValue[] newValue) {
+    this.set(newValue);
+    return cast(O)this; 
+  }
+  DValue[] value() {
+    return _value; 
+  }
 }
-mixin(ValueCalls!("ValueArrayValue", "string[]"));  
+mixin(ValueCalls!("ValueArrayValue", "DValue[]"));  

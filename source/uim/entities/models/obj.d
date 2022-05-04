@@ -37,9 +37,9 @@ class DOOPObj : DOOPEntity {
 
       switch(k) {
         default: 
-        if (k in this.attributes) {
+/*         if (k in this.attributes) {
           // 
-        }
+        } */
         break;
       }       
     }
@@ -51,12 +51,10 @@ class DOOPObj : DOOPEntity {
     
     result["objclass"] = this.objclass.toString;
     auto attributesJson = Json.emptyObject;
-    foreach(k, v; attributes) {
+/*     foreach(k, v; attributes) {
       result[k] = ""; 
     }
-
-    
-
+ */
     return result;
   } 
 }

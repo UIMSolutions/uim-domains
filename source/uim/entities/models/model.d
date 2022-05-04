@@ -17,7 +17,7 @@ class DOOPModel : DOOPEntity {
 
 
   /* protected DOOPStoreAttclasses _storeAttclasses;
-  @property auto attributeClasses() { return _storeAttclasses; }
+  @property auto attributes() { return _storeAttclasses; }
 
   protected DOOPStoreObjclasses _storeObjclasses;
   @property auto objclasses() { return _storeObjclasses; }
@@ -26,62 +26,62 @@ class DOOPModel : DOOPEntity {
   @property auto objects() { return _storeObjects; }
  */
 /*   DOOPAttribute[][UUID] _attributes; 
-  DAttributeClass[][UUID] _attributeClasses; 
+  DAttribute[][UUID] _attributes; 
   DOOPObjclass[][UUID] _objclasses; 
   DOOPObj[][UUID] _objs; 
  */
   mixin(SProperty!("string", "storage"));
 
   /* auto opIndex(UUID id) {
-    DOOPEntity result = attributeClasses[id];
+    DOOPEntity result = attributes[id];
     if (!result) result =  objclasses[id];
     if (!result) result =  objects[id];
     return result;
   }
   auto opIndex(string name) {
-    DOOPEntity result = attributeClasses[name];
+    DOOPEntity result = attributes[name];
     if (!result) result =  objclasses[name];
     if (!result) result =  objects[name];
     return result; }
 
   auto opIndex(UUID anId, size_t major) {
-    DOOPEntity result = attributeClasses[id, major];
+    DOOPEntity result = attributes[id, major];
     if (!result) result =  objclasses[id, major];
     if (!result) result =  objects[id, major];
     return result; }
 
   auto opIndex(string name, size_t major) {
-    DOOPEntity result = attributeClasses[name, major];
+    DOOPEntity result = attributes[name, major];
     if (!result) result =  objclasses[name, major];
     if (!result) result =  objects[name, major];
     return result; }
 
   auto opIndex(UUID anId, size_t major, size_t minor) {
-    DOOPEntity result = attributeClasses[id, major, minor];
+    DOOPEntity result = attributes[id, major, minor];
     if (!result) result =  objclasses[id, major, minor];
     if (!result) result =  objects[id, major, minor];
     return result; }
 
   auto opIndex(string name, size_t major, size_t minor) {
-    DOOPEntity result = attributeClasses[name, major, minor];
+    DOOPEntity result = attributes[name, major, minor];
     if (!result) result =  objclasses[name, major, minor];
     if (!result) result =  objects[name, major, minor];
     return result; }
 
   auto opIndex(UUID anId, string name) {
-    DOOPEntity result = attributeClasses[id, name];
+    DOOPEntity result = attributes[id, name];
     if (!result) result =  objclasses[name];
     if (!result) result =  objects[name];
     return result; }
 
   auto opIndex(UUID anId, string name, size_t major) {
-    DOOPEntity result = attributeClasses[id, name, major];
+    DOOPEntity result = attributes[id, name, major];
     if (!result) result =  objclasses[id, name, major];
     if (!result) result =  objects[id, name, major];
     return result; }
 
   auto opIndex(UUID anId, string name, size_t major, size_t minor) {
-    DOOPEntity result = attributeClasses[id, name, major, minor];
+    DOOPEntity result = attributes[id, name, major, minor];
     if (!result) result =  objclasses[id, name, major, minor];
     if (!result) result =  objects[id, name, major, minor];
     return result; } */
@@ -122,33 +122,33 @@ class DOOPModel : DOOPEntity {
     return entityVersions.version_(aMajor, aMinor);
   }
 
-  auto attributeClasses() {
-    return _attributeClasses; }
+  auto attributes() {
+    return _attributes; }
 
-  O attributeClasses(this O)(string name, DAttributeClass addAttclass) {
-    this.attributeClasses(addAttclass.name(name));
+  O attributes(this O)(string name, DAttribute addAttclass) {
+    this.attributes(addAttclass.name(name));
     return cast(O)this; }
 
-  O attributeClasses(this O)(DAttributeClass[] newAttclasses...) {
-    this.attributeClasses(newAttclasses);
+  O attributes(this O)(DAttribute[] newAttclasses...) {
+    this.attributes(newAttclasses);
     return cast(O)this; }
   
-  O attributeClasses(this O)(DAttributeClass[] newAttclasses) {
+  O attributes(this O)(DAttribute[] newAttclasses) {
     foreach (item; newAttclasses) {
-      if (item.id in _attributeClasses) _attributeClasses[item.id] ~= item.model(this);
-      else _attributeClasses[item.id] = [item.model(this)]; }
+      if (item.id in _attributes) _attributes[item.id] ~= item.model(this);
+      else _attributes[item.id] = [item.model(this)]; }
     return cast(O)this; }
 
-  auto attributeClass(string aName, long aMajor = 0, long aMinor = 0) {
-    return attributeClass(UUID(), aName, aMajor, aMinor);
+  auto attribute(string aName, long aMajor = 0, long aMinor = 0) {
+    return attribute(UUID(), aName, aMajor, aMinor);
   }
-  auto attributeClass(UUID anId, string aName = null, long aMajor = 0, long aMinor = 0) {
-    DAttributeClass[] entityVersions; 
-    if (anId in _attributeClasses) {
-      entityVersions = _attributeClasses[anId];
+  auto attribute(UUID anId, string aName = null, long aMajor = 0, long aMinor = 0) {
+    DAttribute[] entityVersions; 
+    if (anId in _attributes) {
+      entityVersions = _attributes[anId];
     }
     else if (aName.length > 0) {
-      foreach(k,v; _attributeClasses) {
+      foreach(k,v; _attributes) {
         if (v.length == 0) continue;
 
         if (v[0].name == aName) {
@@ -162,7 +162,7 @@ class DOOPModel : DOOPEntity {
   } */
 
     mixin(SProperty!("UUID[]", "objclasses"));
-    mixin(SProperty!("UUID[]", "attributeClasses"));
+    mixin(SProperty!("UUID[]", "attributes"));
 /*   auto objclasses() {
     return _objclasses; }
 
@@ -252,9 +252,9 @@ class DOOPModel : DOOPEntity {
       auto v = keyvalue.value;
 
       switch(k) {
-        case "attributeClasses": 
+        case "attributes": 
           auto jsons = v.get!(Json[]);
-          _attributeClasses = jsons.map!(a => UUID(a.get!string)).array;
+          _attributes = jsons.map!(a => UUID(a.get!string)).array;
           break;
         case "objclasses": 
           auto jsons = v.get!(Json[]); 
@@ -270,8 +270,8 @@ class DOOPModel : DOOPEntity {
     auto result = super.toJson(showFields, hideFields);
 
     Json ids = Json.emptyArray;
-    foreach(id; this.attributeClasses) ids ~= id.toString;
-    result["attributeClasses"] = ids;
+    foreach(id; this.attributes) ids ~= id.toString;
+    result["attributes"] = ids;
 
     ids = Json.emptyArray; foreach(id; this.objclasses) ids ~= id.toString;
     result["objclasses"] = ids;

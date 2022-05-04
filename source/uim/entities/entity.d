@@ -56,9 +56,14 @@ class DOOPEntity : IRegistrable {
       "registerPath", "id", "etag", "name", "display", "createdOn", "createdBy", "modifiedOn", "modifiedBy", "lastAccessedOn", 
       "lastAccessBy", "description", "isLocked", "lockedOn", "lockedBy", "isDeleted", "deletedOn", "deletedBy", "versionNumber", 
       "versionDisplay", "versionMode", "versionOn", "versionBy", "versionDescription"]~
-      attributes.keys~values.keys;
+      /* attributes.keys~ */values.keys;
   }
 
+  mixin(OProperty!("UUID", "id"));
+  O id(this O)(string newValue) {
+    if (newValue.isUUID) this.id(UUID(newValue));
+    return cast(O)this;
+  }
   mixin(OProperty!("string", "pool"));
   mixin(OProperty!("long", "etag"));
   O etag(this O)(string newValue) { 
@@ -190,13 +195,13 @@ class DOOPEntity : IRegistrable {
   } */
 
   mixin(OProperty!("DValues", "values"));
-  O addValues(this O)(DAttributeClass[] classes) {
+  O addValues(this O)(DAttribute[] classes) {
     foreach(aClass; classes) {
       this.values.addValue(aClass.name, aClass.createValue);
     }
     return cast(O)this;
   }
-  O addValues(this O)(DAttributeClass[string] classes) {
+  O addValues(this O)(DAttribute[string] classes) {
     foreach(key; classes.byKey) {
       this.values.addValue(key, classes[key].createValue);
     }
@@ -413,7 +418,7 @@ class DOOPEntity : IRegistrable {
       case "versionBy": return to!string(this.versionBy);
       case "versionDescription": return this.versionDescription;
       default:
-        if (key in attributes) { return attributes[key].stringValue; }
+        //if (key in attributes) { return attributes[key].stringValue; }
         if (values.hasValue(key)) { return values[key].toString; }
         return null;
     }      
@@ -447,7 +452,7 @@ class DOOPEntity : IRegistrable {
       case "versionBy": this.versionBy(value); break;
       case "versionDescription": this.versionDescription(value); break;
       default:
-        if (key in attributes) attributes[key].value(value); 
+        // if (key in attributes) attributes[key].value(value); 
         values[key] = value;
         break;
     }      
@@ -465,9 +470,9 @@ class DOOPEntity : IRegistrable {
       case "deletedBy": this.deletedBy(value); break; 
       case "versionBy": this.versionBy(value); break;
       default:
-        if (key in attributes) {
+        /* if (key in attributes) {
           if (auto att = cast(DOOPUUIDAttribute)attributes[key]) att.value(value); 
-        } 
+        }  */
         values[key] = value;
         break;
     }      
@@ -494,9 +499,9 @@ class DOOPEntity : IRegistrable {
       case "isDeleted": this.isDeleted(value); break;
       case "hasVersions": this.hasVersions(value); break;      
       default:
-        if (key in attributes) {
+        /* if (key in attributes) {
           if (auto att = cast(DOOPBooleanAttribute)attributes[key]) att.value(value); 
-        } 
+        }  */
         values[key] = value;
         break;
     }      
@@ -506,10 +511,10 @@ class DOOPEntity : IRegistrable {
   void opIndexAssign(DOOPEntity value, string key) {
     switch(key) {
       default:
-        if (key in attributes) {
+        /* if (key in attributes) {
           debug writeln("key %s in attributes %s".format(key, attributes[key].stringValue));
           if (auto att = cast(DOOPEntityAttribute)attributes[key]) att.value(value); 
-        } 
+        }  */
         break;
     }      
   }
@@ -573,10 +578,10 @@ class DOOPEntity : IRegistrable {
         case "versionBy": this.versionBy(v.get!string); break;
         case "versionDescription": this.versionDescription(v.get!string); break;
         default: 
-          if (k in _attributes) {
+          /* if (k in _attributes) {
             // debug writeln("Found ", k);
             _attributes[k].value(v); 
-          }
+          } */
           this.values[k].value(v);
           break;
       }            
@@ -627,9 +632,9 @@ class DOOPEntity : IRegistrable {
       result["versionBy"] = this.versionBy.toString;
       result["versionDescription"] = this.versionDescription;
 
-      foreach(k; _attributes.byKey) {
+/*       foreach(k; _attributes.byKey) {
         if (!hideFields.exist(k)) result[k] = _attributes[k].jsonValue;
-      }
+      } */
       foreach(k; values.keys) {
         debug writeln("Value ", k, " = ",  this.values[k].toJson);
         result[k] = this.values[k].toJson;
@@ -721,15 +726,15 @@ class DOOPEntity : IRegistrable {
     }
 
     if (showFields.length == 0) {
-      foreach(k; _attributes.byKey) {
+      /* foreach(k; _attributes.byKey) {
         if (!hideFields.exist(k)) result[k] = _attributes[k].jsonValue;
-      }
+      } */
       this.values.toJson(result);
     }
     else {
-      foreach(k; _attributes.byKey) {
+/*       foreach(k; _attributes.byKey) {
         if ((showFields.exist(k)) && (!hideFields.exist(k))) result[k] = _attributes[k].jsonValue;
-      }
+      } */
       this.values.toJson(result);
     }
     

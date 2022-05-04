@@ -77,17 +77,17 @@ class DOOPRepository {
 
     Json[] find(UUID id) {
       Json[] results;
-      results ~= find(["central.attributeClasses", "central.objclasses", "central.attributes", "central.objects"], id);
+      results ~= find(["central.attributes", "central.objclasses", "central.attributes", "central.objects"], id);
       return results;
     }
     Json[] find(STRINGAA selector) {
       Json[] results;
-      results ~= find(["central.attributeClasses", "central.objclasses", "central.attributes", "central.objects"], selector);
+      results ~= find(["central.attributes", "central.objclasses", "central.attributes", "central.objects"], selector);
       return results;
     }
     Json[] find(Json selector) {
       Json[] results;
-      results ~= find(["central.attributeClasses", "central.objclasses", "central.attributes", "central.objects"], selector);
+      results ~= find(["central.attributes", "central.objclasses", "central.attributes", "central.objects"], selector);
       return results;
     }
 
@@ -255,7 +255,7 @@ class DOOPRepository {
 
     Json[] opIndex(UUID id) { 
         Json[] results;
-        results ~= find("attributeClasses", ["id":id.toString]);
+        results ~= find("attributes", ["id":id.toString]);
         results ~= find("objclasses", ["id":id.toString]);
         results ~= find("attributes", ["id":id.toString]);
         results ~= find("objects", ["id":id.toString]);
@@ -272,9 +272,9 @@ class DOOPRepository {
           insert("objclasses", objclass.toJson); }
       return cast(O)this;
     }
-    O insert(this O)(DAttributeClass[] newAttclasses...) {
-      foreach (attributeClass; newAttclasses) {
-          insert("attributeClasses", attributeClass.toJson); }
+    O insert(this O)(DAttribute[] newAttclasses...) {
+      foreach (attribute; newAttclasses) {
+          insert("attributes", attribute.toJson); }
       return cast(O)this;
     }
 
@@ -302,7 +302,7 @@ class DOOPRepository {
     O update(this O)(Json selector) {
         this
         .update("models", selector, anEntity.toJson)
-        .update("attributeClasses", selector, anEntity.toJson)
+        .update("attributes", selector, anEntity.toJson)
         .update("objclasses", selector, anEntity.toJson)
         .update("objects", selector, anEntity.toJson);
         return cast(O)this;
@@ -344,7 +344,7 @@ class DOOPRepository {
     O remove(this O)(STRINGAA selector) {
         this
         .remove("models", selector)
-        .remove("attributeClasses", selector)
+        .remove("attributes", selector)
         .remove("objclasses", selector)
         .remove("objects", selector);
         return cast(O)this;

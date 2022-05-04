@@ -15,17 +15,17 @@ auto ObjclassRegistry() {
   return DOOPObjclassRegistry.registry;
 }
 
-class DOOPAttclassRegistry : DOOPRegistry!DAttributeClass {
+class DOOPAttclassRegistry : DOOPRegistry!DAttribute {
   static DOOPAttclassRegistry registry;
 }
-auto AttributeClassRegistry() {
+auto AttributeRegistry() {
   if (DOOPAttclassRegistry.registry is null) {
     DOOPAttclassRegistry.registry = new DOOPAttclassRegistry;
   }
   return DOOPAttclassRegistry.registry;
 }
 
-class DOOPAttributeRegistry : DOOPRegistry!DOOPAttribute {
+/* class DOOPAttributeRegistry : DOOPRegistry!DOOPAttribute {
   static DOOPAttributeRegistry registry;
 }
 auto AttributeRegistry() {
@@ -33,7 +33,7 @@ auto AttributeRegistry() {
     DOOPAttributeRegistry.registry = new DOOPAttributeRegistry;
   }
   return DOOPAttributeRegistry.registry;
-}
+} */
 
 class DOOPEntityRegistry : DOOPRegistry!DOOPEntity {
   static DOOPEntityRegistry registry;

@@ -1,26 +1,26 @@
-module uim.entities.models.tools.attributeClasses;
+module uim.entities.models.tools.attributes;
 
 import uim.entities;
 
-/* DAttributeClass attributeClassOf(DOOPModel myModel, UUID id) {
+/* DAttribute attributeOf(DOOPModel myModel, UUID id) {
   if (myModel) {
-    if (auto classes = myModel.attributeClasses) {
+    if (auto classes = myModel.attributes) {
       return classes.entity(id);
   }}
   return null;
 }
 
-DAttributeClass attributeClassOf(DOOPModel myModel, string idOrName) {
+DAttribute attributeOf(DOOPModel myModel, string idOrName) {
   if (myModel) {
-    if (auto classes = myModel.attributeClasses) {
+    if (auto classes = myModel.attributes) {
       return classes.entity(idOrName);
   }}
   return null;
 }
 
-DAttributeClass attributeClassOf(DOOPModel myModel, UUID id, string name) {
+DAttribute attributeOf(DOOPModel myModel, UUID id, string name) {
   if (myModel) {
-    if (auto classes = myModel.attributeClasses) {
+    if (auto classes = myModel.attributes) {
       if (auto found = classes.entity(id)) return found;
       if (auto found = classes.entity(name)) return found;
   }}
