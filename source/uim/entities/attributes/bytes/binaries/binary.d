@@ -9,6 +9,12 @@ class DBinaryAttribute : DAttribute {
   override void initialize() {
     super.initialize;
 
+
+    /* Inheritance
+    any <- byte <- binary
+    Traits
+    is.dataFormat.byte
+    is.dataFormat.array */
     this
       .addDataFormats(["array"])
       .name("binary")

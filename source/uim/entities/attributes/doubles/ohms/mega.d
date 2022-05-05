@@ -1,14 +1,14 @@
-module uim.entities.attributes.doubles.volts.megavolt;
+module uim.entities.attributes.doubles.ohms.mega;
 
-/* Unit of power, equivalent to 10E6 volts
+/* Unit of power, equivalent to 10E6 Ohms
 
 Inheritance
-any <- float <- double <- volt <- megavolt
+any <- float <- double <- ohm <- megaOhm
 Traits
 is.dataFormat.floatingPoint
 is.dataFormat.big
-means.measurement.dimension.electromotiveForce
-means.measurement.units.si.volt
+means.measurement.dimension.resistance
+means.measurement.units.si.ohm
 has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second

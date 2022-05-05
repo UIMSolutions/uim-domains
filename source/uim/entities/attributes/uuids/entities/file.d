@@ -4,9 +4,14 @@ module uim.entities.attributes.uuids.entities.file;
 import uim.entities;
 
 // A unique identifier for entity instances
-
 class DFileIdAttribute : DEntityIdAttribute {
   mixin(AttributeThis!("FileIdAttribute"));
+
+/*   is.dataFormat.character
+is.dataFormat.big
+is.dataFormat.array
+is.dataFormat.guid
+means.identity.entityId */
 }
 mixin(AttributeCalls!("FileIdAttribute"));
 

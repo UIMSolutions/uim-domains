@@ -1,16 +1,36 @@
 module uim.entities.attributes.doubles.volts.milli;
 
-/* Unit of power, equivalent to 10E-3 volts
+/* Unit of power, equivalent to 10E-3 millivolts
 
-Inheritance
-any <- float <- double <- volt <- millivolt
 Traits
 is.dataFormat.floatingPoint
 is.dataFormat.big
 means.measurement.dimension.electromotiveForce
-means.measurement.units.si.volt
+means.measurement.units.si.millivolt
 has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
 has.measurement.fundamentalComponent.ampere
 means.measurement.prefix.milli */
+
+@safe:
+import uim.entities;
+
+class DMilliVoltAttribute : DVoltAttribute {
+  mixin(AttributeThis!("MilliVoltAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("millivolt")
+      .registerPath("millivolt");
+  }
+}
+mixin(AttributeCalls!("MilliVoltAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

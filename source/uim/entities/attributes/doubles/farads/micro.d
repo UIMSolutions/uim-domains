@@ -1,16 +1,38 @@
-module uim.entities.attributes.doubles.farads.micro;
+module uim.entities.attributes.doubles.microfarads.micro;
 
-/* Unit of capacitance, equivalent to 10E-6 farads
+/* Unit of capacitance, equivalent to 10E-6 microfarads
 
 Inheritance
-any <- float <- double <- farad <- microfarad
+any <- float <- double <- microfarad <- micromicrofarad
 Traits
 is.dataFormat.floatingPoint
 is.dataFormat.big
 means.measurement.dimension.capacitance
-means.measurement.units.si.farad
+means.measurement.units.si.microfarad
 has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
-has.measurement.fundamentalComponent.ampere
+has.measurement.fundamentalComponent.microfarad
 means.measurement.prefix.micro */
+
+@safe:
+import uim.entities;
+
+class DMicroFaradAttribute : DFaradAttribute {
+  mixin(AttributeThis!("MicroFaradAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("microFarad")
+      .registerPath("microFarad");
+  }
+}
+mixin(AttributeCalls!("MicroFaradAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

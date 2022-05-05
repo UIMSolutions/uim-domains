@@ -1,4 +1,4 @@
-module uim.entities.attributes.doubles.hertzes.megahertz;
+module uim.entities.attributes.doubles.hertzes.mega;
 
 /* Unit of frequency equivalent to 10E6 hertz
 

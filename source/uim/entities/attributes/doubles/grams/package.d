@@ -1,13 +1,6 @@
 module uim.entities.attributes.doubles.grams;
 
-/* Unit of measure for mass in milligrams
+public import uim.entities.attributes.doubles.grams.gram;
 
-Inheritance
-any <- float <- double <- gram <- milligram
-Traits
-is.dataFormat.floatingPoint
-is.dataFormat.big
-means.measurement.dimension.mass
-means.measurement.units.si.gram
-has.measurement.fundamentalComponent.kilogram
-means.measurement.prefix.milli */
+public import uim.entities.attributes.doubles.grams.kilo;
+public import uim.entities.attributes.doubles.grams.milli;

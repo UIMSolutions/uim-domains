@@ -15,3 +15,25 @@ has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
 has.measurement.fundamentalComponent.ampere */
+
+@safe:
+import uim.entities;
+
+class DOhmAttribute : DDoubleAttribute {
+  mixin(AttributeThis!("OhmAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("ohm")
+      .registerPath("ohm");
+  }
+}
+mixin(AttributeCalls!("OhmAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

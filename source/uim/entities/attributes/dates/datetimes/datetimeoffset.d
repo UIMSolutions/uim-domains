@@ -10,12 +10,10 @@ class DDatetimeOffsetAttribute : DDatetimeAttribute {
     super.initialize;
 
     this
-      .dataFormats(["time"])
+      .addDataFormats(["timeOffset"])
       .name("datetimeOffset")
-      .registerPath("datetimeoffset");
-                // is.dataFormat.date
+      .registerPath("datetimeOffset");
         /* means.measurement.date
-        is.dataFormat.time
         means.measurement.time
         is.dataFormat.timeOffset */
   }

@@ -11,3 +11,25 @@ means.measurement.dimension.electricCurrent
 means.measurement.units.si.ampere
 has.measurement.fundamentalComponent.ampere
 means.measurement.prefix.milli */
+
+@safe:
+import uim.entities;
+
+class DMilliAmpereAttribute : DAmpereAttribute {
+  mixin(AttributeThis!("MilliAmpereAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("milliAmpere")
+      .registerPath("milliAmpere");
+  }
+}
+mixin(AttributeCalls!("MilliAmpereAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

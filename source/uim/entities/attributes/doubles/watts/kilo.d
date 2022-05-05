@@ -13,3 +13,25 @@ has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
 means.measurement.prefix.kilo */
+
+@safe:
+import uim.entities;
+
+class DKiloWattAttribute : DWattAttribute {
+  mixin(AttributeThis!("KiloWattAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("kilowatt")
+      .registerPath("kilowatt");
+  }
+}
+mixin(AttributeCalls!("KiloWattAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

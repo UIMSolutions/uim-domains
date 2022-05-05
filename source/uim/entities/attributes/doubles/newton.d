@@ -12,3 +12,25 @@ means.measurement.units.si.newton
 has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second */
+
+@safe:
+import uim.entities;
+
+class DNewtonAttribute : DDoubleAttribute {
+  mixin(AttributeThis!("NewtonAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("newton")
+      .registerPath("newton");
+  }
+}
+mixin(AttributeCalls!("NewtonAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

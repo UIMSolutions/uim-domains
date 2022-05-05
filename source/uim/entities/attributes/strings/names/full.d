@@ -1,4 +1,4 @@
-module uim.entities.attributes.strings.fullname;
+module uim.entities.attributes.strings.names.full;
 
 @safe:
 import uim.entities;
@@ -15,7 +15,7 @@ class DFullNameAttribute : DStringAttribute {
 
     this
       .name("fullName")
-      .registerPath("fullname");
+      .registerPath("fullName");
   }
 }
 mixin(AttributeCalls!("FullNameAttribute"));

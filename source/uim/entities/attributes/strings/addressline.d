@@ -2,7 +2,12 @@ module uim.entities.attributes.strings.addressline;
 
 @safe:
 import uim.entities;
-
+/** 
+ * is.dataFormat.character
+is.dataFormat.big
+is.dataFormat.array
+means.location.address
+ */
 class DAddressLineAttribute : DStringAttribute {
   mixin(AttributeThis!"AddressLineAttribute");
 

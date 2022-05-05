@@ -10,3 +10,25 @@ is.dataFormat.big
 means.measurement.dimension.temperature
 means.measurement.units.si.kelvin
 has.measurement.fundamentalComponent.kelvin */
+
+@safe:
+import uim.entities;
+
+class DKelvinAttribute : DDoubleAttribute {
+  mixin(AttributeThis!("KelvinAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("kelvin")
+      .registerPath("kelvin");
+  }
+}
+mixin(AttributeCalls!("KelvinAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

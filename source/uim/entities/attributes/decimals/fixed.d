@@ -12,7 +12,7 @@ class DFixedDecimalAttribute : DDecimalAttribute {
 
     this
       .name("fixedDecimal")
-      .registerPath("fixeddecimal");
+      .registerPath("fixedDecimal");
   }
 }
 mixin(AttributeCalls!"FixedDecimalAttribute");

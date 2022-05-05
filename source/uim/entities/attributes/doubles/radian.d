@@ -10,3 +10,25 @@ is.dataFormat.big
 means.measurement.dimension.angle
 means.measurement.units.si.radian
 has.measurement.fundamentalComponent */
+
+@safe:
+import uim.entities;
+
+class DRadianAttribute : DDoubleAttribute {
+  mixin(AttributeThis!("RadianAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("radian")
+      .registerPath("radian");
+  }
+}
+mixin(AttributeCalls!("RadianAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

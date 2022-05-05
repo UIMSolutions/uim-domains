@@ -10,6 +10,7 @@ class DDoubleAttribute : DAttribute {
     super.initialize;
 
     this
+      .dataFormats(["floatingPoint", "big"])
       .isDouble(true)
       .name("double")
       .registerPath("double");

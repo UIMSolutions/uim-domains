@@ -10,9 +10,13 @@ class DFileNameAttribute : DStringAttribute {
   override void initialize() {
     super.initialize;
 
+/* is.dataFormat.character
+is.dataFormat.big
+is.dataFormat.array
+means.fileName */
     this
       .name("fileName")
-      .registerPath("filename");
+      .registerPath("fileName");
   }
 }
 mixin(AttributeCalls!("FileNameAttribute"));

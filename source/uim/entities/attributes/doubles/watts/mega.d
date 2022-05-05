@@ -16,3 +16,24 @@ has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
 means.measurement.prefix.mega */
+
+import uim.entities;
+
+class DMegaWattAttribute : DWattAttribute {
+  mixin(AttributeThis!("MegaWattAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("megawatt")
+      .registerPath("megawatt");
+  }
+}
+mixin(AttributeCalls!("MegaWattAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

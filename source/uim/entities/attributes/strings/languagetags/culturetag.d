@@ -3,13 +3,14 @@ module uim.entities.attributes.strings.languagetags.culturetag;
 @safe:
 import uim.entities;
 
-// means.reference.language.tag
 class DCultureTagAttribute : DStringAttribute {
   mixin(AttributeThis!("CultureTagAttribute"));
 
   override void initialize() {
     super.initialize;
 
+    /* means.reference.language.tag
+    means.reference.culture.tag */
     this
       .name("languageTag")
       .registerPath("languagetag");

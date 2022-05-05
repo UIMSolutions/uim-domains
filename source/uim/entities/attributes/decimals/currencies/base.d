@@ -9,7 +9,16 @@ class DBaseCurrencyAttribute : DCurrencyAttribute {
   override void initialize() {
     super.initialize;
 
-    // means.measurement.currency
+    /* 
+Value is expressed in the base currency units for the system
+
+Inheritance
+any <- decimal <- currency <- baseCurrency
+Traits
+is.dataFormat.numeric.shaped
+means.measurement.currency
+means.measurement.currency
+    */
     this
       .name("baseCurrency")
       .registerPath("baseCurrency");

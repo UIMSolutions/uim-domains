@@ -7,6 +7,12 @@ import uim.entities;
 
 class DEntityIdAttribute : DUUIDAttribute {
   mixin(AttributeThis!("EntityIdAttribute"));
+
+/*   is.dataFormat.character
+is.dataFormat.big
+is.dataFormat.array
+is.dataFormat.guid
+means.identity.entityId */
 }
 mixin(AttributeCalls!("EntityIdAttribute"));
 

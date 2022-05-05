@@ -9,7 +9,8 @@ class DCurrencyAttribute : DDecimalAttribute {
   override void initialize() {
     super.initialize;
 
-    // means.measurement.currency
+    /* is.dataFormat.numeric.shaped
+    means.measurement.currency */
   }
 }
 mixin(AttributeCalls!"CurrencyAttribute");

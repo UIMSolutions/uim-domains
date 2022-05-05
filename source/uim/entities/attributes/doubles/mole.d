@@ -10,3 +10,25 @@ is.dataFormat.big
 means.measurement.dimension.amount
 means.measurement.units.si.mole
 has.measurement.fundamentalComponent.mole */
+
+@safe:
+import uim.entities;
+
+class DMoleAttribute : DDoubleAttribute {
+  mixin(AttributeThis!("MoleAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("mole")
+      .registerPath("mole");
+  }
+}
+mixin(AttributeCalls!("MoleAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

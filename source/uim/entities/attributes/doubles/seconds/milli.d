@@ -12,3 +12,25 @@ means.measurement.units.si.second
 has.measurement.fundamentalComponent.second
 means.measurement.duration.seconds
 means.measurement.prefix.milli */
+
+@safe:
+import uim.entities;
+
+class DMilliSecondAttribute : DSecondAttribute {
+  mixin(AttributeThis!("MilliSecondAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("milliSecond")
+      .registerPath("milliSecond");
+  }
+}
+mixin(AttributeCalls!("MilliSecondAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

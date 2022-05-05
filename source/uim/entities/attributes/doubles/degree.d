@@ -3,8 +3,8 @@ module uim.entities.attributes.floats.doubles.degree;
 @safe:
 import uim.entities;
 
-/* is.dataFormat.floatingPoint
-is.dataFormat.big
+/* 
+Unit of measure for angles in degrees, 1/360 rotation
 means.measurement.dimension.angle
 means.measurement.units.degree
 has.measurement.fundamentalComponent */

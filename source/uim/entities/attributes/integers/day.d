@@ -3,17 +3,17 @@ module uim.entities.attributes.integers.day;
 @safe:
 import uim.entities;
 
-/* is.dataFormat.integer
-means.calendar
-means.calendar.day */
+  /* Unit of measure for time in 'one earth rotation' interval
+  is.dataFormat.integer
+  means.measurement.dimension.time
+  means.measurement.duration.days
+  has.measurement.fundamentalComponent.second */
 class DDayAttribute : DIntegerAttribute {
   mixin(AttributeThis!("DayAttribute"));
 
   override void initialize() {
     super.initialize;
 
-    this
-      .addDataFormats(["integer"]);
   }
 }
 mixin(AttributeCalls!("DayAttribute"));

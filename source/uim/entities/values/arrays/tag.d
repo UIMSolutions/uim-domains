@@ -3,8 +3,8 @@ module uim.entities.values.arrays.tag;
 @safe:
 import uim.entities;
 
-class DTagsValue : DStringArrayValue {
-  mixin(ValueThis!("TagsValue", "string[]"));  
+class DTagArrayValue : DStringArrayValue {
+  mixin(ValueThis!("TagArrayValue", "string[]"));  
 
   override void initialize() {
     super.initialize;
@@ -15,11 +15,11 @@ class DTagsValue : DStringArrayValue {
     return null; 
   }
 }
-mixin(ValueCalls!("TagsValue", "string[]"));  
+mixin(ValueCalls!("TagArrayValue", "string[]"));  
 
 version(test_uim_entities) {
   unittest {
-    auto attribute = TagsValue(["a", "b", "c"]);
+    auto attribute = TagArrayValue(["a", "b", "c"]);
     assert(attribute.value.length == 3);
     assert(attribute.value[0] == "a");
     assert(attribute.value[1] == "b");

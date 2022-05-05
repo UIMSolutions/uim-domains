@@ -11,6 +11,11 @@ import uim.entities;
 class DBooleanAttribute : DAttribute {
   mixin(AttributeThis!("BooleanAttribute"));
 
+/* Inheritance
+any <- boolean
+Traits
+is.dataFormat.boolean */
+
   override void initialize() {
     super.initialize;
 

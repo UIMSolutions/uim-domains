@@ -14,3 +14,25 @@ has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
 has.measurement.fundamentalComponent.ampere
 means.measurement.prefix.nano */
+
+@safe:
+import uim.entities;
+
+class DNanoFaradAttribute : DFaradAttribute {
+  mixin(AttributeThis!("NanoFaradAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("nanoFarad")
+      .registerPath("nanoFarad");
+  }
+}
+mixin(AttributeCalls!("NanoFaradAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

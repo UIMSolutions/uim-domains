@@ -3,14 +3,14 @@ module uim.entities.attributes.datetimes.datetime;
 @safe:
 import uim.entities;
 
-class DDatetimeAttribute : DAttribute {
+class DDatetimeAttribute : DDateAttribute {
   mixin(AttributeThis!("DatetimeAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .dataFormats(["datetime"])
+      .addDataFormats(["time"])
       .name("datetime")
       .registerPath("datetime");
       // means.measurement.date

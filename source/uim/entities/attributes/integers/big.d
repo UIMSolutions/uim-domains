@@ -9,7 +9,12 @@ class DBigAttribute : DIntegerAttribute {
   override void initialize() {
     super.initialize;
 
-    this
+/* any <- integer <- bigInteger
+Traits
+is.dataFormat.integer
+is.dataFormat.big
+
+ */    this
       .addDataFormats(["big"])
       .name("big")
       .registerPath("big");

@@ -9,3 +9,25 @@ is.dataFormat.character
 is.dataFormat.big
 is.dataFormat.array
 means.identity.IP4Address */
+
+@safe:
+import uim.entities;
+
+class DIP4AddressAttribute : DStringAttribute {
+  mixin(AttributeThis!("IP4AddressAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("ip4address")
+      .registerPath("ip4address");
+  }
+}
+mixin(AttributeCalls!("IP4AddressAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

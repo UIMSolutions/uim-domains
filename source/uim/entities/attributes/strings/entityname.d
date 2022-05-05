@@ -3,7 +3,8 @@ module uim.entities.attributes.strings.entityname;
 @safe:
 import uim.entities;
 
-/* is.dataFormat.character
+/* Type for trait parameters that take entity names as values
+is.dataFormat.character
 is.dataFormat.big
 is.dataFormat.array
 means.entityName

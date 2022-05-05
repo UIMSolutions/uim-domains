@@ -124,26 +124,7 @@ class DOOPEntity : IRegistrable {
     return result;
   }
 
-  /* private DOOPAttribute[string] _attributes;  
-  auto attributes() { return _attributes; }
-  O attributes(this O, T)(T[string] newAttributes) {
-    foreach(kv; newAttributes.byKeyValue) this.attribute(kv.key, cast(DOOPAttribute)kv.value);
-    return cast(O)this;
-  }
-  O attributes(this O)(STRINGAA values) {
-    foreach(kv; values.byKeyValue) this.attribute(kv.key, kv.value);
-    return cast(O)this;
-  }
-  O attributes(this O)(Json[string] values) {
-    foreach(kv; values.byKeyValue) this.attribute(k, v);
-    return cast(O)this;
-  }
-
-  O addAttributes(this O)(DOOPAttribute[string] addAtts) {
-    addAtts.byKeyValue.each!(kv => this.attribute(kv.key, kv.value));
-    return cast(O)this;
-  }
-
+/*
   O attribute(this O)(string name, string type) {
     if (type.strip.indexOf("{") == 0) {
       Json json = parseJsonString(type);

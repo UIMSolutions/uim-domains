@@ -12,7 +12,7 @@ class DColorNameAttribute : DStringAttribute {
 
     this
       .name("colorName")
-      .registerPath("colorname");
+      .registerPath("colorName");
   }
 }
 mixin(AttributeCalls!("ColorNameAttribute"));

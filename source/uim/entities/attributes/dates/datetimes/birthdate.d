@@ -9,6 +9,12 @@ class DBirthDateAttribute : DDatetimeAttribute {
   override void initialize() {
     super.initialize;
 
+    /* is.dataFormat.date
+    means.measurement.date
+    is.dataFormat.time
+    means.measurement.time
+    means.demographic.birthDate
+ */
     this
       .dataFormats(["time"])
       .name("birthdate")

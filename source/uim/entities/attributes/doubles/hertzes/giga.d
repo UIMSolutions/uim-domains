@@ -1,4 +1,4 @@
-module uim.entities.attributes.doubles.hertzes.gigahertz;
+module uim.entities.attributes.doubles.hertzes.giga;
 
 /* is.dataFormat.floatingPoint
 is.dataFormat.big

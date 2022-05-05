@@ -15,13 +15,13 @@ class DStringArrayAttribute : DAttribute {
     super.initialize;
 
     this
-      .name("boolean")
-      .dataFormats(["boolean"])
-      .registerPath("boolean");
+      .name("StringArrayAttribute")
+      .dataFormats(["string", "array"])
+      .registerPath("StringArrayAttribute");
   }
 
   override DValue createValue() {
-    return BooleanValue(this); }
+    return StringArrayValue(this); }
 }
 mixin(AttributeCalls!"StringArrayAttribute");
 

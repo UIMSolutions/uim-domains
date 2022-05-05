@@ -11,5 +11,27 @@ means.measurement.dimension.electromotiveForce
 means.measurement.units.si.volt
 has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
-has.measurement.fundamentalComponent.second
+has.measurement.fundamentalComponent.volt
 has.measurement.fundamentalComponent.ampere */
+
+@safe:
+import uim.entities;
+
+class DVoltAttribute : DDoubleAttribute {
+  mixin(AttributeThis!("VoltAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("volt")
+      .registerPath("volt");
+  }
+}
+mixin(AttributeCalls!("VoltAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

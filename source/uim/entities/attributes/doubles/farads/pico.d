@@ -14,3 +14,25 @@ has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
 has.measurement.fundamentalComponent.ampere
 means.measurement.prefix.pico */
+
+@safe:
+import uim.entities;
+
+class DPicoFaradAttribute : DFaradAttribute {
+  mixin(AttributeThis!("PicoFaradAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("picoFarad")
+      .registerPath("picoFarad");
+  }
+}
+mixin(AttributeCalls!("PicoFaradAttribute"));
+
+version(test_uim_entities) {
+  unittest {
+    // TODO
+  }
+}

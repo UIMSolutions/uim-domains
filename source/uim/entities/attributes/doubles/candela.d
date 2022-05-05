@@ -12,6 +12,12 @@ class DCandelaAttribute : DDoubleAttribute {
   override void initialize() {
     super.initialize;
 
+/* is.dataFormat.floatingPoint
+is.dataFormat.big
+means.measurement.dimension.luminousIntensity
+means.measurement.units.si.candela
+has.measurement.fundamentalComponent.candela */
+
     this
       .name("candela")
       .registerPath("candela");

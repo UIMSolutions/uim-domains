@@ -1,4 +1,4 @@
-module uim.entities.attributes.strings.currencycode;
+module source.uim.entities.attributes.codes.currency;
 
 @safe:
 import uim.entities;
@@ -7,7 +7,8 @@ import uim.entities;
 // is.dataFormat.big
 // is.dataFormat.array
 // means.measurement.currencyCode
-class DCurrencyCodeAttribute : DStringAttribute {
+// Value is a ISO 4217 currency code
+class DCurrencyCodeAttribute : DStringStringAttribute {
   mixin(AttributeThis!("CurrencyCodeAttribute"));
 
   override void initialize() {
@@ -15,7 +16,7 @@ class DCurrencyCodeAttribute : DStringAttribute {
 
     this
       .name("currencyCode")
-      .registerPath("currencycode");
+      .registerPath("currencyCode");
   }
 }
 mixin(AttributeCalls!("CurrencyCodeAttribute"));
