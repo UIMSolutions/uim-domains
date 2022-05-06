@@ -1,4 +1,4 @@
-module uim.entities.attributes.doubles.microfarads.micro;
+module uim.entities.attributes.doubles.farads.micro;
 
 /* Unit of capacitance, equivalent to 10E-6 microfarads
 

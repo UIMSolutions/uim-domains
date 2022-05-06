@@ -1,4 +1,4 @@
-module uim.entities.attributes.codes.customersizecode;
+module uim.entities.attributes.codes.customersize;
 
 @safe:
 import uim.entities;

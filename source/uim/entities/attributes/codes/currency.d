@@ -1,4 +1,4 @@
-module source.uim.entities.attributes.codes.currency;
+module uim.entities.attributes.codes.currency;
 
 @safe:
 import uim.entities;

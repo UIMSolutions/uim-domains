@@ -1,4 +1,4 @@
-module uim.entities.attributes.doubles.volts.kilovolt;
+module uim.entities.attributes.doubles.volts.kilo;
 
 /* Unit of power, equivalent to 10E3 volts
 

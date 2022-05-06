@@ -1,4 +1,4 @@
-module uim.entities.attributes.floats.doubles.degree;
+module uim.entities.attributes.doubles.degree;
 
 @safe:
 import uim.entities;
@@ -10,6 +10,14 @@ means.measurement.units.degree
 has.measurement.fundamentalComponent */
 class DDegreeAttribute : DDoubleAttribute {
   mixin(AttributeThis!("DegreeAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("degree")
+      .registerPath("degree");
+  }
 }
 mixin(AttributeCalls!("DegreeAttribute"));
 

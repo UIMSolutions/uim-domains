@@ -1,4 +1,4 @@
-module uim.entities.attributes.floats.doubles.farad;
+module uim.entities.attributes.doubles.farads.farad;
 
 /* Unit of measure for electric capacitance in farads
 

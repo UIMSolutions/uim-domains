@@ -1,4 +1,4 @@
-module uim.entities.attributes.doubles.microseconds.micro;
+module uim.entities.attributes.doubles.seconds.micro;
 
 /* Unit of measure for time in 10E-6 microseconds
 

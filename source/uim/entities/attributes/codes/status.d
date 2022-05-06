@@ -1,4 +1,4 @@
-module uim.entities.attributes.codes.statuscode;
+module uim.entities.attributes.codes.status;
 
 @safe:
 import uim.entities;
