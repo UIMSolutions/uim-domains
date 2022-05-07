@@ -5,7 +5,7 @@ import uim.entities;
 
 /* means.calendar
 means.calendar.day */
-class DDayPartAttribute : DDaypart {
+class DDayPartAttribute : DIntegerCalendarPart {
   mixin(AttributeThis!("DayPartAttribute"));
 
 override void initialize() {

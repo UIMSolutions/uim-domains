@@ -1,4 +1,4 @@
-module uim.entities.attributes.integers.minutess;
+module uim.entities.attributes.integers.minutes;
 
 /* any <- integer <- minutes <- minutess
 Traits
@@ -10,7 +10,7 @@ has.measurement.fundamentalComponent.second */
 @safe:
 import uim.entities;
 
-class DMinutesAttribute : DMinuteAttribute {
+class DMinutesAttribute : DIntegerAttribute {
   mixin(AttributeThis!("MinutesAttribute"));
 
   override void initialize() {

@@ -6,6 +6,9 @@ is.dataFormat.integer
 means.calendar
 means.calendar.tenday */
 
+@safe:
+import uim.entities;
+
 class DTendayAttribute : DIntegerCalendarPart {
   mixin(AttributeThis!("TendayAttribute"));
 

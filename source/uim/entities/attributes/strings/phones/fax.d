@@ -7,6 +7,9 @@ is.dataFormat.big
 is.dataFormat.array
 means.identity.service.phone.fax */
 
+@safe:
+import uim.entities;
+
 class DFaxAttribute : DStringAttribute {
   mixin(AttributeThis!("FaxAttribute"));
 
@@ -14,7 +17,7 @@ class DFaxAttribute : DStringAttribute {
     super.initialize;
 
     this
-      .fax("fax")
+      .name("fax")
       .registerPath("fax");
   }
 }

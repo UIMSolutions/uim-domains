@@ -6,6 +6,9 @@ is.dataFormat.integer
 means.calendar
 means.calendar.trimester */
 
+@safe:
+import uim.entities;
+
 class DTrimesterAttribute : DIntegerCalendarPart {
   mixin(AttributeThis!("TrimesterAttribute"));
 

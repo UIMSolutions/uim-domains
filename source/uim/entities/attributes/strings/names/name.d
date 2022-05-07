@@ -7,6 +7,9 @@ is.dataFormat.big
 is.dataFormat.array
 means.identity.name */
 
+@safe:
+import uim.entities;
+
 class DNameAttribute : DStringAttribute {
   mixin(AttributeThis!("NameAttribute"));
 

@@ -7,6 +7,9 @@ is.dataFormat.big
 is.dataFormat.array
 means.identity.service.phone */
 
+@safe:
+import uim.entities;
+
 class DPhoneAttribute : DStringAttribute {
   mixin(AttributeThis!("PhoneAttribute"));
 
@@ -14,7 +17,7 @@ class DPhoneAttribute : DStringAttribute {
     super.initialize;
 
     this
-      .phone("phone")
+      .name("phone")
       .registerPath("phone");
   }
 }

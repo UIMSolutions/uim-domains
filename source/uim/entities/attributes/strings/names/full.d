@@ -1,12 +1,13 @@
 module uim.entities.attributes.strings.names.full;
 
-@safe:
-import uim.entities;
-
 /* is.dataFormat.character
 is.dataFormat.big
 is.dataFormat.array
 means.identity.person.fullName */
+
+@safe:
+import uim.entities;
+
 class DFullNameAttribute : DStringAttribute {
   mixin(AttributeThis!("FullNameAttribute"));
 

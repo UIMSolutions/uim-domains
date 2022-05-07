@@ -6,6 +6,10 @@ is.dataFormat.integer
 means.calendar
 means.calendar.quarter */
 
+
+@safe:
+import uim.entities;
+
 class DQuarterAttribute : DIntegerCalendarPart {
   mixin(AttributeThis!("QuarterAttribute"));
 
