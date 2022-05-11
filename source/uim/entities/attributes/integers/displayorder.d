@@ -5,6 +5,14 @@ import uim.entities;
 
 class DDisplayOrderAttribute : DIntegerAttribute {
   mixin(AttributeThis!("DisplayOrderAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("displayOrder")
+      .registerPath("displayOrder");    
+  }
 }
 mixin(AttributeCalls!("DisplayOrderAttribute"));
 

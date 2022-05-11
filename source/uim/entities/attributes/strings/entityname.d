@@ -17,7 +17,7 @@ class DEntityNameAttribute : DStringAttribute {
 
     this
       .name("entityName")
-      .registerPath("entityname");
+      .registerPath("entityName");
   }
 }
 mixin(AttributeCalls!("EntityNameAttribute"));

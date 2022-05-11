@@ -12,7 +12,6 @@ class DStringAttribute : DCharAttribute {
     super.initialize;
 
     this
-      .addDataFormats(["array"])
       .name("string")
       .registerPath("string");
   }

@@ -14,6 +14,9 @@ class DDayAttribute : DIntegerAttribute {
   override void initialize() {
     super.initialize;
 
+    this
+      .name("day")
+      .registerPath("day");    
   }
 }
 mixin(AttributeCalls!("DayAttribute"));

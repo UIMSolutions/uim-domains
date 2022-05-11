@@ -3,31 +3,31 @@
 *	License: Subject to the terms of the MIT license, as written in the included LICENSE.txt file.
 *	Authors: UI Manufaktur Team
 ************************************************************************************************/
-module uim.entities.attributes.arrays.string_;
+module uim.entities.attributes.arrays.strings.tags;
 
 @safe:
 import uim.entities;
 
-class DStringArrayAttribute : DAttribute {
-  mixin(AttributeThis!("StringArrayAttribute"));
+class DTagArrayAttribute : DStringArrayAttribute {
+  mixin(AttributeThis!("TagArrayAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("StringArrayAttribute")
+      .name("TagArrayAttribute")
       .dataFormats(["string", "array"])
-      .registerPath("StringArrayAttribute");
+      .registerPath("TagArrayAttribute");
   }
 
   override DValue createValue() {
-    return StringArrayValue(this); }
+    return TagArrayValue(this); }
 }
-mixin(AttributeCalls!"StringArrayAttribute");
+mixin(AttributeCalls!"TagArrayAttribute");
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DStringArrayAttribute);
-    testAttribute(StringArrayAttribute);
+    testAttribute(new DTagArrayAttribute);
+    testAttribute(TagArrayAttribute);
   }
 }

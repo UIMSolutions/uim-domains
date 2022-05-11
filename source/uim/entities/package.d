@@ -162,3 +162,25 @@ O `~name~`(this O)(string newValue) { this.values[`~name~`].value(newValue); ret
 O `~name~`(this O)(Json newValue) { this.values[`~name~`].value(newValue); return cast(O)this;  } 
   `;
 }
+
+string[] attributeDataFormats = [
+  "Array",
+  "Big",
+  "Binary",
+  "Boolean",
+  "Byte",
+  "Char",
+  "Date",
+  "DateTime",
+  "DateTimeOffset",
+  "Decimal",
+  "Double",
+  "Float",
+  "Integer",
+  "Long",
+  "Map",
+  "String",
+  "Time",
+  "Json",
+  "UUID"
+];
