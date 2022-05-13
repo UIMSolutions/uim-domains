@@ -10,8 +10,18 @@ class DTagArrayValue : DStringArrayValue {
     super.initialize;
   }
 
+  override void set(string newValue) {
+    debug writeln("In DTagArrayValue - ", newValue);
+    this.value(newValue.split("#").map!(a => a.strip).array);
+    debug writeln("After split - ", this.value);
+  }
+
+  size_t length() {
+    return _values.length;
+  }
+
   override string toString() {
-    if (_value.length > 0) return "#"~this.value.join(" #");
+    if (length > 0) return "#"~this.value.join(" #");
     return null; 
   }
 }

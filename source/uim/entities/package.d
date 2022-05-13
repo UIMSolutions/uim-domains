@@ -165,7 +165,6 @@ O `~name~`(this O)(Json newValue) { this.values[`~name~`].value(newValue); retur
 
 string[] attributeDataFormats = [
   "Array",
-  "Big",
   "Binary",
   "Boolean",
   "Byte",

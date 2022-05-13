@@ -1,12 +1,9 @@
-module uim.entities.attributes.doubles.pascals.megapascal;
+module uim.entities.attributes.doubles.pascals.kilo;
 
-/* megapascal
-Description
-
-Unit of stress, equivalent to 10E6 pascals
+/* Unit of stress, equivalent to 10E3 pascals
 
 Inheritance
-any <- float <- double <- pascal <- megapascal
+any <- float <- double <- pascal <- kilopascal
 Traits
 is.dataFormat.floatingPoint
 is.dataFormat.big
@@ -15,4 +12,4 @@ means.measurement.units.si.pascal
 has.measurement.fundamentalComponent.kilogram
 has.measurement.fundamentalComponent.meter
 has.measurement.fundamentalComponent.second
-means.measurement.prefix.mega */
+means.measurement.prefix.kilo */

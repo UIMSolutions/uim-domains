@@ -13,22 +13,23 @@ class DStringArrayValue : DArrayValue {
       .isString(true);
   }
 
-  protected string[] _value;
+  protected string[] _values;
   alias value = DValue.value;
-  void set(string[] newValue) {
-    _value = newValue;
+  void set(string[] newValues) {
+    _values = newValues.filter!(v => v.length > 0).array;
   }
   O value(this O)(string[] newValue) {
     this.set(newValue);
     return cast(O)this; 
   }
   string[] value() {
-    return _value; 
+    return _values; 
   }
 
   override void set(string newValue) {
+    debug writeln("In DStringArrayValue - ", newValue);
     this.value(newValue.split(",").map!(a => a.strip).array);
-    // return this; 
+    debug writeln("After split - ", this.value);
   }
 
   override void set(Json newValue) {
@@ -46,6 +47,14 @@ class DStringArrayValue : DArrayValue {
       default: break;
     }
     // return this;
+  }
+  override Json toJson() {
+    auto result = Json.emptyArray;
+    _values.each!(v => result ~= Json(v));
+    return result;
+  }
+  override string toString() {
+    return this.value.join(",");
   }
 }
 mixin(ValueCalls!("StringArrayValue", "string[]"));  

@@ -1,4 +1,4 @@
-module uim.entities.attributes.bytes.binaries.image;
+module uim.entities.attributes.arrays.bytes.image;
 
 /* any <- byte <- image <- image
 Traits

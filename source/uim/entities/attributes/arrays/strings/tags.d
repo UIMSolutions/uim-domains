@@ -8,26 +8,26 @@ module uim.entities.attributes.arrays.strings.tags;
 @safe:
 import uim.entities;
 
-class DTagArrayAttribute : DStringArrayAttribute {
-  mixin(AttributeThis!("TagArrayAttribute"));
+class DTagsAttribute : DStringArrayAttribute {
+  mixin(AttributeThis!("TagsAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("TagArrayAttribute")
+      .name("TagsAttribute")
       .dataFormats(["string", "array"])
-      .registerPath("TagArrayAttribute");
+      .registerPath("TagsAttribute");
   }
 
   override DValue createValue() {
     return TagArrayValue(this); }
 }
-mixin(AttributeCalls!"TagArrayAttribute");
+mixin(AttributeCalls!"TagsAttribute");
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DTagArrayAttribute);
-    testAttribute(TagArrayAttribute);
+    testAttribute(new DTagsAttribute);
+    testAttribute(TagsAttribute);
   }
 }

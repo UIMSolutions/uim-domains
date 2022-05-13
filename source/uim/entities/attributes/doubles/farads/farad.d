@@ -19,6 +19,14 @@ import uim.entities;
 
 class DFaradAttribute : DDoubleAttribute {
   mixin(AttributeThis!("FaradAttribute"));
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("farad")
+      .registerPath("farad");
+  }  
 }
 mixin(AttributeCalls!("FaradAttribute"));
 
