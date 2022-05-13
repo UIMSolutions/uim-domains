@@ -2,6 +2,10 @@
 	"authors": [
 		"UI Manufaktur Team"
 	],
+	"description": "A D library",
+	"license": "Apache-2.0",
+	"name": "uim-entities",
+	"targetType": "library",
 	"configurations": [
 		{
 			"name": "offline"
@@ -31,9 +35,5 @@
 		"../uim-jsonbase",
 		"../uim-entitybase",
 		"./"
-	],
-	"description": "A D library",
-	"license": "Apache-2.0",
-	"name": "uim-entities",
-	"targetType": "library"
+	]
 }
