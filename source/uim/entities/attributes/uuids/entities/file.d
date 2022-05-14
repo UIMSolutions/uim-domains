@@ -12,6 +12,14 @@ is.dataFormat.big
 is.dataFormat.array
 is.dataFormat.guid
 means.identity.entityId */
+
+  override void initialize() {
+    super.initialize;
+
+    this
+      .name("fileId")
+      .registerPath("accounfileIdtid");
+  }  
 }
 mixin(AttributeCalls!("FileIdAttribute"));
 

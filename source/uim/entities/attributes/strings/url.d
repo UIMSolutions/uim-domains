@@ -10,7 +10,6 @@ class DUrlAttribute : DStringAttribute {
     super.initialize;
 
     this
-      .addDataFormats(["array"])
       .name("url")
       .registerPath("url");
   }
