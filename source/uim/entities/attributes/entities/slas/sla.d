@@ -3,22 +3,22 @@ module uim.entities.attributes.uuids.entities.slas.sla;
 @safe:
 import uim.entities;
 
-class DSlaIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("SlaIdAttribute"));
+class DSlaAttribute : DEntityAttribute {
+  mixin(AttributeThis!("SlaAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("slaId")
-      .registerPath("slaId");
+      .name("sla")
+      .registerPath("sla");
   }  
 }
-mixin(AttributeCalls!("SlaIdAttribute"));
+mixin(AttributeCalls!("SlaAttribute"));
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DSlaIdAttribute);
-    testAttribute(SlaIdAttribute);
+    testAttribute(new DSlaAttribute);
+    testAttribute(SlaAttribute);
   }
 } 

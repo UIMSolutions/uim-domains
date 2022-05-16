@@ -3,22 +3,22 @@ module source.uim.entities.attributes.entities.file;
 @safe:
 import uim.entities;
 
-class DFileIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("FileIdAttribute"));
+class DFileAttribute : DEntityAttribute {
+  mixin(AttributeThis!("FileAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("fileId")
-      .registerPath("fileId");
+      .name("file")
+      .registerPath("file");
   }  
 }
-mixin(AttributeCalls!("FileIdAttribute"));
+mixin(AttributeCalls!("FileAttribute"));
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DFileIdAttribute);
-    testAttribute(FileIdAttribute);
+    testAttribute(new DFileAttribute);
+    testAttribute(FileAttribute);
   }
 }

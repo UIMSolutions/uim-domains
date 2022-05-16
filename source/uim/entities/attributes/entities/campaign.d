@@ -3,22 +3,22 @@ module source.uim.entities.attributes.entities.campaign;
 @safe:
 import uim.entities;
 
-class DCampaignIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("CampaignIdAttribute"));
+class DCampaignAttribute : DEntityAttribute {
+  mixin(AttributeThis!("CampaignAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("campaignId")
-      .registerPath("campaignid");
+      .name("campaign")
+      .registerPath("campaign");
   }  
 }
-mixin(AttributeCalls!("CampaignIdAttribute"));
+mixin(AttributeCalls!("CampaignAttribute"));
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DCampaignIdAttribute);
-    testAttribute(CampaignIdAttribute);
+    testAttribute(new DCampaignAttribute);
+    testAttribute(CampaignAttribute);
   }
 }

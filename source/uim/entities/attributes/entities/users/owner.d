@@ -3,18 +3,18 @@ module uim.entities.attributes.uuids.entities.users.owner;
 @safe:
 import uim.entities;
 
-class DOwnerIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("OwnerIdAttribute"));
+class DOwnerAttribute : DEntityAttribute {
+  mixin(AttributeThis!("OwnerAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("ownerId")
-      .registerPath("ownerid");
+      .name("owner")
+      .registerPath("owner");
   }  
 }
-mixin(AttributeCalls!("OwnerIdAttribute"));
+mixin(AttributeCalls!("OwnerAttribute"));
 
 version(test_uim_entities) {
   unittest {

@@ -3,22 +3,22 @@ module source.uim.entities.attributes.entities.slas.invoked;
 @safe:
 import uim.entities;
 
-class DSLAInvokedIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("SLAInvokedIdAttribute"));
+class DSLAInvokedAttribute : DEntityAttribute {
+  mixin(AttributeThis!("SLAInvokedAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("slaInvokedId")
-      .registerPath("slaInvokedId");
+      .name("slaInvoked")
+      .registerPath("slaInvoked");
   }  
 }
-mixin(AttributeCalls!("SLAInvokedIdAttribute"));
+mixin(AttributeCalls!("SLAInvokedAttribute"));
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DSLAInvokedIdAttribute);
-    testAttribute(SLAInvokedIdAttribute);
+    testAttribute(new DSLAInvokedAttribute);
+    testAttribute(SLAInvokedAttribute);
   }
 } 

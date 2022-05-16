@@ -15,18 +15,18 @@ means.userId */
 @safe:
 import uim.entities;
 
-class DUserIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("UserIdAttribute"));
+class DUserAttribute : DEntityAttribute {
+  mixin(AttributeThis!("UserAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("userId")
-      .registerPath("userid");
+      .name("user")
+      .registerPath("user");
   }  
 }
-mixin(AttributeCalls!("UserIdAttribute"));
+mixin(AttributeCalls!("UserAttribute"));
 
 version(test_uim_entities) {
   unittest {

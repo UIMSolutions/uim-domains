@@ -3,22 +3,22 @@ module uim.entities.attributes.uuids.entities.account;
 @safe:
 import uim.entities;
 
-class DAccountIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("AccountIdAttribute"));
+class DAccountAttribute : DEntityAttribute {
+  mixin(AttributeThis!("AccountAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("accountId")
-      .registerPath("accountid");
+      .name("account")
+      .registerPath("account");
   }  
 }
-mixin(AttributeCalls!("AccountIdAttribute"));
+mixin(AttributeCalls!("AccountAttribute"));
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DAccountIdAttribute);
-    testAttribute(AccountIdAttribute);
+    testAttribute(new DAccountAttribute);
+    testAttribute(AccountAttribute);
   }
 }

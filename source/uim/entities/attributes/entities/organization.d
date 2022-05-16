@@ -3,22 +3,22 @@ module uim.entities.attributes.uuids.entities.organization;
 @safe:
 import uim.entities;
 
-class DOrganizationIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("OrganizationIdAttribute"));
+class DOrganizationAttribute : DEntityAttribute {
+  mixin(AttributeThis!("OrganizationAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("organizationId")
-      .registerPath("organizationid");
+      .name("organization")
+      .registerPath("organization");
   }  
 }
-mixin(AttributeCalls!("OrganizationIdAttribute"));
+mixin(AttributeCalls!("OrganizationAttribute"));
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DOrganizationIdAttribute);
-    testAttribute(OrganizationIdAttribute);
+    testAttribute(new DOrganizationAttribute);
+    testAttribute(OrganizationAttribute);
   }
 }

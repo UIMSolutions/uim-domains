@@ -5,22 +5,22 @@ import uim.entities;
 
 // A unique identifier for entity instances
 
-class DBusinessUnitIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("BusinessUnitIdAttribute"));
+class DBusinessUnitAttribute : DEntityAttribute {
+  mixin(AttributeThis!("BusinessUnitAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("businessUnitId")
-      .registerPath("businessunitid");
+      .name("businessUnit")
+      .registerPath("businessunit");
   }  
 }
-mixin(AttributeCalls!("BusinessUnitIdAttribute"));
+mixin(AttributeCalls!("BusinessUnitAttribute"));
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DBusinessUnitIdAttribute);
-    testAttribute(BusinessUnitIdAttribute);
+    testAttribute(new DBusinessUnitAttribute);
+    testAttribute(BusinessUnitAttribute);
   }
 }

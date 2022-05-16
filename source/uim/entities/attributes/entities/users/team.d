@@ -3,18 +3,18 @@ module uim.entities.attributes.uuids.entities.users.team;
 @safe:
 import uim.entities;
 
-class DTeamIdAttribute : DEntityIdAttribute {
-  mixin(AttributeThis!("TeamIdAttribute"));
+class DTeamAttribute : DEntityAttribute {
+  mixin(AttributeThis!("TeamAttribute"));
 
   override void initialize() {
     super.initialize;
 
     this
-      .name("teamId")
-      .registerPath("teamid");
+      .name("team")
+      .registerPath("team");
   }  
 }
-mixin(AttributeCalls!("TeamIdAttribute"));
+mixin(AttributeCalls!("TeamAttribute"));
 
 version(test_uim_entities) {
   unittest {
