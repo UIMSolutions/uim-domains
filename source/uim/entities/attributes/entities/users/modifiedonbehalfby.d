@@ -1,4 +1,4 @@
-module uim.entities.attributes.uuids.entities.users.modifiedonbehalfby;
+module uim.entities.attributes.entities.users.modifiedonbehalfby;
 
 @safe:
 import uim.entities;

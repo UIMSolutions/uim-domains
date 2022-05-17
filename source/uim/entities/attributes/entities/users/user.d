@@ -1,4 +1,4 @@
-module uim.entities.attributes.uuids.entities.users.user;
+module uim.entities.attributes.entities.users.user;
 
 /* The identifier of a system user
 

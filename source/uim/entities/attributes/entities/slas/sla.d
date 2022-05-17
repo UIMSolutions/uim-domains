@@ -1,4 +1,4 @@
-module uim.entities.attributes.uuids.entities.slas.sla;
+module uim.entities.attributes.entities.slas.sla;
 
 @safe:
 import uim.entities;

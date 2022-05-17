@@ -1,4 +1,4 @@
-module uim.entities.attributes.uuids.entities.users.team;
+module uim.entities.attributes.entities.users.team;
 
 @safe:
 import uim.entities;

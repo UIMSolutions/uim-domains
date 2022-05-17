@@ -1,4 +1,4 @@
-module uim.entities.attributes.uuids.entities.businessunit;
+module uim.entities.attributes.entities.businessunit;
 
 @safe:
 import uim.entities;
