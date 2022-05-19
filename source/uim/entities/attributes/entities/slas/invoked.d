@@ -1,4 +1,4 @@
-module source.uim.entities.attributes.entities.slas.invoked;
+module uim.entities.attributes.entities.slas.invoked;
 
 @safe:
 import uim.entities;
