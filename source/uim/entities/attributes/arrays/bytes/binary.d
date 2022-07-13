@@ -1,4 +1,4 @@
-module uim.entities.attributes.arrays.bytes.binary;
+module  uim.entities.attributes.arrays.bytes.binary;
 
 @safe:
 import uim.entities;

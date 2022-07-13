@@ -13,6 +13,13 @@ class DBooleanValue : DValue {
       .isBoolean(true);
   }
 
+  @property int get() {
+      return value;
+  }
+  alias get this;
+
+  O opCall(this O)(bool newValue) { this.value(newValue); return cast(O)this; }
+
   protected bool _value;
   alias value = DValue.value;
   O value(this O)(bool newValue) {

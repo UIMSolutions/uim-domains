@@ -6,14 +6,16 @@ import uim.entities;
 class DValues {
   this() { initialize; }
 
-  private DValue[string] _values; 
-
   void initialize() {}
 
-  bool hasValue(string key) { return key in _values ? true : false; }
-  string[] keys() { return _values.keys; }
+  mixin(OProperty!("DValue[string]", "items"));
 
-  DValue opIndex(string name) { return _values.get(name, NullValue); }
+  string[] names() { return items.keys; }
+
+  bool hasValue(string key) { return key in _items ? true : false; }
+  string[] keys() { return _items.keys; }
+
+  DValue opIndex(string name) { return _items.get(name, NullValue); }
 
   // Set value, if key exists
   void opIndexAssign(bool newValue, string key) {
@@ -53,7 +55,7 @@ class DValues {
   }
 
   O addValue(this O)(string fieldName, DValue newValue) {
-    _values[fieldName] = newValue;
+    _items[fieldName] = newValue;
     return cast(O)this;
   }
 
@@ -62,7 +64,7 @@ class DValues {
   }
 
   Json toJson(Json obj) {
-    keys.each!(key => obj[key] = _values[key].toJson);
+    keys.each!(key => obj[key] = _items[key].toJson);
     return obj;
   }
 }
