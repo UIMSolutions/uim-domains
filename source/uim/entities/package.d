@@ -64,6 +64,7 @@ public import uim.entitybase;
 // public import uim.javascript;
 
 // local modules
+public import uim.entities.element;
 public import uim.entities.entity;
 public import uim.entities.entities;
 public import uim.entities.entity_lang;
