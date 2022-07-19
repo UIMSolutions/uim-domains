@@ -3,19 +3,16 @@
 *	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  *
 *	Authors: UI Manufaktur Team, Ozan Nurettin Süel (Sicherheitsschmiede)                                  *
 **********************************************************************************************************/
-module source.uim.entities.element;
+module uim.entities.element;
 
 @safe:
 import uim.entities;
 
-class DOOPElement : IRegistrable {
+class DOOPElement {
   static namespace = moduleName!DOOPElement;
 
   // Constructors
   this() { initialize; }
-
-  this(DOOPModel myModel) { 
-    this().model(myModel); }
 
   this(string myName) { 
     this().name(myName); }
@@ -210,7 +207,6 @@ class DOOPElement : IRegistrable {
 
   DOOPElement fromRequest(STRINGAA requestValues) {
     debug writeln("fromRequest...", requestValues);
-    debug writeln("fieldNames...", fieldNames);
     foreach(fName; fieldNames) {
       auto requestKey = "entity_"~fName;
       if (auto boolValue = cast(DBooleanValue)values[fName]) {
@@ -306,29 +302,8 @@ class DOOPElement : IRegistrable {
       auto k = keyvalue.key;
       auto v = keyvalue.value;
       switch(k) {
-        case "pool": this.pool(v.get!string); break;
-        case "id": this.id(v.get!string); break;
-        case "etag": this.etag(v.get!long); break;
         case "name": this.name(v.get!string); break;
         case "display": this.display(v.get!string); break;
-        case "createdOn": this.createdOn(v.get!long); break;
-        case "createdBy": this.createdBy(v.get!string); break;
-        case "modifiedOn": this.modifiedOn(v.get!long); break;
-        case "modifiedBy": this.modifiedBy(v.get!string); break;
-        case "description": this.description(v.get!string); break;
-        case "isLocked": this.isLocked(v.get!bool); break;
-        case "lockedOn": this.lockedOn(v.get!long); break;
-        case "lockedBy": this.lockedBy(v.get!string); break;
-        case "isDeleted": this.isDeleted(v.get!bool); break;
-        case "deletedOn": this.deletedOn(v.get!long); break;
-        case "deletedBy": this.deletedBy(v.get!string); break;
-        case "model": 
-          auto id = v.get!string;
-          if (id.isUUID) this.model(OOPModel(UUID(id)));
-          else this.model(OOPModel(id));
-          break;
-        case "hasVersions": this.hasVersions(v.get!bool); break;
-        case "hasLanguages": this.hasLanguages(v.get!bool); break;
         case "parameters": 
           STRINGAA values;
           foreach (kv; v.byKeyValue) {
@@ -336,18 +311,7 @@ class DOOPElement : IRegistrable {
           }
           this.parameters(values);
           break;
-        case "config": this.config(v); break;
-        case "versionNumber": this.versionNumber(v.get!long); break;
-        case "versionDisplay": this.versionDisplay(v.get!string); break;
-        case "versionMode": this.versionMode(v.get!string); break;
-        case "versionOn": this.versionOn(v.get!long); break;
-        case "versionBy": this.versionBy(v.get!string); break;
-        case "versionDescription": this.versionDescription(v.get!string); break;
         default: 
-          /* if (k in _attributes) {
-            // debug writeln("Found ", k);
-            _attributes[k].value(v); 
-          } */
           this.values[k].value(v);
           break;
       }            
@@ -359,80 +323,33 @@ class DOOPElement : IRegistrable {
     auto result = Json.emptyObject;
     
     if (showFields.length == 0 && hideFields.length == 0) {
-      result["registerPath"] = this.registerPath;
       result["id"] = this.id.toString;
       result["name"] = this.name;
       result["display"] = this.display;
-      result["versionNumber"] = this.versionNumber;
-      result["createdOn"] = this.createdOn;
-      result["createdBy"] = this.createdBy.toString;
-      result["modifiedOn"] = this.modifiedOn;
-      result["modifiedBy"] = this.modifiedBy.toString;
-      result["lastAccessedOn"] = this.lastAccessedOn;
-      result["lastAccessBy"] = this.lastAccessBy.toString;
       result["description"] = this.description;
-      result["isLocked"] = this.isLocked;
-      result["lockedOn"] = this.lockedOn;
-      result["lockedBy"] = this.lockedBy.toString;
-      result["isDeleted"] = this.isDeleted;
-      result["deletedOn"] = this.deletedOn;
-      result["deletedBy"] = this.deletedBy.toString;
-      if (this.model) {
-        if (this.model.id.isNull) result["model"] = this.model.name;
-        else result["model"] = this.model.id.toString;
-      }
-      result["hasVersions"] = this.hasVersions;
-      result["hasLanguages"] = this.hasLanguages;
 
       auto parameterValues = Json.emptyObject;
       foreach (kv; this.parameters.byKeyValue) {
         parameterValues[kv.key] = this.parameters[kv.value];                
       } 
       result["parameters"] = parameterValues;
-
-      result["config"] = this.config;     
-      result["versionNumber"] = this.versionNumber;
-      result["versionDisplay"] = this.versionDisplay;
-      result["versionMode"] = this.versionMode;
-      result["versionOn"] = this.versionOn;
-      result["versionBy"] = this.versionBy.toString;
-      result["versionDescription"] = this.versionDescription;
-
-/*       foreach(k; _attributes.byKey) {
-        if (!hideFields.exist(k)) result[k] = _attributes[k].jsonValue;
-      } */
       foreach(k; values.keys) {
         debug writeln("Value ", k, " = ",  this.values[k].toJson);
         result[k] = this.values[k].toJson;
       }
     }
     else if (showFields.length == 0 && hideFields.length > 0) {
-      if (!hideFields.exist("registerPath")) result["registerPath"] = this.registerPath;
-      if (!hideFields.exist("id")) result["id"] = this.id.toString;
       if (!hideFields.exist("name")) result["name"] = this.name;
       if (!hideFields.exist("display")) result["display"] = this.display;
-      if (!hideFields.exist("versionNumber")) result["versionNumber"] = this.versionNumber;
-      if (!hideFields.exist("createdOn")) result["createdOn"] = this.createdOn;
-      if (!hideFields.exist("createdBy")) result["createdBy"] = this.createdBy.toString;
-      if (!hideFields.exist("modifiedOn")) result["modifiedOn"] = this.modifiedOn;
-      if (!hideFields.exist("modifiedBy")) result["modifiedBy"] = this.modifiedBy.toString;
-      if (!hideFields.exist("lastAccessedOn")) result["lastAccessedOn"] = this.lastAccessedOn;
-      if (!hideFields.exist("lastAccessBy")) result["lastAccessBy"] = this.lastAccessBy.toString;
+
       if (!hideFields.exist("description")) result["description"] = this.description;
-      if (!hideFields.exist("isLocked")) result["isLocked"] = this.isLocked;
-      if (!hideFields.exist("lockedOn")) result["lockedOn"] = this.lockedOn;
-      if (!hideFields.exist("lockedBy")) result["lockedBy"] = this.lockedBy.toString;
-      if (!hideFields.exist("isDeleted")) result["isDeleted"] = this.isDeleted;
-      if (!hideFields.exist("deletedOn")) result["deletedOn"] = this.deletedOn;
-      if (!hideFields.exist("deletedBy")) result["deletedBy"] = this.deletedBy.toString;
+
       if (!hideFields.exist("model")) {
         if (this.model) {
           if (this.model.id.isNull) result["model"] = this.model.name;
           else result["model"] = this.model.id.toString;
         }
       }
-      if (!hideFields.exist("hasVersions")) result["hasVersions"] = this.hasVersions;
-      if (!hideFields.exist("hasLanguages")) result["hasLanguages"] = this.hasLanguages;
       if (!hideFields.exist("parameters")) {       
         auto parameterValues = Json.emptyObject;
         foreach (kv; this.parameters.byKeyValue) {
