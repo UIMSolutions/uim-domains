@@ -16,6 +16,7 @@ public import uim.entities.attributes.dates;
 public import uim.entities.attributes.datetimes;
 public import uim.entities.attributes.decimals;
 public import uim.entities.attributes.doubles;
+public import uim.entities.attributes.elements;
 public import uim.entities.attributes.entities;
 public import uim.entities.attributes.integers;
 public import uim.entities.attributes.ulongs;
