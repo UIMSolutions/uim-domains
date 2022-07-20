@@ -74,5 +74,6 @@ mixin(ValueCalls!("ElementValue", "DOOPElement"));
 
 version(test_uim_entities) {
   unittest {  
+    assert(ElementValue);
 
 }}
