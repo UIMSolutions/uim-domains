@@ -15,6 +15,7 @@ public import uim.entities.values.datetimes;
 // Modules
 public import uim.entities.values.bool_;
 public import uim.entities.values.double_;
+public import uim.entities.values.element;
 public import uim.entities.values.entity;
 public import uim.entities.values.integer;
 public import uim.entities.values.long_;

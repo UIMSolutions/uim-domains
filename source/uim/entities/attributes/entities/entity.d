@@ -14,6 +14,9 @@ class DEntityAttribute : DAttribute {
     // means.measurement.date
     // means.measurement.time
   }
+
+  override DValue createValue() {
+    return EntityValue(this); }
 }
 mixin(AttributeCalls!"EntityAttribute");
 
