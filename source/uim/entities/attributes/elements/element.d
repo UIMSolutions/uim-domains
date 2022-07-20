@@ -8,11 +8,6 @@ class DElementAttribute : DAttribute {
 
   override void initialize() {
     super.initialize;
-
-    this
-      .dataFormats(["time"]);
-    // means.measurement.date
-    // means.measurement.time
   }
 
   override DValue createValue() {

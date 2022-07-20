@@ -172,6 +172,7 @@ auto `~name~`(string myName) { return new D`~name~`(myName); }
 auto `~name~`(Json json) { return new D`~name~`(json); } 
   `;
 } 
+
 template ValueProperty(string name) {
   const char[] EntityCalls = `
 auto `~name~`() { return this.values[`~name~`]; } 
