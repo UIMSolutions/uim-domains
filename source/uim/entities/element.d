@@ -191,7 +191,8 @@ class DOOPElement {
     return result;
   }
 }
-auto OOPEntity() { return new DOOPElement; }
-auto OOPEntity(Json json) { return new DOOPElement(json); }
+auto OOPElement() { return new DOOPElement; }
+auto OOPElement(string name) { return new DOOPElement(name); }
+auto OOPElement(Json json) { return new DOOPElement(json); }
 
 
