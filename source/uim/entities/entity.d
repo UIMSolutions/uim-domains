@@ -14,22 +14,15 @@ class DOOPEntity : IRegistrable {
   // Constructors
   this() { initialize; }
 
-  this(DOOPModel myModel) { 
-    this().model(myModel); }
+  this(DOOPModel myModel) { this().model(myModel); }
+  this(UUID myId) { this().id(myId).name(this.id.toString); }
+  this(string myName) { this().name(myName); }
+  this(UUID myId, string myName) { this(myId).name(myName); }
 
-  this(UUID myId) { 
-    this().id(myId).name(this.id.toString); }
-
-  this(string myName) { 
-    this().name(myName); }
-
-  this(UUID myId, string myName) { 
-    this().id(myId).name(myName); }
-
-  this(Json aJson) { 
-    this();    
+  this(Json aJson) { this();    
     if (aJson != Json(null)) this.fromJson(aJson); }
 
+  // Initialize entity 
   void initialize() {
     this
     .id(randomUUID)
@@ -43,7 +36,7 @@ class DOOPEntity : IRegistrable {
     .config(Json.emptyObject)
     .values(Values)
     .versionOn(this.createdOn)
-    .versionNumber(1L)
+    .versionNumber(1L) // Allways starts with version 1
     .versionBy(this.createdBy);
   }
 
