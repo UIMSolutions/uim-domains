@@ -12,13 +12,10 @@
 		"mir-linux-kernel": "1.0.1",
 		"openssl": "1.1.6+1.0.1g",
 		"packageversion": "0.0.19",
-		"silly": "1.1.1",
 		"stdx-allocator": "2.77.5",
 		"taggedalgebraic": "0.11.22",
-		"uim-core": {"version":"bf470b5e884d7a1e8711cedae5e26ddc01cbcfde","repository":"git+https://github.com/UI-Manufaktur/uim-core.git"},
-		"uim-oop": {"version":"a6fb933896b9864243e4455e61c77bc07f2b96e4","repository":"git+https://github.com/UI-Manufaktur/uim-oop.git"},
 		"unit-threaded": "1.0.15",
-		"vibe-core": "1.22.1",
+		"vibe-core": "1.22.3",
 		"vibe-d": "0.9.4"
 	}
 }
