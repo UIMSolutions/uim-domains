@@ -78,6 +78,9 @@ public import uim.entities.helpers;
 public import uim.entities.models;
 public import uim.entities.values;
 
+// Test function
+public import uim.entities.tests;
+
 /* template GetEntity(string name, string nameId, string className) {
     const char[] GetEntity = `
       auto `~name~`() {  
