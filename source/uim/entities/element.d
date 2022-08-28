@@ -195,4 +195,8 @@ auto OOPElement() { return new DOOPElement; }
 auto OOPElement(string name) { return new DOOPElement(name); }
 auto OOPElement(Json json) { return new DOOPElement(json); }
 
+version(test_uim_entities) { unittest {
+  assert(OOPElement);
+  assert(OOPElement.nane("test").name == "name");
+}}
 
