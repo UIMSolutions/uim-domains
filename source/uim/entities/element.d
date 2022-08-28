@@ -197,6 +197,8 @@ auto OOPElement(Json json) { return new DOOPElement(json); }
 
 version(test_uim_entities) { unittest {
   assert(OOPElement);
-  assert(OOPElement.nane("test").name == "name");
+  assert(OOPElement.nane("test").name == "test");
+  assert(OOPElement.nane("testName").name == "testname");
+
 }}
 
