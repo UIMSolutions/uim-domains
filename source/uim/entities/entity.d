@@ -1,4 +1,4 @@
-/*********************************************************************************************************
+I/*********************************************************************************************************
 *	Copyright: © 2017-2022, UI Manufaktur UG, Since 2022 Ozan Nurettin Süel (Sicherheitsschmiede)          *
 *	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  *
 *	Authors: UI Manufaktur Team, Ozan Nurettin Süel (Sicherheitsschmiede)                                  *
@@ -746,4 +746,5 @@ auto OOPEntity() { return new DOOPEntity; }
 auto OOPEntity(Json json) { return new DOOPEntity(json); }
 
 version () { unittest {
+  assert(OOPEntity);
 }}
