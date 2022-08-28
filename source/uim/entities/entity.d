@@ -747,4 +747,21 @@ auto OOPEntity(Json json) { return new DOOPEntity(json); }
 
 version () { unittest {
   assert(OOPEntity);
+
+/*
+this
+    .id(randomuuid)
+    .etag(totimestamp(now))
+    .name(this.id.tostring) 
+    .createdon(now)
+    .lastaccessedon(createdon)
+    .modifiedon(createdon)
+    .hasversions(false)
+    .haslanguages(false)
+    .config(json.emptyobject)
+    .values(values)
+    .versionon(this.createdon)
+    .versionnumber(1l) // allways starts with version 1
+    .versionby(this.createdby); 
+*/
 }}
