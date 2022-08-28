@@ -745,4 +745,5 @@ class DOOPEntity : IRegistrable {
 auto OOPEntity() { return new DOOPEntity; }
 auto OOPEntity(Json json) { return new DOOPEntity(json); }
 
-
+version () { unittest {
+}}
