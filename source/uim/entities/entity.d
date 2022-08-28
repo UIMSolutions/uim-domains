@@ -1,4 +1,4 @@
-I/*********************************************************************************************************
+/*********************************************************************************************************
 *	Copyright: © 2017-2022, UI Manufaktur UG, Since 2022 Ozan Nurettin Süel (Sicherheitsschmiede)          *
 *	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  *
 *	Authors: UI Manufaktur Team, Ozan Nurettin Süel (Sicherheitsschmiede)                                  *
@@ -749,20 +749,19 @@ version () { unittest {
   assert(OOPEntity);
 
 /*
-this
-    .id(randomuuid)
-    .etag(totimestamp(now))
-    .name(this.id.tostring) 
-    .createdon(now)
-    .lastaccessedon(createdon)
-    .modifiedon(createdon)
-    .hasversions(false)
-    .haslanguages(false)
-    .config(json.emptyobject)
-    .values(values)
-    .versionon(this.createdon)
-    .versionnumber(1l) // allways starts with version 1
-    .versionby(this.createdby); 
+  assert(OOPEntity.id(randomuuid)
+  assert(OOPEntity.etag(totimestamp(now))
+  assert(OOPEntity.name(this.id.tostring) 
+  assert(OOPEntity.createdon(now)
+  assert(OOPEntity.lastaccessedon(createdon)
+  assert(OOPEntity.modifiedon(createdon)
+  assert(OOPEntity.hasversions(false)
+  assert(OOPEntity.haslanguages(false)
+  assert(OOPEntity.config(json.emptyobject)
+  assert(OOPEntity.values(values)
+  assert(OOPEntity.versionon(this.createdon)
+  assert(OOPEntity.versionnumber(1l) // allways starts with version 1
+  assert(OOPEntity.versionby(this.createdby); 
 
 registerPath": return this.registerPath;
       case "id": return this.id.toString;
