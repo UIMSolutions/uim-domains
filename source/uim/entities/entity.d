@@ -763,5 +763,35 @@ this
     .versionon(this.createdon)
     .versionnumber(1l) // allways starts with version 1
     .versionby(this.createdby); 
+
+registerPath": return this.registerPath;
+      case "id": return this.id.toString;
+      case "etag": return to!string(this.etag);
+      case "name": return this.name;
+      case "display": return this.display;
+      case "createdOn": return to!string(this.createdOn); 
+      case "createdBy": return this.createdBy.toString; 
+      case "modifiedOn": return to!string(this.modifiedOn); 
+      case "modifiedBy": return this.modifiedBy.toString; 
+      case "lastAccessedOn": return to!string(this.lastAccessedOn); 
+      case "lastAccessBy": return this.lastAccessBy.toString; 
+      case "description": return this.description;
+      case "isLocked": return this.isLocked ? "true" : "false";
+      case "lockedOn": return to!string(this.lockedOn);
+      case "lockedBy": return this.lockedBy.toString; 
+      case "isDeleted": return this.isDeleted ? "true" : "false";
+      case "deletedOn": return to!string(this.deletedOn);
+      case "deletedBy": return this.deletedBy.toString; 
+      case "versionNumber": return to!string(this.versionNumber);
+      case "versionDisplay": return this.versionDisplay;
+      case "versionMode": return this.versionMode;
+      case "versionOn": return to!string(this.versionOn);
+      case "versionBy": return to!string(this.versionBy);
+      case "versionDescription": return this.versionDescription;
+      default:
+        //if (key in attributes) { return attributes[key].stringValue; }
+        if (values.hasValue(key)) { return values[key].toString; }
+        return null;
+    }      
 */
 }}
