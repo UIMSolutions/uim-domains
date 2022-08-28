@@ -54,7 +54,6 @@ class DOOPEntities {
   }
 }
 
-version(test_uim_entities) {
-  unittest {
-    auto entities = new DOOPEntities;
+version(test_uim_entities) { unittest {
+    assert(OOPEntities);
 }}
