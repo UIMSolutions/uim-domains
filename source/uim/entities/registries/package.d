@@ -5,7 +5,7 @@ import uim.entities;
 
 public import uim.entities.registries.attribute;
 
-class DOOPObjclassRegistry : DOOPRegistry!DOOPObjclass {
+class DOOPObjclassRegistry : DRegistry!DOOPObjclass {
   static DOOPObjclassRegistry registry;
 }
 auto ObjclassRegistry() {
@@ -15,7 +15,7 @@ auto ObjclassRegistry() {
   return DOOPObjclassRegistry.registry;
 }
 
-class DOOPAttclassRegistry : DOOPRegistry!DAttribute {
+class DOOPAttclassRegistry : DRegistry!DAttribute {
   static DOOPAttclassRegistry registry;
 }
 auto AttributeRegistry() {
@@ -25,7 +25,7 @@ auto AttributeRegistry() {
   return DOOPAttclassRegistry.registry;
 }
 
-/* class DOOPAttributeRegistry : DOOPRegistry!DOOPAttribute {
+/* class DOOPAttributeRegistry : DRegistry!DOOPAttribute {
   static DOOPAttributeRegistry registry;
 }
 auto AttributeRegistry() {
@@ -35,7 +35,7 @@ auto AttributeRegistry() {
   return DOOPAttributeRegistry.registry;
 } */
 
-class DOOPEntityRegistry : DOOPRegistry!DOOPEntity {
+class DOOPEntityRegistry : DRegistry!DOOPEntity {
   static DOOPEntityRegistry registry;
 }
 auto EntityRegistry() {
