@@ -1,1 +1,1 @@
-module uim.domains,events;
+module uim.domains.events;
