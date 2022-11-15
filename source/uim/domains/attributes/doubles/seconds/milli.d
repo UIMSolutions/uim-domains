@@ -29,7 +29,7 @@ class DMilliSecondAttribute : DSecondAttribute {
 }
 mixin(AttributeCalls!("MilliSecondAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

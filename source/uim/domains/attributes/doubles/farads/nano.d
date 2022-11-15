@@ -31,7 +31,7 @@ class DNanoFaradAttribute : DFaradAttribute {
 }
 mixin(AttributeCalls!("NanoFaradAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

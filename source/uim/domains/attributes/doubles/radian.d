@@ -27,7 +27,7 @@ class DRadianAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("RadianAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

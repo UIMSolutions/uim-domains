@@ -36,7 +36,7 @@ has.measurement.fundamentalComponent.second */
 }
 mixin(AttributeCalls!("HertzAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

@@ -25,7 +25,7 @@ class DMeterAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("MeterAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

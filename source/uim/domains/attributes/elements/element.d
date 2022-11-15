@@ -15,7 +15,7 @@ class Attribute : DAttribute {
 }
 mixin(AttributeCalls!"ElementAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new Attribute);
     testAttribute(ElementAttribute);

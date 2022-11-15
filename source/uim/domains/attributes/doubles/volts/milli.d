@@ -29,7 +29,7 @@ class DMilliVoltAttribute : DVoltAttribute {
 }
 mixin(AttributeCalls!("MilliVoltAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

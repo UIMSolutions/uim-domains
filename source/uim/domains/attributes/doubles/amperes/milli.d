@@ -28,7 +28,7 @@ class DMilliAmpereAttribute : DAmpereAttribute {
 }
 mixin(AttributeCalls!("MilliAmpereAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

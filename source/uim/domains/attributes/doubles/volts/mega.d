@@ -31,7 +31,7 @@ class DMegaVoltAttribute : DVoltAttribute {
 }
 mixin(AttributeCalls!("MegaVoltAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }
