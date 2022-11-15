@@ -1,7 +1,7 @@
 module uim.domains.enumerations.enumeration; 
 
 @safe:
-import uim.domians;
+import uim.domains;
 
 interface IEnumeration {}
 

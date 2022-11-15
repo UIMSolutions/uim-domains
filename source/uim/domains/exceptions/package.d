@@ -1,1 +1,1 @@
-module uim.domians.exceptions;
+module uim.domains.exceptions;
