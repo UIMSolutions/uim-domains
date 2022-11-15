@@ -3,7 +3,7 @@ module uim.domains.attributes.elements.element;
 @safe:
 import uim.domains;
 
-class DElementAttribute : DAttribute {
+class Attribute : DAttribute {
   mixin(AttributeThis!("ElementAttribute"));
 
   override void initialize() {
@@ -17,7 +17,7 @@ mixin(AttributeCalls!"ElementAttribute");
 
 version(test_uim_entities) {
   unittest {
-    testAttribute(new DElementAttribute);
+    testAttribute(new Attribute);
     testAttribute(ElementAttribute);
   }
 }

@@ -3,8 +3,8 @@ module uim.domains.values.element;
 @safe:
 import uim.domains;
 
-class DElementValue : DValue {
-  mixin(ValueThis!("ElementValue", "DOOPElement"));  
+class Value : DValue {
+  mixin(ValueThis!("ElementValue", "DElement"));  
 
   override void initialize() {
     super.initialize;
@@ -13,22 +13,22 @@ class DElementValue : DValue {
       .isNull(false);
   }
 
-  protected DOOPElement _value;
+  protected DElement _value;
   alias value = DValue.value;
-  O value(this O)(DOOPElement newValue) {
+  O value(this O)(DElement newValue) {
     _value = newValue;
     return cast(O)this; 
   }
-  DOOPElement value() {
+  DElement value() {
     return _value; 
   }
-  version(test_uim_eDOOPElementntities) {
+  version(test_uim_eDElementntities) {
     unittest {    
       auto Element = SystemUser; // some kind of Element
       assert(ElementValue.value(Element).value.id == Element.id);
   }}
 
-  protected void set(DOOPElement newValue) {
+  protected void set(DElement newValue) {
     if (newValue is null) { 
       this.isNull(isNullable ? true : false); 
       _value = null; }
@@ -46,11 +46,11 @@ class DElementValue : DValue {
     /// TODO
   }
 
-/*   bool opEquals(DOOPElement otherValue) {
+/*   bool opEquals(DElement otherValue) {
     return (this.value.id == otherValue.id);
   }
 
-  int opCmp(DOOPElement otherValue) {
+  int opCmp(DElement otherValue) {
     /// TODO
     return 1;
   } */
@@ -70,7 +70,7 @@ class DElementValue : DValue {
     /// TODO this.value(newValue);
   }
 }
-mixin(ValueCalls!("ElementValue", "DOOPElement"));  
+mixin(ValueCalls!("ElementValue", "DElement"));  
 
 version(test_uim_entities) {
   unittest {  
