@@ -8,7 +8,7 @@ class DNumberAttribute : DIntegerAttribute {
 }
 mixin(AttributeCalls!("NumberAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DNumberAttribute);
     testAttribute(NumberAttribute);

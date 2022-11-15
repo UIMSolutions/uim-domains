@@ -16,7 +16,7 @@ class DDisplayOrderAttribute : DIntegerAttribute {
 }
 mixin(AttributeCalls!("DisplayOrderAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DDisplayOrderAttribute);
     testAttribute(DisplayOrderAttribute);

@@ -16,7 +16,7 @@ class DModifiedOnBehalfByAttribute : DEntityAttribute {
 }
 mixin(AttributeCalls!("ModifiedOnBehalfByAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   
     // TODO 

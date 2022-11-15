@@ -20,7 +20,7 @@ class DEntityAttribute : DAttribute {
 }
 mixin(AttributeCalls!"EntityAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DEntityAttribute);
     testAttribute(EntityAttribute);

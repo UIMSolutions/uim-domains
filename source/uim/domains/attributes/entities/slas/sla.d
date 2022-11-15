@@ -16,7 +16,7 @@ class DSlaAttribute : DEntityAttribute {
 }
 mixin(AttributeCalls!("SlaAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DSlaAttribute);
     testAttribute(SlaAttribute);

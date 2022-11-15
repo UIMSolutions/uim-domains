@@ -16,7 +16,7 @@ class DTeamAttribute : DEntityAttribute {
 }
 mixin(AttributeCalls!("TeamAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   
     // TODO 

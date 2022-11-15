@@ -16,7 +16,7 @@ class DOrganizationAttribute : DEntityAttribute {
 }
 mixin(AttributeCalls!("OrganizationAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DOrganizationAttribute);
     testAttribute(OrganizationAttribute);

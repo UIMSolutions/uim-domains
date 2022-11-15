@@ -21,7 +21,7 @@ class DPreferredContactMethodAttribute : DAttribute {
 }
 mixin(AttributeCalls!("PreferredContactMethodAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

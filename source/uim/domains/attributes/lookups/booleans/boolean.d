@@ -14,7 +14,7 @@ class DBooleanBooleanAttribute : DLookupAttribute {
 }
 mixin(AttributeCalls!("BooleanBooleanAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }
