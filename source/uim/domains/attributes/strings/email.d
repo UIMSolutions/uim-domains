@@ -17,7 +17,7 @@ class DEmailAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("EmailAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

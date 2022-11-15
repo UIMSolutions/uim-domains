@@ -22,7 +22,7 @@ class DAddressLineAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!"AddressLineAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DAddressLineAttribute);
     testAttribute(AddressLineAttribute);

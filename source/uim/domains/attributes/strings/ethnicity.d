@@ -21,7 +21,7 @@ class DEthnicityAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("EthnicityAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

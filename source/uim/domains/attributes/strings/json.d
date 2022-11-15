@@ -27,7 +27,7 @@ class DJsonAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("JsonAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

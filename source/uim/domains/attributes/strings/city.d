@@ -17,7 +17,7 @@ class DCityAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("CityAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

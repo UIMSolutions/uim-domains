@@ -21,7 +21,7 @@ class DStringAttribute : DCharAttribute {
 }
 mixin(AttributeCalls!"StringAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DStringAttribute);
     testAttribute(StringAttribute);

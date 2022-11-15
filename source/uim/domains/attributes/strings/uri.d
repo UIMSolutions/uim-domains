@@ -23,7 +23,7 @@ class DUriAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("UriAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   }  
 }

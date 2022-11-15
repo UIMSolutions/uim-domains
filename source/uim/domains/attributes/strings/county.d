@@ -17,7 +17,7 @@ class DCountyAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("CountyAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

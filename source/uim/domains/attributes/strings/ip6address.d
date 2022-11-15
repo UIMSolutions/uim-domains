@@ -26,7 +26,7 @@ class DIP6AddressAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("IP6AddressAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

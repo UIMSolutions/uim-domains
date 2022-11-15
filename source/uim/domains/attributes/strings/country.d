@@ -17,7 +17,7 @@ class DCountryAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("CountryAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

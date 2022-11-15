@@ -17,7 +17,7 @@ class DLastNameAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("LastNameAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }
