@@ -25,7 +25,7 @@ class DOOPObjclass : DEntity {
     _objclass = myObjclass;     
     return cast(O)this; }
 
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       /// TODO
     }
@@ -51,7 +51,7 @@ class DOOPObjclass : DEntity {
       }
      }*/
     return result; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       // assert(OOPObjclass.createObj("test"));
     }

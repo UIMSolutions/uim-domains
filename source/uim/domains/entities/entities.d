@@ -54,6 +54,6 @@ class DOOPEntities {
   }
 }
 
-version(test_uim_entities) { unittest {
+version(test_uim_domains) { unittest {
     assert(OOPEntities);
 }}

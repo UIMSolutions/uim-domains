@@ -16,7 +16,7 @@ class DOwnerIdAttribute : DEntityIdAttribute {
 }
 mixin(AttributeCalls!("OwnerIdAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   
     // TODO 

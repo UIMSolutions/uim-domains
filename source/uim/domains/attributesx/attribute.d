@@ -29,43 +29,43 @@ class DXAttribute : IRegistrable {
   /// Attclass from which it inherits
 
   mixin(OProperty!("DAttribute", "attribute"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // TODO Add tests
       }}
 
   mixin(OProperty!("STRINGAA", "descriptions"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // TODO Add tests
       }}
 
   mixin(OProperty!("UUID", "ownerId"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // TODO Add tests
       }}
 
   mixin(OProperty!("string", "name"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       assert(XAttribute.name == "XAttribute");
   }}
 
   mixin(OProperty!("string", "path"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
     // TODO
   }}
 
   mixin(OProperty!("string", "className"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // TODO
   }}
 
   mixin(OProperty!("bool", "isNullable"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       /* assert(!XAttribute.isNullable); 
       assert(XAttribute.isNullable(true).isNull(true).isNull); 
@@ -102,7 +102,7 @@ class DXAttribute : IRegistrable {
   O isNull(this O)(bool aValue) {
     if (isNullable) _isNull = aValue;
     return cast(O)this; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // assert(!XAttribute.isNull); 
       // isNullable = false

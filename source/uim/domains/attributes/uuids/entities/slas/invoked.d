@@ -16,7 +16,7 @@ class DSLAInvokedIdAttribute : DEntityIdAttribute {
 }
 mixin(AttributeCalls!("SLAInvokedIdAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DSLAInvokedIdAttribute);
     testAttribute(SLAInvokedIdAttribute);

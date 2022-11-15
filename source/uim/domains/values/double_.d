@@ -58,7 +58,7 @@ class DDoubleValue : DValue {
   O opCall(this O)(double newValue) { 
     _value = newValue;
     return cast(O)this; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       auto value = DoubleValue;
       value(100);
@@ -79,7 +79,7 @@ class DDoubleValue : DValue {
 }
 mixin(ValueCalls!("DoubleValue", "double"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {    
     assert(DoubleValue.value("100").toDouble == 100);
     assert(DoubleValue.value(Json(100)).toDouble == 100);

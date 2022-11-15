@@ -16,7 +16,7 @@ class DAccountIdAttribute : DEntityIdAttribute {
 }
 mixin(AttributeCalls!("AccountIdAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DAccountIdAttribute);
     testAttribute(AccountIdAttribute);

@@ -16,7 +16,7 @@ class DContactIdAttribute : DEntityIdAttribute {
 }
 mixin(AttributeCalls!("ContactIdAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DContactIdAttribute);
     testAttribute(ContactIdAttribute);

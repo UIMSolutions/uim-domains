@@ -20,7 +20,7 @@ class DUUIDAttribute : DAttribute {
 }
 mixin(AttributeCalls!("UUIDAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DUUIDAttribute);
     testAttribute(UUIDAttribute);

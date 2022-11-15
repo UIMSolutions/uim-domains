@@ -27,7 +27,7 @@ class DTagArrayValue : DStringArrayValue {
 }
 mixin(ValueCalls!("TagArrayValue", "string[]"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     auto attribute = TagArrayValue(["a", "b", "c"]);
     assert(attribute.value.length == 3);

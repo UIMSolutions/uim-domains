@@ -195,7 +195,7 @@ auto OOPElement() { return new DElement; }
 auto OOPElement(string name) { return new DElement(name); }
 auto OOPElement(Json json) { return new DElement(json); }
 
-version(test_uim_entities) { unittest {
+version(test_uim_domains) { unittest {
   assert(OOPElement);
   assert(OOPElement.nane("test").name == "test");
   assert(OOPElement.nane("testName").name == "testname");

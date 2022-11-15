@@ -159,7 +159,7 @@ class DEntity : IRegistrable {
   // Every entity has a unique id as a primary key
   mixin(OProperty!("UUID", "id"));
   O id(this O)(string anUuid) { this.id(UUID(anUuid)); return cast(O)this; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       auto id1 = randomUUID;
       assert(Entity.id(id1).id == id1);
@@ -190,7 +190,7 @@ class DEntity : IRegistrable {
   string _name;
   O name(this O)(string  newName) { _name = newName.strip.toLower.replace(" ", "_"); return cast(O)this; }
   string name() { return _name; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       assert(Entity.name("name1").name == "name1");
       assert(Entity.name("name1").name("name2").name == "name2");
@@ -211,7 +211,7 @@ class DEntity : IRegistrable {
     this.createdOn(to!long(aTime));
     return cast(O)this;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
 /*     auto now1 = now; auto now2 = now;
     assert(Entity.createdOn(now1).createdOn == now1);
@@ -254,7 +254,7 @@ class DEntity : IRegistrable {
     this.lastAccessedOn(to!long(aTime));
     return cast(O)this;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
 /*     auto now1 = now; auto now2 = now;
     assert(Entity.createdOn(now1).createdOn == now1);
@@ -717,7 +717,7 @@ class DEntity : IRegistrable {
 
   void load() {
     if (collection) fromJson(collection.findOne(id).toJson); }
-  version(test_uim_entities) { unittest {
+  version(test_uim_domains) { unittest {
       // TODO: Add Test
     }
   }
@@ -730,7 +730,7 @@ class DEntity : IRegistrable {
     
     return this;
   }
-  version(test_uim_entities) { unittest {
+  version(test_uim_domains) { unittest {
       // TODO: Add Test
     }
   }
@@ -743,7 +743,7 @@ class DEntity : IRegistrable {
 auto Entity() { return new DEntity; }
 auto Entity(Json json) { return new DEntity(json); }
 
-version(test_uim_entities) { unittest {
+version(test_uim_domains) { unittest {
   assert(Entity);
 
 /*

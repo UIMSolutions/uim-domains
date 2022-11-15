@@ -28,7 +28,7 @@ class DStringValue : DValue {
     set(newValue);
     return cast(O)this;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       assert(StringValue.value("test").value == "test");
       assert(StringValue.value("test").value("test2").value == "test2");
@@ -69,7 +69,7 @@ class DStringValue : DValue {
     }
     return cast(O)this;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       assert(StringValue("test").value == "test");
 
@@ -93,7 +93,7 @@ class DStringValue : DValue {
     this.value(newValue);
     return cast(O)this; }
 
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest { 
       auto a = StringValue("avalue");
       auto b = StringValue("bvalue");
@@ -110,7 +110,7 @@ class DStringValue : DValue {
     return 1;
   }
 
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       assert(StringValue("test") == "test");
       assert(StringValue("test") < "xxxx");
@@ -143,7 +143,7 @@ class DStringValue : DValue {
 }
 mixin(ValueCalls!("StringValue"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {    
     assert(StringValue("test").value == "test");
     assert(StringValue("test2").value != "test");

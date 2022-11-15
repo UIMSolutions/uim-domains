@@ -16,7 +16,7 @@ class DFileIdAttribute : DEntityIdAttribute {
 }
 mixin(AttributeCalls!("FileIdAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DFileIdAttribute);
     testAttribute(FileIdAttribute);

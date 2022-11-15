@@ -75,7 +75,7 @@ class DUUIDValue : DValue {
 }
 mixin(ValueCalls!("UUIDValue", "UUID"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     auto uuid = randomUUID;
     assert(UUIDValue(uuid).value == uuid);

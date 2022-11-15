@@ -72,7 +72,7 @@ class Value : DValue {
 }
 mixin(ValueCalls!("ElementValue", "DElement"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     assert(ElementValue);
 

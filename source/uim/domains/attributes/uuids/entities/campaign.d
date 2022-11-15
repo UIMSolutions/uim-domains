@@ -16,7 +16,7 @@ class DCampaignIdAttribute : DEntityIdAttribute {
 }
 mixin(AttributeCalls!("CampaignIdAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DCampaignIdAttribute);
     testAttribute(CampaignIdAttribute);

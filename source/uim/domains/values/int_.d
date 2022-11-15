@@ -58,7 +58,7 @@ class DIntegerValue : DValue {
   O opCall(this O)(int newValue) { 
     _value = newValue;
     return cast(O)this; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       auto value = IntegerValue;
       value(100);
@@ -79,7 +79,7 @@ class DIntegerValue : DValue {
 }
 mixin(ValueCalls!("IntegerValue", "int"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {    
     assert(IntegerValue.value("100").toLong == 100);
     assert(IntegerValue.value(Json(100)).toLong == 100);

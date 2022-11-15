@@ -73,6 +73,6 @@ class DEntityValue : DValue {
 }
 mixin(ValueCalls!("EntityValue", "DEntity"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
 }}
