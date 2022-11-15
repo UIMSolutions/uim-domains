@@ -1,7 +1,7 @@
-module uim.entities.tests;
+module uim.domains.tests;
 
 @safe:
-public import uim.entities;
+public import uim.domains;
 
 void testEntityBooleanAttributes(DEntity entity, string[] attributeNames) {
   foreach(name; attributeNames) {
