@@ -8,8 +8,8 @@ module uim.domains.entity;
 @safe:
 import uim.domains;
 
-class DOOPEntity : IRegistrable {
-  static namespace = moduleName!DOOPEntity;
+class DEntity : IRegistrable {
+  static namespace = moduleName!DEntity;
 
   // Constructors
   this() { initialize; }
@@ -162,9 +162,9 @@ class DOOPEntity : IRegistrable {
   version(test_uim_entities) {
     unittest {
       auto id1 = randomUUID;
-      assert(OOPEntity.id(id1).id == id1);
+      assert(Entity.id(id1).id == id1);
       auto id2 = randomUUID;
-      assert(OOPEntity.id(id1).id(id2).id == id2);
+      assert(Entity.id(id1).id(id2).id == id2);
     }
   } */
 
@@ -192,9 +192,9 @@ class DOOPEntity : IRegistrable {
   string name() { return _name; }
   version(test_uim_entities) {
     unittest {
-      assert(OOPEntity.name("name1").name == "name1");
-      assert(OOPEntity.name("name1").name("name2").name == "name2");
-      assert(OOPEntity.name("name name").name == "name_name");
+      assert(Entity.name("name1").name == "name1");
+      assert(Entity.name("name1").name("name2").name == "name2");
+      assert(Entity.name("name name").name == "name_name");
     }
   }
 
@@ -214,8 +214,8 @@ class DOOPEntity : IRegistrable {
   version(test_uim_entities) {
     unittest {
 /*     auto now1 = now; auto now2 = now;
-    assert(OOPEntity.createdOn(now1).createdOn == now1);
-    assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
+    assert(Entity.createdOn(now1).createdOn == now1);
+    assert(Entity.createdOn(now1).createdOn(now2).createdOn == now2);
  */  }
   }
 
@@ -257,8 +257,8 @@ class DOOPEntity : IRegistrable {
   version(test_uim_entities) {
     unittest {
 /*     auto now1 = now; auto now2 = now;
-    assert(OOPEntity.createdOn(now1).createdOn == now1);
-    assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
+    assert(Entity.createdOn(now1).createdOn == now1);
+    assert(Entity.createdOn(now1).createdOn(now2).createdOn == now2);
  */  }
   }
 
@@ -342,12 +342,12 @@ class DOOPEntity : IRegistrable {
   }
 
   // Read entity from STRINGAA
-  DOOPEntity fromStringAA(STRINGAA reqParameters) {
+  DEntity fromStringAA(STRINGAA reqParameters) {
     foreach(k, v; reqParameters) this[k] = v; 
     return this;
   }
 
-  DOOPEntity fromRequest(STRINGAA requestValues) {
+  DEntity fromRequest(STRINGAA requestValues) {
     debug writeln("fromRequest...", requestValues);
     debug writeln("fieldNames...", fieldNames);
     foreach(fName; fieldNames) {
@@ -398,7 +398,7 @@ class DOOPEntity : IRegistrable {
     }      
   }
 
-  DOOPEntity opIndexAssign(string value, string key) {
+  DEntity opIndexAssign(string value, string key) {
     switch(key) {
       case "id": this.id(value); break;
       case "etag": this.etag(value); break;
@@ -434,7 +434,7 @@ class DOOPEntity : IRegistrable {
   }
 
   // Read HTML value and set entity value
-  DOOPEntity opIndexAssign(UUID value, string key) {
+  DEntity opIndexAssign(UUID value, string key) {
     switch(key) {
       case "id": this.id(value); break;
       case "createdBy": this.createdBy(value); break;
@@ -482,32 +482,32 @@ class DOOPEntity : IRegistrable {
   }
 
   // Set field(key) if type Entity
-  void opIndexAssign(DOOPEntity value, string key) {
+  void opIndexAssign(DEntity value, string key) {
     switch(key) {
       default:
         /* if (key in attributes) {
           debug writeln("key %s in attributes %s".format(key, attributes[key].stringValue));
-          if (auto att = cast(DOOPEntityAttribute)attributes[key]) att.value(value); 
+          if (auto att = cast(DEntityAttribute)attributes[key]) att.value(value); 
         }  */
         break;
     }      
   }
 
-  DOOPEntity create() { return new DOOPEntity; }
-  DOOPEntity create(Json data) { return create.fromJson(data); }
+  DEntity create() { return new DEntity; }
+  DEntity create(Json data) { return create.fromJson(data); }
 
-  DOOPEntity clone() { return create.fromJson(toJson); }
-  DOOPEntity clone(Json data) { return create.fromJson(toJson).fromJson(data); }
+  DEntity clone() { return create.fromJson(toJson); }
+  DEntity clone(Json data) { return create.fromJson(toJson).fromJson(data); }
   
-  DOOPEntity copyTo(DOOPEntity targetOfCopy) {
+  DEntity copyTo(DEntity targetOfCopy) {
     return targetOfCopy ? targetOfCopy.fromJson(this.toJson) : targetOfCopy; }
-  DOOPEntity copyFrom(DOOPEntity targetOfCopy) {
+  DEntity copyFrom(DEntity targetOfCopy) {
     return targetOfCopy ? fromJson(targetOfCopy.toJson) : this;
   }
 
   Bson toBson() { return Bson(toJson); }
 
-  DOOPEntity fromJson(Json aJson) {
+  DEntity fromJson(Json aJson) {
     if (aJson == Json(null)) return this;
     
     foreach (keyvalue; aJson.byKeyValue) {
@@ -722,7 +722,7 @@ class DOOPEntity : IRegistrable {
     }
   }
 
-  DOOPEntity save() {
+  DEntity save() {
     if (collection) {
       if (collection.findOne(this.id)) collection.updateOne(this); 
       else collection.insertOne(this); 
@@ -740,26 +740,26 @@ class DOOPEntity : IRegistrable {
       collection.removeMany(this, allVersions); }
 
 }
-auto OOPEntity() { return new DOOPEntity; }
-auto OOPEntity(Json json) { return new DOOPEntity(json); }
+auto Entity() { return new DEntity; }
+auto Entity(Json json) { return new DEntity(json); }
 
 version(test_uim_entities) { unittest {
-  assert(OOPEntity);
+  assert(Entity);
 
 /*
-  assert(OOPEntity.id(randomuuid)
-  assert(OOPEntity.etag(totimestamp(now))
-  assert(OOPEntity.name(this.id.tostring) 
-  assert(OOPEntity.createdon(now)
-  assert(OOPEntity.lastaccessedon(createdon)
-  assert(OOPEntity.modifiedon(createdon)
-  assert(OOPEntity.hasversions(false)
-  assert(OOPEntity.haslanguages(false)
-  assert(OOPEntity.config(json.emptyobject)
-  assert(OOPEntity.values(values)
-  assert(OOPEntity.versionon(this.createdon)
-  assert(OOPEntity.versionnumber(1l) // allways starts with version 1
-  assert(OOPEntity.versionby(this.createdby); 
+  assert(Entity.id(randomuuid)
+  assert(Entity.etag(totimestamp(now))
+  assert(Entity.name(this.id.tostring) 
+  assert(Entity.createdon(now)
+  assert(Entity.lastaccessedon(createdon)
+  assert(Entity.modifiedon(createdon)
+  assert(Entity.hasversions(false)
+  assert(Entity.haslanguages(false)
+  assert(Entity.config(json.emptyobject)
+  assert(Entity.values(values)
+  assert(Entity.versionon(this.createdon)
+  assert(Entity.versionnumber(1l) // allways starts with version 1
+  assert(Entity.versionby(this.createdby); 
 
 registerPath": return this.registerPath;
       case "id": return this.id.toString;

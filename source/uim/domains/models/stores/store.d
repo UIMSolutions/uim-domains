@@ -3,7 +3,7 @@ module uim.domains.models.stores.store;
 import uim.domains;
 
 /* @safe 
-class DOOPStore(T:DOOPEntity) {
+class DOOPStore(T:DEntity) {
 
   this(DOOPModel myModel) { _model = myModel; }
 

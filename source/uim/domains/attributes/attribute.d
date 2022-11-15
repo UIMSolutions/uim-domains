@@ -3,7 +3,7 @@ module uim.domains.attributes.attribute;
 @safe :
 import uim.domains;
 
-class DAttribute : DOOPEntity {
+class DAttribute : DEntity {
   mixin(AttributeThis!("OOPAttribute"));
 
   mixin(OProperty!("string[]", "dataFormats")); // Select the data type of the property.")); // 
@@ -121,7 +121,7 @@ class DAttribute : DOOPEntity {
   } */
 
 
-  override DOOPEntity fromJson(Json aJson) {
+  override DEntity fromJson(Json aJson) {
     super.fromJson(aJson);
     
     foreach (keyvalue; aJson.byKeyValue) {

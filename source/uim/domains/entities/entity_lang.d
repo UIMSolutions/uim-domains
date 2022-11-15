@@ -9,7 +9,7 @@ module uim.domains.entity_lang;
 @safe:
 import uim.domains;
 
-class DOOPEntityLang : DOOPEntity {
+class DEntityLang : DEntity {
   this() { super(); }
   this(UUID myId) { super(myId); }
   this(string myName) { super(myName);}
@@ -25,7 +25,7 @@ class DOOPEntityLang : DOOPEntity {
     return result;
   }
 }
-auto OOPEntityLang() { return new DOOPEntityLang; }
+auto EntityLang() { return new DEntityLang; }
 
 version(test_uim_entities) {
   unittest {

@@ -124,7 +124,7 @@ template EProperty(string className, string entityName) {
     return className~"/"~id.toString~"/"~(major == 0 ? "*" : to!string(major))~"/"~(minor == 0 ? "*" : to!string(minor));
   }  
 }
-auto entityToSelect(DOOPEntity anEntity) {
+auto entityToSelect(DEntity anEntity) {
     Json result = Json.emptyObject;
     if (anEntity) {
       result["$or"] = [["id": anEntity.id.toString], ["name": anEntity.name]].serializeToJson;

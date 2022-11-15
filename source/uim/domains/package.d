@@ -98,17 +98,17 @@ string crudScripts() {
   return "";
 }
 
-alias CreateEntity = DOOPEntity delegate(Json json);
+alias CreateEntity = DEntity delegate(Json json);
 CreateEntity[string] createEntities;
 /* 
 class EntityFactory {
-  DOOPEntity createEntities(string className, Json json) {
+  DEntity createEntities(string className, Json json) {
     if (className !in entityCRUDs) return null;
     return entityCRUDs[className].create(json);
   }
 } */
 
-Json toJson(DOOPEntity[] entities) {
+Json toJson(DEntity[] entities) {
   auto result = Json.emptyArray;
   foreach(entity; entities) result ~= entity.toJson;
   return result;
@@ -145,7 +145,7 @@ template EntityThis(string name) {
   this(UUID myId, string myName) { this(myId).name(myName); }
   this(Json aJson) { this().fromJson(aJson); }
 
-  override DOOPEntity create() { return `~name~`; }
+  override DEntity create() { return `~name~`; }
   `;
 }
 

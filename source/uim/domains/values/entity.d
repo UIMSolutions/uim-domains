@@ -4,7 +4,7 @@ module uim.domains.values.entity;
 import uim.domains;
 
 class DEntityValue : DValue {
-  mixin(ValueThis!("EntityValue", "DOOPEntity"));  
+  mixin(ValueThis!("EntityValue", "DEntity"));  
 
   override void initialize() {
     super.initialize;
@@ -14,22 +14,22 @@ class DEntityValue : DValue {
       .isEntity(true);
   }
 
-  protected DOOPEntity _value;
+  protected DEntity _value;
   alias value = DValue.value;
-  O value(this O)(DOOPEntity newValue) {
+  O value(this O)(DEntity newValue) {
     _value = newValue;
     return cast(O)this; 
   }
-  DOOPEntity value() {
+  DEntity value() {
     return _value; 
   }
-  version(test_uim_eDOOPEntityntities) {
+  version(test_uim_eDEntityntities) {
     unittest {    
       auto entity = SystemUser; // some kind of entity
       assert(EntityValue.value(entity).value.id == entity.id);
   }}
 
-  protected void set(DOOPEntity newValue) {
+  protected void set(DEntity newValue) {
     if (newValue is null) { 
       this.isNull(isNullable ? true : false); 
       _value = null; }
@@ -47,11 +47,11 @@ class DEntityValue : DValue {
     /// TODO
   }
 
-/*   bool opEquals(DOOPEntity otherValue) {
+/*   bool opEquals(DEntity otherValue) {
     return (this.value.id == otherValue.id);
   }
 
-  int opCmp(DOOPEntity otherValue) {
+  int opCmp(DEntity otherValue) {
     /// TODO
     return 1;
   } */
@@ -71,7 +71,7 @@ class DEntityValue : DValue {
     /// TODO this.value(newValue);
   }
 }
-mixin(ValueCalls!("EntityValue", "DOOPEntity"));  
+mixin(ValueCalls!("EntityValue", "DEntity"));  
 
 version(test_uim_entities) {
   unittest {  

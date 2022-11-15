@@ -35,14 +35,14 @@ auto AttributeRegistry() {
   return DOOPAttributeRegistry.registry;
 } */
 
-class DOOPEntityRegistry : DRegistry!DOOPEntity {
-  static DOOPEntityRegistry registry;
+class DEntityRegistry : DRegistry!DEntity {
+  static DEntityRegistry registry;
 }
 auto EntityRegistry() {
-  if (DOOPEntityRegistry.registry is null) {
-    DOOPEntityRegistry.registry = new DOOPEntityRegistry;
+  if (DEntityRegistry.registry is null) {
+    DEntityRegistry.registry = new DEntityRegistry;
   }
-  return DOOPEntityRegistry.registry;
+  return DEntityRegistry.registry;
 }
 
 interface IRegistrable {

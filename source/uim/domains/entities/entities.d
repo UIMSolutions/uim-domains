@@ -6,18 +6,18 @@ import uim.domains;
 class DOOPEntities {
   this() {}
 
-  private DOOPEntity[] _items;
+  private DEntity[] _items;
 
-  DOOPEntity[] all() {
+  DEntity[] all() {
     return _items.dup;
   }
 
-  O add(this O)(DOOPEntity[] newEntities) {
+  O add(this O)(DEntity[] newEntities) {
     _items ~= newEntities.dup;
     return cast(O)this;
   }
 
-  O set(this O)(DOOPEntity[] newEntities) {
+  O set(this O)(DEntity[] newEntities) {
     _items = newEntities.dup;
     return cast(O)this;
   }
@@ -48,7 +48,7 @@ class DOOPEntities {
     return cast(O)this;
   }
 
-  O opCall(this O)(DOOPEntity[] newEntities) {
+  O opCall(this O)(DEntity[] newEntities) {
     this.set(newEntities);
     return cast(O)this;
   }

@@ -3,7 +3,7 @@ module uim.domains.models.objclass;
 @safe:
 import uim.domains;
 
-class DOOPObjclass : DOOPEntity {
+class DOOPObjclass : DEntity {
   this() { super(); }
   this(UUID myId) { super(myId); }
   this(string myName) { super(myName); }
@@ -58,7 +58,7 @@ class DOOPObjclass : DOOPEntity {
   }
 
 
- override DOOPEntity fromJson(Json aJson) {
+ override DEntity fromJson(Json aJson) {
     super.fromJson(aJson);
     writeln(aJson);
         
