@@ -8,7 +8,7 @@ class DIntegerIntegerValue : DIntegerValue {
 }
 mixin(ValueCalls!("IntegerIntegerValue", "int"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

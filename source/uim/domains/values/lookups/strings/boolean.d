@@ -8,7 +8,7 @@ class DStringBooleanValue : DStringValue {
 }
 mixin(ValueCalls!("StringBooleanValue"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

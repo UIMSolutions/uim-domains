@@ -8,7 +8,7 @@ class DStringIntegerValue : DStringValue {
 }
 mixin(ValueCalls!("StringIntegerValue"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

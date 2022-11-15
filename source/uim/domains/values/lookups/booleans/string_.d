@@ -8,7 +8,7 @@ class DBooleanStringValue : DValue {
 }
 mixin(ValueCalls!("BooleanStringValue"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

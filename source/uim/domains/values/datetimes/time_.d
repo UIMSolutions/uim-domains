@@ -59,7 +59,7 @@ class DTimeValue : DValue {
 }
 mixin(ValueCalls!("TimeValue", "TimeOfDay"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {    
     assert(TimeValue.value("100").toTime == 100);
     assert(TimeValue.value(Json(100)).toTime == 100);
