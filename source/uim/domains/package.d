@@ -63,19 +63,20 @@ public import uim.jsonbase;
 public import uim.entitybase;
 // public import uim.javascript;
 
-// local modules
-public import uim.domains.element;
-public import uim.domains.entity;
-public import uim.domains.entities;
-public import uim.domains.entity_lang;
-public import uim.domains.interfaces;
+// Packages
 public import uim.domains.attributes;
+public import uim.domains.commons;
+public import uim.domains.elements;
+public import uim.domains.entities;
+public import uim.domains.enumerations;
+public import uim.domains.events;
+public import uim.domains.exceptions;
+public import uim.domains.helpers;
+public import uim.domains.interfaces;
+public import uim.domains.models;
 public import uim.domains.objclasses;
 public import uim.domains.registries;
-
-// Packages
-public import uim.domains.helpers;
-public import uim.domains.models;
+public import uim.domains.usecases;
 public import uim.domains.values;
 
 // Test function

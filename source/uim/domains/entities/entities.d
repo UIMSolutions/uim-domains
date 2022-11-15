@@ -1,4 +1,4 @@
-module uim.domains.entities;
+module uim.domains.entities.entities;
 
 @safe:
 import uim.domains;
