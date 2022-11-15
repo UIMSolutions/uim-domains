@@ -26,7 +26,7 @@ class DBirthDateAttribute : DDatetimeAttribute {
 }
 mixin(AttributeCalls!"BirthDateAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DBirthDateAttribute);
     testAttribute(BirthDateAttribute);

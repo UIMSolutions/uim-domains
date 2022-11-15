@@ -21,7 +21,7 @@ class DDatetimeAttribute : DDateAttribute {
 }
 mixin(AttributeCalls!"DatetimeAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DDatetimeAttribute);
     testAttribute(DatetimeAttribute);

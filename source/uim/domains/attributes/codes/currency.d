@@ -21,7 +21,7 @@ class DCurrencyCodeAttribute : DStringStringAttribute {
 }
 mixin(AttributeCalls!("CurrencyCodeAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

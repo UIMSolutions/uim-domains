@@ -118,7 +118,7 @@ Json toJson(DEntity[] entities) {
 DAttribute[string] attributeRegistry;
 DOOPObjclass[string] objclassRegistry;
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     /* auto attribute = uimAttributeRegistry["uim/boolean"].create;
     assert(uimAttributeRegistry["uim/boolean"].create); */
@@ -131,7 +131,7 @@ version(test_uim_entities) {
   }
 }
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
 /*     DOOPAttribute attribute = OOPBooleanAttribute;
     writeln(attribute);

@@ -22,7 +22,7 @@ class DLongitudeAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("LongitudeAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

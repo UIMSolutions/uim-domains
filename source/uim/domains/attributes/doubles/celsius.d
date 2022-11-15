@@ -23,7 +23,7 @@ class DCelsiusAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("CelsiusAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

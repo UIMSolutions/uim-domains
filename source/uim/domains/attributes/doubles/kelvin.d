@@ -27,7 +27,7 @@ class DKelvinAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("KelvinAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }
