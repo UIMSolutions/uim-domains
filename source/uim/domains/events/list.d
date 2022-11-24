@@ -8,8 +8,8 @@ class DEventList {
 
     protected IEvent[] _events;
 
-    add(E e)
-Appends the specified element to the end of this list (optional operation).
+    Appends the specified element to the end of this list (optional operation).
+    O add(this O)(T )
 void	add(int index, E element)
 Inserts the specified element at the specified position in this list (optional operation).
 boolean	addAll(Collection<? extends E> c)
