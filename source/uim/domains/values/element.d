@@ -8,7 +8,7 @@ module uim.domains.values.element;
 @safe:
 import uim.domains;
 
-class Value : DValue {
+class DElementValue : DValue {
   mixin(ValueThis!("ElementValue", "DElement"));  
 
   override void initialize() {
@@ -77,8 +77,6 @@ class Value : DValue {
 }
 mixin(ValueCalls!("ElementValue", "DElement"));  
 
-version(test_uim_domains) {
-  unittest {  
-    assert(ElementValue);
-
+version(test_uim_domains) { unittest {  
+  assert(ElementValue);
 }}

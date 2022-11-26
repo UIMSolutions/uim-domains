@@ -1,3 +1,3 @@
 module uim.domains.elements;
 
-import uim.domains.elements.element;
+public import uim.domains.elements.element;

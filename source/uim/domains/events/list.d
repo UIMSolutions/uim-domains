@@ -13,9 +13,10 @@ class DEventList {
 
     protected IEvent[] _events;
 
-    Appends the specified element to the end of this list (optional operation).
-    O add(this O)(T )
-void	add(int index, E element)
+    // Appends the specified element to the end of this list (optional operation).
+    // O add(this O)(T )
+
+/* void	add(int index, E element)
 Inserts the specified element at the specified position in this list (optional operation).
 boolean	addAll(Collection<? extends E> c)
 Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator (optional operation).
@@ -68,6 +69,6 @@ Returns a view of the portion of this list between the specified fromIndex, incl
 Object[]	toArray()
 Returns an array containing all of the elements in this list in proper sequence (from first to last element).
 <T> T[]	toArray(T[] a)
-    void initialize() {}
+    void initialize() {} */
 }
 auto EventList() { return new DEventList; }
