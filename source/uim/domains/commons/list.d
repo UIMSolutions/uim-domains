@@ -13,12 +13,12 @@ class DList {
 
   protected T[] _items;
 
-  Appends the specified element to the end of this list (optional operation).
+  // Appends the specified element to the end of this list (optional operation).
   O add(this O)(T item) {
     return cast(O)this;
   }
 
-  O (this O)add(int index, T item) {}
+  O add(this O)(int index, T item) {}
 
   // Appends all items in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator (optional operation).
   boolean	addAll(Collection<? extends E> c) {}
