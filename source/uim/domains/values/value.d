@@ -54,7 +54,7 @@ class DValue : IValue {
   void fromString(string newValue) { }
 }
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {   
     auto value = new DValue;
     assert(!value.isNull);

@@ -18,7 +18,7 @@ class DCurrencyAttribute : DEntityAttribute {
 }
 mixin(AttributeCalls!("CurrencyAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DCurrencyAttribute);
     testAttribute(CurrencyAttribute);

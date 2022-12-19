@@ -1,9 +1,9 @@
-module uim.entities.tests;
+module uim.domains.tests;
 
 @safe:
-public import uim.entities;
+public import uim.domains;
 
-void testEntityBooleanAttributes(DOOPEntity entity, string[] attributeNames) {
+void testEntityBooleanAttributes(DEntity entity, string[] attributeNames) {
   foreach(name; attributeNames) {
     assert(entity[name] == "false", "Error in BooleanAttribute "~name~" not null");
 
@@ -19,7 +19,7 @@ void testEntityBooleanAttributes(DOOPEntity entity, string[] attributeNames) {
   }
 }
 
-void testEntityStringAttributes(DOOPEntity entity, string[] attributeNames) {
+void testEntityStringAttributes(DEntity entity, string[] attributeNames) {
   foreach(name; attributeNames) {
     assert(entity[name] == null, "Error in StringAttribute "~name~" not null");
 
@@ -29,7 +29,7 @@ void testEntityStringAttributes(DOOPEntity entity, string[] attributeNames) {
   }
 }
 
-void testEntityUUIDAttributes(DOOPEntity entity, string[] attributeNames) {
+void testEntityUUIDAttributes(DEntity entity, string[] attributeNames) {
   foreach(name; attributeNames) {
     assert(entity[name] == UUID().toString, "Error in UUIDAttribute "~name~" not null");
 

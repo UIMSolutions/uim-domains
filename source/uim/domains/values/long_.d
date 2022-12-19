@@ -58,7 +58,7 @@ class DLongValue : DValue {
   O opCall(this O)(long newValue) { 
     _value = newValue;
     return cast(O)this; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       auto value = LongValue;
       value(100);
@@ -79,7 +79,7 @@ class DLongValue : DValue {
 }
 mixin(ValueCalls!("LongValue", "long"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {    
     assert(LongValue.value("100").toLong == 100);
     assert(LongValue.value(Json(100)).toLong == 100);

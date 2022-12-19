@@ -20,7 +20,7 @@ class DDatetimeOffsetAttribute : DDatetimeAttribute {
 }
 mixin(AttributeCalls!"DatetimeOffsetAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DDatetimeOffsetAttribute);
     testAttribute(DatetimeOffsetAttribute);

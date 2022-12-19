@@ -1,20 +1,15 @@
-module uim.domains.entities.entity;
-
-@safe:
-import uim.domains; 
-
 /*********************************************************************************************************
 *	Copyright: © 2017-2022, UI Manufaktur UG, Since 2022 Ozan Nurettin Süel (Sicherheitsschmiede)          *
 *	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  *
 *	Authors: UI Manufaktur Team, Ozan Nurettin Süel (Sicherheitsschmiede)                                  *
 **********************************************************************************************************/
-module uim.domains.entity;
+module uim.domains.entities.entity;
 
 @safe:
 import uim.domains;
 
-class DOOPEntity : IRegistrable {
-  static namespace = moduleName!DOOPEntity;
+class DEntity : IRegistrable {
+  static namespace = moduleName!DEntity;
 
   // Constructors
   this() { initialize; }
@@ -164,12 +159,12 @@ class DOOPEntity : IRegistrable {
   // Every entity has a unique id as a primary key
   mixin(OProperty!("UUID", "id"));
   O id(this O)(string anUuid) { this.id(UUID(anUuid)); return cast(O)this; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       auto id1 = randomUUID;
-      assert(OOPEntity.id(id1).id == id1);
+      assert(Entity.id(id1).id == id1);
       auto id2 = randomUUID;
-      assert(OOPEntity.id(id1).id(id2).id == id2);
+      assert(Entity.id(id1).id(id2).id == id2);
     }
   } */
 
@@ -195,11 +190,11 @@ class DOOPEntity : IRegistrable {
   string _name;
   O name(this O)(string  newName) { _name = newName.strip.toLower.replace(" ", "_"); return cast(O)this; }
   string name() { return _name; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
-      assert(OOPEntity.name("name1").name == "name1");
-      assert(OOPEntity.name("name1").name("name2").name == "name2");
-      assert(OOPEntity.name("name name").name == "name_name");
+      assert(Entity.name("name1").name == "name1");
+      assert(Entity.name("name1").name("name2").name == "name2");
+      assert(Entity.name("name name").name == "name_name");
     }
   }
 
@@ -216,11 +211,11 @@ class DOOPEntity : IRegistrable {
     this.createdOn(to!long(aTime));
     return cast(O)this;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
 /*     auto now1 = now; auto now2 = now;
-    assert(OOPEntity.createdOn(now1).createdOn == now1);
-    assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
+    assert(Entity.createdOn(now1).createdOn == now1);
+    assert(Entity.createdOn(now1).createdOn(now2).createdOn == now2);
  */  }
   }
 
@@ -259,11 +254,11 @@ class DOOPEntity : IRegistrable {
     this.lastAccessedOn(to!long(aTime));
     return cast(O)this;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
 /*     auto now1 = now; auto now2 = now;
-    assert(OOPEntity.createdOn(now1).createdOn == now1);
-    assert(OOPEntity.createdOn(now1).createdOn(now2).createdOn == now2);
+    assert(Entity.createdOn(now1).createdOn == now1);
+    assert(Entity.createdOn(now1).createdOn(now2).createdOn == now2);
  */  }
   }
 
@@ -347,12 +342,12 @@ class DOOPEntity : IRegistrable {
   }
 
   // Read entity from STRINGAA
-  DOOPEntity fromStringAA(STRINGAA reqParameters) {
+  DEntity fromStringAA(STRINGAA reqParameters) {
     foreach(k, v; reqParameters) this[k] = v; 
     return this;
   }
 
-  DOOPEntity fromRequest(STRINGAA requestValues) {
+  DEntity fromRequest(STRINGAA requestValues) {
     debug writeln("fromRequest...", requestValues);
     debug writeln("fieldNames...", fieldNames);
     foreach(fName; fieldNames) {
@@ -403,7 +398,7 @@ class DOOPEntity : IRegistrable {
     }      
   }
 
-  DOOPEntity opIndexAssign(string value, string key) {
+  DEntity opIndexAssign(string value, string key) {
     switch(key) {
       case "id": this.id(value); break;
       case "etag": this.etag(value); break;
@@ -439,7 +434,7 @@ class DOOPEntity : IRegistrable {
   }
 
   // Read HTML value and set entity value
-  DOOPEntity opIndexAssign(UUID value, string key) {
+  DEntity opIndexAssign(UUID value, string key) {
     switch(key) {
       case "id": this.id(value); break;
       case "createdBy": this.createdBy(value); break;
@@ -487,32 +482,32 @@ class DOOPEntity : IRegistrable {
   }
 
   // Set field(key) if type Entity
-  void opIndexAssign(DOOPEntity value, string key) {
+  void opIndexAssign(DEntity value, string key) {
     switch(key) {
       default:
         /* if (key in attributes) {
           debug writeln("key %s in attributes %s".format(key, attributes[key].stringValue));
-          if (auto att = cast(DOOPEntityAttribute)attributes[key]) att.value(value); 
+          if (auto att = cast(DEntityAttribute)attributes[key]) att.value(value); 
         }  */
         break;
     }      
   }
 
-  DOOPEntity create() { return new DOOPEntity; }
-  DOOPEntity create(Json data) { return create.fromJson(data); }
+  DEntity create() { return new DEntity; }
+  DEntity create(Json data) { return create.fromJson(data); }
 
-  DOOPEntity clone() { return create.fromJson(toJson); }
-  DOOPEntity clone(Json data) { return create.fromJson(toJson).fromJson(data); }
+  DEntity clone() { return create.fromJson(toJson); }
+  DEntity clone(Json data) { return create.fromJson(toJson).fromJson(data); }
   
-  DOOPEntity copyTo(DOOPEntity targetOfCopy) {
+  DEntity copyTo(DEntity targetOfCopy) {
     return targetOfCopy ? targetOfCopy.fromJson(this.toJson) : targetOfCopy; }
-  DOOPEntity copyFrom(DOOPEntity targetOfCopy) {
+  DEntity copyFrom(DEntity targetOfCopy) {
     return targetOfCopy ? fromJson(targetOfCopy.toJson) : this;
   }
 
   Bson toBson() { return Bson(toJson); }
 
-  DOOPEntity fromJson(Json aJson) {
+  DEntity fromJson(Json aJson) {
     if (aJson == Json(null)) return this;
     
     foreach (keyvalue; aJson.byKeyValue) {
@@ -722,13 +717,12 @@ class DOOPEntity : IRegistrable {
 
   void load() {
     if (collection) fromJson(collection.findOne(id).toJson); }
-  version(test_uim_entities) {
-    unittest {
+  version(test_uim_domains) { unittest {
       // TODO: Add Test
     }
   }
 
-  DOOPEntity save() {
+  DEntity save() {
     if (collection) {
       if (collection.findOne(this.id)) collection.updateOne(this); 
       else collection.insertOne(this); 
@@ -736,8 +730,7 @@ class DOOPEntity : IRegistrable {
     
     return this;
   }
-  version(test_uim_entities) {
-    unittest {
+  version(test_uim_domains) { unittest {
       // TODO: Add Test
     }
   }
@@ -747,9 +740,55 @@ class DOOPEntity : IRegistrable {
       collection.removeMany(this, allVersions); }
 
 }
-auto OOPEntity() { return new DOOPEntity; }
-auto OOPEntity(Json json) { return new DOOPEntity(json); }
+auto Entity() { return new DEntity; }
+auto Entity(Json json) { return new DEntity(json); }
 
-version () { unittest {
-  assert(OOPEntity);
+version(test_uim_domains) { unittest {
+  assert(Entity);
+
+/*
+  assert(Entity.id(randomuuid)
+  assert(Entity.etag(totimestamp(now))
+  assert(Entity.name(this.id.tostring) 
+  assert(Entity.createdon(now)
+  assert(Entity.lastaccessedon(createdon)
+  assert(Entity.modifiedon(createdon)
+  assert(Entity.hasversions(false)
+  assert(Entity.haslanguages(false)
+  assert(Entity.config(json.emptyobject)
+  assert(Entity.values(values)
+  assert(Entity.versionon(this.createdon)
+  assert(Entity.versionnumber(1l) // allways starts with version 1
+  assert(Entity.versionby(this.createdby); 
+
+registerPath": return this.registerPath;
+      case "id": return this.id.toString;
+      case "etag": return to!string(this.etag);
+      case "name": return this.name;
+      case "display": return this.display;
+      case "createdOn": return to!string(this.createdOn); 
+      case "createdBy": return this.createdBy.toString; 
+      case "modifiedOn": return to!string(this.modifiedOn); 
+      case "modifiedBy": return this.modifiedBy.toString; 
+      case "lastAccessedOn": return to!string(this.lastAccessedOn); 
+      case "lastAccessBy": return this.lastAccessBy.toString; 
+      case "description": return this.description;
+      case "isLocked": return this.isLocked ? "true" : "false";
+      case "lockedOn": return to!string(this.lockedOn);
+      case "lockedBy": return this.lockedBy.toString; 
+      case "isDeleted": return this.isDeleted ? "true" : "false";
+      case "deletedOn": return to!string(this.deletedOn);
+      case "deletedBy": return this.deletedBy.toString; 
+      case "versionNumber": return to!string(this.versionNumber);
+      case "versionDisplay": return this.versionDisplay;
+      case "versionMode": return this.versionMode;
+      case "versionOn": return to!string(this.versionOn);
+      case "versionBy": return to!string(this.versionBy);
+      case "versionDescription": return this.versionDescription;
+      default:
+        //if (key in attributes) { return attributes[key].stringValue; }
+        if (values.hasValue(key)) { return values[key].toString; }
+        return null;
+    }      
+*/
 }}

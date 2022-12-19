@@ -23,7 +23,7 @@ class DPhoneCellAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("PhoneCellAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

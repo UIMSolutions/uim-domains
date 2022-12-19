@@ -26,7 +26,7 @@ class DYearAttribute : DIntegerAttribute {
 }
 mixin(AttributeCalls!("YearAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DYearAttribute);
     testAttribute(YearAttribute);

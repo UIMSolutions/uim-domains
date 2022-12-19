@@ -8,7 +8,7 @@ class DTimestampValue : DLongValue {
 }
 mixin(ValueCalls!("TimestampValue", "long"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {    
     // TODO
 }} 

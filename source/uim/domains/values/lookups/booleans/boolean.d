@@ -8,7 +8,7 @@ class DBooleanBooleanValue : DBooleanValue {
 }
 mixin(ValueCalls!("BooleanBooleanValue", "bool"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

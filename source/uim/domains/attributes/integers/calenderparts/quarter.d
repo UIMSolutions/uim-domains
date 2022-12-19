@@ -23,7 +23,7 @@ class DQuarterAttribute : DIntegerCalendarPart {
 }
 mixin(AttributeCalls!("QuarterAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DQuarterAttribute);
     testAttribute(QuarterAttribute);

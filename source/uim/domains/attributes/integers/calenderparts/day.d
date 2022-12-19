@@ -18,7 +18,7 @@ override void initialize() {
 }
 mixin(AttributeCalls!("DayPartAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DDayPartAttribute);
     testAttribute(DayPartAttribute);

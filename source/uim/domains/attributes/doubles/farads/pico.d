@@ -31,7 +31,7 @@ class DPicoFaradAttribute : DFaradAttribute {
 }
 mixin(AttributeCalls!("PicoFaradAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

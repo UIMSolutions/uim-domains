@@ -22,7 +22,7 @@ class DPostalCodeAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("PostalCodeAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   }  
 }

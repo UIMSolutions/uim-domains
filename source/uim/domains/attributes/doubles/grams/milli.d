@@ -28,7 +28,7 @@ class DKilogramAttribute : DGramAttribute {
 }
 mixin(AttributeCalls!("KilogramAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

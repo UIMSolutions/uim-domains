@@ -14,7 +14,7 @@ class DStringIntegerAttribute : DLookupAttribute {
 }
 mixin(AttributeCalls!("StringIntegerAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

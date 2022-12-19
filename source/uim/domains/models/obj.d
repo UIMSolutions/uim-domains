@@ -3,7 +3,7 @@ module uim.domains.models.obj;
 @safe:
 import uim.domains;
 
-class DOOPObj : DOOPEntity {
+class DOOPObj : DEntity {
   this() { 
     super("obj-"~this.id.toString); }
   this(UUID myId) { 
@@ -27,7 +27,7 @@ class DOOPObj : DOOPEntity {
   mixin(SProperty!("UUID", "objclass"));
   
 
- override DOOPEntity fromJson(Json aJson) {
+ override DEntity fromJson(Json aJson) {
     super.fromJson(aJson);
     writeln(aJson);
         

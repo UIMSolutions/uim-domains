@@ -3,7 +3,7 @@ module uim.domains.attributes.attribute;
 @safe :
 import uim.domains;
 
-class DAttribute : DOOPEntity {
+class DAttribute : DEntity {
   mixin(AttributeThis!("OOPAttribute"));
 
   mixin(OProperty!("string[]", "dataFormats")); // Select the data type of the property.")); // 
@@ -68,7 +68,7 @@ class DAttribute : DOOPEntity {
     _attribute = myAttclass;     
     return cast(O)this; } */
 
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    /// TODO
     }
   }
@@ -115,13 +115,13 @@ class DAttribute : DOOPEntity {
     result.name(aName); * /
     return result;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    /// TODO
     }
   } */
 
 
-  override DOOPEntity fromJson(Json aJson) {
+  override DEntity fromJson(Json aJson) {
     super.fromJson(aJson);
     
     foreach (keyvalue; aJson.byKeyValue) {
@@ -201,7 +201,7 @@ class DAttribute : DOOPEntity {
 
     return result;
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    /// TODO
     }
   }

@@ -58,7 +58,7 @@ class DDatetimeValue : DValue {
 }
 mixin(ValueCalls!("DatetimeValue", "DateTime"));  
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {    
     assert(DatetimeValue.value("100").toDatetime == 100);
     assert(DatetimeValue.value(Json(100)).toDatetime == 100);

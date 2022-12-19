@@ -28,7 +28,7 @@ class DSecondAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("SecondAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

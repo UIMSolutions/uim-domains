@@ -16,7 +16,7 @@ class DUrlAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("UrlAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   }  
 }

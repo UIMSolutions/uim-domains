@@ -78,7 +78,7 @@ static this() {
     // Decimals
 }
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     writeln(AttributeRegistry["boolean"].name);
     writeln(AttributeRegistry["byte"].name);

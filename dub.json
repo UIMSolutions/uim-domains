@@ -22,7 +22,7 @@
 		{
 			"name": "test",
 			"versions": [
-				"test_uim_entities"
+				"test_uim_domains"
 			]
 		}
 	],

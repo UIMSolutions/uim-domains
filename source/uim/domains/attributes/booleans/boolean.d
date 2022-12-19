@@ -30,7 +30,7 @@ is.dataFormat.boolean */
 }
 mixin(AttributeCalls!"BooleanAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DBooleanAttribute);
     testAttribute(BooleanAttribute);

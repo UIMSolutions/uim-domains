@@ -17,7 +17,7 @@ class DLongAttribute : DAttribute {
 }
 mixin(AttributeCalls!("LongAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DLongAttribute);
     testAttribute(LongAttribute);

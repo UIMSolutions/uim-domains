@@ -12,7 +12,7 @@ class DOOPRepository {
   }
 
   mixin(OProperty!("string", "url"));
-  version(test_uim_entities) {
+  version(test_uim_domains) {
   unittest {  
     /// TODO  
   }
@@ -50,8 +50,8 @@ class DOOPRepository {
       return col.count(["id":id.toString]);
     }
 
-    size_t count(string dbName, string pool, DOOPEntity anEntity) { return count(dbName~"."~pool, anEntity); }
-    size_t count(string collectionName, DOOPEntity anEntity) {
+    size_t count(string dbName, string pool, DEntity anEntity) { return count(dbName~"."~pool, anEntity); }
+    size_t count(string collectionName, DEntity anEntity) {
         if (!anEntity) return 0;
 
         STRINGAA selector;
@@ -124,12 +124,12 @@ class DOOPRepository {
       return results;
     }
 
-    Json[] find(string dbName, string[] pools, DOOPEntity anEntity) {
+    Json[] find(string dbName, string[] pools, DEntity anEntity) {
       Json[] results;
       foreach(pool; pools) results ~= find(dbName, pool, anEntity);
       return results;
     }
-    Json[] find(string[] pools, DOOPEntity anEntity) {
+    Json[] find(string[] pools, DEntity anEntity) {
       Json[] results;
       foreach(pool; pools) results ~= find(pool, anEntity);
       return results;
@@ -184,8 +184,8 @@ class DOOPRepository {
     }
     
 
-    Json[] find(string dbName, string pool, DOOPEntity anEntity) { return find(dbName~"."~pool, anEntity); }
-    Json[] find(string collectionName, DOOPEntity anEntity) {
+    Json[] find(string dbName, string pool, DEntity anEntity) { return find(dbName~"."~pool, anEntity); }
+    Json[] find(string collectionName, DEntity anEntity) {
       if (!anEntity) return null;
       return find(collectionName, entityToSelect(anEntity));
     }
@@ -230,8 +230,8 @@ class DOOPRepository {
         return findOne(collectionName, selector);
     } * /
 
-    Json findOne(string dbName, string colName, DOOPEntity anEntity) { return findOne(dbName~"."~colName, anEntity); }
-    Json findOne(string collectionName, DOOPEntity anEntity) {
+    Json findOne(string dbName, string colName, DEntity anEntity) { return findOne(dbName~"."~colName, anEntity); }
+    Json findOne(string collectionName, DEntity anEntity) {
         if (!anEntity) return Json.emptyObject;
 
         STRINGAA selector;
@@ -291,7 +291,7 @@ class DOOPRepository {
     }
 
     // --- Update
-    O update(this O)(DOOPEntity anEntity) {
+    O update(this O)(DEntity anEntity) {
         this.update(entityToSelect(anEntity));
         return cast(O)this;
     }
@@ -309,19 +309,19 @@ class DOOPRepository {
     }
 
     O update(this O)(string dbName, string aPool, Json newData) { return cast(O)this.update(dbName~"."~aPool, newData); } 
-    O update(this O)(string collectionName, DOOPEntity anEntity) {
+    O update(this O)(string collectionName, DEntity anEntity) {
         this.update(collectionName, entityToSelect(anEntity), anEntity.toJson);
         return cast(O)this;
     }
 
     O update(this O)(string dbName, string aPool, STRINGAA aSelector) { return cast(O)this.update(dbName~"."~aPool, aSelector); }
-    O update(this O)(string collectionName, STRINGAA aSelector, DOOPEntity anEntity) {
+    O update(this O)(string collectionName, STRINGAA aSelector, DEntity anEntity) {
         this.update(collectionName, aSelector, anEntity.toJson);
         return cast(O)this;
     }
 
-    O update(this O)(string dbName, string aPool, Json aSelector, DOOPEntity anEntity) { return cast(O)this.update(dbName~"."~aPool, aSelector, anEntity); }
-    O update(this O)(string collectionName, Json aSelector, DOOPEntity anEntity) {
+    O update(this O)(string dbName, string aPool, Json aSelector, DEntity anEntity) { return cast(O)this.update(dbName~"."~aPool, aSelector, anEntity); }
+    O update(this O)(string collectionName, Json aSelector, DEntity anEntity) {
         this.update(collectionName, aSelector, anEntity.toJson);
         return cast(O)this;
     }

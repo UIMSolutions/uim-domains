@@ -14,7 +14,7 @@ class DStringBooleanAttribute : DLookupAttribute {
 }
 mixin(AttributeCalls!("StringBooleanAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {  
     // TODO tests
   }

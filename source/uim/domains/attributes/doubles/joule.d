@@ -29,7 +29,7 @@ class DJouleAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("JouleAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

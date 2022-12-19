@@ -18,7 +18,7 @@ class DDoubleAttribute : DAttribute {
 }
 mixin(AttributeCalls!("DoubleAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   }  
 }

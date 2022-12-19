@@ -3,7 +3,7 @@ module uim.domains.models.objclass;
 @safe:
 import uim.domains;
 
-class DOOPObjclass : DOOPEntity {
+class DOOPObjclass : DEntity {
   this() { super(); }
   this(UUID myId) { super(myId); }
   this(string myName) { super(myName); }
@@ -25,7 +25,7 @@ class DOOPObjclass : DOOPEntity {
     _objclass = myObjclass;     
     return cast(O)this; }
 
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       /// TODO
     }
@@ -51,14 +51,14 @@ class DOOPObjclass : DOOPEntity {
       }
      }*/
     return result; }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {    
       // assert(OOPObjclass.createObj("test"));
     }
   }
 
 
- override DOOPEntity fromJson(Json aJson) {
+ override DEntity fromJson(Json aJson) {
     super.fromJson(aJson);
     writeln(aJson);
         

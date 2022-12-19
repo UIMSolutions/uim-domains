@@ -3,7 +3,7 @@ module uim.domains.models.model;
 @safe:
 import uim.domains;
 
-class DOOPModel : DOOPEntity {
+class DOOPModel : DEntity {
   this() {
     super();
     this.id(randomUUID);
@@ -33,55 +33,55 @@ class DOOPModel : DOOPEntity {
   mixin(SProperty!("string", "storage"));
 
   /* auto opIndex(UUID id) {
-    DOOPEntity result = attributes[id];
+    DEntity result = attributes[id];
     if (!result) result =  objclasses[id];
     if (!result) result =  objects[id];
     return result;
   }
   auto opIndex(string name) {
-    DOOPEntity result = attributes[name];
+    DEntity result = attributes[name];
     if (!result) result =  objclasses[name];
     if (!result) result =  objects[name];
     return result; }
 
   auto opIndex(UUID anId, size_t major) {
-    DOOPEntity result = attributes[id, major];
+    DEntity result = attributes[id, major];
     if (!result) result =  objclasses[id, major];
     if (!result) result =  objects[id, major];
     return result; }
 
   auto opIndex(string name, size_t major) {
-    DOOPEntity result = attributes[name, major];
+    DEntity result = attributes[name, major];
     if (!result) result =  objclasses[name, major];
     if (!result) result =  objects[name, major];
     return result; }
 
   auto opIndex(UUID anId, size_t major, size_t minor) {
-    DOOPEntity result = attributes[id, major, minor];
+    DEntity result = attributes[id, major, minor];
     if (!result) result =  objclasses[id, major, minor];
     if (!result) result =  objects[id, major, minor];
     return result; }
 
   auto opIndex(string name, size_t major, size_t minor) {
-    DOOPEntity result = attributes[name, major, minor];
+    DEntity result = attributes[name, major, minor];
     if (!result) result =  objclasses[name, major, minor];
     if (!result) result =  objects[name, major, minor];
     return result; }
 
   auto opIndex(UUID anId, string name) {
-    DOOPEntity result = attributes[id, name];
+    DEntity result = attributes[id, name];
     if (!result) result =  objclasses[name];
     if (!result) result =  objects[name];
     return result; }
 
   auto opIndex(UUID anId, string name, size_t major) {
-    DOOPEntity result = attributes[id, name, major];
+    DEntity result = attributes[id, name, major];
     if (!result) result =  objclasses[id, name, major];
     if (!result) result =  objects[id, name, major];
     return result; }
 
   auto opIndex(UUID anId, string name, size_t major, size_t minor) {
-    DOOPEntity result = attributes[id, name, major, minor];
+    DEntity result = attributes[id, name, major, minor];
     if (!result) result =  objclasses[id, name, major, minor];
     if (!result) result =  objects[id, name, major, minor];
     return result; } */
@@ -243,7 +243,7 @@ class DOOPModel : DOOPEntity {
     return results;
   }
 
- override DOOPEntity fromJson(Json aJson) {
+ override DEntity fromJson(Json aJson) {
     super.fromJson(aJson);
     writeln(aJson);
         

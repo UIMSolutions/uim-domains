@@ -16,7 +16,7 @@ class DLinkAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("LinkAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   }  
 }

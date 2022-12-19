@@ -26,7 +26,7 @@ class DCentimeterAttribute : DMeterAttribute {
 }
 mixin(AttributeCalls!("CentimeterAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

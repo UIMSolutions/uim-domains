@@ -31,7 +31,7 @@ class DKiloVoltAttribute : DVoltAttribute {
 }
 mixin(AttributeCalls!("KiloVoltAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

@@ -27,7 +27,7 @@ class DHtmlAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("HtmlAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

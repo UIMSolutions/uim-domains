@@ -63,19 +63,20 @@ public import uim.jsonbase;
 public import uim.entitybase;
 // public import uim.javascript;
 
-// local modules
-public import uim.domains.element;
-public import uim.domains.entity;
-public import uim.domains.entities;
-public import uim.domains.entity_lang;
-public import uim.domains.interfaces;
+// Packages
 public import uim.domains.attributes;
+public import uim.domains.commons;
+public import uim.domains.elements;
+public import uim.domains.entities;
+public import uim.domains.enumerations;
+public import uim.domains.events;
+public import uim.domains.exceptions;
+public import uim.domains.helpers;
+public import uim.domains.interfaces;
+public import uim.domains.models;
 public import uim.domains.objclasses;
 public import uim.domains.registries;
-
-// Packages
-public import uim.domains.helpers;
-public import uim.domains.models;
+public import uim.domains.usecases;
 public import uim.domains.values;
 
 // Test function
@@ -98,17 +99,17 @@ string crudScripts() {
   return "";
 }
 
-alias CreateEntity = DOOPEntity delegate(Json json);
+alias CreateEntity = DEntity delegate(Json json);
 CreateEntity[string] createEntities;
 /* 
 class EntityFactory {
-  DOOPEntity createEntities(string className, Json json) {
+  DEntity createEntities(string className, Json json) {
     if (className !in entityCRUDs) return null;
     return entityCRUDs[className].create(json);
   }
 } */
 
-Json toJson(DOOPEntity[] entities) {
+Json toJson(DEntity[] entities) {
   auto result = Json.emptyArray;
   foreach(entity; entities) result ~= entity.toJson;
   return result;
@@ -117,7 +118,7 @@ Json toJson(DOOPEntity[] entities) {
 DAttribute[string] attributeRegistry;
 DOOPObjclass[string] objclassRegistry;
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     /* auto attribute = uimAttributeRegistry["uim/boolean"].create;
     assert(uimAttributeRegistry["uim/boolean"].create); */
@@ -130,7 +131,7 @@ version(test_uim_entities) {
   }
 }
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
 /*     DOOPAttribute attribute = OOPBooleanAttribute;
     writeln(attribute);
@@ -145,7 +146,7 @@ template EntityThis(string name) {
   this(UUID myId, string myName) { this(myId).name(myName); }
   this(Json aJson) { this().fromJson(aJson); }
 
-  override DOOPEntity create() { return `~name~`; }
+  override DEntity create() { return `~name~`; }
   `;
 }
 
@@ -164,7 +165,7 @@ template ElementThis(string name) {
   this() { super(); }
   this(string myName) { this().name(myName); }
   this(Json aJson) { this().fromJson(aJson); }
-  override DOOPElement create() { return `~name~`; }
+  override DElement create() { return `~name~`; }
   `;
 }
 

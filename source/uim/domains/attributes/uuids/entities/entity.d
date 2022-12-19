@@ -19,7 +19,7 @@ means.identity.entityId */
 }
 mixin(AttributeCalls!("EntityIdAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DEntityIdAttribute);
     testAttribute(EntityIdAttribute);

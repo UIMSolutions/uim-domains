@@ -20,7 +20,7 @@ class DGenderAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("GenderAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

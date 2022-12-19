@@ -23,7 +23,7 @@ class DInchesAttribute : DDoubleAttribute {
 }
 mixin(AttributeCalls!("InchesAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

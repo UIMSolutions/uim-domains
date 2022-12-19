@@ -17,7 +17,7 @@ class DDecimalAttribute : DAttribute {
 }
 mixin(AttributeCalls!"DecimalAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DDecimalAttribute);
     testAttribute(DecimalAttribute);

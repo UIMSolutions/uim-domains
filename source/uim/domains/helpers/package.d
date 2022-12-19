@@ -5,18 +5,18 @@ import uim.domains;
 
 public import uim.domains.helpers.mixins;
 
-size_t hasVersionMajor(T:DOOPEntity)(T[] versions, size_t versionMajor) {
+size_t hasVersionMajor(T:DEntity)(T[] versions, size_t versionMajor) {
   foreach (v; versions) if (v.versionMajor == versionMajor) return true;          
   return false;
 }
 
-/* size_t countVersionMinor(T:DOOPEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
+/* size_t countVersionMinor(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
   size_t result;
   foreach (v; versions) if ((v.versionMajor == versionMajor) && (v.versionMinor == versionMinor)) result++;          
   return result;
 }
  */
-size_t versionMax(T:DOOPEntity)(T[] versions) {
+size_t versionMax(T:DEntity)(T[] versions) {
   size_t result;
 
   foreach (v; versions) {
@@ -26,7 +26,7 @@ size_t versionMax(T:DOOPEntity)(T[] versions) {
   return result;
 }
 
-size_t versionMin(T:DOOPEntity)(T[] versions) {
+size_t versionMin(T:DEntity)(T[] versions) {
   size_t result;
 
   if (versions) result = versions[0].versionMajor;
@@ -37,30 +37,30 @@ size_t versionMin(T:DOOPEntity)(T[] versions) {
   return result;
 }
 
-T[] versionsOf(T:DOOPEntity)(T[] versions, size_t versionMajor) {
+T[] versionsOf(T:DEntity)(T[] versions, size_t versionMajor) {
   T[] results;
   foreach (v; versions) if (v.versionMajor == versionMajor) results ~= v;          
   return results;
 }
-T versionOf(T:DOOPEntity)(T[] versions, size_t versionMajor) {
+T versionOf(T:DEntity)(T[] versions, size_t versionMajor) {
   foreach (v; versions) if (v.versionMajor == versionMajor) return v;          
   return null;
 }
-T versionOf(T:DOOPEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
+T versionOf(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
   foreach (v; versions) if ((v.versionMajor == versionMajor) && (v.versionMinor == versionMinor)) return v;          
   return null;
 }
 
-bool hasVersion(T:DOOPEntity)(T[] versions, size_t versionMajor) {
+bool hasVersion(T:DEntity)(T[] versions, size_t versionMajor) {
   if (versions.versionOf(versionMajor)) return true;          
   return false;
 }
-bool hasVersion(T:DOOPEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
+bool hasVersion(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
   if (versions.versionOf(versionMajor, versionMinor)) return true;          
   return false;
 }
 
-size_t versionMajorMin(T:DOOPEntity)(T[] versions) {
+size_t versionMajorMin(T:DEntity)(T[] versions) {
   size_t result;
 
   if (versions) result = versions[0].versionMajor;
@@ -71,7 +71,7 @@ size_t versionMajorMin(T:DOOPEntity)(T[] versions) {
   return result;
 }
 
-size_t versionMax(T:DOOPEntity)(T[] versions, size_t versionMajor) {
+size_t versionMax(T:DEntity)(T[] versions, size_t versionMajor) {
   size_t result;
   auto vs = versionsOf(versions, versionMajor);
 
@@ -82,7 +82,7 @@ size_t versionMax(T:DOOPEntity)(T[] versions, size_t versionMajor) {
   return result;
 }
 
-size_t versionMin(T:DOOPEntity)(T[] versions, size_t versionMajor) {
+size_t versionMin(T:DEntity)(T[] versions, size_t versionMajor) {
   size_t result;
   auto versions = versions.versionsOf(versionMajor);
   
@@ -94,7 +94,7 @@ size_t versionMin(T:DOOPEntity)(T[] versions, size_t versionMajor) {
   return result;
 }
 
-T version_(T:DOOPEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
+T version_(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
   if (!versions) return null;
 
   if ((versionMajor > 0) && (versionMinor > 0)) {
@@ -141,7 +141,7 @@ T version_(T:DOOPEntity)(T[] versions, size_t versionMajor, size_t versionMinor)
   return result;
 }
 
-T versionLast(T:DOOPEntity)(T[] versions, size_t major = 0, size_t minor = 0) {
+T versionLast(T:DEntity)(T[] versions, size_t major = 0, size_t minor = 0) {
   T result;
 
   if (major == 0) {

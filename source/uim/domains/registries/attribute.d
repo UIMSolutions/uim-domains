@@ -9,14 +9,14 @@ import uim.domains;
   protected DOOPAttribute[string] _attributes;
   DOOPAttribute entry(string path) {
     return _attributes.get(path, null); }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // TODO 
       }}
 
   DOOPAttribute opIndex(string path) {
     return _attributes.get(path, null); }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // TODO 
       }}
@@ -38,7 +38,7 @@ import uim.domains;
     if (selectedEntry) _attributes.remove(path);
     return selectedEntry; 
   }
-  version(test_uim_entities) {
+  version(test_uim_domains) {
     unittest {
       // TODO 
       }}

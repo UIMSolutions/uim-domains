@@ -17,7 +17,7 @@ class DFixedDecimalAttribute : DDecimalAttribute {
 }
 mixin(AttributeCalls!"FixedDecimalAttribute");
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DFixedDecimalAttribute);
     testAttribute(FixedDecimalAttribute);

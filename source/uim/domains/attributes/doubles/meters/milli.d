@@ -31,7 +31,7 @@ class DMillimeterAttribute : DMeterAttribute {
 }
 mixin(AttributeCalls!("MillimeterAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }

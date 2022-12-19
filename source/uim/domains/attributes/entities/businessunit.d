@@ -18,7 +18,7 @@ class DBusinessUnitAttribute : DEntityAttribute {
 }
 mixin(AttributeCalls!("BusinessUnitAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     testAttribute(new DBusinessUnitAttribute);
     testAttribute(BusinessUnitAttribute);

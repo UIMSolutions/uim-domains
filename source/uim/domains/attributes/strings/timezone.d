@@ -23,7 +23,7 @@ class DTimezoneAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("TimezoneAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
   }  
 }

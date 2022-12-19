@@ -26,7 +26,7 @@ class DIP4AddressAttribute : DStringAttribute {
 }
 mixin(AttributeCalls!("IP4AddressAttribute"));
 
-version(test_uim_entities) {
+version(test_uim_domains) {
   unittest {
     // TODO
   }
