@@ -1,5 +1,9 @@
 /*********************************************************************************************************
+<<<<<<< HEAD
 *	Copyright: © 2017-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        *
+=======
+*	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        *
+>>>>>>> 569d538a91d5a602ea8971bb4398f2ebfc71737e
 *	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  *
 *	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      *
 **********************************************************************************************************/
