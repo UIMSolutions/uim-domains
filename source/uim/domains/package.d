@@ -69,7 +69,7 @@ public import uim.entitybase;
 // public import uim.javascript;
 
 // Packages
-public import uim.domains.attributes;
+/* ublic import uim.domains.attributes;
 public import uim.domains.commons;
 public import uim.domains.elements;
 public import uim.domains.entities;
@@ -82,7 +82,7 @@ public import uim.domains.models;
 public import uim.domains.objclasses;
 public import uim.domains.registries;
 public import uim.domains.usecases;
-public import uim.domains.values;
+public import uim.domains.values; */
 
 // Test function
 public import uim.domains.tests;
@@ -121,7 +121,7 @@ Json toJson(DEntity[] entities) {
 } 
 
 DAttribute[string] attributeRegistry;
-DOOPObjclass[string] objclassRegistry;
+// DOOPObjclass[string] objclassRegistry;
 
 version(test_uim_domains) {
   unittest {
