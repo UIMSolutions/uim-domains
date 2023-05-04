@@ -143,52 +143,10 @@ version(test_uim_domains) {
     writeln(OOPBooleanAttribute); */
   }}
 
-template EntityThis(string name) {
-  const char[] EntityThis = `
-  this() { super(); }
-  this(UUID myId) { this().id(myId).name("`~name~`-"~this.id.toString); }
-  this(string myName) { this().name(myName); }
-  this(UUID myId, string myName) { this(myId).name(myName); }
-  this(Json aJson) { this().fromJson(aJson); }
 
-  override DEntity create() { return `~name~`; }
-  `;
-}
 
-template EntityCalls(string name) {
-  const char[] EntityCalls = `
-auto `~name~`() { return new D`~name~`; } 
-auto `~name~`(UUID myId) { return new D`~name~`(myId); } 
-auto `~name~`(string myName) { return new D`~name~`(myName); } 
-auto `~name~`(UUID myId, string myName) { return new D`~name~`(myId, myName); } 
-auto `~name~`(Json json) { return new D`~name~`(json); } 
-  `;
-}
 
-template ElementThis(string name) {
-  const char[] ElementThis = `
-  this() { super(); }
-  this(string myName) { this().name(myName); }
-  this(Json aJson) { this().fromJson(aJson); }
-  override DElement create() { return `~name~`; }
-  `;
-}
 
-template ElementCalls(string name) {
-  const char[] ElementCalls = `
-auto `~name~`() { return new D`~name~`; } 
-auto `~name~`(string myName) { return new D`~name~`(myName); } 
-auto `~name~`(Json json) { return new D`~name~`(json); } 
-  `;
-} 
-
-template ValueProperty(string name) {
-  const char[] EntityCalls = `
-auto `~name~`() { return this.values[`~name~`]; } 
-O `~name~`(this O)(string newValue) { this.values[`~name~`].value(newValue); return cast(O)this; } 
-O `~name~`(this O)(Json newValue) { this.values[`~name~`].value(newValue); return cast(O)this;  } 
-  `;
-}
 
 string[] attributeDataFormats = [
   "Array",
