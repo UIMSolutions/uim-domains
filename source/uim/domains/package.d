@@ -66,7 +66,7 @@ public import uim.core;
 public import uim.oop;
 public import uim.jsonbase;
 public import uim.entitybase;
-// public import uim.javascript;
+// public import langs.javascript;
 
 // Packages
 /* ublic import uim.domains.attributes;
