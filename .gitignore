@@ -1,7 +1,7 @@
 .dub
 docs.json
 __dummy.html
-docs/
+
 /uim-entities
 uim-entities.so
 uim-entities.dylib
