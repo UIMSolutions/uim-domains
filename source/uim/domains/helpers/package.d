@@ -6,7 +6,7 @@ import uim.domains;
 public import uim.domains.helpers.mixins;
 
 size_t hasVersionMajor(T:DEntity)(T[] versions, size_t versionMajor) {
-  foreach (v; versions) if (v.versionMajor == versionMajor) return true;          
+  foreach (v; versions) if (v.versionMajor == versionMajor) { return true; }          
   return false;
 }
 
@@ -52,11 +52,11 @@ T versionOf(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
 }
 
 bool hasVersion(T:DEntity)(T[] versions, size_t versionMajor) {
-  if (versions.versionOf(versionMajor)) return true;          
+  if (versions.versionOf(versionMajor)) { return true; }          
   return false;
 }
 bool hasVersion(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
-  if (versions.versionOf(versionMajor, versionMinor)) return true;          
+  if (versions.versionOf(versionMajor, versionMinor)) { return true; }          
   return false;
 }
 
@@ -101,14 +101,14 @@ T version_(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
     foreach(v; versions) if ((v.versionMajor == versionMajor) && (v.versionMinor == versionMinor)) return v;
   }
   if ((versionMajor > 0) && (versionMinor == 0)) {
-    T[] subVersions;
-    foreach(v; versions) if ((v.versionMajor == versionMajor)) subVersions ~= v;
+    T[] subVersions = versions.filter!(v => v.versionMajor == versionMajor).array;
     if (!subVersions) return null;
     if (subVersions.length == 1) return subVersions[0];
 
     T result = subVersions[0];
-    foreach(v; subVersions) {
-      if (v.versionMinor > result.versionMinor) result = v;
+    foreach(v; subVersions
+      .filter!(v ==> v.versionMinor > result.versionMinor)) {
+      result = v;
     }
     return result;
   }

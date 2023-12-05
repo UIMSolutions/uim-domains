@@ -33,13 +33,19 @@ class DList(T) {
   }
 
   // Returns true if this list contains the specified element.
-  bool	contains(T anItem) { return false; }
+  bool	contains(T anItem) { 
+      return false; 
+    }
 
   // Returns true if this list contains all of thT items of the specified collection.
-  bool	containsAll(T[] someItems) { return false; }
+  bool	containsAll(T[] someItems) { 
+      return false; 
+    }
 
   // Compares the specified object with this list for equality.
-  bool	equals(T anItem) { return false; }
+  bool	equals(T anItem) { 
+      return false; 
+    }
 
   // Returns thT item at the specified position in this list.
   T	get(int index) { return null; }

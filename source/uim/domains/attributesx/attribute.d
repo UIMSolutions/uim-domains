@@ -76,10 +76,14 @@ class DXAttribute : IRegistrable {
 
   string type() { return ""; }
 
-  bool booleanValue() { return false; } // default
+  bool booleanValue() { 
+      return false; 
+    } // default
   bool boolValue() { return booleanValue; } // shorter
 
-  int integerValue() { return false; } // default
+  int integerValue() { 
+      return false; 
+    } // default
   int intValue() { return integerValue; } // shorter
 
   string stringValue() { return ""; } // default
