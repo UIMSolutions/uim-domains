@@ -6,7 +6,7 @@ import uim.domains;
 public import uim.domains.helpers.mixins;
 
 size_t hasVersionMajor(T:DEntity)(T[] versions, size_t versionMajor) {
-  foreach (v; versions) if (v.versionMajor == versionMajor) return true;          
+  foreach (v; versions) if (v.versionMajor == versionMajor) { return true; }          
   return false;
 }
 
@@ -52,11 +52,11 @@ T versionOf(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
 }
 
 bool hasVersion(T:DEntity)(T[] versions, size_t versionMajor) {
-  if (versions.versionOf(versionMajor)) return true;          
+  if (versions.versionOf(versionMajor)) { return true; }          
   return false;
 }
 bool hasVersion(T:DEntity)(T[] versions, size_t versionMajor, size_t versionMinor) {
-  if (versions.versionOf(versionMajor, versionMinor)) return true;          
+  if (versions.versionOf(versionMajor, versionMinor)) { return true; }          
   return false;
 }
 
