@@ -1,6 +1,6 @@
 module uim.domain.annotations.entity;
 
-struct Key {}
+struct EntityKey {}
 struct Length { size_t value; }
 struct Label  { string text; }
 struct Mandatory {}
