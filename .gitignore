@@ -2,22 +2,9 @@
 docs.json
 __dummy.html
 
-/uim-entities
-uim-entities.so
-uim-entities.dylib
-uim-entities.dll
-uim-entities.a
-uim-entities.lib
-uim-entities-test-*
 *.exe
 *.o
 *.obj
 *.lst
-libuim-entities.a
-libuim-entities.a
 .vscode/launch.json
 dub.selections.json
-<<<<<<< HEAD
-dub.selections.json
-=======
->>>>>>> 659bc8e254fffe839ba6a478c18b1dd2b7d156f1
