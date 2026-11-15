@@ -1,4 +1,4 @@
-module uim.domains.attributes.xattribute;
+module backlog.uim.domains.attributesx.attribute;
 
 @safe:
 import uim.domains;
