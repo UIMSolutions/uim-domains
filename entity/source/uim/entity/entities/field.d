@@ -1,3 +1,5 @@
+module domain.entities.field;
+
 struct FieldMeta
 {
     string name;
